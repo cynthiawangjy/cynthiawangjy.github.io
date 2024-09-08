@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
 </head>
 <body>
   <section class="navbar">
@@ -61,10 +62,6 @@
                 <p class="subheading">Location</p>
                 <p>Boston, MA / Remote</p>
               </div>
-              <div>
-                <p class="subheading">Website</p>
-                <a href="https://www.immuta.com/" target="_blank"><p>https://www.immuta.com/</p></a>
-              </div>
             </div>
 
             <div class="cols">
@@ -93,7 +90,7 @@
             </div>
           </div>
           
-          <div class="info-card gray">
+          <div class="info-card deep">
             <p>This case study is focused on <strong>Policy Observability</strong>, which I was assigned the latter half of my internship and had <strong>6 weeks</strong> to work on.</p>
           </div>
         </div>  
@@ -103,46 +100,58 @@
       <section id="overview">
         <div class="container">
           <p class="subheading">OVERVIEW</p>
-          <div class="gap-md">
-            <div class="gap-sm">
-              <h2>One platform to govern and secure all your cloud data</h2>
-              <p>I led and contributed to a total of 12 projects as the sole UX design intern this summer. Each project was of varying scope and requirements. I’m going to call the larger tasks projects and the smaller ones design tickets although there was overlap.
-              </p>
-            </div>
+          <div class="gap-lg">
+            <div class="gap-md">
+              <div class="gap-sm">
+                <h2>One platform to govern and secure all your cloud data</h2>
+                <p>I led and contributed to a total of 12 projects as the sole UX design intern this summer. Each project was of varying scope and requirements. The following are the three large projects I worked on.
+                </p>
+              </div>
 
-            <div class="gap-sm">
-              <h4>Projects</h4>
-              <ul>
-                <li>Migration Notifications - 4 weeks</li>
-                <li>Policy Observability - 6 weeks</li>
-                <li>Copilot (NDA) - 2 weeks</li>
-              </ul>
-            </div>
-
-            <div class="gap-sm">
-              <h4>Design Tickets</h4>
-              <div class="row xl">
-                <ul class="col-1-2">
-                  <li>Add The IAM that a Group or User Is Managed by to the Overview Section of a user and group</li>
-                  <li>Restructure layout of the People and Group Detail page</li>
-                  <li>Improvements to IAM selector</li>
-                  <li>Add expand / collapse functionality to Policy List</li>
-                </ul>
-
-                <ul class="col-1-2">
-                  <li>Top Banner Design Specs - to handle overview text</li>
-                  <li>Show Active and Disabled members in Groups</li>
-                  <li>Attributes List updates</li>
-                  <li>Update behavior for "User Status" filter on user list page</li>
-                  <li>Improvements to vertical stepper</li>
+              <div class="gap-xs">
+                <h4>Projects</h4>
+                <ul>
+                  <li>Migration Notifications - 4 weeks</li>
+                  <li>Policy Observability - 6 weeks</li>
+                  <li>Copilot (NDA) - 2 weeks</li>
                 </ul>
               </div>
-            </div>
-
-            <div class="info-card gray">
+              </div>
+  
+              <!-- <div class="gap-xs">
+                <h4>Projects</h4>
+                <ul>
+                  <li>Migration Notifications - 4 weeks</li>
+                  <li>Policy Observability - 6 weeks</li>
+                  <li>Copilot (NDA) - 2 weeks</li>
+                </ul>
+              </div>
+  
+              <div class="gap-xs">
+                <h4>Design Tickets</h4>
+                <div class="row xl">
+                  <ul class="col-1-2">
+                    <li>Add The IAM that a Group or User Is Managed by to the Overview Section of a user and group</li>
+                    <li>Restructure layout of the People and Group Detail page</li>
+                    <li>Improvements to IAM selector</li>
+                    <li>Add expand / collapse functionality to Policy List</li>
+                  </ul>
+  
+                  <ul class="col-1-2">
+                    <li>Top Banner Design Specs - to handle overview text</li>
+                    <li>Show Active and Disabled members in Groups</li>
+                    <li>Attributes List updates</li>
+                    <li>Update behavior for "User Status" filter on user list page</li>
+                    <li>Improvements to vertical stepper</li>
+                  </ul>
+                </div>
+              </div>
+            </div> -->
+            <div class="info-card deep" style="gap: var(--padding-xs);">
               <h4>But wait, there’s more.</h4>
               <p>I’ll be working part-time for Immuta this semester! Although not confirmed yet, I’ll most likely be continuing my work with Policy Observability and our new Copilot chatbot, which is unfortunately under NDA. Please reach out to me via LinkedIn or email if you’re interested in learning more!</p>
             </div>
+          </div>  
         </div>
       </section>
 
@@ -186,23 +195,23 @@
               <h2>Project Goals</h2>
               <p>This project aims to provide users with a comprehensive interface to manage and monitor policies within their system. This will allow users to quickly understand the status of their policies, take necessary actions to resolve issues, track the progress of policy changes, and identify access entitlements in the context of their data platform integration.</p>
             </div>
-            <div class="grid-container">
-              <div class="info-card">
+            <div class="card-container">
+              <div class="info-card light">
                 <h4>👀 Policy Status at a Glance</h4>
                 <p class="subheading">Users need to see at a glance which policies are fully synchronized, which have outstanding tasks, and which are subject to critical issues. Both from a list and immediate notifications.</p>  
               </div>
 
-              <div class="info-card">
+              <div class="info-card light">
                 <h4>💥 Clear Action Triggers</h4>
                 <p class="subheading">Users require clear actions to trigger a resynchronization or remediate issues.</p>  
               </div>
 
-              <div class="info-card">
+              <div class="info-card light">
                 <h4>📈 Progress Tracking</h4>
                 <p class="subheading">Users need the ability to see the progress on the fulfillment of a policy change that is being applied and receive an estimate of when the change will complete.</p>  
               </div>
 
-              <div class="info-card">
+              <div class="info-card light">
                 <h4>✋ Access Entitlements</h4>
                 <p class="subheading">Users need to easily identify what access entitlements an Immuta policy has granted or restricted in the language of the underlying data platform integration.</p>  
               </div>
@@ -214,22 +223,22 @@
       <div class="container gap-md">
         <p>These user stories translated to the following questions I worked to answer:</p>
         <div class="gap-sm">
-          <div class="info-card black">
+          <div class="info-card dark">
             <p class="subheading">HMW Statement 01</p>
             <p>How might we enable users to quickly understand the status of their policies and take appropriate actions?</p>  
           </div>
 
-          <div class="info-card black">
+          <div class="info-card dark">
             <p class="subheading">HMW Statement 02</p>
             <p>How can we provide clear and intuitive interfaces for action triggers and status indicators?</p>  
           </div>
 
-          <div class="info-card black">
+          <div class="info-card dark">
             <p class="subheading">HMW Statement 03</p>
             <p>How can we offer detailed progress tracking and estimated completion times for policy changes?</p>  
           </div>
 
-          <div class="info-card black">
+          <div class="info-card dark">
             <p class="subheading">HMW Statement 04</p>
             <p>How can we seamlessly integrate access entitlement information in the language of the underlying data platform?</p>  
           </div>
@@ -242,23 +251,23 @@
           <p>While working on these designs, I adhered to the following principles in order to ensure that users were not only equipped with the necessary information to resolve any synchronization issues, but could do it in a timely manner that wasn’t being hindered by the UI.</p>
         </div>
 
-        <div class="grid-container">
-          <div class="info-card">
+        <div class="card-container">
+          <div class="info-card light">
             <h4>⚡ Efficiency</h4>
             <p class="subheading">Enable users to quickly understand the status of their policies and take appropriate actions.</p>  
           </div>
 
-          <div class="info-card">
+          <div class="info-card light">
             <h4>💎 Clarity</h4>
             <p class="subheading">Provide clear and intuitive interfaces for action triggers and status indicators.</p>  
           </div>
 
-          <div class="info-card">
+          <div class="info-card light">
             <h4>🔎 Transparency</h4>
             <p class="subheading">Offer detailed progress tracking and estimated completion times for policy changes.</p>  
           </div>
 
-          <div class="info-card">
+          <div class="info-card light">
             <h4>🤝 Integration</h4>
             <p class="subheading">Seamlessly integrate access entitlement information in the language of the underlying data platform.</p>  
           </div>
@@ -275,7 +284,7 @@
               <p>After many rounds of cross-functional reviews and iterations, I ended up designing over 160 screens. </p>
             </div>
 
-            <div class="info-card gray">
+            <div class="info-card deep">
               <div class="row md">
                 <div class="col-1-3">
                   <h4>01 | Policies at a Glance</h4>
@@ -289,7 +298,7 @@
               </video>
             </div>
 
-            <div class="info-card gray">
+            <div class="info-card deep">
               <div class="row md">
                 <div class="col-1-3">
                   <h4>02 | Action Triggers</h4>
@@ -303,7 +312,7 @@
               </video>
             </div>
 
-            <div class="info-card gray">
+            <div class="info-card deep">
               <div class="row md">
                 <div class="col-1-3">
                   <h4>03 | Progress Tracking</h4>
@@ -317,7 +326,7 @@
               </video>
             </div>
 
-            <div class="info-card gray">
+            <div class="info-card deep">
               <div class="row md">
                 <div class="col-1-3">
                   <h4>04 | Access Entitlements</h4>
@@ -406,7 +415,7 @@
           <img src="/images/immuta/identifying-synchronization-error-flow.png">
           <img src="/images/immuta/identifying-error-flow.png">
           <p>While this made sense to me, my PMs thought otherwise during our review session and brought up valuable points that made me reconsider my designs:</p>
-          <div class="grid-container">
+          <div class="card-container">
             <div class="quote-container immuta">
               <p>“I didn’t expect to be taken to a separate page to resolve my (synchronization) issues.”</p>  
             </div>
@@ -416,20 +425,20 @@
           </div>
           <hr>  
           <p>I learned so much more about the product and how our users think from rounds and rounds of review sessions: Some other comments I received were as followed:</p>
-          <div class="grid-container">
-            <div class="info-card">
+          <div class="card-container">
+            <div class="info-card light">
               <p>“Try to leverage existing pages as much as possible”</p>
               <p class="subheading">In the flows I mapped out, some of the cards on my overview page branched out to new pages within the overview page rather than utilizing existing pages. This not only makes it more difficult to navigate due to the amount of secondary navigation required but veers away from the goal of seamless integration because of the number of new pages that would need to be created to support these designs. </p>  
             </div>
-            <div class="info-card">
+            <div class="info-card light">
               <p>“We don’t want the number of policies to indicate how ‘good’ something is.”</p> 
               <p class="subheading">In regards to the statistical cards at the top, I included a “+” or “-” this percentage of things created indicated by green or red flags accordingly. One of our PMs brought up a good point, that just because there’s more of something doesn’t necessary mean it’s better. I didn’t even think about this connection for some reason and decided to change this metric.</p> 
             </div>
-            <div class="info-card">
+            <div class="info-card light">
               <p>“Make more of a distinction between subscription policies and data policies”</p> 
               <p class="subheading">I learned that some of these graphs only apply to one policy type, so it didn’t make sense for them to be grouped together in an overview page. Having separate pages would help.</p> 
             </div>
-            <div class="info-card">
+            <div class="info-card light">
               <p>“Technical limitations with time frame filter”</p> 
               <p class="subheading">Since Immuta currently does not keep track of time-based metrics for every visualization on the dashboard, it wasn’t practical from an engineering perspective to include a time frame filter. Rather, excluding this feature made more sense.</p> 
             </div>
@@ -504,7 +513,7 @@
             <div class="col-1-3">
               <h4>Status Column</h4>
             </div>
-            <div class="col-2-3">
+            <div class="col-2-3 gap-md">
               <p>The original status column did not have enough states or was clear enough to users to represent what was truly happening with the synchronization. The animated spinner was helpful to visually indicate an incomplete and actively updating state, however paired with the word “ACTIVE,” it became confusing as to how it was active if clearly another process was taking concurrently.</p>
               <p>The status column went through a variety of iterations, where I used a combination of icons and/or text for the flag status components. Finally during a later review session, I was inspired by my fellow designer’s designs for DSIA, which is a workflow used to get our customers using our old workflow for adding data integrations to change to our new one, where she had used both flags without icons, which she saw as redundant since we were using both color and text to indicate status, and a new column with icon buttons, which were used to further explain what the status meant. I found this very valuable because of the amount of error types that can occur when a policy fails to apply.</p>
             </div>
