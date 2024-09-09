@@ -127,7 +127,7 @@ ol li, ul li {
   font-size: var(--body-font-size);
   font-family: "Work Sans", sans-serif;
   line-height: 175%;
-  margin-bottom: var(--padding-sm);
+  margin-bottom: var(--padding-xs);
 }
 
 ol, ul {
@@ -142,7 +142,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-  /* color: var(--text-accent); */
 }
 
 strong {
@@ -264,7 +263,7 @@ img.icon {
 .gap-xs {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--padding-xs);
 }
 
 .gap-sm {
@@ -399,7 +398,7 @@ video {
 
 .info-card.dark {
   background: var(--text-light-bg-strong);
-  border: var(--border-dark-bg) solid 2px;
+  /* border: var(--border-dark-bg) solid 2px; */
   color: var(--bg-deep);
 }
 
