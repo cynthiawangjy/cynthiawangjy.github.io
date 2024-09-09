@@ -61,10 +61,12 @@ body {
   position: sticky;
   z-index: 999;
   top: 0;
-  padding: 1rem var(--container-horizontal-padding);
+  padding: var(--padding-sm) var(--container-horizontal-padding);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* backdrop-filter: blur(10px); */
+  background: var(--bg-default);
 }
 
 .nav-links {
