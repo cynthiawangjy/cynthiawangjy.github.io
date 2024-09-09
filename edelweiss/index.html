@@ -13,7 +13,10 @@
 <body>
   <section class="navbar">
     <a href="../">
-      <p>🐇 Cynthia Wang</p>
+      <div style="display: flex; gap: var(--padding-xs); align-items: center;">
+        <img src="/images/favicon.png" style="width: var(--body-font-size); height: var(--body-font-size)">
+        <p>Cynthia Wang</p>
+      </div>
     </a>
     <div class="nav-links">
       <a href="../">WORK</a>
@@ -32,6 +35,7 @@
   <div class="project-details">
     <div class="">
       <div class="sidenav gap-sm">
+        <a href="#context"><p>1. CONTEXT</p></a>
         <a href="#problem"><p>1. PROBLEM</p></a>
         <a href="#process"><p>2. PROCESS</p></a>
         <a href="#solution"><p>3. SOLUTION</p></a>
@@ -51,65 +55,96 @@
           <div class="col-container">
             <div class="cols">
               <div class="col">
-                <p class="subheading">Duration</p>
-                <p>February 2024 - March 2024<br>3 weeks
+                <p class="subheading">DURATION</p>
+                <p class="small-text">February 2024 - March 2024<br>3 weeks
                 </p>
               </div>
               <div>
-                <p class="subheading">Location</p>
-                <p>Providence, RI</p>
+                <p class="subheading">LOCATION</p>
+                <p class="small-text">Providence, RI</p>
               </div>
             </div>
 
             <div class="cols">
               <div class="col">
-                <p class="subheading">Disciplines</p>
-                <p>Responsive Design<br>Web Design
+                <p class="subheading">TEAM</p>
+                <p class="small-text">Individual
+                </p>
+              </div>
+            </div>
+
+            <div class="cols">
+              <div class="col">
+                <p class="subheading">DISCIPLINES</p>
+                <p class="small-text">Responsive Design<br>Web Design
                 </p>
               </div>
               <div class="col">
-                <p class="subheading">Tools</p>
-                <p></p>
-                <p>HTML/CSS</p>
-                <p>Figma</p>
+                <p class="subheading">TOOLS</p>
+                <p class="small-text">HTML/CSS</p>
+                <p class="small-text">Figma</p>
               </div>
             </div>
           </div>
         </div>  
       </section>
 
+      <!-- CONTEXT -->
+      <section id="context">
+        <div class="container">
+          <p class="subheading">CONTEXT</p>
+          <div class="gap-md">
+            <div class="gap-sm">
+              <h2>A Personal Project</h2>
+              <p>As a child, I would often visit Edelweiss Bakery with my family for their assortment of pastries and signature fruit flan, which is a cake that brings back so many memories of birthdays as we used to have this cake for everyone's birthday.</p>
+            </div>
+            <p>While I grew up going there and thus didn't ever try to find the website, I wondered how people who never been there before found out about it and experienced the website online. When I decided to check it out, I would say I was a bit appalled to say the very least at the current design and wanted to do a redesign of the website.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- PROBLEM -->
       <section id="problem">
         <div class="container">
-          <p class="subheading">1. PROBLEM</p>
+          <p class="subheading">PROBLEM</p>
           <div class="gap-md">
-            <h2>An Outdated Website</h2>
+            <div class="gap-sm">
+              <h2>An Outdated Website</h2>
+              <div class="info-card deep">
+                <p>Imagine wanting to try out a new bakery and visiting their website just to see this:</p>
+              </div>
+            </div>
             <video autoplay loop muted playsinline class="">
               <source src="/images/edelweiss/old-website-demo.mp4" type="video/mp4">
-            </video>
-            <p>After playing around with the old website, I picked out several key issues I wanted to focus on for this project.</p>
-            <div class="card-container">
-              <div class="info-card light">
-                <p>01</p>
-                <h4>📲 Responsiveness</h4>
-                <p class="subheading">The existing website lacked responsiveness, making it challenging for mobile users to navigate effectively.</p>  
-              </div>
-              <div class="info-card light">
-                <p>02</p>
-                <h4>🖼️ Layout and Structure</h4>
-                <p class="subheading">The layout lacked coherence, with an overload of buttons and inconsistent positioning of images, contributing to a cluttered and outdated appearance.</p>  
-              </div>
-              <div class="info-card light">
-                <p>03</p>
-                <h4>🔠 Typography</h4>
-                <p class="subheading">A plethora of fonts, including overly decorative scripts, hindered readability and cohesion.</p>  
-              </div>
-              <div class="info-card light">
-                <p>01</p>
-                <h4>🌗 Contrast and Accessibility</h4>
-                <p class="subheading">Insufficient contrast in buttons and text, coupled with a lack of alternate text for images, lowered accessibility scores - 80 on Lighthouse - and hindered user experience.</p>  
-              </div>
-            </div>  
+            </video> 
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container gap-md">
+          <p>After performing a quick audit on the website, I identified several key issues I wanted to focus on:</p>
+          <div class="card-container">
+            <div class="info-card light">
+              <p>01</p>
+              <h4>📲 Responsiveness</h4>
+              <p class="subheading">The website was not responsive, making it nearly impossible for non-desktop users (the majority of user) to navigate the site effectively.</p>  
+            </div>
+            <div class="info-card light">
+              <p>02</p>
+              <h4>🖼️ Layout</h4>
+              <p class="subheading">The website was extremely cluttered due to a lack of stylistic consistency. Additionally, the navigation was overloaded with pages and did a poor job of prioritization.</p>  
+            </div>
+            <div class="info-card light">
+              <p>03</p>
+              <h4>🔠 Typography</h4>
+              <p class="subheading">7 fonts, including overly decorative scripts, were used on just the homepage, which hindered readability and cohesion.</p>  
+            </div>
+            <div class="info-card light">
+              <p>04</p>
+              <h4>🌗 Contrast and Accessibility</h4>
+              <p class="subheading">Insufficient contrast in buttons and text and a lack of alternate text for images contributed to a low <strong>accessibility score of 80</strong> on Lighthouse.</p>  
+            </div>
           </div>
         </div>
       </section>
@@ -121,7 +156,7 @@
           <div class="gap-md">
             <div class="gap-sm">
               <h2>Wireframing</h2>
-              <p>Through wireframing, emphasis was placed on implementing a grid-based layout for improved structure and visual hierarchy. Reduction in navigation items, utilizing dropdown menus for streamlined navigation, and experimenting with centered elements aimed at enhancing user engagement and ease of use.
+              <p>In my wireframes, I worked especially hard on redesigning the website's layout and improving visual hierarchy. I prioritized certain navigation items over others and placed the rest of the items in a hamburger menu.
             </p>
             </div>
             <div class="overlay-container">
@@ -130,10 +165,26 @@
                 <img src="/images/edelweiss/desktop-lofi.png">
               </div>
             </div>
+            <p>I also limited the number of columns to two instead of the original three to increase readability and place more emphasis on the images, which were lacking in image quality.</p>
           </div>
         </div>
       </section>
 
+      <!-- CHALLENGE -->
+      <section>
+        <div class="container gap-md">
+          <div class="gap-sm">
+            <h2>Balancing Feedback</h2>
+            <p>While I was working on the hi-fi version of this website, I had a friend comment on my work that my version was for a completely different bakery than the one I was designing for. Edelweiss Bakery had a family-owned and homely feeling while my website was for a pristine and modern bakery.</p>
+          </div>
+          <p>This led me to the big question of, as a designer, How can I preserve the essence of the original website?</p>
+          <p>While I brought this point of concern to another designer, I was told that because there were so many issues with the old website, that it was nearly impossible to preserve many of </p>
+          <div class="info-card deep">
+            <p>In order to meet both of these comments in the middle, I developed an eventual style guide using some of the existing elements used in the old website, such as the </p>
+          </div>
+        </div>
+      </section>
+      
       <!-- BRANDING -->
       <section id="">
         <div class="container">
@@ -156,7 +207,7 @@
             </div>
             <p>I was able to bring up the accessibility score from an 80 to a 97 by adding alternative text to all of my images and using proper HTML tags when coding.</p>
             <a href="
-              https://cyvvang.github.io/edelweiss-responsive-redesign/" target="_blank"><div class="button"><p>See final webpage here 🡕</p></div></a>
+              https://cyvvang.github.io/edelweiss-responsive-redesign/" target="_blank"><div class="button"><p>See final webpage here &nearr;</p></div></a>
             <div class="overlay-container">
               <div class="scrollable desktop">
                 <p class="progress-msg">Scroll ↴</p>
@@ -226,15 +277,15 @@
   <section class="">
     <div class="container footer">
       <div class="gap-sm">
-        Thanks for visiting ٩(ˊᗜˋ*)و ♡
+        <h1>Thanks for visiting ٩(ˊᗜˋ*)و ♡</h1>
         <p>Designed and coded by Cynthia Wang</p>
       </div>
       <div>
         <div class="gap-xs">
           <p>LET'S CHAT!</p>
-          <p><a href="https://www.linkedin.com/in/cynthia-wang-81b6321b5/" target="_blank">LinkedIn 🡕</a></p>
+          <p><a href="https://www.linkedin.com/in/cynthia-wang-81b6321b5/" target="_blank">LinkedIn &nearr;</a></p>
         </div>
-        <p><a href="mailto:cynthia_wang@brown.edu" target="_blank">Email 🡕</a></p>
+        <p><a href="mailto:cynthia_wang@brown.edu" target="_blank">Email &nearr;</a></p>
       </div>
       <div>
         <div class="gap-xs">
