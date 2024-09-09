@@ -1,12 +1,13 @@
 :root {
-  --text-accent: #F92F60;
+  /* --text-accent: #F92F60; */
 
-  --text-light-bg-default: #19191D;
-  --text-light-bg-subtle: #7C7C86;
-  --border-light-bg: #F2F2F3;
+  --text-light-bg-default: #303030;
+  --text-light-bg-strong: #000;
+  --text-light-bg-subtle: #868686;
+  --border-light-bg: var(--bg-deep);
   
   --text-dark-bg-default: #fff;
-  --text-dark-bg-subtle: #BBBBC2;
+  --text-dark-bg-subtle: var(--bg-deep);
   --border-dark-bg: var(--text-light-bg-subtle);
 
   --border-zest: #E83A87;
@@ -16,13 +17,14 @@
   --details-container-zest: #FAE5F0;
 
   --bg-default: #f9f9f9;
-  --bg-deep: #F2F2F3;
+  --bg-deep: #F2f2f2;
   --bg-light: var(--text-dark-bg-default);
+  --bg-dark: var(--text-light-bg-strong);
 
-  --hr-color: #D5D5DA;
+  --hr-color: #e9e9e9;
 
   --container-horizontal-padding: clamp(4rem, 19.27vi + -7.61rem, 9.25rem);
-  --container-vertical-padding: clamp(2.5rem, 3.9vi + 1.59rem, 5rem);
+  --container-vertical-padding: clamp(3rem, 3.12vi + 2.27rem, 5rem);
 
   --h1-font-size: var(--padding-lg);
   --h2-font-size: clamp(1.75rem, 0.38vi + 1.66rem, 2rem);
@@ -30,17 +32,16 @@
   --h4-font-size: clamp(1.13rem, 0.19vi + 1.08rem, 1.25rem);
   --body-font-size: clamp(1rem, 0.19vi + 0.96rem, 1.13rem);
   --subheading-font-size: clamp(0.88rem, 0.19vi + 0.83rem, 1rem);
+  --xs-font-size: clamp(0.88rem, 0.39vi + 0.78rem, 1.13rem);
 
-  --padding-xs: clamp(0.25rem, 0.38vi + 0.16rem, 0.5rem);
+  --padding-xs: clamp(0.38rem, 0.2vi + 0.33rem, 0.5rem);
   --padding-sm: clamp(0.5rem, 0.75vi + 0.32rem, 1rem);
   --padding-md: clamp(1rem, 0.75vi + 0.82rem, 1.5rem);
   --padding-lg: clamp(2rem, 1.5vi + 1.65rem, 3rem);
   /* --padding-xl: clamp(3rem, 1.5vi + 2.65rem, 4rem); */
   --padding-xl: clamp(1.5rem, 3.76vi + 0.62rem, 4rem);
-}
 
-html {
-  font-size: var(--body-font-size);
+  --card-padding: clamp(0.75rem, 0.39vi + 0.66rem, 1rem);
 }
 
 * {
@@ -48,13 +49,14 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  /* transition: 0.25s; */
 }
 
 body {
   background: var(--bg-default);
   color: var(--text-light-bg-default);
   font-family: "Work Sans", sans-serif;
-  animation: fadeIn 0.75s ease-in;
+  /* animation: fadeIn 0.75s ease-in; */
 }
 
 .navbar {
@@ -69,14 +71,14 @@ body {
 
 .nav-links {
   display: flex;
-  gap: clamp(1.5rem, 2.25vi + 0.97rem, 3rem);
+  gap: clamp(1.25rem, 2.73vi + 0.61rem, 3rem);
 }
 
 .container .hero-text {
   line-height: 135%;
-  font-size: var(--padding-lg);
+  font-size: clamp(1.88rem, 1.76vi + 1.46rem, 3rem);;
   font-family: "DM Sans", sans-serif;
-  letter-spacing: 0.12rem;
+  letter-spacing: clamp(0rem, 0.19vi + -0.04rem, 0.12rem);
 }
 
 .hero-subtext {
@@ -90,7 +92,8 @@ h1 {
   font-family: "DM Sans", sans-serif;
   font-weight: 500;
   line-height: 150%;
-  letter-spacing: 0.1rem;
+  letter-spacing: clamp(0rem, 0.19vi + -0.04rem, 0.12rem);
+  color: var(--text-light-bg-strong);
 }
 
 h2 {
@@ -98,6 +101,7 @@ h2 {
   font-family: "DM Sans", sans-serif;
   font-weight: 500;
   line-height: 150%;
+  color: var(--text-light-bg-strong);
 }
 
 h3 {
@@ -124,6 +128,7 @@ ol li, ul li {
   font-size: var(--body-font-size);
   font-family: "Work Sans", sans-serif;
   line-height: 175%;
+  margin-bottom: var(--padding-sm);
 }
 
 ol, ul {
@@ -137,8 +142,12 @@ a {
 }
 
 a:hover {
+  text-decoration: underline;
   /* color: var(--text-accent); */
-  text-decoration: line-through;
+}
+
+strong {
+  font-weight: 600;
 }
 
 .card:hover {
@@ -169,7 +178,7 @@ a:hover {
 
 .card {
   background: var(--bg-light);
-  padding: 1rem;
+  padding: var(--card-padding);
   border-radius: 1rem;
   width: 100%;
   transition: 150ms ease-in-out;
@@ -235,7 +244,6 @@ img.icon {
   background: rgba(255, 255, 255, 80%);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  color: #19191D;
   font-size: 1.125rem;
 }
 
@@ -248,6 +256,10 @@ img.icon {
 .subheading {
   color: var(--text-light-bg-subtle);
   font-size: 1rem;
+}
+
+.small-text {
+  font-size: var(--xs-font-size);
 }
 
 .gap-xs {
@@ -360,7 +372,7 @@ video {
 }
 
 .scrollable {
-  border: #E4E4E7 solid 2px;
+  border: var(--bg-deep) solid 2px;
   border-radius: 0.75rem;;
   overflow-y: scroll;
   -ms-overflow-style: none; 
@@ -383,13 +395,13 @@ video {
 .info-card.deep {
   background: var(--bg-deep);
   border: none;
-  gap: var(--padding-md);
+  gap: var(--padding-sm);
 }
 
 .info-card.dark {
-  background: var(--text-light-bg-default);
-  border-color: var(--border-dark-bg);
-  color: var(--bg-light);
+  background: var(--text-light-bg-strong);
+  border: var(--border-dark-bg) solid 2px;
+  color: var(--bg-deep);
 }
 
 .img-gallery {
@@ -408,6 +420,7 @@ video {
 .square-container img {
   object-fit: cover;
   height: 100%;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .img-caption {
@@ -415,12 +428,12 @@ video {
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  bottom: 1rem;
+  bottom: 5%;
   background: var(--bg-light);
-  padding: 0.5rem 1rem;
+  padding: var(--padding-xs) var(--padding-sm);
   border-radius: 0.5rem;
   opacity: 0; 
-  transition: opacity 0.3s ease-in-out;
+  font-size: var(--xs-font-size);
 }
 
 .square-container:hover .img-caption {
@@ -457,10 +470,9 @@ hr {
   margin: 0.75rem 0;
 }
 
-hr.light {
+/* hr.light {
   border: 0.5px solid var(--bg-deep);
-  /* margin: 0; */
-}
+} */
 
 @media screen and (min-width: 1440px) {
   body {
@@ -499,12 +511,6 @@ hr.light {
 }
 
 @media screen and (max-width: 586px) {
-  .container .hero-text {
-    font-size: 1.75rem;
-    letter-spacing: normal;
-  }
-  
-  
   .row {
     flex-direction: column;
   }
