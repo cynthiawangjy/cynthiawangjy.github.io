@@ -12,9 +12,12 @@
 </head>
 <body>
   <section class="navbar">
-    <p><a href="../">
-      🐇 Cynthia Wang
-    </a></p>
+    <a href="../">
+      <div style="display: flex; gap: var(--padding-xs); align-items: center;">
+        <img src="/images/favicon.png" style="width: var(--body-font-size); height: var(--body-font-size)">
+        <p>Cynthia Wang</p>
+      </div>
+    </a>
     <div class="nav-links">
       <a href="../">WORK</a>
       <!-- <a href="#">PLAY</a> -->
@@ -53,59 +56,75 @@
           <div class="col-container">
             <div class="cols">
               <div class="col">
-                <p class="subheading">Duration</p>
-                <p>April 2024<br>3 weeks
+                <p class="subheading">DURATION</p>
+                <p class="small-text">April 2024<br>3 weeks
                 </p>
               </div>
               <div>
-                <p class="subheading">Location</p>
-                <p>Providence, RI</p>
+                <p class="subheading">LOCATION</p>
+                <p class="small-text">Providence, RI</p>
               </div>
             </div>
 
             <div class="cols">
               <div class="col">
-                <p class="subheading">Team</p>
+                <p class="subheading">TEAM</p>
                 <div class="gap-xs">
-                  <p>Tiffany Huang<br>Ryan Peng<br>Sherry Zhang<br></p>
-                  <p>Christine Pun / Founding Designer @ Zest</p>
+                  <p class="small-text">Tiffany Huang<br>Ryan Peng<br>Sherry Zhang<br></p>
+                  <p class="small-text">Christine Pun / Founding Designer @ Zest</p>
                 </div>
               </div>
             </div>
 
             <div class="cols">
               <div class="col">
-                <p class="subheading">Disciplines</p>
-                <p>Web Design<br>Mobile
+                <p class="subheading">DISCIPLINES</p>
+                <p class="small-text">Web Design<br>Mobile
                 </p>
               </div>
               <div class="col">
                 <p class="subheading">Tools</p>
-                <p>Figma</p>
+                <p class="small-text">Figma</p>
               </div>
             </div>
           </div>
         </div>  
       </section>
 
+      <!-- overview -->
+      <section id="overview">
+        <div class="container">
+          <p class="subheading">OVERVIEW</p>
+          <div class="gap-md">
+            <div class="gap-sm">
+              <h2>A Client Project</h2>
+              <p>For our UI/UX class, we got the opportunity to work with a Google Ventures startup of our choice to solve a problem outlined by our client. </p>
+            </div>
+            <p>Although this project was very collaborative due to how amazing my team was, I did exclusively work on the style guide and had a larger role in working on the lo-fi wireframe and high-fi mockup and prototyping.</p>
+            <p>This was such an awesome opportunity to work on a real-world project and I had a very positive experience working with everyone.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- CONTEXT -->
       <section id="context">
         <div class="container">
-          <p class="subheading">1. CONTEXT</p>
+          <p class="subheading">CONTEXT</p>
           <div class="gap-md">
             <div class="gap-sm">
               <h2>What is Zest?</h2>
-              <p>Gift purchasers utilize the corporate gifting page for its specialized product range, discounts, and customization options. However, a crucial functionality missing was the ability to ship entire orders to a single address, prompting users to contact customer service.</p>
+              <p>Zest is a B2B corporate gifting integration used by brands to allow gift purchasers maximize product range, discounts, and customization options. In order for users to reach this site, the gift purchaser visits a brand’s website, finds the corporate gifting landing page, usually embedded in the footer, and opens the corporate gift shop powered by Zest.</p>
             </div>
+            <img src="/images/zest/milkbar-site.png">
             <p>The most common use cases for this new shipping method are the following:</p>
             <div class="card-container">
               <div class="info-card light">
-                <p>🏢 Companies ordering gifts for an in-person corporate event. 
-                </p>  
+                <h4>🏢 Companies</h4>
+                <p>Ordering gifts for an in-person corporate event</p>
               </div>
               <div class="info-card light">
-                <p>🎁 Consumers buying gifts in bulk as party favors. 
-                </p>  
+                <h4>🎁 Consumers</h4>
+                <p>Buying gifts in bulk as party favorst</p>
               </div>
             </div>
           </div>
@@ -115,14 +134,29 @@
       <!-- PROBLEM -->
       <section id="problem">
         <div class="container">
-          <p class="subheading">2. PROBLEM</p>
+          <p class="subheading">PROBLEM</p>
           <div class="gap-md">
             <div class="gap-sm">
-              <h2>An Additional Shipping Method</h2>
-              <p>The absence of a streamlined shipping method for single-address orders hindered user experience. Our task was to incorporate this feature seamlessly into the existing interface.</p>
+              <h2>Need for a New Shipping Method</h2>
+              <p>A crucial functionality missing was the ability to ship entire orders to a single address, prompting users to contact customer service. The absence of a streamlined shipping method for single-address orders hindered user experience. Our task was to incorporate this feature seamlessly into the existing interface.</p>
             </div>
             <img src="/images/zest/original.png">
-            <p>Our metric of success was to ensure that corporate and bulk gift customers know and understand the delivery options and can easily distinguish between the methods in the corporate gift shop to select the delivery that works best for them.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="objectives">
+        <div class="container">
+          <p class="subheading">OBJECTIVES</p>
+          <div class="gap-md">
+            <div class="gap-sm">
+              <h2>Need for a New Shipping Method</h2>
+              <p>A crucial functionality missing was the ability to ship entire orders to a single address, prompting users to contact customer service. The absence of a streamlined shipping method for single-address orders hindered user experience. Our task was to incorporate this feature seamlessly into the existing interface.</p>
+            </div>
+            <div class="info-card light">
+              <h4>🔔 The Big Question</h4>
+              <p>How might we ensure that corporate and bulk gift customers know and understand the delivery options and can easily distinguish between the methods in the corporate gift shop to select the delivery that works best for them?</p>
+            </div>
           </div>
         </div>
       </section>
@@ -145,7 +179,11 @@
               </div>
             </div>
             <p>Initial sketches outlined various design concepts. We emphasized displaying shipping costs prominently and opted for a dropdown menu to distinguish between physical and electronic gifts, aligning with existing options. Iterations focused on minimizing clicks and ensuring clarity in the order process.</p>
-            <!-- <p>Questions...?</p> -->
+            <ul>
+              <li>Is a per-recipient UI necessary for bulk orders shipped to one address?</li>
+              <li>How should bulk shipping be enabled? Options included dropdown menus, checkboxes, or additional boxes in the delivery method section.</li>
+              <li>Should a shopping cart be integrated? How would it interact with the user flow?</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -185,11 +223,10 @@
             <div class="details-container gap-md">
               <div class="gap-sm">
                 <h4>❌ Iteration 1</h4>
-                </div>
                 <img src="/images/zest/delivery-method-lofi.png">
                 <p>We initially put the bulk shipping option under the existing "ship to recipients' addresses" as a way of grouping both physical delivery methods. However, Christine's feedback informed us that shipping to one address is completely different the current shipping to recipients method.</p>
               </div>
-              <hr>
+              <hr style="border: 0.5px solid var(--border-zest); opacity: 15%">
               <div class="gap-sm">
                 <h4>✅ Iteration 2</h4>
                 <img src="/images/zest/delivery-method-hifi.png">
@@ -216,9 +253,7 @@
               </div>
             </div>
           </div>
-        </div>
       </section>
-
       <!-- IDENTITY -->
       <section id="">
         <div class="container">
@@ -304,6 +339,9 @@
           </div>
         </div>
       </section>
+
+      </section>
+      
     </div>
   </div>
 
@@ -321,9 +359,9 @@
       <div>
         <div class="gap-xs">
           <p>LET'S CHAT!</p>
-          <p><a href="https://www.linkedin.com/in/cynthia-wang-81b6321b5/" target="_blank">LinkedIn 🡕</a></p>
+          <p><a href="https://www.linkedin.com/in/cynthia-wang-81b6321b5/" target="_blank">LinkedIn &nearr;</a></p>
         </div>
-        <p><a href="mailto:cynthia_wang@brown.edu" target="_blank">Email 🡕</a></p>
+        <p><a href="mailto:cynthia_wang@brown.edu" target="_blank">Email &nearr;</a></p>
       </div>
       <div>
         <div class="gap-xs">
