@@ -33,7 +33,7 @@
   --xs-font-size: clamp(0.88rem, 0.39vi + 0.78rem, 1.13rem);
 
   --padding-xs: clamp(0.38rem, 0.2vi + 0.33rem, 0.5rem);
-  --padding-sm: clamp(0.5rem, 0.75vi + 0.32rem, 1rem);
+  --padding-sm: clamp(0.75rem, 0.38vi + 0.66rem, 1rem);
   --padding-md: clamp(1rem, 0.75vi + 0.82rem, 1.5rem);
   --padding-lg: clamp(2rem, 1.5vi + 1.65rem, 3rem);
   /* --padding-xl: clamp(3rem, 1.5vi + 2.65rem, 4rem); */
