@@ -1,6 +1,4 @@
 :root {
-  /* --text-accent: #F92F60; */
-
   --text-light-bg-default: #303030;
   --text-light-bg-strong: #000;
   --text-light-bg-subtle: #868686;
@@ -530,5 +528,9 @@ hr {
 
   .footer {
     flex-direction: column;
+  }
+
+  .square-container:hover .img-caption {
+    opacity: 0;
   }
 }
