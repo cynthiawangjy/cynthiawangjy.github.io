@@ -79,6 +79,7 @@ body {
   font-size: clamp(1.88rem, 1.76vi + 1.46rem, 3rem);;
   font-family: "DM Sans", sans-serif;
   letter-spacing: clamp(0rem, 0.19vi + -0.04rem, 0.12rem);
+  color: var(--text-light-bg-strong);
 }
 
 .hero-subtext {
