@@ -19,7 +19,7 @@
   --hr-dark: var(--text-light-bg-subtle);
 
   --container-vertical-padding: clamp(3rem, 2.2958rem + 3.0047vw, 5rem);
-  --container-horizontal-padding: clamp(1rem, -0.3581rem + 5.9535vw, 5rem);
+  --container-horizontal-padding: clamp(0.875rem, -0.5775rem + 6.1972vw, 5rem);
 
   --h1-font-size: var(--padding-lg);
   --h2-font-size: clamp(1.75rem, 0.375vi + 1.66rem, 2rem);
