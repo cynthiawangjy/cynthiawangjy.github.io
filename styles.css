@@ -116,7 +116,7 @@ body {
   font-weight: 300;
   font-style: normal;
   letter-spacing: 0.02rem;
-  cursor: url("images/cursor-default.png") 16 16, auto;
+  cursor: url("images/cursor-default.png") 24 24, auto;
 }
 
 /* body.darkmode {
@@ -273,7 +273,7 @@ a {
   font-family: "Apercu", sans-serif;
   text-decoration: none;
   color: inherit;
-  cursor: url("images/cursor-pointer.png") 16 16, auto;
+  cursor: url("images/cursor-pointer.png") 24 24, auto;
 }
 
 a:hover {
