@@ -42,10 +42,12 @@
 
 @font-face {
   font-family: "Apercu", sans-serif;
+  font-weight: 300 400 500 700; 
+  font-style: normal;
   src: url(fonts/ApercuLight.otf) format("opentype"),
        url(fonts/ApercuRegular.otf) format("opentype"),
+       url(fonts/ApercuMedium.otf) format("opentype"),
        url(fonts/ApercuBold.otf) format("opentype");
-  font-weight: 300 400 700;       
 }
 
 .heading {
@@ -90,6 +92,7 @@ body {
   color: var(--text-light-bg-default);
   font-family: "Apercu", sans-serif;
   font-weight: 300;
+  font-style: normal;
   letter-spacing: 0.02rem;
 }
 
@@ -184,6 +187,7 @@ body.darkmode
   font-size: var(--one-liner-font-size);
   line-height: 150%;
   font-weight: 400;
+  font-style: normal;
 }
 
 .hero-subtext {
@@ -214,6 +218,7 @@ h3 {
   font-family: "Apercu", sans-serif;
   font-weight: 500;
   line-height: 140%;
+  font-style: normal;
 }
 
 h4 {
@@ -221,6 +226,7 @@ h4 {
   font-family: "Apercu", sans-serif;
   font-weight: 500;
   line-height: 150%;
+  font-style: normal;
 }
 
 p {
@@ -252,6 +258,7 @@ a:hover {
 
 strong {
   font-weight: 700;
+  font-style: normal;
 }
 
 .nav-links a {
@@ -514,6 +521,7 @@ video {
 .dark-bg p {
   color: var(--bg-default);
   font-weight: 400;
+  font-style: normal;
   font-size: var(--one-liner-font-size);
   line-height: 135%;
   margin-right: var(--container-vertical-padding) var(--container-horizontal-padding);
@@ -633,6 +641,7 @@ hr {
   font-size: 1.5rem;
   line-height: 150%;
   font-weight: 400;
+  font-style: normal;
 }
 
 .social-icons {
