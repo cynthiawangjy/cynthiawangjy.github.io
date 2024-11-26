@@ -193,6 +193,7 @@ body.darkmode
   padding: clamp(0.5rem, 0.3239rem + 0.7512vw, 1rem) 1.25rem;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
   border-radius: 0.75rem;
   align-items: center;
 }
