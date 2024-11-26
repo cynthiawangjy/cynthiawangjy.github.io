@@ -41,7 +41,7 @@
 }
 
 @font-face {
-  font-family: "Apercu", Helvetica, sans-serif;
+  font-family: Apercu, Helvetica, sans-serif;
   src: url("fonts/Apercu-Light.woff2") format("woff2"),
        url("fonts/Apercu-Light.woff") format("woff");
   font-weight: 300;
@@ -49,7 +49,7 @@
 }
 
 @font-face {
-  font-family: "Apercu", Helvetica, sans-serif;
+  font-family: Apercu, Helvetica, sans-serif;
   src: url("fonts/Apercu-Regular.woff2") format("woff2"),
        url("fonts/Apercu-Regular.woff") format("woff");
   font-weight: 400;
@@ -57,7 +57,7 @@
 }
 
 @font-face {
-  font-family: "Apercu", Helvetica, sans-serif;
+  font-family: Apercu, Helvetica, sans-serif;
   src: url("fonts/Apercu-Medium.woff2") format("woff2"),
        url("fonts/Apercu-Medium.woff") format("woff");
   font-weight: 500;
@@ -65,7 +65,7 @@
 }
 
 @font-face {
-  font-family: "Apercu", Helvetica, sans-serif;
+  font-family: Apercu, Helvetica, sans-serif;
   src: url("fonts/Apercu-Bold.woff2") format("woff2"),
        url("fonts/Apercu-Bold.woff") format("woff");
   font-weight: 700;
@@ -112,8 +112,9 @@
 body {
   background: var(--bg-default);
   color: var(--text-light-bg-default);
-  font-family: "Apercu", Helvetica, sans-serif;
+  font-family: Apercu, Helvetica, sans-serif;
   font-weight: 300;
+  font-style: normal;
   letter-spacing: 0.02rem;
 }
 
