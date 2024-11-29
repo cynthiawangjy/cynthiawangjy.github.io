@@ -3,7 +3,39 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.getElementById('nav-links');
     navLinks.classList.toggle('active');
   });
+
+  const boundingBoxes = document.querySelectorAll('.bounding-box');
+
+  boundingBoxes.forEach(box => {
+    const tooltip = box.querySelector('.tooltip');
+
+    const offsetX = 30;
+    const offsetY = -24;
+
+    box.addEventListener('mousemove', (e) => {
+      const rect = box.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      tooltip.style.left = `${x + offsetX}px`;
+      tooltip.style.top = `${y + offsetY}px`;
+      tooltip.style.visibility = 'visible';
+    });
+
+    box.addEventListener('mouseleave', () => {
+      tooltip.style.visibility = 'hidden';
+    });
+
+    box.addEventListener('mouseenter', () => {
+      tooltip.style.visibility = 'visible';
+    });
+  });
 });
+
+
+
+
 // // Apply the user's preferred mode immediately before the document is fully loaded
 // (function() {
 //   const mode = localStorage.getItem('mode') || 'lightmode';
