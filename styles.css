@@ -118,6 +118,7 @@ body {
   font-style: normal;
   letter-spacing: 0.02rem;
   cursor: url("images/cursor-default.png") 24 24, auto;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -236,7 +237,7 @@ a:hover {
   /* border: 1px red solid; */
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: clamp(0.75rem, 0.375vi + 0.66rem, 1rem);
   align-items: stretch;
   height: 100%;
 }
