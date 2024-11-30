@@ -108,7 +108,6 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  max-width: 100%;
 }
 
 body {
@@ -118,7 +117,9 @@ body {
   font-weight: 300;
   font-style: normal;
   letter-spacing: 0.02rem;
-  cursor: url("images/cursor-default.png") 24 24, auto;
+  cursor: url("images/cursor-default.png") 16 16, auto;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -179,7 +180,7 @@ a {
   font-family: "Apercu", sans-serif;
   text-decoration: none;
   color: inherit;
-  cursor: url("images/cursor-pointer.png") 24 24, auto;
+  cursor: url("images/cursor-pointer.png") 16 16, auto;
 }
 
 a:hover {
@@ -237,7 +238,7 @@ a:hover {
   /* border: 1px red solid; */
   display: flex;
   flex-direction: column;
-  gap: clamp(0.75rem, 0.375vi + 0.66rem, 1rem);
+  gap: 1rem;
   align-items: stretch;
   height: 100%;
 }
@@ -296,7 +297,7 @@ a:hover {
 .ingredient-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-bottom: 0.5rem solid #AF7A68;
+  border-bottom: 0.5rem solid #E3A25E;
 }
 
 .ingredient {
@@ -556,6 +557,12 @@ video {
   border-radius: 0.75rem;
 }
 
+.row {
+  width: 100%;
+  display: flex;
+  gap: var(--padding-sm);
+}
+
 .row.md {
   gap: var(--padding-md);
 }
@@ -566,12 +573,6 @@ video {
 
 .row.xl {
   gap: var(--padding-xl);
-}
-
-.row {
-  width: 100%;
-  display: flex;
-  gap: var(--padding-sm);
 }
 
 .row.center {
