@@ -403,29 +403,23 @@ strong {
   visibility: visible;
 }
 
-
-/* .hover-trigger:hover .hover-msg {
-  visibility: visible;
+.ingredient-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.hover-trigger {
-  position: relative;
-  display: inline-block;
+.ingredient img {
+  height: 70%;
 }
 
-.hover-msg {
-  color: var(--text-light-bg-strong);
-  padding: 0 0.25rem;
-  text-align: center;
-  visibility: hidden;
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  background: var(--bg-default);
-  border: 1px solid var(--text-light-bg-strong);
-  width: 12rem;
-  font-size: 0.875rem;
-} */
+.bounding-box.ingredient {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: fit-content; */
+}
 
 img {
   width: 100%;
