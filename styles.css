@@ -185,8 +185,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
-
 .navbar {
   position: fixed;
   z-index: 999;
@@ -238,7 +236,7 @@ a:hover {
   /* border: 1px red solid; */
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: stretch;
   height: 100%;
 }
@@ -248,6 +246,7 @@ a:hover {
   line-height: 150%;
   font-weight: 400;
   font-style: normal;
+  margin-bottom: 1rem;
 }
 
 .hero-subtext {
