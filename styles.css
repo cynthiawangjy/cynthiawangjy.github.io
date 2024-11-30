@@ -108,6 +108,7 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  max-width: 100%;
 }
 
 body {
@@ -118,7 +119,6 @@ body {
   font-style: normal;
   letter-spacing: 0.02rem;
   cursor: url("images/cursor-default.png") 24 24, auto;
-  overflow-x: hidden;
 }
 
 ::selection {
