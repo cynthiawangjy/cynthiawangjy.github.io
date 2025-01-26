@@ -892,7 +892,7 @@ hr {
     box-sizing: border-box;
     z-index: 1000;
     height: 13rem;
-    background-color: var(--bg-deep);
+    background-color: var(--bg-default);
     gap: 0;
   }
   
