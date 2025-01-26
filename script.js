@@ -1,9 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
   // MOBILE MENU
-  document.getElementById('menu-icon').addEventListener('click', function () {
+  // Toggle the nav links when the menu icon is clicked
+  document.getElementById('menu-icon').addEventListener('click', function (event) {
     const navLinks = document.getElementById('nav-links');
     navLinks.classList.toggle('active');
+    event.stopPropagation(); // Prevent click from reaching the document listener
   });
+
+  // Close the nav links when clicking outside of the menu
+  document.addEventListener('click', function (event) {
+    const navLinks = document.getElementById('nav-links');
+    const menuIcon = document.getElementById('menu-icon');
+
+    // Check if the click target is not within the menu or the menu icon
+    if (!navLinks.contains(event.target) && !menuIcon.contains(event.target)) {
+      navLinks.classList.remove('active');
+    }
+  });
+
 
   // HOVER TEXT EFFECT
   const boundingBoxes = document.querySelectorAll('.bounding-box');
