@@ -124,13 +124,17 @@
   scroll-behavior: smooth;
 }
 
+html {
+  /* width: 100%;
+  overflow-x: hidden; */
+}
+
 body {
   background: var(--bg-default);
   color: var(--text-default);
   font-family: Apercu, Helvetica, sans-serif;
   font-weight: 400;
   font-style: normal;
-  overflow-x: hidden;
   max-width: var(--breakpoint-xxl);
   margin: 0 auto; 
   transition: 300ms ease-in-out;
@@ -312,6 +316,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   gap: var(--padding-xl);
+  overflow-x: hidden;
 }
 
 .hero .container {
@@ -859,6 +864,10 @@ hr {
 }
 
 @media screen and (max-width: 576px) {
+  .bounding-box:hover .tooltip {
+    visibility: none;
+  }
+
   .mobile {
     display: block;
   }
