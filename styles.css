@@ -124,11 +124,6 @@
   scroll-behavior: smooth;
 }
 
-html {
-  /* width: 100%;
-  overflow-x: hidden; */
-}
-
 body {
   background: var(--bg-default);
   color: var(--text-default);
@@ -466,6 +461,7 @@ strong {
 
 .container {
   padding: var(--container-vertical-padding) var(--container-horizontal-padding);
+  overflow-x: hidden;
 }
 
 .col-2-grid {
@@ -826,6 +822,10 @@ hr {
   /* .hero .container {
     flex-direction: column;
   } */
+   
+  .container#first {
+    padding-top: 6rem;
+  }
 }
 
 @media screen and (max-width: 724px) {
@@ -840,10 +840,6 @@ hr {
 
   .toggle-container {
     height: 1.125rem;
-  }
-
-  .container#first {
-    padding-top: 6rem;
   }
 
   .col-2-grid {
