@@ -20,7 +20,7 @@
   --border-radius-md: clamp(0.5rem, 0.38vi + 0.41rem, 0.75rem);
   --border-radius-lg: clamp(0.5rem, 0.75vi + 0.32rem, 1rem);
   
-  --container-vertical-padding: clamp(3rem, 9.37vi + 0.8rem, 9rem);
+  --container-vertical-padding: clamp(4rem, 7.51vi + 2.24rem, 9rem);
   --container-horizontal-padding: clamp(0.88rem, 7.64vi + -1.88rem, 5rem);
   --horizontal-padding: clamp(0.06rem, 9.14vi + -3.23rem, 5rem);
 
@@ -455,10 +455,6 @@ strong {
   gap: var(--paragraph-spacing);
 }
 
-.top-padding {
-  margin-top: var(--container-horizontal-padding);
-}
-
 .container {
   padding: var(--container-vertical-padding) var(--container-horizontal-padding);
   overflow-x: hidden;
@@ -831,7 +827,6 @@ hr {
 @media screen and (max-width: 724px) {
   .row.center {
     align-items: flex-start;
-    /* border: 1px red solid; */
   }
 
   .nav-links {
