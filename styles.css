@@ -869,6 +869,7 @@ hr {
     padding: 0.625rem;
     border: 1px solid var(--hr-color);
     background-color: var(--bg-default);
+    cursor: pointer;
   }
 
   .menu-icon p {
