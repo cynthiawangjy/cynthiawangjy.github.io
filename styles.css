@@ -31,8 +31,7 @@
   --h2-line-height: clamp(1.75rem, 1.13vi + 1.49rem, 2.5rem);
   --h3-font-size: clamp(1rem, 0.75vi + 0.82rem, 1.5rem);
 
-  --one-liner-font-size: clamp(1.25rem, 0.9859rem + 1.1268vw, 2rem);
-  --hero-subtext-font-size: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
+  --one-liner-font-size: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
 
   --body-font-size: clamp(0.88rem, 0.38vi + 0.79rem, 1.125rem);
   --body-line-height: clamp(1.38rem, 0.75vi + 1.2rem, 1.88rem);
@@ -304,33 +303,29 @@ button:hover {
   transform: translateX(1.5rem);
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: var(--padding-xl);
-  overflow-x: hidden;
-}
-
-.hero .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--padding-xl);
-}
-
 #work .horizontal-padding {
   gap: 4rem;
+}
+
+#hero {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero .horizontal-padding .row video {
+  border-radius: var(--border-radius-lg);
+}
+
+#hero .horizontal-padding .row .col-2-3 h1 {
+  line-height: 120%;
 }
 
 .text-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-items: stretch;
-  height: 100%;
+  gap: 1.5rem;
 }
 
 .description {
@@ -338,12 +333,6 @@ button:hover {
   line-height: 150%;
   font-weight: 400;
   font-style: normal;
-  margin-bottom: 1rem;
-}
-
-.hero-subtext {
-  font-size: var(--hero-subtext-font-size);
-  line-height: 150%;
 }
 
 .bounding-box {
@@ -819,7 +808,7 @@ hr {
     flex-direction: column;
   } */
    
-  .container#first {
+  .container.first {
     padding-top: 6rem;
   }
 }
@@ -849,8 +838,20 @@ hr {
     width: 100%;
   }
 
+  #hero {
+    height: 100%;
+  }
+
   .reverse {
     flex-direction: column-reverse;
+  }
+
+  #hero .horizontal-padding .row {
+    gap: var(--col-2-grid-gap-md);
+  }
+
+  .text-content {
+    gap: 1.25rem;
   }
 }
 
