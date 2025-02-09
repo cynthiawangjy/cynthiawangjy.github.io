@@ -316,6 +316,11 @@ button:hover {
 
 #hero .horizontal-padding .row video {
   border-radius: var(--border-radius-lg);
+  transition: 200ms ease-in-out;
+}
+
+#hero .horizontal-padding .row video:hover {
+  transform: rotate(5deg);
 }
 
 #hero .horizontal-padding .row .col-2-3 h1 {
@@ -804,10 +809,6 @@ hr {
 }
 
 @media screen and (max-width: 992px) {
-  /* .hero .container {
-    flex-direction: column;
-  } */
-   
   .container.first {
     padding-top: 6rem;
   }
