@@ -303,8 +303,13 @@ button:hover {
   transform: translateX(1.5rem);
 }
 
+.container#work {
+  padding: 1rem var(--container-horizontal-padding);
+  overflow: visible;
+}
+
 #work .horizontal-padding {
-  gap: 4rem;
+  gap: clamp(2.5rem, 2.25vi + 1.97rem, 4rem);
 }
 
 #hero {
