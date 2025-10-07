@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edelweiss</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Homemade+Apple&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="case-study">
+    <div class="case-study-layout">
+        <!-- Left Navigation -->
+        <nav class="case-study-nav">
+            <div class="nav-content">
+                <button class="back-button" onclick="history.back()">
+                    <span class="material-icons-round">chevron_left</span>
+                </button>
+                
+                <div class="nav-items">
+                    <a href="#introduction" class="nav-item active">
+                        <div class="nav-indicator"></div>
+                        Introduction
+                    </a>
+                    <a href="#problem" class="nav-item">Problem</a>
+                    <a href="#solution" class="nav-item">Solution</a>
+                    <a href="#features" class="nav-item">Features</a>
+                    <a href="#results" class="nav-item">Results</a>
+                    <a href="#learnings" class="nav-item">Learnings</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Right Content -->
+        <main class="case-study-content">
+            <!-- Mobile Back Button -->
+            <button class="mobile-back-button" onclick="history.back()">
+                <span class="material-icons-round">chevron_left</span>
+            </button>
+            <section id="introduction" class="zocdoc-section active">
+                <div class="content-container full-width">
+                    <div class="thumbnail-container">
+                        <video src="../../images/work/edelweiss/cover.mp4" alt="Edelweiss Bakery Website Redesign" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
+                        </video>
+                    </div>
+                </div>
+                
+                <div class="content-container centered">
+                    <div class="project-title-section">
+                        <h1>Website Redesign</h1>
+                        <h3>Redesigning and developing a local bakery's website to make it modern and responsive</h3>
+                    </div>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Period</span>
+                            <span class="meta-value">2024</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Role</span>
+                            <span class="meta-value">UI/UX Designer & Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="problem" class="zocdoc-section">
+                <div class="content-container centered">
+                    <h2>Problem</h2>
+                    <p>Edelweiss Bakery needed a modern, responsive website to better showcase their products and improve customer experience. The existing site was outdated and not mobile-friendly.</p>
+                </div>
+            </section>
+            
+            <section id="solution" class="zocdoc-section">
+                <div class="content-container centered">
+                    <h2>Solution</h2>
+                    <p>I redesigned and developed a completely new website with modern UI/UX principles, ensuring it was fully responsive and optimized for all devices.</p>
+                </div>
+            </section>
+            
+            <section id="features" class="zocdoc-section">
+                <div class="content-container centered">
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li>Responsive design for all devices</li>
+                        <li>Modern, clean aesthetic</li>
+                        <li>Improved navigation and user experience</li>
+                        <li>Optimized for performance</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="results" class="zocdoc-section">
+                <div class="content-container centered">
+                    <h2>Results</h2>
+                    <p>The new website successfully modernized Edelweiss Bakery's online presence, providing customers with a better browsing experience and improved accessibility across all devices.</p>
+                </div>
+            </section>
+            
+            <section id="learnings" class="zocdoc-section">
+                <div class="content-container centered">
+                    <h2>Learnings</h2>
+                    <p>This project reinforced the importance of responsive design and user-centered approach when working with local businesses. Understanding the client's needs and translating them into effective digital solutions was key to the project's success.</p>
+                </div>
+            </section>
+
+            <!-- Case Study Footer -->
+            <footer class="case-study-footer">
+                <div class="content-container padded">
+                    <div class="case-study-footer-main">
+                        <div class="case-study-footer-col1">
+                            <h5 class="case-study-footer-text">Interested in my work? Let's create <span class="cursive">together :)</span></h5>
+                            <div class="case-study-footer-email-container-wrapper" onclick="copyEmail(event)">
+                                <div class="case-study-footer-email-container-background"></div>
+                                <div class="case-study-footer-email-container">
+                                    <span class="case-study-footer-email-label">mailto:</span>
+                                    <div class="case-study-footer-email-spacer"></div>
+                                    <span class="case-study-footer-email-address">cynthiawangjy123@gmail.com</span>
+                                    <button class="case-study-footer-copy-button">
+                                        <span class="material-icons-round case-study-footer-copy-icon">content_copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-footer-col2">
+                            <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
+                                LinkedIn
+                                <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
+                                Resume
+                                <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <p class="case-study-footer-timestamp">Cynthia was last here on October 6</p>
+                    </div> -->
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <div class="case-study-blur"></div><div class="grain-overlay"></div><script src="../../script.js"></script>
+</body>
+</html>

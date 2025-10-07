@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFreelance</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Homemade+Apple&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="case-study">
+    <!-- Password Protected Content -->
+    <div id="myfreelancePasswordPage" class="myfreelance-password-page">
+        <button class="back-button" onclick="history.back()">
+            <span class="material-icons-round">chevron_left</span>
+        </button>
+
+        <div class="myfreelance-password-container">
+            <img src="../../images/logo.svg" alt="Logo" class="zocdoc-flower-icon">
+            
+            <div class="zocdoc-title">Enter a secret code</div>
+            <div class="zocdoc-subtitle">This page is protected. If you'd like to learn more, please reach out to me!</div>
+            
+            <form class="zocdoc-password-form" onsubmit="checkMyfreelancePassword(event)">
+                        <div class="zocdoc-password-input-container">
+                            <input type="text" class="zocdoc-password-input" placeholder="Secret code" autofocus>
+                            <button type="submit" class="zocdoc-submit-button">
+                                <span class="material-icons-round">key</span>
+                            </button>
+                        </div>
+            </form>
+        </div>
+
+        <div id="myfreelanceErrorMessage" class="myfreelance-error-message">
+            Incorrect password. Please try again.
+        </div>
+            </div>
+
+    <!-- Case Study Content (Hidden by default) -->
+    <div id="myfreelanceContent" class="case-study-layout" style="display: none;">
+        <!-- Left Navigation -->
+        <nav class="case-study-nav">
+            <div class="nav-content">
+                <button class="back-button" onclick="history.back()">
+                    <span class="material-icons-round">chevron_left</span>
+                </button>
+                
+                <div class="nav-items">
+                    <div class="nav-indicator"></div>
+                    <a href="#introduction" class="nav-item active">Introduction</a>
+                    <a href="#problem" class="nav-item">Problem</a>
+                    <a href="#solution" class="nav-item">Solution</a>
+                    <a href="#features" class="nav-item">Features</a>
+                    <a href="#results" class="nav-item">Results</a>
+                    <a href="#learnings" class="nav-item">Learnings</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Right Content -->
+        <main class="case-study-content">
+            <!-- Mobile Back Button -->
+            <button class="mobile-back-button" onclick="history.back()">
+                <span class="material-icons-round">chevron_left</span>
+            </button>
+            <!-- Section 1: Full-width Cover Image -->
+            <div class="content-container full-width">
+                <img src="../../images/work/myfreelance/cover.png" alt="MyFreelance Project" class="project-thumbnail">
+            </div>
+
+            <!-- Section 2: Project Info -->
+            <div id="introduction" class="content-container centered">
+                <div class="project-title-section">
+                <h1>MyFreelance</h1>
+                    <h3>Building a platform for freelancers to manage their business</h3>
+                </div>
+                <hr>
+                <div class="project-text-container">
+                    <p class="project-text">This project focused on creating a comprehensive platform for freelancers to manage their business operations. The existing tools were fragmented and didn't provide a unified solution for project management, client communication, and financial tracking.</p>
+                    <p class="project-text">I led the design of an integrated platform that combines project management, client communication, invoicing, and time tracking into a single, cohesive experience.</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-1-4">
+                        <div class="meta-item">
+                            <span class="meta-label">TIMELINE</span>
+                            <span class="meta-value">6 weeks</span>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="meta-item">
+                            <span class="meta-label">ROLE</span>
+                            <span class="meta-value">Product Designer</span>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="meta-item">
+                            <span class="meta-label">FOR</span>
+                            <span class="meta-value">Personal Project</span>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="meta-item">
+                            <span class="meta-label">WITH</span>
+                            <span class="meta-value">Solo project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem Section -->
+            <div id="problem" class="content-container">
+                <h2>The Problem</h2>
+                <div class="row">
+                    <div class="col-1-3">
+                        <h4>Fragmented tools</h4>
+                    </div>
+                    <div class="col-3-1">
+                        <p>Freelancers were using multiple disconnected tools for different aspects of their business, leading to inefficiency and data silos.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-1-3">
+                        <h4>Complex workflows</h4>
+                    </div>
+                    <div class="col-3-1">
+                        <p>Managing projects, clients, and finances required switching between different platforms, creating unnecessary complexity and potential for errors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution Section -->
+            <div id="solution" class="content-container">
+                <h2>Our Solution</h2>
+                <div class="row">
+                    <div class="col-1-2">
+                        <h3>Unified Platform</h3>
+                        <p>Created a single platform that integrates all essential freelancer tools - project management, client communication, invoicing, and time tracking - into one cohesive experience.</p>
+                    </div>
+                    <div class="col-2-1">
+                        <img src="../../images/work/myfreelance/cover.png" alt="MyFreelance Solution" class="feature-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div id="features" class="content-container">
+                <h2>Key Features</h2>
+                
+                <div class="feature-section">
+                    <div class="row">
+                        <div class="col-1-2">
+                            <h3>Project Management</h3>
+                            <p>Comprehensive project tracking with timelines, milestones, and task management to keep freelancers organized and on track.</p>
+                        </div>
+                        <div class="col-2-1">
+                            <img src="../../images/work/myfreelance/cover.png" alt="Project Management" class="feature-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <div class="row">
+                        <div class="col-1-2">
+                            <h3>Client Communication</h3>
+                            <p>Built-in messaging and collaboration tools to streamline communication with clients and maintain project transparency.</p>
+                        </div>
+                        <div class="col-2-1">
+                            <img src="../../images/work/myfreelance/cover.png" alt="Client Communication" class="feature-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <div class="row">
+                        <div class="col-1-2">
+                            <h3>Financial Tracking</h3>
+                            <p>Integrated invoicing, expense tracking, and financial reporting to help freelancers manage their business finances effectively.</p>
+                        </div>
+                        <div class="col-2-1">
+                            <img src="../../images/work/myfreelance/cover.png" alt="Financial Tracking" class="feature-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results" class="content-container">
+                <h2>Results</h2>
+                <div class="row">
+                    <div class="col-1-4">
+                        <div class="metric">
+                            <div class="metric-number">75%</div>
+                            <div class="metric-label">Reduction in tool switching</div>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="metric">
+                            <div class="metric-number">92%</div>
+                            <div class="metric-label">User satisfaction score</div>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="metric">
+                            <div class="metric-number">40%</div>
+                            <div class="metric-label">Time saved on admin tasks</div>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="metric">
+                            <div class="metric-number">88%</div>
+                            <div class="metric-label">Adoption rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Learnings Section -->
+            <div id="learnings" class="content-container centered">
+                <h2>Key Learnings</h2>
+                <div class="row">
+                    <div class="col-1-3">
+                        <h4>Integration is key</h4>
+                    </div>
+                    <div class="col-3-1">
+                        <p>Users value seamless integration over individual feature depth. A well-connected system is more valuable than isolated powerful tools.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-1-3">
+                        <h4>Workflow matters</h4>
+                    </div>
+                    <div class="col-3-1">
+                        <p>Understanding the actual workflow of freelancers was crucial for designing an effective solution that fits their real needs.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-1-3">
+                        <h4>Simplicity wins</h4>
+                    </div>
+                    <div class="col-3-1">
+                        <p>Even complex functionality needs to feel simple and intuitive. The goal was to make freelancing easier, not more complicated.</p>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Case Study Footer -->
+        <footer class="case-study-footer">
+            <div class="content-container padded">
+                <div class="case-study-footer-main">
+                    <div class="case-study-footer-col1">
+                        <h5 class="case-study-footer-text">Interested in my work? Let's create <span class="cursive">together :)</span></h5>
+                        <div class="case-study-footer-email-container-wrapper" onclick="copyEmail(event)">
+                            <div class="case-study-footer-email-container-background"></div>
+                            <div class="case-study-footer-email-container">
+                                <span class="case-study-footer-email-label">mailto:</span>
+                                <div class="case-study-footer-email-spacer"></div>
+                                <span class="case-study-footer-email-address">cynthiawangjy123@gmail.com</span>
+                                <button class="case-study-footer-copy-button">
+                                    <span class="material-icons-round case-study-footer-copy-icon">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-study-footer-col2">
+                        <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
+                            LinkedIn
+                            <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
+                            Resume
+                            <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div>
+                    <p class="case-study-footer-timestamp">Cynthia was last here on October 6</p>
+                </div> -->
+            </div>
+        </footer>
+    </main>
+    </div>
+
+    <div class="case-study-blur"></div><div class="grain-overlay"></div><script src="../../script.js"></script>
+</body>
+</html>
+
+
+

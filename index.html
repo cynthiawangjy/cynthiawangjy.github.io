@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cynthia Wang</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    
+    <!-- Google Fonts - Optimized -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Homemade+Apple&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Material Icons - Optimized -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body class="homepage">
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo" onclick="goToHome()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 12C24 15.2102 21.4789 17.8316 18.3086 17.9922L18 18C18 21.3137 15.3137 24 12 24C8.68629 24 6 21.3137 6 18C2.68629 18 -6.69384e-07 15.3137 -5.24537e-07 12C-3.7969e-07 8.68629 2.68629 6 6 6L6.00781 5.69141C6.16843 2.52111 8.78979 -6.64859e-07 12 -5.24536e-07C15.3137 -1.21986e-07 18 2.68629 18 6L18.3086 6.00781C21.4789 6.16843 24 8.78979 24 12ZM16.2002 12.043C13.9848 11.7603 12.2398 10.0161 11.957 7.80078C11.6742 10.0161 9.93019 11.7603 7.71484 12.043C9.9302 12.3256 11.6742 14.0698 11.957 16.2852C12.2398 14.0698 13.9848 12.3256 16.2002 12.043Z" fill="currentColor"/>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <div class="main-nav-indicator"></div>
+                <li><a href="#work" class="main-nav-item active">Work</a></li>
+                <!-- <li><a href="play/" class="main-nav-item">Play</a></li> -->
+                <li><a href="about/" class="main-nav-item">About</a></li>
+                <li><a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" class="main-nav-item">Resume</a></li>
+                <!-- <li>
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+                        <span>🌙</span>
+                    </button>
+                </li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="carousel-container">
+                        <div class="carousel-wrapper">
+                            <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                                <span class="material-icons-round">chevron_left</span>
+                            </button>
+                            <div class="carousel-image">
+                                <img id="carousel-img" src="images/home/musinsa.png" alt="Project showcase">
+                            </div>
+                            <button class="carousel-btn next" onclick="changeSlide(1)">
+                                <span class="material-icons-round">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-text">
+                        <h4 class="hero-title">
+                            Cynthia 嘉怡 Wang is a <span class="cursive">product designer</span> who creates thoughtful experiences shaped by visual craft. She cares deeply about how people engage with interfaces and finds joy in refining every detail that brings clarity to those moments.
+                        </h4>
+                        
+                        <div class="hero-status">
+                            <div class="status-line">
+                                <span>Currently</span>
+                                <div class="available-pill">
+                                    <div class="pulse-dot"></div>
+                                    <span>Available for work</span>
+                                </div>
+                                <span>Previously @ <a href="https://www.zocdoc.com/" target="_blank">Zocdoc</a> and <a href="https://www.immuta.com/" target="_blank">Immuta</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="work">
+            <div class="work-content">
+                <div class="container">
+                    <!-- <div class="view-toggle">
+                        <button id="gridView">
+                            <span class="material-icons-round">grid_view</span>
+                        </button>
+                        <button id="listView">
+                            <span class="material-icons-round">table_rows</span>
+                        </button>
+                    </div> -->
+                    
+                    <div id="projects" class="grid">
+                        <div class="project">
+                            <div class="image-container">
+                              <img src="images/work/zocdoc/cover-logo.gif" 
+                              height>
+                                <div class="hover-overlay"></div>
+                                <div class="view-circle">
+                                    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M100 0C127.62 0 150.023 22.5 150.023 50C177.5 50 200 72.3917 200 100C200 127.612 178 150 150 150C150 177.5 127.617 200 100 200C72.3923 200 50 179 50 150C22 150 0 127.621 0 100C0 72.3837 22.0002 50.0002 50.0088 50C50 22.5002 72.3882 0.000248708 100 0ZM100.36 65C100.359 65.0265 99.8823 77.5122 88.4199 88.9746C77.4999 99.8945 64.917 100.35 64.917 100.35C64.917 100.35 78.5 101.5 89.25 112.5C99.7403 123.49 100.279 135.687 100.28 135.71C100.282 135.68 100.96 123.436 111.53 112.475C122.113 101.5 135.737 100.35 135.737 100.35C135.737 100.35 122.686 99.7116 111.417 88.0254C100.162 76.3532 100.36 65.027 100.36 65Z" fill="currentColor"/>
+                                    </svg>
+                                    <div class="view-text">View</div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="text-content">
+                                    <div class="project-header">
+                                        <h3>Zocdoc<span class="material-icons-round">lock</span></h3>
+                                        <span class="project-meta">2025 / INTERNSHIP</span>
+                                    </div>
+                                    <p>
+                                        Bridging the gap between providers and patients through streamlined appointment management.
+                                    </p>
+                                </div>
+                                <div class="labels">
+                                    <span class="label">END-TO-END DESIGN</span>
+                                    <span class="label">DESIGN THINKING</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project">
+                            <div class="image-container">
+                                <video muted loop autoplay playsinline preload="metadata">
+                                    <source src="images/work/do-not-disturb/cover.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="hover-overlay"></div>
+                                <div class="view-circle">
+                                    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M100 0C127.62 0 150.023 22.5 150.023 50C177.5 50 200 72.3917 200 100C200 127.612 178 150 150 150C150 177.5 127.617 200 100 200C72.3923 200 50 179 50 150C22 150 0 127.621 0 100C0 72.3837 22.0002 50.0002 50.0088 50C50 22.5002 72.3882 0.000248708 100 0ZM100.36 65C100.359 65.0265 99.8823 77.5122 88.4199 88.9746C77.4999 99.8945 64.917 100.35 64.917 100.35C64.917 100.35 78.5 101.5 89.25 112.5C99.7403 123.49 100.279 135.687 100.28 135.71C100.282 135.68 100.96 123.436 111.53 112.475C122.113 101.5 135.737 100.35 135.737 100.35C135.737 100.35 122.686 99.7116 111.417 88.0254C100.162 76.3532 100.36 65.027 100.36 65Z" fill="currentColor"/>
+                                    </svg>
+                                    <div class="view-text">View</div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="text-content">
+                                    <div class="project-header">
+                                        <h3>Focus Enhancements</h3>
+                                        <div class="project-meta">
+                                            <span>2025 / SIDE PROJECT</span>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Extending Apple’s Focuses by designing personalized notification controls for texting availability.
+                                    </p>
+                                </div>
+                                <div class="labels">
+                                    <span class="label">UI/UX</span>
+                                    <span class="label">RESEARCH</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project">
+                            <div class="image-container">
+                                <img src="images/work/myfreelance/cover.png" alt="MyFreelance Dashboard">
+                                <div class="hover-overlay"></div>
+                                <div class="view-circle">
+                                    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M100 0C127.62 0 150.023 22.5 150.023 50C177.5 50 200 72.3917 200 100C200 127.612 178 150 150 150C150 177.5 127.617 200 100 200C72.3923 200 50 179 50 150C22 150 0 127.621 0 100C0 72.3837 22.0002 50.0002 50.0088 50C50 22.5002 72.3882 0.000248708 100 0ZM100.36 65C100.359 65.0265 99.8823 77.5122 88.4199 88.9746C77.4999 99.8945 64.917 100.35 64.917 100.35C64.917 100.35 78.5 101.5 89.25 112.5C99.7403 123.49 100.279 135.687 100.28 135.71C100.282 135.68 100.96 123.436 111.53 112.475C122.113 101.5 135.737 100.35 135.737 100.35C135.737 100.35 122.686 99.7116 111.417 88.0254C100.162 76.3532 100.36 65.027 100.36 65Z" fill="currentColor"/>
+                                    </svg>
+                                    <div class="view-text">View</div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="text-content">
+                                    <div class="project-header">
+                                        <h3>MyFreelance <span class="material-icons-round">lock</span></h3>
+                                        <span class="project-meta">2025 / DESIGN CHALLENGE</span>
+                                    </div>
+                                    <p>
+                                        Designing a business management dashboard for freelancers, a design challenge that eventually led to a job offer.
+                                    </p>
+                                </div>
+                                <div class="labels">
+                                    <span class="label">UI/UX</span>
+                                    <span class="label">RESEARCH</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.immuta.com/blog/copilot-ai-strategy-announcement/" target="_blank" rel="noopener noreferrer" class="project external-project">
+                            <div class="image-container">
+                                <video muted loop autoplay playsinline preload="metadata">
+                                    <source src="images/work/copilot/cover.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="hover-overlay"></div>
+                                <div class="view-circle external-link">
+                                    <span class="material-icons-round">arrow_outward</span>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="text-content">
+                                    <div class="project-header">
+                                        <h3>Immuta Copilot <span class="shipped-pill">Shipped</span></h3>
+                                        <div class="project-meta">
+                                            <span>2024 / INTERNSHIP</span>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Conceptualizing a chatbot that creates data access policies, Immuta's first AI-powered feature.
+                                    </p>
+                                </div>
+                                <div class="labels">
+                                    <span class="label">UI/UX</span>
+                                    <span class="label">RESEARCH</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <div class="project">
+                            <div class="image-container">
+                                <video muted loop autoplay playsinline preload="metadata">
+                                    <source src="images/work/policies-overview/cover.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="hover-overlay"></div>
+                                <div class="view-circle">
+                                    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M100 0C127.62 0 150.023 22.5 150.023 50C177.5 50 200 72.3917 200 100C200 127.612 178 150 150 150C150 177.5 127.617 200 100 200C72.3923 200 50 179 50 150C22 150 0 127.621 0 100C0 72.3837 22.0002 50.0002 50.0088 50C50 22.5002 72.3882 0.000248708 100 0ZM100.36 65C100.359 65.0265 99.8823 77.5122 88.4199 88.9746C77.4999 99.8945 64.917 100.35 64.917 100.35C64.917 100.35 78.5 101.5 89.25 112.5C99.7403 123.49 100.279 135.687 100.28 135.71C100.282 135.68 100.96 123.436 111.53 112.475C122.113 101.5 135.737 100.35 135.737 100.35C135.737 100.35 122.686 99.7116 111.417 88.0254C100.162 76.3532 100.36 65.027 100.36 65Z" fill="currentColor"/>
+                                    </svg>
+                                    <div class="view-text">View</div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="text-content">
+                                    <div class="project-header">
+                                        <h3>Policies Overview</h3>
+                                        <div class="project-meta">
+                                            <span>2024 / INTERNSHIP</span>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Creating a dashboard for Immuta users to monitor their policies and resolve outstanding issues.
+                                    </p>
+                                </div>
+                                <div class="labels">
+                                    <span class="label">UI/UX</span>
+                                    <span class="label">RESEARCH</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project">
+                            <div class="image-container">
+                                <video muted loop autoplay playsinline preload="metadata">
+                                    <source src="images/work/cozylink/cover.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="hover-overlay"></div>
+                                <div class="view-circle">
+                                    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M100 0C127.62 0 150.023 22.5 150.023 50C177.5 50 200 72.3917 200 100C200 127.612 178 150 150 150C150 177.5 127.617 200 100 200C72.3923 200 50 179 50 150C22 150 0 127.621 0 100C0 72.3837 22.0002 50.0002 50.0088 50C50 22.5002 72.3882 0.000248708 100 0ZM100.36 65C100.359 65.0265 99.8823 77.5122 88.4199 88.9746C77.4999 99.8945 64.917 100.35 64.917 100.35C64.917 100.35 78.5 101.5 89.25 112.5C99.7403 123.49 100.279 135.687 100.28 135.71C100.282 135.68 100.96 123.436 111.53 112.475C122.113 101.5 135.737 100.35 135.737 100.35C135.737 100.35 122.686 99.7116 111.417 88.0254C100.162 76.3532 100.36 65.027 100.36 65Z" fill="currentColor"/>
+                                    </svg>
+                                    <div class="view-text">View</div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="text-content">
+                                    <div class="project-header">
+                                        <h3>CozyLink Startup</h3>
+                                        <div class="project-meta">
+                                            <span>2023 – 2024 / SIDE QUEST</span>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Building a housing rental app for college students, including a design system and brand illustrations.
+                                    </p>
+                                </div>
+                                <div class="labels">
+                                    <span class="label">UI/UX</span>
+                                    <span class="label">RESEARCH</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="project">
+                            <div class="image-container">
+                                <video src="images/work/zest/cover.mp4" alt="Zest Bulk Shipping" muted loop autoplay playsinline preload="none" type="video/mp4">
+                                </video>
+                                <div class="hover-overlay"></div>
+                                <div class="view-circle">
+                                    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M100 0C127.62 0 150.023 22.5 150.023 50C177.5 50 200 72.3917 200 100C200 127.612 178 150 150 150C150 177.5 127.617 200 100 200C72.3923 200 50 179 50 150C22 150 0 127.621 0 100C0 72.3837 22.0002 50.0002 50.0088 50C50 22.5002 72.3882 0.000248708 100 0ZM100.36 65C100.359 65.0265 99.8823 77.5122 88.4199 88.9746C77.4999 99.8945 64.917 100.35 64.917 100.35C64.917 100.35 78.5 101.5 89.25 112.5C99.7403 123.49 100.279 135.687 100.28 135.71C100.282 135.68 100.96 123.436 111.53 112.475C122.113 101.5 135.737 100.35 135.737 100.35C135.737 100.35 122.686 99.7116 111.417 88.0254C100.162 76.3532 100.36 65.027 100.36 65Z" fill="currentColor"/>
+                                    </svg>
+                                    <div class="view-text">View</div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="text-content">
+                                    <div class="project-header">
+                                        <h3>Zest Bulk Shipping</h3>
+                                        <div class="project-meta">
+                                            <span>2024 / CLIENT PROJECT</span>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Adding a new shipping option to a corporate gifting platform to help brands scale their sales.
+                                    </p>
+                                </div>
+                                <div class="labels">
+                                    <span class="label">UI/UX</span>
+                                    <span class="label">RESEARCH</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project">
+                            <div class="image-container">
+                                <video src="images/work/edelweiss/cover.mp4" alt="Edelweiss Bakery Website Redesign" muted loop autoplay playsinline preload="none" type="video/mp4">
+                                </video>
+                                <div class="hover-overlay"></div>
+                                <div class="view-circle">
+                                    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M100 0C127.62 0 150.023 22.5 150.023 50C177.5 50 200 72.3917 200 100C200 127.612 178 150 150 150C150 177.5 127.617 200 100 200C72.3923 200 50 179 50 150C22 150 0 127.621 0 100C0 72.3837 22.0002 50.0002 50.0088 50C50 22.5002 72.3882 0.000248708 100 0ZM100.36 65C100.359 65.0265 99.8823 77.5122 88.4199 88.9746C77.4999 99.8945 64.917 100.35 64.917 100.35C64.917 100.35 78.5 101.5 89.25 112.5C99.7403 123.49 100.279 135.687 100.28 135.71C100.282 135.68 100.96 123.436 111.53 112.475C122.113 101.5 135.737 100.35 135.737 100.35C135.737 100.35 122.686 99.7116 111.417 88.0254C100.162 76.3532 100.36 65.027 100.36 65Z" fill="currentColor"/>
+                                    </svg>
+                                    <div class="view-text">View</div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="text-content">
+                                    <div class="project-header">
+                                        <h3>Website Redesign</h3>
+                                        <div class="project-meta">
+                                            <span>2024 / SIDE PROJECT</span>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Redesigning and developing a local bakery's website to make it modern and responsive.
+                                    </p>
+                                </div>
+                                <div class="labels">
+                                    <span class="label">UI/UX</span>
+                                    <span class="label">RESEARCH</span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="homepage-footer">
+        <div class="footer-container">
+            <div class="footer-card">
+                <!-- Logo and text group -->
+                <div class="footer-logo-text-group">
+                    <!-- Logo -->
+                    <div class="footer-logo">
+                      <img src="images/about/headshot.png" alt="">
+                    </div>
+                    
+                    <!-- Thank you text -->
+                    <div class="footer-text">
+                        <p>Thanks for visiting~</p>
+                        <h4>Let's create <span class="cursive">together :)</span></h4>
+                    </div>
+                </div>
+                
+                <!-- Contact info -->
+                <div class="footer-contact">
+                    <div class="email-container-wrapper" onclick="copyEmail(event)">
+                        <div class="email-container-background"></div>
+                        <div class="email-container">
+                            <span class="email-label">mailto:</span>
+                            <div class="email-spacer"></div>
+                            <span class="email-address">cynthiawangjy123@gmail.com</span>
+                            <button class="copy-button">
+                                <span class="material-icons-round copy-icon">content_copy</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p>and <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="semibold">connect on LinkedIn?</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Marquee at bottom of page -->
+        <!-- <div class="footer-marquee">
+            <p class="marquee-text">
+                <span>I'm always excited to collaborate on meaningful projects</span>
+                <span class="material-icons-round">favorite</span>
+                <span>Let's build something amazing together</span>
+                <span class="material-icons-round">rocket_launch</span>
+                <span>Designing experiences that matter</span>
+                <span class="material-icons-round">palette</span>
+                <span>Creating digital solutions with purpose</span>
+                <span class="material-icons-round">lightbulb</span>
+                <span>Ready to bring ideas to life</span>
+                <span class="material-icons-round">star</span>
+            </p>
+        </div> -->
+    </footer>
+
+    <div class="grain-overlay"></div>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 12C24 15.2102 21.4789 17.8316 18.3086 17.9922L18 18C18 21.3137 15.3137 24 12 24C8.68629 24 6 21.3137 6 18C2.68629 18 -6.69384e-07 15.3137 -5.24537e-07 12C-3.7969e-07 8.68629 2.68629 6 6 6L6.00781 5.69141C6.16843 2.52111 8.78979 -6.64859e-07 12 -5.24536e-07C15.3137 -1.21986e-07 18 2.68629 18 6L18.3086 6.00781C21.4789 6.16843 24 8.78979 24 12ZM16.2002 12.043C13.9848 11.7603 12.2398 10.0161 11.957 7.80078C11.6742 10.0161 9.93019 11.7603 7.71484 12.043C9.9302 12.3256 11.6742 14.0698 11.957 16.2852C12.2398 14.0698 13.9848 12.3256 16.2002 12.043Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <h4 style="font-weight: 500;">Just a moment...</h4>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
