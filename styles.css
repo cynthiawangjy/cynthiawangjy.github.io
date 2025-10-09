@@ -2327,7 +2327,7 @@ body .locked:not(.nav-item) {
 .content-container.padded {
 	/* width: calc(100% - 4rem); */
   display: flex;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	padding: 3rem 16%;
 	background: var(--bg-secondary);
 }
