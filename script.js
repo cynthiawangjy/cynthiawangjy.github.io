@@ -751,7 +751,7 @@ let currentZocdocSection = null;
 
 function checkZocdocPassword(event) {
     event.preventDefault();
-    const passwordInput = event.target.querySelector('.zocdoc-password-input');
+    const passwordInput = event.target.querySelector('.password-input');
     const password = passwordInput.value;
     const errorMessage = document.getElementById('zocdocErrorMessage');
 
@@ -760,7 +760,7 @@ function checkZocdocPassword(event) {
         
         // GSAP success animation
         if (typeof gsap !== 'undefined') {
-            gsap.to('.zocdoc-password-section', {
+            gsap.to('.zocdoc-password-container', {
                 scale: 0.95,
                 opacity: 0,
                 duration: 0.3,
@@ -894,7 +894,7 @@ let isMyfreelanceUnlocked = false;
 
 function checkMyfreelancePassword(event) {
     event.preventDefault();
-    const passwordInput = event.target.querySelector('.zocdoc-password-input');
+    const passwordInput = event.target.querySelector('.password-input');
     const password = passwordInput.value;
     const errorMessage = document.getElementById('myfreelanceErrorMessage');
 
@@ -903,7 +903,7 @@ function checkMyfreelancePassword(event) {
         
         // GSAP success animation
         if (typeof gsap !== 'undefined') {
-            gsap.to('.zocdoc-password-container', {
+            gsap.to('.myfreelance-password-container', {
                 scale: 0.8,
                 opacity: 0,
                 duration: 0.3,
