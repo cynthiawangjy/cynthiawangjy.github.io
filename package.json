@@ -1,0 +1,19 @@
+{
+  "name": "cynthia-portfolio",
+  "version": "1.0.0",
+  "description": "Cynthia Wang's Portfolio with secure authentication",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "gh-pages -d .",
+    "netlify:dev": "netlify dev",
+    "netlify:deploy": "netlify deploy --prod"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0",
+    "serve": "^14.2.1"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  }
+}

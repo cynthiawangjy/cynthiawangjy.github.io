@@ -745,64 +745,86 @@ function initVideoLooping() {
     });
 }
 
-// Zocdoc Password Protection
+// Zocdoc Password Protection - Server-side authentication
 let isZocdocUnlocked = false;
 let currentZocdocSection = null;
 
-function checkZocdocPassword(event) {
+async function checkZocdocPassword(event) {
     event.preventDefault();
     const passwordInput = event.target.querySelector('.password-input');
     const password = passwordInput.value;
     const errorMessage = document.getElementById('zocdocErrorMessage');
+    const submitButton = event.target.querySelector('button[type="submit"]');
+    
+    // Disable submit button during authentication
+    submitButton.disabled = true;
+    submitButton.textContent = 'Verifying...';
 
-    if (password === 'mollytea') {
-        isZocdocUnlocked = true;
+    try {
+        const result = await window.portfolioAuth.login(password);
         
-        // GSAP success animation
-        if (typeof gsap !== 'undefined') {
-            gsap.to('.zocdoc-password-container', {
-                scale: 0.95,
-                opacity: 0,
-                duration: 0.3,
-                ease: "power2.in",
-                onComplete: () => {
-                    unlockZocdocSections();
-                    hideZocdocPasswordPage();
-                    passwordInput.value = '';
-                    errorMessage.style.display = 'none';
-                    
-                    // Animate in the unlocked content
-                    gsap.from('#custom-messaging', {
-                        y: 50,
-                        opacity: 0,
-                        duration: 0.6,
-                        ease: "power2.out"
-                    });
-                }
-            });
+        if (result.success) {
+            isZocdocUnlocked = true;
+            
+            // GSAP success animation
+            if (typeof gsap !== 'undefined') {
+                gsap.to('.zocdoc-password-container', {
+                    scale: 0.95,
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        unlockZocdocSections();
+                        hideZocdocPasswordPage();
+                        passwordInput.value = '';
+                        errorMessage.style.display = 'none';
+                        
+                        // Animate in the unlocked content
+                        gsap.from('#custom-messaging', {
+                            y: 50,
+                            opacity: 0,
+                            duration: 0.6,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+            } else {
+                unlockZocdocSections();
+                hideZocdocPasswordPage();
+                passwordInput.value = '';
+                errorMessage.style.display = 'none';
+            }
         } else {
-            unlockZocdocSections();
-            hideZocdocPasswordPage();
+            // GSAP error animation
+            if (typeof gsap !== 'undefined') {
+                gsap.to(passwordInput, {
+                    x: -10,
+                    duration: 0.1,
+                    yoyo: true,
+                    repeat: 3,
+                    ease: "power2.inOut"
+                });
+            }
+            
+            errorMessage.textContent = result.error || 'Invalid password';
+            errorMessage.style.display = 'block';
             passwordInput.value = '';
-            errorMessage.style.display = 'none';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 3000);
         }
-    } else {
-        // GSAP error animation
-        if (typeof gsap !== 'undefined') {
-            gsap.to(passwordInput, {
-                x: -10,
-                duration: 0.1,
-                yoyo: true,
-                repeat: 3,
-                ease: "power2.inOut"
-            });
-        }
-        
+    } catch (error) {
+        console.error('Authentication error:', error);
+        errorMessage.textContent = 'Authentication failed. Please try again.';
         errorMessage.style.display = 'block';
         passwordInput.value = '';
         setTimeout(() => {
             errorMessage.style.display = 'none';
         }, 3000);
+    } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enter';
     }
 }
 
@@ -889,59 +911,80 @@ function hideZocdocPages() {
     currentZocdocSection = null;
 }
 
-// MyFreelance Password Protection
+// MyFreelance Password Protection - Server-side authentication
 let isMyfreelanceUnlocked = false;
 
-function checkMyfreelancePassword(event) {
+async function checkMyfreelancePassword(event) {
     event.preventDefault();
     const passwordInput = event.target.querySelector('.password-input');
     const password = passwordInput.value;
     const errorMessage = document.getElementById('myfreelanceErrorMessage');
+    const submitButton = event.target.querySelector('button[type="submit"]');
+    
+    // Disable submit button during authentication
+    submitButton.disabled = true;
+    submitButton.textContent = 'Verifying...';
 
-    if (password === 'mollytea') {
-        isMyfreelanceUnlocked = true;
+    try {
+        const result = await window.portfolioAuth.login(password);
         
-        // GSAP success animation
-        if (typeof gsap !== 'undefined') {
-            gsap.to('.myfreelance-password-container', {
-                scale: 0.8,
-                opacity: 0,
-                duration: 0.3,
-                ease: "power2.inOut",
-                onComplete: () => {
-                    hideMyfreelancePasswordPage();
-                    showMyfreelanceContent();
-                }
-            });
+        if (result.success) {
+            isMyfreelanceUnlocked = true;
+            
+            // GSAP success animation
+            if (typeof gsap !== 'undefined') {
+                gsap.to('.myfreelance-password-container', {
+                    scale: 0.8,
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        hideMyfreelancePasswordPage();
+                        showMyfreelanceContent();
+                    }
+                });
+            } else {
+                showMyfreelanceContent();
+            }
+            
+            // Clear the password input
+            passwordInput.value = '';
+            
+            // Hide error message if it was showing
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
         } else {
-            showMyfreelanceContent();
+            if (errorMessage) {
+                errorMessage.textContent = result.error || 'Invalid password';
+                errorMessage.style.display = 'block';
+            }
+            
+            // Clear the password input
+            passwordInput.value = '';
+            
+            // Shake animation for wrong password
+            if (typeof gsap !== 'undefined') {
+                gsap.to('.myfreelance-password-container', {
+                    x: -10,
+                    duration: 0.1,
+                    yoyo: true,
+                    repeat: 5,
+                    ease: "power2.inOut"
+                });
+            }
         }
-        
-        // Clear the password input
-        passwordInput.value = '';
-        
-        // Hide error message if it was showing
+    } catch (error) {
+        console.error('Authentication error:', error);
         if (errorMessage) {
-            errorMessage.style.display = 'none';
-        }
-    } else {
-        if (errorMessage) {
+            errorMessage.textContent = 'Authentication failed. Please try again.';
             errorMessage.style.display = 'block';
         }
-        
-        // Clear the password input
         passwordInput.value = '';
-        
-        // Shake animation for wrong password
-        if (typeof gsap !== 'undefined') {
-            gsap.to('.zocdoc-password-container', {
-                x: -10,
-                duration: 0.1,
-                yoyo: true,
-                repeat: 5,
-                ease: "power2.inOut"
-            });
-        }
+    } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enter';
     }
 }
 
@@ -1387,8 +1430,11 @@ function initProjectInteractions() {
 }
 
 // Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('Portfolio loaded successfully!');
+    
+    // Check authentication for password-protected pages
+    await checkPageAuthentication();
     
     // Initialize carousel with musinsa.png and its gradient
     const carouselImg = document.getElementById('carousel-img');
@@ -1410,6 +1456,30 @@ document.addEventListener('DOMContentLoaded', function() {
     initSpeechBubbleAnimation();
     
 });
+
+// Check if current page requires authentication
+async function checkPageAuthentication() {
+    // Check if we're on a password-protected page
+    const isPasswordProtected = document.querySelector('.zocdoc-password-container') || 
+                               document.querySelector('.myfreelance-password-container');
+    
+    if (!isPasswordProtected) return;
+    
+    // Check if user is already authenticated
+    const isAuthenticated = await window.portfolioAuth.verifyAuth();
+    
+    if (isAuthenticated) {
+        // User is authenticated, show content directly
+        if (document.querySelector('.zocdoc-password-container')) {
+            unlockZocdocSections();
+            hideZocdocPasswordPage();
+        }
+        if (document.querySelector('.myfreelance-password-container')) {
+            hideMyfreelancePasswordPage();
+            showMyfreelanceContent();
+        }
+    }
+}
 
 // Speech bubble animation for about page
 function initSpeechBubbleAnimation() {

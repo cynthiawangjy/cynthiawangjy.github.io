@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "api/auth.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "env": {
+    "PORTFOLIO_PASSWORD": "@portfolio_password",
+    "JWT_SECRET": "@jwt_secret"
+  }
+}
