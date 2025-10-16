@@ -3681,17 +3681,12 @@ div.comparison-section.after {
 .about-page .footer {
 	background: rgba(18, 18, 18, 0.9);
 	color: var(--bg-primary);
-	width: 100%;
+	/* width: 100%; */
 }
 
 .about-page .footer .content-container.padded {
 	padding: 0 2rem;
-	margin: 0;
-	width: 100%;
-}
-
-.about-page .footer-note {
-  padding: 1rem 2rem;
+	/* width: 100%; */
 }
 
 /* Static navigation indicator for about page - no movement on hover/click */
@@ -3962,7 +3957,7 @@ div.comparison-section.after {
     padding: clamp(1rem, 0.1648rem + 3.5635vw, 2rem);
   }
 
-  .about-page .footer-note {
+  .footer-note {
     padding: clamp(0.5rem, 0.0824rem + 1.7817vw, 1rem) clamp(1rem, 0.1648rem + 3.5635vw, 2rem);
   }
 }
