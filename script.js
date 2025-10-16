@@ -10,18 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
         if (allAssetsLoaded) return; // Prevent multiple calls
         allAssetsLoaded = true;
         
-        loadingScreen.classList.add('fade-out');
+        if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+        }
         
         // Remove loading screen from DOM after animation
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
         }, 1000);
     }
     
     // Function to check if all assets are loaded
     function checkAllAssetsLoaded() {
         loadedAssets++;
-        console.log(`Asset loaded: ${loadedAssets}/${totalAssets}`);
         
         if (loadedAssets >= totalAssets) {
             // Add a small delay to ensure smooth transition
@@ -54,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Count total assets
         totalAssets = videos.length + images.length;
-        console.log(`Waiting for ${totalAssets} assets to load...`);
         
         if (totalAssets === 0) {
             // No assets, hide loading screen after a short delay
@@ -113,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             await Promise.all([...imagePromises, ...videoPromises]);
         } catch (error) {
-            console.log('Some assets failed to load, but continuing...');
         }
         
         // Setup urgent message video with pause
@@ -122,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Fallback timeout - force hide after 8 seconds
         setTimeout(() => {
             if (!allAssetsLoaded) {
-                console.log('Forcing loading screen to hide after timeout');
                 hideLoadingScreen();
             }
         }, 8000);
@@ -153,6 +153,9 @@ function changeSlide(direction) {
         currentSlide = carouselImages.length - 1;
     }
     
+    // Save current slide to localStorage for persistence
+    localStorage.setItem('carouselIndex', currentSlide.toString());
+    
     const carouselImg = document.getElementById('carousel-img');
     const heroSection = document.querySelector('.hero');
     const envelopeFooter = document.querySelector('.envelope-footer');
@@ -161,27 +164,16 @@ function changeSlide(direction) {
         carouselImg.src = carouselImages[currentSlide].src;
     }
     
-    if (heroSection) {
-        // Remove all gradient classes
-        heroSection.classList.remove('musinsa', 'china', 'gu', 'pride', 'taiwan');
-        // Add the new gradient class
-        heroSection.classList.add(carouselImages[currentSlide].gradient);
-    }
-    
-    if (envelopeFooter) {
-        // Remove all gradient classes from footer
-        envelopeFooter.classList.remove('musinsa', 'china', 'gu', 'pride', 'taiwan');
-        // Add the new gradient class to footer
-        envelopeFooter.classList.add(carouselImages[currentSlide].gradient);
-    }
-    
-    // Also update the new homepage footer
-    const homepageFooter = document.querySelector('.homepage-footer');
-    if (homepageFooter) {
-        // Remove all gradient classes from footer
-        homepageFooter.classList.remove('musinsa', 'china', 'gu', 'pride', 'taiwan');
-        // Add the new gradient class to footer
-        homepageFooter.classList.add(carouselImages[currentSlide].gradient);
+    // Update body class for gradient and highlight colors (only on homepage)
+    const body = document.body;
+    if (body && body.classList.contains('homepage')) {
+        // Remove all gradient classes from body
+        body.classList.remove('musinsa', 'china', 'gu', 'pride', 'taiwan');
+        // Add the new gradient class to body for page-wide gradient
+        body.classList.add(carouselImages[currentSlide].gradient);
+        
+        // Update highlight colors
+        addCustomHighlightColors();
     }
 }
 
@@ -210,7 +202,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Footer scroll animation (for both envelope and homepage footer)
 function initEnvelopeAnimation() {
     const envelopeFooter = document.querySelector('.envelope-footer');
-    const homepageFooter = document.querySelector('.homepage-footer');
+    const homepageFooter = document.querySelector('.footer');
     
     // Handle envelope footer if it exists
     if (envelopeFooter) {
@@ -232,7 +224,7 @@ function initEnvelopeAnimation() {
     }
     
     // Handle homepage footer if it exists
-    if (homepageFooter) {
+    if (homepageFooter && document.body.classList.contains('homepage')) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -260,9 +252,9 @@ function copyEmail(event) {
     event.stopPropagation();
     
     const email = 'cynthiawangjy123@gmail.com';
-    // Try to find case study footer copy button first, then fallback to homepage
-    const copyButton = document.querySelector('.case-study-footer-copy-button') || document.querySelector('.copy-button');
-    const copyIcon = document.querySelector('.case-study-footer-copy-icon') || document.querySelector('.copy-icon');
+    // Try to find footer copy button first, then fallback to homepage
+    const copyButton = document.querySelector('.footer-copy-button') || document.querySelector('.copy-button');
+    const copyIcon = document.querySelector('.footer-copy-icon') || document.querySelector('.copy-icon');
     
     navigator.clipboard.writeText(email).then(function() {
         // Success feedback
@@ -275,7 +267,6 @@ function copyEmail(event) {
             copyIcon.textContent = 'content_copy';
         }, 2000);
     }).catch(function(err) {
-        console.error('Could not copy text: ', err);
         // Fallback for older browsers
         const textArea = document.createElement('textarea');
         textArea.value = email;
@@ -312,6 +303,11 @@ function toggleTheme() {
         if (icon) {
             icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         }
+    }
+    
+    // Update highlight colors for about page
+    if (body.classList.contains('about-page')) {
+        addCustomHighlightColors();
     }
 }
 
@@ -723,7 +719,14 @@ function initDraggableLabels() {
 
 // Initialize video looping for all project videos (called after loader)
 function initVideoLooping() {
-    const videos = document.querySelectorAll('.work-content video');
+    console.log('Setting up video looping...');
+    console.log('Page type:', document.body.className);
+    const workContentVideos = document.querySelectorAll('.work-content video');
+    const caseStudyVideos = document.querySelectorAll('.case-study-content video');
+    console.log('Work content videos:', workContentVideos.length);
+    console.log('Case study videos:', caseStudyVideos.length);
+    const videos = document.querySelectorAll('.work-content video, .case-study-content video');
+    console.log('Total videos found:', videos.length);
     
     videos.forEach(video => {
         // Ensure looping is enabled
@@ -731,13 +734,35 @@ function initVideoLooping() {
         video.muted = true;
         video.playsInline = true;
         
-        // Handle video events for continuous playback
-        video.addEventListener('ended', () => {
-            video.currentTime = 0;
-            video.play().catch(e => {
-                console.log('Video replay failed:', e);
+        // Check if this video needs a pause before looping
+        const sourceElement = video.querySelector('source');
+        const videoSrc = sourceElement ? sourceElement.src : video.src;
+        const needsPause = video.classList.contains('solution-video') || 
+                          videoSrc.includes('copilot/cover.mp4') ||
+                          videoSrc.includes('cozylink/cover.mp4') ||
+                          videoSrc.includes('policies-overview/cover.mp4');
+        
+        console.log('Video src:', videoSrc, 'has solution-video class:', video.classList.contains('solution-video'), 'needsPause:', needsPause);
+        
+        if (needsPause) {
+            // Disable native loop and handle manually with pause
+            video.loop = false;
+            console.log('Setting up pause for video:', videoSrc);
+            video.addEventListener('ended', () => {
+                console.log('Video ended, starting 5-second pause');
+                video.pause();
+                setTimeout(() => {
+                    console.log('Resuming video after pause');
+                    video.currentTime = 0;
+                    video.play().catch(e => {
+                        console.log('Video play error:', e);
+                    });
+                }, 1200); // 1.2 second pause
             });
-        });
+        } else {
+            // Keep native loop for other videos
+            video.loop = true;
+        }
         
         video.addEventListener('error', (e) => {
             console.log('Video error:', e);
@@ -745,27 +770,64 @@ function initVideoLooping() {
     });
 }
 
+// Initialize video looping for homepage cover videos
+function initHomepageVideoLooping() {
+    // Only run on homepage
+    if (!document.body.classList.contains('homepage')) {
+        console.log('Not homepage, skipping homepage video setup');
+        return;
+    }
+    
+    console.log('Setting up homepage videos...');
+    const videos = document.querySelectorAll('.work-content video');
+    console.log('Found videos:', videos.length);
+    
+    videos.forEach(video => {
+        // Check if this is a cover video that needs pause
+        const sourceElement = video.querySelector('source');
+        const videoSrc = sourceElement ? sourceElement.src : video.src;
+        const isCoverVideo = videoSrc.includes('copilot/cover.mp4') ||
+                           videoSrc.includes('cozylink/cover.mp4') ||
+                           videoSrc.includes('policies-overview/cover.mp4');
+        
+        console.log('Video src:', videoSrc, 'isCoverVideo:', isCoverVideo);
+        
+        if (isCoverVideo) {
+            // Disable native loop and handle manually with pause
+            video.loop = false;
+            console.log('Setting up pause for homepage video:', videoSrc);
+            video.addEventListener('ended', () => {
+                console.log('Homepage video ended, starting 5-second pause');
+                video.pause();
+                setTimeout(() => {
+                    console.log('Resuming homepage video after pause');
+                    video.currentTime = 0;
+                    video.play().catch(e => {
+                        console.log('Homepage video play error:', e);
+                    });
+                }, 1200); // 1.2 second pause
+            });
+        } else {
+            // Keep native loop for other videos
+            video.loop = true;
+        }
+    });
+}
+
+
 // Zocdoc Password Protection - Server-side authentication
 let isZocdocUnlocked = false;
 let currentZocdocSection = null;
 
-async function checkZocdocPassword(event) {
+function checkZocdocPassword(event) {
     event.preventDefault();
     const passwordInput = event.target.querySelector('.password-input');
     const password = passwordInput.value;
     const errorMessage = document.getElementById('zocdocErrorMessage');
-    const submitButton = event.target.querySelector('button[type="submit"]');
-    
-    // Disable submit button during authentication
-    submitButton.disabled = true;
-    submitButton.textContent = 'Verifying...';
 
-    try {
-        const result = await window.portfolioAuth.login(password);
-        
-        if (result.success) {
-            isZocdocUnlocked = true;
-            
+    if (password === 'mollytea') {
+        // Store authentication token
+        window.portfolioAuth.login(password).then(() => {
             // GSAP success animation
             if (typeof gsap !== 'undefined') {
                 gsap.to('.zocdoc-password-container', {
@@ -774,280 +836,88 @@ async function checkZocdocPassword(event) {
                     duration: 0.3,
                     ease: "power2.in",
                     onComplete: () => {
-                        unlockZocdocSections();
-                        hideZocdocPasswordPage();
-                        passwordInput.value = '';
-                        errorMessage.style.display = 'none';
-                        
-                        // Animate in the unlocked content
-                        gsap.from('#custom-messaging', {
-                            y: 50,
-                            opacity: 0,
-                            duration: 0.6,
-                            ease: "power2.out"
-                        });
+                        // Navigate to secure page
+                        window.location.href = 'secure.html';
                     }
                 });
             } else {
-                unlockZocdocSections();
-                hideZocdocPasswordPage();
-                passwordInput.value = '';
-                errorMessage.style.display = 'none';
+                // Navigate to secure page
+                window.location.href = 'secure.html';
             }
-        } else {
-            // GSAP error animation
-            if (typeof gsap !== 'undefined') {
-                gsap.to(passwordInput, {
-                    x: -10,
-                    duration: 0.1,
-                    yoyo: true,
-                    repeat: 3,
-                    ease: "power2.inOut"
-                });
-            }
-            
-            errorMessage.textContent = result.error || 'Invalid password';
-            errorMessage.style.display = 'block';
-            passwordInput.value = '';
-            setTimeout(() => {
-                errorMessage.style.display = 'none';
-            }, 3000);
+        });
+    } else {
+        // GSAP error animation
+        if (typeof gsap !== 'undefined') {
+            gsap.to(passwordInput, {
+                x: -10,
+                duration: 0.1,
+                yoyo: true,
+                repeat: 3,
+                ease: "power2.inOut"
+            });
         }
-    } catch (error) {
-        console.error('Authentication error:', error);
-        errorMessage.textContent = 'Authentication failed. Please try again.';
-        errorMessage.style.display = 'block';
+        
         passwordInput.value = '';
-        setTimeout(() => {
-            errorMessage.style.display = 'none';
-        }, 3000);
-    } finally {
-        // Re-enable submit button
-        submitButton.disabled = false;
-        submitButton.textContent = 'Enter';
     }
 }
 
-function unlockZocdocSections() {
-    // Unlock the locked navigation items
-    const modifyFlowItem = document.querySelector('a[href="#modify-flow"]');
-    const customMessagingItem = document.querySelector('a[href="#custom-messaging"]');
-    
-    if (modifyFlowItem) {
-        modifyFlowItem.classList.remove('locked');
-    }
-    if (customMessagingItem) {
-        customMessagingItem.classList.remove('locked');
-    }
-    
-    // Show the locked sections
-    const modifyFlowSection = document.getElementById('modify-flow');
-    const customMessagingSection = document.getElementById('custom-messaging');
-    
-    if (modifyFlowSection) {
-        modifyFlowSection.classList.remove('locked');
-    }
-    
-    // Move indicator to custom-messaging and make it active
-    if (customMessagingItem) {
-        // Remove active from introduction
-        const introItem = document.querySelector('a[href="#zocdoc-introduction"]');
-        if (introItem) {
-            introItem.classList.remove('active');
-            const introIndicator = introItem.querySelector('.nav-indicator');
-            if (introIndicator) {
-                introIndicator.remove();
-            }
-        }
-        
-        // Add active to custom-messaging
-        customMessagingItem.classList.add('active');
-        
-        // Move indicator after a short delay to ensure DOM is updated
-        setTimeout(() => {
-            if (window.moveIndicator) {
-                window.moveIndicator(customMessagingItem);
-            }
-            
-            // Scroll to the custom-messaging section (down to reveal the content)
-            const customMessagingSection = document.getElementById('custom-messaging');
-            smoothScrollToElement(customMessagingSection);
-        }, 100);
-    }
-    if (customMessagingSection) {
-        customMessagingSection.classList.remove('locked');
+function showZocdocError(errorMessage) {
+    if (errorMessage) {
+        errorMessage.textContent = 'Incorrect password. Please try again.';
+        errorMessage.style.display = 'block';
     }
 }
 
-// showZocdocSection function removed - both sections are now always visible
+// Zocdoc functions removed - now using separate secure page approach
 
-function hideZocdocPasswordPage() {
-    const passwordPage = document.getElementById('zocdocPasswordSection');
-    if (passwordPage) {
-        passwordPage.classList.add('hidden');
-        // Also hide the wrapper container
-        const wrapper = passwordPage.closest('.content-container.full-width');
-        if (wrapper) {
-            wrapper.classList.add('hidden');
-        }
-    }
-}
-
-function showZocdocPasswordPage() {
-    const passwordPage = document.getElementById('zocdocPasswordSection');
-    if (passwordPage) {
-        passwordPage.classList.remove('hidden');
-        // Also show the wrapper container
-        const wrapper = passwordPage.closest('.content-container.full-width');
-        if (wrapper) {
-            wrapper.classList.remove('hidden');
-        }
-    }
-}
-
-function hideZocdocPages() {
-    // Reset the unlocked state
-    isZocdocUnlocked = false;
-    currentZocdocSection = null;
-}
-
-// MyFreelance Password Protection - Server-side authentication
-let isMyfreelanceUnlocked = false;
-
-async function checkMyfreelancePassword(event) {
+// MyFreelance Password Protection
+function checkMyfreelancePassword(event) {
     event.preventDefault();
     const passwordInput = event.target.querySelector('.password-input');
     const password = passwordInput.value;
     const errorMessage = document.getElementById('myfreelanceErrorMessage');
-    const submitButton = event.target.querySelector('button[type="submit"]');
-    
-    // Disable submit button during authentication
-    submitButton.disabled = true;
-    submitButton.textContent = 'Verifying...';
 
-    try {
-        const result = await window.portfolioAuth.login(password);
-        
-        if (result.success) {
-            isMyfreelanceUnlocked = true;
-            
+    if (password === 'mollytea') {
+        // Store authentication token
+        window.portfolioAuth.login(password).then(() => {
             // GSAP success animation
             if (typeof gsap !== 'undefined') {
                 gsap.to('.myfreelance-password-container', {
-                    scale: 0.8,
+                    scale: 0.95,
                     opacity: 0,
                     duration: 0.3,
-                    ease: "power2.inOut",
+                    ease: "power2.in",
                     onComplete: () => {
-                        hideMyfreelancePasswordPage();
-                        showMyfreelanceContent();
+                        // Navigate to secure page
+                        window.location.href = 'secure.html';
                     }
                 });
             } else {
-                showMyfreelanceContent();
+                // Navigate to secure page
+                window.location.href = 'secure.html';
             }
-            
-            // Clear the password input
-            passwordInput.value = '';
-            
-            // Hide error message if it was showing
-            if (errorMessage) {
-                errorMessage.style.display = 'none';
-            }
-        } else {
-            if (errorMessage) {
-                errorMessage.textContent = result.error || 'Invalid password';
-                errorMessage.style.display = 'block';
-            }
-            
-            // Clear the password input
-            passwordInput.value = '';
-            
-            // Shake animation for wrong password
-            if (typeof gsap !== 'undefined') {
-                gsap.to('.myfreelance-password-container', {
-                    x: -10,
-                    duration: 0.1,
-                    yoyo: true,
-                    repeat: 5,
-                    ease: "power2.inOut"
-                });
-            }
-        }
-    } catch (error) {
-        console.error('Authentication error:', error);
-        if (errorMessage) {
-            errorMessage.textContent = 'Authentication failed. Please try again.';
-            errorMessage.style.display = 'block';
-        }
-        passwordInput.value = '';
-    } finally {
-        // Re-enable submit button
-        submitButton.disabled = false;
-        submitButton.textContent = 'Enter';
-    }
-}
-
-function hideMyfreelancePasswordPage() {
-    const passwordPage = document.getElementById('myfreelancePasswordPage');
-    if (passwordPage) {
-        passwordPage.style.display = 'none';
-    }
-}
-
-function showMyfreelancePasswordPage() {
-    const passwordPage = document.getElementById('myfreelancePasswordPage');
-    if (passwordPage) {
-        passwordPage.style.display = 'block';
-    }
-}
-
-function showMyfreelanceContent() {
-    const content = document.getElementById('myfreelanceContent');
-    if (content) {
-        content.style.display = 'flex';
-        
-        // Force the nav to be fixed after showing content
-        setTimeout(() => {
-            const nav = content.querySelector('.case-study-nav');
-            if (nav) {
-                console.log('MyFreelance nav found, should be fixed by CSS');
-                console.log('Nav computed styles:', {
-                    position: window.getComputedStyle(nav).position,
-                    width: window.getComputedStyle(nav).width,
-                    height: window.getComputedStyle(nav).height,
-                    left: window.getComputedStyle(nav).left,
-                    top: window.getComputedStyle(nav).top
-                });
-            } else {
-                console.log('MyFreelance nav not found!');
-            }
-        }, 100);
-        
-        // GSAP entrance animation
+        });
+    } else {
+        // GSAP error animation
         if (typeof gsap !== 'undefined') {
-            gsap.fromTo(content, 
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
-            );
+            gsap.to(passwordInput, {
+                x: -10,
+                duration: 0.1,
+                yoyo: true,
+                repeat: 3,
+                ease: "power2.inOut"
+            });
         }
+        
+        showMyfreelanceError(errorMessage);
+        passwordInput.value = '';
     }
 }
 
-function hideMyfreelancePages() {
-    // Reset the unlocked state
-    isMyfreelanceUnlocked = false;
-    
-    // Hide content and show password page
-    const content = document.getElementById('myfreelanceContent');
-    const passwordPage = document.getElementById('myfreelancePasswordPage');
-    
-    if (content) {
-        content.style.display = 'none';
-    }
-    
-    if (passwordPage) {
-        passwordPage.style.display = 'block';
+function showMyfreelanceError(errorMessage) {
+    if (errorMessage) {
+        errorMessage.textContent = 'Incorrect password. Please try again.';
+        errorMessage.style.display = 'block';
     }
 }
 
@@ -1377,7 +1247,6 @@ function initProjectInteractions() {
             
             isClicked = !isClicked;
             this.classList.toggle('clicked');
-            console.log('Image clicked, isClicked:', isClicked);
         });
         
         // Add smooth cursor following functionality
@@ -1429,39 +1298,125 @@ function initProjectInteractions() {
     });
 }
 
+// Function to add custom highlight colors based on current theme
+function addCustomHighlightColors() {
+    const body = document.body;
+    if (!body || (!body.classList.contains('homepage') && !body.classList.contains('about-page'))) return;
+    
+    // Remove existing highlight style
+    const existingStyle = document.getElementById('custom-highlight-style');
+    if (existingStyle) {
+        existingStyle.remove();
+    }
+    
+    // Get current gradient class
+    const gradientClass = carouselImages.find(img => body.classList.contains(img.gradient))?.gradient || 'musinsa';
+    
+    // Define highlight colors for each theme (using the gradient colors, not bg-primary)
+    const highlightColors = {
+        musinsa: { bg: 'var(--musinsa)'},
+        china: { bg: 'var(--china)'},
+        gu: { bg: 'var(--gu)'},
+        pride: { bg: 'var(--pride)'},
+        taiwan: { bg: 'var(--taiwan)'}
+    };
+    
+    const colors = highlightColors[gradientClass] || highlightColors.musinsa;
+    
+    // Create and add style
+    const style = document.createElement('style');
+    style.id = 'custom-highlight-style';
+    style.textContent = `
+        ::selection {
+            background: ${colors.bg} !important;
+        }
+        ::-moz-selection {
+            background: ${colors.bg} !important;
+        }
+        *::selection {
+            background: ${colors.bg} !important;
+        }
+        *::-moz-selection {
+            background: ${colors.bg} !important;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
-    console.log('Portfolio loaded successfully!');
     
     // Check authentication for password-protected pages
     await checkPageAuthentication();
     
-    // Initialize carousel with musinsa.png and its gradient
-    const carouselImg = document.getElementById('carousel-img');
-    const heroSection = document.querySelector('.hero');
-    
-    if (carouselImg) {
-        carouselImg.src = carouselImages[0].src; // musinsa.png
-    }
-    
-    if (heroSection) {
-        heroSection.classList.add(carouselImages[0].gradient); // musinsa gradient
+    // Only apply carousel logic on homepage
+    if (document.body.classList.contains('homepage')) {
+        // Check if this is a page refresh vs navigation
+        const isPageRefresh = performance.navigation.type === 1; // TYPE_RELOAD = 1
+        
+        // Check for saved carousel color, but reset to musinsa on page refresh
+        const savedCarouselIndex = localStorage.getItem('carouselIndex');
+        let initialIndex = 0; // Default to musinsa
+        
+        if (!isPageRefresh && savedCarouselIndex) {
+            // Only use saved color if it's not a page refresh
+            initialIndex = parseInt(savedCarouselIndex);
+        }
+        
+        // Initialize carousel with saved color or default to musinsa
+        const carouselImg = document.getElementById('carousel-img');
+        const heroSection = document.querySelector('.hero');
+        
+        if (carouselImg) {
+            carouselImg.src = carouselImages[initialIndex].src;
+        }
+        
+        // Set initial body class for gradient and highlight colors (only on homepage)
+        const body = document.body;
+        if (body && body.classList.contains('homepage')) {
+            body.classList.add(carouselImages[initialIndex].gradient);
+        }
+        
+        // Set current slide to saved index
+        currentSlide = initialIndex;
+        
+        // Add custom highlight colors for main page
+        addCustomHighlightColors();
     }
     
     // Initialize all functionality
     initViewToggle();
     initDraggableLabels();
     initVideoLooping();
+    initHomepageVideoLooping();
     initProjectInteractions();
     initSpeechBubbleAnimation();
+    
+    // Add custom highlight colors for about page
+    if (document.body.classList.contains('about-page')) {
+        // Apply the saved carousel theme to about page
+        const savedCarouselIndex = localStorage.getItem('carouselIndex');
+        if (savedCarouselIndex) {
+            const carouselIndex = parseInt(savedCarouselIndex);
+            const gradientClass = carouselImages[carouselIndex]?.gradient || 'musinsa';
+            document.body.classList.add(gradientClass);
+        }
+        addCustomHighlightColors();
+    }
     
 });
 
 // Check if current page requires authentication
 async function checkPageAuthentication() {
+    // Only run authentication check on pages that actually need it
+    // Skip MyFreelance password page - let it handle its own authentication
+    const isMyfreelancePasswordPage = document.querySelector('.myfreelance-password-page');
+    if (isMyfreelancePasswordPage) {
+        return; // Don't interfere with MyFreelance password page
+    }
+    
     // Check if we're on a password-protected page
-    const isPasswordProtected = document.querySelector('.zocdoc-password-container') || 
-                               document.querySelector('.myfreelance-password-container');
+    const isPasswordProtected = document.querySelector('.myfreelance-password-container');
     
     if (!isPasswordProtected) return;
     
@@ -1470,10 +1425,6 @@ async function checkPageAuthentication() {
     
     if (isAuthenticated) {
         // User is authenticated, show content directly
-        if (document.querySelector('.zocdoc-password-container')) {
-            unlockZocdocSections();
-            hideZocdocPasswordPage();
-        }
         if (document.querySelector('.myfreelance-password-container')) {
             hideMyfreelancePasswordPage();
             showMyfreelanceContent();

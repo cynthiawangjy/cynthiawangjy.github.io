@@ -21,6 +21,29 @@
 	
 	<!-- GSAP -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	
+	<!-- Custom highlight colors -->
+	<script>
+		// Force custom highlight colors for Do Not Disturb page
+		document.addEventListener('DOMContentLoaded', function() {
+			const style = document.createElement('style');
+			style.textContent = `
+				::selection {
+					background: #E5E6FF !important;
+				}
+				::-moz-selection {
+					background: #E5E6FF !important;
+				}
+				*::selection {
+					background: #E5E6FF !important;
+				}
+				*::-moz-selection {
+					background: #E5E6FF !important;
+				}
+			`;
+			document.head.appendChild(style);
+		});
+	</script>
 </head>
 <body class="case-study">
 	<!-- Top Navigation -->
@@ -45,6 +68,7 @@
           <div class="nav-indicator"></div>
           <a href="#introduction" class="nav-item active">Introduction</a>
           <a href="#research" class="nav-item">Research</a>
+          <a href="#objective" class="nav-item">Objective</a>
           <a href="#solution" class="nav-item">Solution</a>
           <a href="#iterations" class="nav-item">Iterations</a>
           <a href="#interactions" class="nav-item">Interactions</a>
@@ -60,7 +84,7 @@
         <span class="material-icons-round">chevron_left</span>
       </button>
       <!-- Section 1: Full-width Cover Video -->
-      <div class="content-container full-width">
+      <div class="content-container">
         <video muted loop autoplay playsinline preload="metadata">
           <source src="../../images/work/do-not-disturb/cover.mp4" type="video/mp4">
           Your browser does not support the video tag.
@@ -70,10 +94,10 @@
       <!-- Section 2: Project Info -->
       <div id="introduction" class="content-container centered">
         <div class="project-title-section">
-        <h1>iMessage Focus Enhancements</h1>
+          <h1>iMessage Focus Enhancements</h1>
           <h3>
-              Reimagining notification management to reduce texting anxiety
-            </h3>
+            Reimagining notification management to reduce texting anxiety
+          </h3>
         </div>
         <hr>
         <div class="text-spacing">
@@ -82,7 +106,7 @@
           </p>
         </div>
         <hr>
-        <div class="row gap-16">
+        <div class="row gap-32">
           <div class="col-1-4">
             <div class="meta-item">
               <span class="meta-label">TIMELINE</span>
@@ -93,7 +117,10 @@
           <div class="col-1-4">
             <div class="meta-item">
               <span class="meta-label">ROLE</span>
-              <span class="meta-value">Product Designer <br>Sole designer, End-to-end design, Visual Design, Interaction Design, Prototyping</span>
+              <span class="meta-value">Product Designer</span>
+              <span class="meta-value">
+                Sole designer, Visual Design, Interaction Design, Prototyping
+              </span>
             </div>
           </div>
           <div class="col-1-4">
@@ -105,7 +132,8 @@
           <div class="col-1-4">
             <div class="meta-item">
               <span class="meta-label">WITH</span>
-              <span class="meta-value">Kaluki Kithome <br>Grace Wang</span>
+              <span class="meta-value">Kaluki Kithome</span>
+              <span class="meta-value">Grace Wang</span>
             </div>
           </div>
         </div>
@@ -153,15 +181,18 @@
         </div>
       </div>
 
-      <div class="content-container centered">
-        <div class="padded-container">
-          <h4>
-            "Seeing how other people are doing really helps with my anxiety. When I text people on Discord I feel less uncertainty than on iMessage because they have status indicators."
-          </h4>
+      <!-- <div class="content-container centered">
+        <div class="quote">
+          <div class="indentation zocdoc"></div>
+          <div class="quote-content">
+            <h4>
+              "Seeing how other people are doing really helps with my anxiety. When I text people on Discord I feel less uncertainty than on iMessage because they have status indicators."
+            </h4>
+          </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="content-container padded large">
+      <div id="objective" class="content-container padded large">
         <div class="section-header">
           <p class="text-small">
             THE OPPORTUNITY
@@ -176,7 +207,7 @@
         <h3>
           Rather than organizing Focus modes around activities, what if they were organized by relationships?
         </h3>
-        <div class="row gap-16">
+        <div class="row gap-24">
           <div class="col">
             <div class="text-spacing">
               <img src="../../images/work/do-not-disturb/current-focus.png" alt="">
@@ -264,7 +295,7 @@
           </p>
         </div>
         <div class="padded-container">
-          <div class="row gap-16">
+          <div class="row gap-32">
             <div class="col-1-3">
               <h5>
                 Standardized and intuitive
@@ -277,7 +308,7 @@
             </div>
           </div>
           <hr>
-          <div class="row gap-16">
+          <div class="row gap-32">
             <div class="col-1-3">
               <h5>
                 Lightweight and uncluttered
@@ -290,7 +321,7 @@
             </div>
           </div>
           <hr>
-          <div class="row gap-16">
+          <div class="row gap-32">
             <div class="col-1-3">
               <h5>
                 Unmistakably Apple
@@ -319,7 +350,7 @@
 		  <div class="content-container centered">
 		    <div class="section-header">
 		      <p class="text-small">
-		          01 / HIGHLIGHT
+            01 / HIGHLIGHT
 		      </p>
 		      <div class="text-spacing">
 		        <h3>
@@ -331,471 +362,466 @@
 		      </div>
 		    </div>
 
-		      <div class="padded-container" style="background-color: #E5E6FF;">
-		         <video muted loop autoplay playsinline preload="metadata" class="mobile-video solution-video">
-		            <source src="../../images/work/do-not-disturb/groups.mp4" type="video/mp4">
-		            Your browser does not support the video tag.
-		          </video>
-		      </div>
-		    </div>
+        <div class="padded-container" style="background-color: #E5E6FF;">
+          <video muted loop autoplay playsinline preload="metadata" class="mobile-video solution-video">
+            <source src="../../images/work/do-not-disturb/groups.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+		  </div>
 
-		    <div class="content-container centered">
-		  <div class="section-header">
-		    <p class="text-small">
-		        02 / HIGHLIGHT
-		      </p>
-		    <div class="text-spacing">
-		        <h3>
-		          Share your texting capacity contextually 
-		        </h3>
-		        <p>
-		          Set temporary, icon-based statuses that update with your availability — so others know when you can respond and when you need space.
-		        </p>
-		    </div>
-		      </div>
-		      <div class="padded-container" style="background-color: #E5E6FF;">
-		         <video muted loop autoplay playsinline preload="metadata" class="mobile-video solution-video">
-		            <source src="../../images/work/do-not-disturb/change-status.mp4" type="video/mp4">
-		            Your browser does not support the video tag.
-		        </video>
-		      </div>
-		    </div>
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            02 / HIGHLIGHT
+          </p>
+          <div class="text-spacing">
+            <h3>
+              Share your texting capacity contextually 
+            </h3>
+            <p>
+              Set temporary, icon-based statuses that update with your availability — so others know when you can respond and when you need space.
+            </p>
+          </div>
+        </div>
+        <div class="padded-container" style="background-color: #E5E6FF;">
+          <video muted loop autoplay playsinline preload="metadata" class="mobile-video solution-video">
+              <source src="../../images/work/do-not-disturb/change-status.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
 
-		    <div class="content-container centered">
-		  <div class="section-header">
-		    <p class="text-small">
-		        03 / HIGHLIGHT
-		      </p>
-		    <div class="text-spacing">
-		        <h3>
-		          Bypass status when it truly matters 
-		        </h3>
-		        <p>
-		        Mark a message as Urgent to break through Focus and status settings—an intentional alternative to "Notify Anyway."
-		        </p>
-		    </div>
-		      </div>
-		      <div class="padded-container" style="background-color: #E5E6FF;">
-		         <video muted loop autoplay playsinline preload="metadata" class="mobile-video solution-video">
-		            <source src="../../images/work/do-not-disturb/send-urgent-msg.mp4" type="video/mp4">
-		            Your browser does not support the video tag.
-		        </video>
-		      </div>
-		    </div>
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            03 / HIGHLIGHT
+          </p>
+          <div class="text-spacing">
+            <h3>
+              Bypass status when it truly matters 
+            </h3>
+            <p>
+            Mark a message as Urgent to break through Focus and status settings—an intentional alternative to "Notify Anyway."
+            </p>
+          </div>
+        </div>
+        <div class="padded-container" style="background-color: #E5E6FF;">
+          <video muted loop autoplay playsinline preload="metadata" class="mobile-video solution-video">
+              <source src="../../images/work/do-not-disturb/send-urgent-msg.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
 
-		    <div class="content-container centered" id="iterations">
-		      <div class="section-header">
-		        <p class="text-small">
-		          VALIDATING THE CONCEPT
-		        </p>
-		      <div class="text-spacing">
-		          <h2>
-		            Testing with users revealed both excitement and concerns
-		          </h2>
-		          <p>
-		            While I was working on initial screen designs, my teammates conducted concept testing with 5 participants. The features resonated strongly — providing context, reducing anxiety, and improving focus — but also surfaced concerns around icon clarity and long-term management.
-		          </p>
-		          <p>
-		            With only a week left to finish designs, I prioritized addressing concrete design issues and left the bigger challenges for future exploration.
-		          </p>
-		        </div>
-		      </div>
-		    </div>
+      <div class="content-container centered" id="iterations">
+        <div class="section-header">
+          <p class="text-small">
+            VALIDATING THE CONCEPT
+          </p>
+          <div class="text-spacing">
+            <h2>
+              Testing with users revealed both excitement and concerns
+            </h2>
+            <p>
+              While I was working on initial screen designs, my teammates conducted concept testing with 5 participants. The features resonated strongly — providing context, reducing anxiety, and improving focus — but also surfaced concerns around icon clarity and long-term management.
+            </p>
+            <p>
+              With only a week left to finish designs, I prioritized addressing concrete design issues and left the bigger challenges for future exploration.
+            </p>
+          </div>
+        </div>
+      </div>
 
 
-		    <div class="content-container centered">
-		   <div class="section-header">
-		     <p class="text-small">
-		        01 / ITERATION
-		      </p>
-		      <h3>
-		        Separating Statuses from Messages
-		      </h3>
-		   </div>
-		   <div class="comparison-container">
-		      <div class="comparison-section before">
-		        <img src="../../images/work/do-not-disturb/old-imessage.png" alt="">
-		      </div>
-		      <div class="comparison-section after">
-		        <img src="../../images/work/do-not-disturb/new-imessage.png" alt="">
-		      </div>
-		    </div>
-		    
-		    <div class="text-row">
-		      <div class="text-column">
-		        <h4>Before</h4>
-		        <div class="comparison-item">
-		          <div class="icon-circle before">
-		            <span class="material-icons-round">close</span>
-		          </div>
-		          <p>
-		            Statuses made interface heavier with horizontal scrolling
-		          </p>
-		        </div>
-		        <div class="comparison-item">
-		          <div class="icon-circle before">
-		            <span class="material-icons-round">close</span>
-		          </div>
-		          <p>
-		            Added clutter and confusion, especially with pinned conversations
-		          </p>
-		        </div>
-		      </div>
-		      <div class="text-column">
-		        <h4>After</h4>
-		        <div class="comparison-item">
-		          <div class="icon-circle after">
-		            <span class="material-icons-round">check</span>
-		          </div>
-		          <p>
-		            Added segmented control to separate "Inbox" and "Status" views
-		          </p>
-		        </div>
-		      </div>
-		    </div>  
-		</div>
-		
-
-		<div class="content-container centered">
-		   <div class="section-header">
-		     <p class="text-small">
-		       02 / ITERATION
-		     </p>
-		     <h3>
-		       Making icons instantly recognizable
-		     </h3>
-		   </div>
-		   <div class="comparison-container">
-		      <div class="comparison-section before">
-		        <img src="../../images/work/do-not-disturb/old-icons.png" alt="">
-		      </div>
-		      <div class="comparison-section after">
-		        <img src="../../images/work/do-not-disturb/new-icons.png" alt="">
-		      </div>
-		    </div>
-		    
-		    <div class="text-row">
-		      <div class="text-column">
-		        <h4>Before</h4>
-		        <div class="comparison-item">
-		          <div class="icon-circle before">
-		            <span class="material-icons-round">close</span>
-		          </div>
-		          <p>
-		            Emoji-based indicators were unfamiliar to users
-		          </p>
-		        </div>
-		        <div class="comparison-item">
-		          <div class="icon-circle before">
-		            <span class="material-icons-round">close</span>
-		          </div>
-		          <p>
-		            Users needed labels to understand emojis meant contextually
-		          </p>
-		        </div>
-		      </div>
-		      <div class="text-column">
-		        <h4>After</h4>
-		        <div class="comparison-item">
-		          <div class="icon-circle after">
-		            <span class="material-icons-round">check</span>
-		          </div>
-		          <p>
-		            Switched to iOS system icons already familiar to users
-		          </p>
-		        </div>
-		        <div class="comparison-item">
-		          <div class="icon-circle after">
-		            <span class="material-icons-round">check</span>
-		          </div>
-		          <p>
-		            Made labels clearer
-		          </p>
-		        </div>
-		      </div>
-		    </div>  
-		</div>
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            01 / ITERATION
+          </p>
+          <h3>
+            Separating Statuses from Messages
+          </h3>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-section before">
+            <img src="../../images/work/do-not-disturb/old-imessage.png" alt="">
+          </div>
+          <div class="comparison-section after">
+            <img src="../../images/work/do-not-disturb/new-imessage.png" alt="">
+          </div>
+        </div>
+        <div class="text-row">
+          <div class="text-column">
+            <h4>Before</h4>
+            <div class="comparison-item">
+              <div class="icon-circle before">
+                <span class="material-icons-round">close</span>
+              </div>
+              <p>
+                Statuses made interface heavier with horizontal scrolling
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="icon-circle before">
+                <span class="material-icons-round">close</span>
+              </div>
+              <p>
+                Added clutter and confusion, especially with pinned conversations
+              </p>
+            </div>
+          </div>
+          <div class="text-column">
+            <h4>After</h4>
+            <div class="comparison-item">
+              <div class="icon-circle after">
+                <span class="material-icons-round">check</span>
+              </div>
+              <p>
+                Added segmented control to separate "Inbox" and "Status" views
+              </p>
+            </div>
+          </div>
+        </div>  
+      </div>
+	
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            02 / ITERATION
+          </p>
+          <h3>
+            Making icons instantly recognizable
+          </h3>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-section before">
+            <img src="../../images/work/do-not-disturb/old-icons.png" alt="">
+          </div>
+          <div class="comparison-section after">
+            <img src="../../images/work/do-not-disturb/new-icons.png" alt="">
+          </div>
+        </div>
+        <div class="text-row">
+          <div class="text-column">
+            <h4>Before</h4>
+            <div class="comparison-item">
+              <div class="icon-circle before">
+                <span class="material-icons-round">close</span>
+              </div>
+              <p>
+                Emoji-based indicators were unfamiliar to users
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="icon-circle before">
+                <span class="material-icons-round">close</span>
+              </div>
+              <p>
+                Users needed labels to understand emojis meant contextually
+              </p>
+            </div>
+          </div>
+          <div class="text-column">
+            <h4>After</h4>
+            <div class="comparison-item">
+              <div class="icon-circle after">
+                <span class="material-icons-round">check</span>
+              </div>
+              <p>
+                Switched to iOS system icons already familiar to users
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="icon-circle after">
+                <span class="material-icons-round">check</span>
+              </div>
+              <p>
+                Made labels clearer
+              </p>
+            </div>
+          </div>
+        </div>  
+      </div>
 		   
-		<div class="content-container">
-		  <div class="content-container centered">
-		    <div class="section-header">
-		      <p class="text-small">
-		        03 / ITERATION
-		      </p>
-		      <div class="text-spacing">
-		        <h3>
-		          Designing Urgent messages
-		        </h3>
-		        <p>
-		          I explored three visual approaches to differentiate Urgent messages from regular ones, each bringing different emotional weight and clarity.
-		        </p>
-		      </div>
-		    </div>
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              03 / ITERATION
+            </p>
+            <div class="text-spacing">
+              <h3>
+                Designing Urgent messages
+              </h3>
+              <p>
+                I explored three visual approaches to differentiate Urgent messages from regular ones, each bringing different emotional weight and clarity.
+              </p>
+            </div>
+          </div>
+        </div>
+		    <div class="content-container padded" style="flex-direction: row;">
+          <div class="iteration-item">
+            <img src="../../images/work/do-not-disturb/urgent-msg-icon.png" alt="">
+            <div class="text-content">
+              <div class="text-group">
+                <h5>
+                  Default message with icon and subtext
+                </h5>
+              </div>
+              <p class="text-small">
+                Looked too similar to undelivered message errors in iMessage
+              </p>
+            </div>
+          </div>
+          <div class="iteration-item">
+            <img src="../../images/work/do-not-disturb/urgent-msg-dashed.png" alt="">
+            <div class="text-content">
+              <div class="text-group">
+                <div class="status-indicator dashed">
+                </div>
+                <h5>
+                  Red-dashed message
+                </h5>
+              </div>
+              <p class="text-small">
+                Felt too ephemeral, messages needed to feel present since they're already sent
+              </p>
+            </div>
+          </div>          
+          <div class="iteration-item">
+            <img src="../../images/work/do-not-disturb/urgent-msg-filled.png" alt="">
+            <div class="text-content">
+              <div class="text-group">
+                <div class="status-indicator filled"></div>
+                <h5>
+                  Red-filled message
+                </h5>
+              </div>
+              <p class="text-small">
+                Appeared too aggressive and alarming rather than just signaling importance
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <p>
+            Ultimately, I chose a purple background to align with iOS’s Do Not Disturb scheme—prominent enough to signal importance without the harshness of red.
+          </p>
+        </div>
+        <div class="content-container padded focus">
+          <img src="../../images/work/do-not-disturb/urgent-msg-flow.png" alt="">
+        </div>
+      </div>
+
+      <div class="content-container centered" id="interactions">
+        <div class="section-header">
+          <p class="text-small">
+          REFINING INTERACTIONS
+          </p>
+          <div class="text-spacing">
+            <h2>
+              Making every interaction feel native to iOS
+            </h2>
+            <p>
+              Getting the interactions right mattered most, especially as a designer. Even though I had already incorporated Apple’s patterns into my early designs, I felt there was more to refine. I studied dozens of native apps — dissecting timing, easing, transitions, and nested views — and iterated on my work until the features felt like they truly belonged in iOS.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            01 / INTERACTION
+          </p>
+          <h3>
+            Editing your status
+          </h3>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-section before">
+            <video class="mobile-video" muted loop autoplay playsinline preload="metadata">
+                <source src="../../images/work/do-not-disturb/old-change-status-interaction.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="comparison-section after">
+            <video class="mobile-video" muted loop autoplay playsinline preload="metadata">
+                <source src="../../images/work/do-not-disturb/new-change-status-interaction.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+          
+        <div class="text-row">
+          <div class="text-column">
+            <h4>Before</h4>
+            <div class="comparison-item">
+              <div class="icon-circle before">
+                <span class="material-icons-round">close</span>
+              </div>
+              <p>
+                Modal sliding over existing full-screen view created heavy, nested feeling
+              </p>
+            </div>
+          </div>
+          <div class="text-column">
+            <h4>After</h4>
+            <div class="comparison-item">
+              <div class="icon-circle after">
+                <span class="material-icons-round">check</span>
+              </div>
+              <p>
+                Used a background blur similar to newer iOS interaction patterns
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="icon-circle after">
+                <span class="material-icons-round">check</span>
+              </div>
+              <p>
+                Lighter and more integrated
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            02 / INTERACTION
+          </p>
+          <h3>
+            Viewing your contacts’ statuses
+          </h3>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-section before">
+            <video class="mobile-video" muted loop autoplay playsinline preload="metadata">
+                <source src="../../images/work/do-not-disturb/old-view-status-interaction.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="comparison-section after">
+            <video class="mobile-video" muted loop autoplay playsinline preload="metadata">
+                <source src="../../images/work/do-not-disturb/new-view-status-interaction.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <div class="text-row">
+          <div class="text-column">
+            <h4>Before</h4>
+            <div class="comparison-item">
+              <div class="icon-circle before">
+                <span class="material-icons-round">close</span>
+              </div>
+              <p>
+                Modal requiring individual navigation through each contact's status
+              </p>
+            </div>
+          </div>
+          <div class="text-column">
+            <h4>After</h4>
+            <div class="comparison-item">
+              <div class="icon-circle after">
+                <span class="material-icons-round">check</span>
+              </div>
+              <p>
+                Carousel interface for streamlined browsing
+              </p>
+            </div>
+          </div>
+        </div>
 		  </div>
 
-		  <div class="content-container padded" style="flex-direction: row;">
-		    <div class="iteration-item">
-		      <img src="../../images/work/do-not-disturb/urgent-msg-icon.png" alt="">
-		      <div class="text-content">
-		        <div class="text-group">
-		          <h5>
-		            Default message with icon and subtext
-		          </h5>
-		        </div>
-		        <p class="text-small">
-		          Looked too similar to undelivered message errors in iMessage
-		        </p>
-		      </div>
-		    </div>
-		    <div class="iteration-item">
-		      <img src="../../images/work/do-not-disturb/urgent-msg-dashed.png" alt="">
-		      <div class="text-content">
-		        <div class="text-group">
-		          <div class="status-indicator dashed">
-		          </div>
-		          <h5>
-		            Red-dashed message
-		          </h5>
-		        </div>
-		        <p class="text-small">
-		          Felt too ephemeral, messages needed to feel present since they're already sent
-		        </p>
-		      </div>
-		    </div>
-		    <div class="iteration-item">
-		      <img src="../../images/work/do-not-disturb/urgent-msg-filled.png" alt="">
-		      <div class="text-content">
-		        <div class="text-group">
-		          <div class="status-indicator filled">
-		            
-		          </div>
-		          <h5>
-		            Red-filled message
-		          </h5>
-		        </div>
-		        <p class="text-small">
-		          Appeared too aggressive and alarming rather than just signaling importance
-		        </p>
-		      </div>
-		    </div>
-		  </div>
-		</div> 
+      <div id="conclusion" class="content-container centered">
+        <div class="section-header">
+          <div class="text-small">
+            TESTING THE FINAL DESIGNS
+          </div>
+          <h2>
+            What participants said
+          </h2>
+        </div>
+        <div class="padded-container">
+          <img src="../../images/work/do-not-disturb/final-quotes.png" alt="">
+        </div>
+      </div>
 
-		<div class="content-container">
-		  <div class="content-container centered">
-		    <p>
-		      Ultimately, I chose a purple background to align with iOS’s Do Not Disturb scheme—prominent enough to signal importance without the harshness of red.
-		    </p>
-		  </div>
-		  <div class="content-container padded focus">
-		    <img src="../../images/work/do-not-disturb/urgent-msg-flow.png" alt="">
-		  </div>
-		</div>
-
-		<div class="content-container centered" id="interactions">
-		  <div class="section-header">
-		    <p class="text-small">
-		    REFINING INTERACTIONS
-		    </p>
-		    <div class="text-spacing">
-		      <h2>
-		        Making every interaction feel native to iOS
-		      </h2>
-		      <p>
-		        Getting the interactions right mattered most, especially as a designer. Even though I had already incorporated Apple’s patterns into my early designs, I felt there was more to refine. I studied dozens of native apps — dissecting timing, easing, transitions, and nested views — and iterated on my work until the features felt like they truly belonged in iOS.
-		      </p>
-		    </div>
-		    
-		  </div>
-		</div>
-
-		<div class="content-container centered">
-		  <div class="section-header">
-		     <p class="text-small">
-		       01 / INTERACTION
-		     </p>
-		     <h3>
-		       Editing your status
-		     </h3>
-		   </div>
-		    <div class="comparison-container">
-		      <div class="comparison-section before">
-		        <video class="mobile-video" muted loop autoplay playsinline preload="metadata">
-		            <source src="../../images/work/do-not-disturb/old-change-status-interaction.mp4" type="video/mp4">
-		            Your browser does not support the video tag.
-		        </video>
-		      </div>
-		      <div class="comparison-section after">
-		        <video class="mobile-video" muted loop autoplay playsinline preload="metadata">
-		            <source src="../../images/work/do-not-disturb/new-change-status-interaction.mp4" type="video/mp4">
-		            Your browser does not support the video tag.
-		        </video>
-		      </div>
-		    </div>
-		    
-		    <div class="text-row">
-		      <div class="text-column">
-		        <h4>Before</h4>
-		        <div class="comparison-item">
-		          <div class="icon-circle before">
-		            <span class="material-icons-round">close</span>
-		          </div>
-		          <p>
-		            Modal sliding over existing full-screen view created heavy, nested feeling
-		          </p>
-		        </div>
-		      </div>
-		      <div class="text-column">
-		        <h4>After</h4>
-		        <div class="comparison-item">
-		          <div class="icon-circle after">
-		            <span class="material-icons-round">check</span>
-		          </div>
-		          <p>
-		            Used a background blur similar to newer iOS interaction patterns
-		          </p>
-		        </div>
-		        <div class="comparison-item">
-		          <div class="icon-circle after">
-		            <span class="material-icons-round">check</span>
-		          </div>
-		          <p>
-		            Lighter and more integrated
-		          </p>
-		        </div>
-		      </div>
-		    </div>
-		</div>
-
-		<div class="content-container centered">
-		  <div class="section-header">
-		     <p class="text-small">
-		       02 / INTERACTION
-		     </p>
-		     <h3>
-		       Viewing your contacts’ statuses
-		     </h3>
-		   </div>
-		    <div class="comparison-container">
-		      <div class="comparison-section before">
-		        <video class="mobile-video" muted loop autoplay playsinline preload="metadata">
-		            <source src="../../images/work/do-not-disturb/old-view-status-interaction.mp4" type="video/mp4">
-		            Your browser does not support the video tag.
-		        </video>
-		      </div>
-		      <div class="comparison-section after">
-		        <video class="mobile-video" muted loop autoplay playsinline preload="metadata">
-		            <source src="../../images/work/do-not-disturb/new-view-status-interaction.mp4" type="video/mp4">
-		            Your browser does not support the video tag.
-		        </video>
-		      </div>
-		    </div>
-		    
-		    <div class="text-row">
-		      <div class="text-column">
-		        <h4>Before</h4>
-		        <div class="comparison-item">
-		          <div class="icon-circle before">
-		            <span class="material-icons-round">close</span>
-		          </div>
-		          <p>
-		            Modal requiring individual navigation through each contact's status
-		          </p>
-		        </div>
-		      </div>
-		      <div class="text-column">
-		        <h4>After</h4>
-		        <div class="comparison-item">
-		          <div class="icon-circle after">
-		            <span class="material-icons-round">check</span>
-		          </div>
-		          <p>
-		            Carousel interface for streamlined browsing
-		          </p>
-		        </div>
-		      </div>
-		    </div>
-		</div>
-
-		<div class="content-container centered" id="conclusion">
-		  <div class="section-header">
-		    <div class="text-small">
-		      TESTING THE FINAL DESIGNS
-		    </div>
-		    <h2>
-		      What participants said
-		    </h2>
-		  </div>
-		  <div class="padded-container">
-		    <img src="../../images/work/do-not-disturb/final-quotes.png" alt="">
-		  </div>
-		</div>
-
-		<div class="content-container centered">
-		  <div class="row-center">
-		    <div class="col">
-		      <div class="section-header">
-		      <p class="text-small">
-		      CONCLUSION
-		      </p>
-		      <div class="text-spacing">
-		        <h2>
-		          What are the next steps?
-		        </h2>
-		        <p>
-		          Even though testing validated these designs, users still raised concerns about long-term usability.
-		        </p>
-		        <p>
-		          Future explorations could include automatic status tied to phone activity, suggestions to maintain group accuracy over time, and an onboarding flow to introduce features without overwhelming users.
-		        </p>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col">
-		    <img src="../../images/work/do-not-disturb/vision-work.png" alt="" style="width: 100%; height: auto; object-fit: contain;">
-		    <p class="small-text caption">
-		      Imagining what suggestions could look like
-		    </p>
-		  </div>
-		</div>
-	  </div>
-
-	  <!-- Case Study Footer -->
-	  <footer class="case-study-footer">
-		  <div class="content-container padded">
-        <div class="case-study-footer-main">
-          <div class="case-study-footer-col1">
-            <h5 class="case-study-footer-text">Interested in my work? Let's create <span class="cursive">together :)</span></h5>
-            <div class="case-study-footer-email-container-wrapper" onclick="copyEmail(event)">
-              <div class="case-study-footer-email-container-background"></div>
-              <div class="case-study-footer-email-container">
-                <span class="case-study-footer-email-label">mailto:</span>
-                <div class="case-study-footer-email-spacer"></div>
-                <span class="case-study-footer-email-address">cynthiawangjy123@gmail.com</span>
-                <button class="case-study-footer-copy-button">
-                    <span class="material-icons-round case-study-footer-copy-icon">content_copy</span>
-                </button>
+      <div class="content-container centered">
+        <div class="row-center">
+          <div class="col">
+            <div class="section-header">
+              <p class="text-small">
+              CONCLUSION
+              </p>
+              <div class="text-spacing">
+                <h2>
+                  What are the next steps?
+                </h2>
+                <p>
+                  Even though testing validated these designs, users still raised concerns about long-term usability.
+                </p>
+                <p>
+                  Future explorations could include automatic status tied to phone activity, suggestions to maintain group accuracy over time, and an onboarding flow to introduce features without overwhelming users.
+                </p>
               </div>
             </div>
           </div>
-          <div class="case-study-footer-col2">
-            <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
-                LinkedIn
-                <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
-            </a>
-            <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
-                Resume
-                <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
-            </a>
+          <div class="col gap-16">
+            <img src="../../images/work/do-not-disturb/vision-work.png" alt="">
+            <div class="row gap-12">
+              <div class="media-pill">
+                IMG
+              </div>
+              <p class="text-small caption">
+                Imagining what group suggestions could look like
+              </p>
+            </div>
+          </div> 
+        </div>
+      </div>
+	  </main>
+	</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="right">
+        <p>Interested in my work? Let's create <span class="cursive">together :)</span></p>
+        <div class="footer-email-container-wrapper" onclick="copyEmail(event)">
+          <div class="footer-email-container-background"></div>
+          <div class="footer-email-container">
+            <span class="footer-email-label">mailto:</span>
+            <div class="footer-email-spacer"></div>
+            <span class="footer-email-address">cynthiawangjy123@gmail.com</span>
+            <button class="footer-copy-button">
+              <span class="material-icons-round footer-copy-icon">content_copy</span>
+            </button>
           </div>
         </div>
-        <!-- <div>
-            <p class="case-study-footer-timestamp">Cynthia was last here on October 6</p>
-        </div> -->
-		  </div>
-	  </footer>
-	</main>
-	</div>
+      </div>
+      <div class="left">
+          <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="footer-link">
+              LinkedIn
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer-link">
+              Resume
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+      </div>
+    </div>
+    <div class="footer-note">
+      Designed and developed by Cynthia. Last updated in October 2025. 
+    </div>
+  </footer>
 
 	<div class="case-study-blur"></div><div class="grain-overlay"></div><script src="../../script.js"></script>
 </body>

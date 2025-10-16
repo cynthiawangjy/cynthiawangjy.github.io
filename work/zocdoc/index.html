@@ -23,9 +23,33 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 	
 	<!-- Authentication -->
-	<script src="../../js/auth.js"></script>
+	<script src="../../js/static-auth.js"></script>
+	
+	<!-- Custom highlight colors -->
+	<script>
+		// Force custom highlight colors for Zocdoc page
+		document.addEventListener('DOMContentLoaded', function() {
+			// Override selection styles
+			const style = document.createElement('style');
+			style.textContent = `
+				::selection {
+					background: #FFF0BB !important;
+				}
+				::-moz-selection {
+					background: #FFF0BB !important;
+				}
+				*::selection {
+					background: #FFF0BB !important;
+				}
+				*::-moz-selection {
+					background: #FEED5A !important;
+				}
+			`;
+			document.head.appendChild(style);
+		});
+	</script>
 </head>
-<body class="case-study">
+<body class="case-study zocdoc">
 	<!-- Top Navigation -->
 	<header class="case-study-top-nav">
 		<ul class="nav-links">
@@ -40,18 +64,17 @@
 		<!-- Left Navigation -->
 		<nav class="case-study-nav">
       <div class="nav-content">
-        <button class="back-button" onclick="history.back()">
+        <button class="back-button" onclick="goBackToPortfolio()">
           <span class="material-icons-round">chevron_left</span>
         </button>
         
         <div class="nav-items">
           <div class="nav-indicator"></div>
-          <a href="#zocdoc-introduction" class="nav-item active">Introduction</a>
-          <a href="#custom-messaging" class="nav-item locked">Custom Messaging Templates</a>
-          <!-- <a href="#modify-flow" class="nav-item locked">Modify Appointment Flow</a> -->
-          <a href="#zocdoc-moments" class="nav-item">Moments</a>
-          <a href="#zocdoc-learnings" class="nav-item">Learnings</a>
-          <a href="#zocdoc-kind-words" class="nav-item">Kind words</a>
+          <a href="#introduction" class="nav-item active">Introduction</a>
+          <!-- <a href="#custom-messaging" class="nav-item locked">Custom Messaging Templates</a> -->
+          <a href="#highlights" class="nav-item">Highlights</a>
+          <a href="#learnings" class="nav-item">Learnings</a>
+          <a href="#kind-words" class="nav-item">Kind words</a>
         </div>
 		  </div>
 		</nav>
@@ -59,18 +82,18 @@
 		<!-- Right Content -->
 		<main class="case-study-content">
       <!-- Mobile Back Button -->
-      <button class="mobile-back-button" onclick="history.back()">
+      <button class="mobile-back-button" onclick="goBackToPortfolio()">
         <span class="material-icons-round">chevron_left</span>
       </button>
       <!-- Section 1: Thumbnail GIF -->
-      <div class="content-container full-width">
+      <div class="content-container">
         <div class="thumbnail-container">
           <img src="../../images/work/zocdoc/cover.png" alt="Zocdoc Project" class="project-thumbnail">
         </div>
       </div>
 
 		    <!-- Section 2: Project Info -->
-      <div id="zocdoc-introduction" class="content-container centered">
+      <div id="introduction" class="content-container centered">
         <div class="project-title-section">
           <h1>Zocdoc — Summer '25 Internship</h1>
           <h3>Improving how providers manage their appointments</h3>
@@ -82,7 +105,7 @@
         </div>
       </div>
 
-      <div class="content-container full-width">
+      <div class="content-container">
         <div id="zocdocPasswordSection" class="zocdoc-password-section">
           <div class="zocdoc-password-container">
             <img src="../../images/logo.svg" alt="Logo" class="password-logo">
@@ -97,597 +120,197 @@
                   <span class="material-icons-round">key</span>
                 </button>
               </div>
+              <div id="zocdocErrorMessage" class="error-message" style="display: none;"></div>
             </form>
           </div>
         </div>
       </div>
 
-      <!-- CUSTOM MESSAGING STARTS HERE -->
-        <!-- ADD BACK THE LOCKED CLASS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-      <div id="custom-messaging" class="locked">
-        <div class="content-container full-width">
-          <div class="thumbnail-container">
-            <video src="../../images/work/zocdoc/messaging-templates/cover.mp4" alt="custom messaging" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
-            </video>
-          </div>
-        </div>
-
-        <div class="content-container centered">
-          <div class="project-title-section">
-            <h1>
-              Custom messaging templates
-            </h1>
-            <h3>
-              Giving providers more control and flexibility in patient communication
-            </h3>
-          </div>
-          <hr>
-          <div class="text-spacing">
-            <p>
-              I self-initiated and scoped this entire project after uncovering a gap in Zocdoc's provider-patient communication tools. Fully-customizable messaging didn't yet exist on the platform, and after digging into our UXR repository, I found rich prior research to build on.
-            </p>
-            <p>
-              I owned the project end-to-end from setting my own timeline, auditing the interface, synthesizing research, and designing the complete solution. I presented my work to the entire Design and Research team along with the VP of Design. The project was met with enthusiasm, as it brought fresh momentum to a complex challenge the team had struggled to address for years.
-            </p>
-          </div>
-          <hr>
-          <div class="row gap-16">
-            <div class="col-1-4">
-              <div class="meta-item">
-                <span class="meta-label">TIMELINE</span>
-                <span class="meta-value">4 weeks <br>July – August 2025
-                </span>
-              </div>
-            </div>
-            <div class="col-1-4">
-              <div class="meta-item">
-                <span class="meta-label">ROLE</span>
-                <span class="meta-value">Product Design Intern <br>Sole designer, End-to-end design</span>
-              </div>
-            </div>
-            <div class="col-1-4">
-              <div class="meta-item">
-                <span class="meta-label">FOR</span>
-                <span class="meta-value">Hot Take Project</span>
-              </div>
-            </div>
-            <div class="col-1-4">
-              <div class="meta-item">
-                <span class="meta-label">WITH HELP FROM</span>
-                <span class="meta-value">Design Mentor <br>2 Designers <br>Product Manager <br>VP of Design</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-		    <div id="solution">
-		      <div class="content-container padded">
-		        <div class="section-header">
-		          <p class="text-small">
-		          SOLUTION
-		          </p>
-		          <div class="text-spacing">
-		            <h2>
-		              Take control of every patient message
-		            </h2>
-		            <p>
-		              A messaging system that puts providers in charge—see every message, build and schedule targeted templates, and track all patient interactions in one unified timeline.
-		            </p>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-
-		    <div class="content-container">
-		      <div class="content-container centered">
-		        <div class="section-header">
-		          <p class="text-small">
-		            01 / HIGHLIGHT
-		          </p>
-		          <div class="text-spacing">
-		            <h3 class="h3-with-icon">
-		              No more hidden messages <img src="../../images/work/zocdoc/messaging-templates/unlock.svg" alt="unlock" class="h3-icon"> See everything in one place
-		            </h3>
-		            <p>
-		              Access all message types — automated confirmations, manual requests, and more — in one central hub. View, edit, and manage messages sent by Zocdoc or sent directly by you, all from one place.
-		            </p>
-		          </div>
-		        </div>
-		      </div>
-		      <div class="content-container padded zocdoc">
-		        <video src="../../images/work/zocdoc/messaging-templates/intake-settings.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="desktop-video">
-		        </video>
-		      </div>
-		    </div>
-
-
-		    <div class="content-container">
-		      <div class="content-container centered">
-		        <div class="section-header">
-		          <p class="text-small">
-		            02 / HIGHLIGHT
-		          </p>
-		          <div class="text-spacing">
-		            <h3 class="h3-with-icon">
-		              Build targeted templates <img src="../../images/work/zocdoc/messaging-templates/target.svg" alt="target" class="h3-icon"> that sent when you want
-		            </h3>
-		            <p>
-		              Create custom templates with dynamic placeholders. Target specific patient groups by visit reason, patient type, or location—then schedule messages to deliver before or after appointments, including post-visit follow-ups.
-		            </p>
-		          </div>
-		        </div>
-		      </div>
-		      <div class="content-container padded zocdoc">
-		        <video src="../../images/work/zocdoc/messaging-templates/create-template.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="desktop-video">
-		        </video>
-		      </div>
-		    </div>
-
-		    <div class="content-container">
-		      <div class="content-container centered">
-		        <div class="section-header">
-		          <p class="text-small">
-		            03 / HIGHLIGHT
-		          </p>
-		          <div class="text-spacing">
-		            <h3 class="h3-with-icon">
-		              Edit existing messages <img src="../../images/work/zocdoc/messaging-templates/writing-pencil.svg" alt="pencil" class="h3-icon"> anytime, ready to use
-		            </h3>
-		            <p>
-		              Take control of Zocdoc's pre-written messages. Update the base template in settings to set a new default, or customize the message for individual patients right before sending—without changing your saved template.
-		            </p>
-		          </div>
-		        </div>
-		      </div>
-		      <div class="content-container padded zocdoc">
-		        <video src="../../images/work/zocdoc/messaging-templates/send-patient-intake.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="desktop-video">
-		        </video>
-		      </div>
-		    </div>
-
-		    <div class="content-container">
-		      <div class="content-container centered">
-		        <div class="section-header">
-		          <p class="text-small">
-		            04 / HIGHLIGHT
-		          </p>
-		          <div class="text-spacing">
-		            <h3 class="h3-with-icon">
-		              Track all appointment activity <img src="../../images/work/zocdoc/messaging-templates/message.svg" alt="message" class="h3-icon"> per patient
-		            </h3>
-		            <p>
-		              Review complete communication history right from the appointment card. See what's been sent, check scheduled messages, monitor patient responses, and edit or cancel upcoming sends—all from the appointment card.
-		            </p>
-		          </div>
-		        </div>
-		      </div>
-		      <div class="content-container padded zocdoc">
-		        <video src="../../images/work/zocdoc/messaging-templates/monitor-activity.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="desktop-video">
-		        </video>
-		      </div>
-		    </div>
-
-		    <div id="research">
-		      <div class="content-container centered">
-		        <div class="section-header">
-		          <p class="text-small">
-		          THE EXISTING RESEARCH
-		          </p>
-		          <h2>
-		            Provider-patient messaging has been a long-standing gap at Zocdoc
-		          </h2>
-		        </div>
-		         <div class="row gap-32">
-		           <div class="padded-container gap-8 flex-1 flex-column">
-		             <img src="../../images/work/zocdoc/messaging-templates/calendar-cancel.svg" alt="message" style="width: 80px; height: 80px;">
-		             <h4>
-		               19% of cancellations stem from missing information
-		             </h4>
-		           </div>
-		           <div class="padded-container gap-8 flex-1 flex-column">
-		             <img src="../../images/work/zocdoc/messaging-templates/insurance-shield.svg" alt="message" style="width: 80px; height: 80px;">
-		             <h4>
-		               42% of appointments lack insurance details
-		             </h4>
-		           </div>
-		         </div>
-		        <p>
-		          <p>
-		            Through reviewing existing UXR, I uncovered a critical problem: communication breakdowns are costing Zocdoc appointments—and provider trust. Providers struggle to reach patients for essentials like insurance verification, yet Zocdoc's existing Request to Call button sees limited adoption.
-		        </p>
-		        <p>
-		          Why? Providers don't trust what they can't see or control.
-		        </p>
-		      </div>
-		    </div>
-
-		    <div class="content-container centered">
-		      <div class="section-header">
-		        <p class="text-small">
-		        THE EXISTING RESEARCH
-		        </p>
-		        <h2>
-		          Providers need messaging tools that are flexible, discoverable, and trustworthy
-		        </h2>
-		      </div>
-		      <img src="../../images/work/zocdoc/messaging-templates/provider-quotes.png" alt="">
-		      <p>
-		        Providers struggle to reach patients for essentials like insurance verification, yet Zocdoc's existing Request to Call button sees limited adoption. Why? Providers don't trust what they can't see or control.
-		      </p>
-		      <p>
-		        A critical constraint: Zocdoc messaging only works pre-appointment. Once the appointment ends, providers lose access to message patients through the platform—limiting follow-up care coordination and post-visit instructions.
-		      </p>
-		    </div>
-		  </div>  
-
-		    
-
-<!-- HEEEEEEEEELLLLLLLLLLLLLLLLLLLLLLLLLPPPPPPPPPPPPPPPPPP -->
-
-		    <!-- MODIFY APPOINTMENT FLOW -->
-		    <!-- <div class="locked" id="modify-flow">
-		      <div class="content-container full-width zocdoc">
-		        <div class="thumbnail-container">
-		          <video src="../../images/work/zocdoc/modify-flow/cover.mp4" alt="Modify Flow" alt="Modify Flow" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
-		          </video>
-		        </div>
-		      </div>
-
-		      <div class="content-container centered">
-		        <div class="project-title-section">
-		          <h1>Modify Appointment Flow</h1>
-		          <h3>Introducing hierarchy into the Modify flow to prevent errors when providers make changes</h3>
-		        </div>
-		        <hr>
-		        <div class="project-text-container">
-		          <p class="project-text">timeline</p>
-		        </div>
-		        <hr>
-		        <div class="row gap-16">
-		          <div class="col-4-4">
-		            <p class="text-small">TIMELINE</p>
-		            <p>8 weeks</p>
-		          </div>
-		          <div class="col-4-4">
-		            <p class="text-small">ROLE</p>
-		            <p>Product Design Intern</p>
-		          </div>
-		          <div class="col-4-4">
-		            <p class="text-small">TEAM</p>
-		            <p>Appointment Management</p>
-		          </div>
-		          <div class="col-4-4">
-		            <p class="text-small">TOOLS</p>
-		            <p>Figma, Miro, UserTesting</p>
-		          </div>
-		        </div>
-		      </div>
-
-		      <div class="content-container centered">
-		        <div class="project-content">
-		          <h2>Modify flow redesigned to account for form rules/hierarchy to streamline an error-free process.</h2>
-		          <p>
-		            I worked on the modify flow for providers , which included changing the entry point, which required adding in-product education, reorganizing the form fields, adding form element-specific error messages, and adding loading states to account for any backend processes, and more. This ultimately creates a more informative appointment modification process for providers. 
-		          </p>
-		        </div>
-		      </div>
-		      <div class="content-container padded zocdoc">
-		        <div class="thumbnail-container">
-		          <video src="../../images/work/zocdoc/modify-flow.mp4" alt="Modify Flow" alt="Modify Flow" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
-		          </video>
-		        </div>
-		      </div>
-
-		      <div class="content-container centered">
-		      <div class="project-content">
-		        <h2>5% of provider-rescheduled appointments have errors because Zocdoc allows users to make invalid selections</h2>
-		        <p>
-		          Unlike the patient booking flow, which has a clear hierarchy of first choosing a provider and then the visit reason and appointment date, the modify flow allows users to change date, location, provider, and visit reason attributes independently with no error-checking. 
-		        </p>
-		      </div>
-		      <div class="row gap-16">
-		          <div class="col">
-		              <img src="" alt="">
-		          </div>
-		          <div class="col">
-		              <img src="" alt="">
-		          </div>
-		      </div>
-		    </div>
-
-
-		    <div class="content-container centered">
-		      <h2>XXXX</h2>
-		      <div class="annotation-grid">
-		        <div class="annotation-container">
-		          <img src="" alt="">
-		          <div class="annotation-text">
-		            <p>
-		              Confusing entry point
-		            </p>
-		            <p>
-		              there are 4 diff ctas that make it seem like they're all doing diff things, but they all lead to the same modal
-		            </p>
-		          </div>
-		        </div>
-		        <div class="annotation-container">
-		          <img src="" alt="">
-		          <div class="annotation-text">
-		            <p>
-		              Aggressive micro-interaction experiences
-		            </p>
-		            <p>
-		              Providers are met with this banner and must check the checkbox in order to even see the form fields to modify their appointment.
-		            </p>
-		          </div>
-		        </div>
-		        <div class="annotation-container">
-		          <img src="" alt="">
-		          <div class="annotation-text">
-		            <p>
-		              Lack of error validation
-		            </p>
-		            <p>
-		              The only error validation taken into account was time, when other fields can also have errors
-		            </p>
-		          </div>
-		        </div>
-		        <div class="annotation-container">
-		          <img src="" alt="">
-		          <div class="annotation-text">
-		            <p>
-		              Information cut-off
-		            </p>
-		            <p>
-		              Key information like the required Reason for change is cut-off due to the vertical height of the modal not being optimized.
-		            </p>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-
-		    <div class="content-container padded zocdoc">
-		      <div class="thumbnail-container">
-		        <img src="../../images/work/zocdoc/old-flow-static.png" alt="" class="project-thumbnail" style="width: 101.4%;">
-		      </div>
-		      <p>Existing modify flow</p>
-		    </div>
-
-		    <div class="content-container centered">
-		      <h2>Jobs to be done</h2>
-		      <div class="padded-container">
-		        <div class="row gap-16">
-		          <div class="col-1-3">
-		            <div class="number-content-spacing">
-		              <h3 class="cursive">1.</h3>
-		              <img src="../../images/work/zocdoc/provider-a.svg" alt="">
-		            </div>
-		          </div>
-		          <div class="col-3-1">
-		            <p>
-		              As a Zocdoc practice user, I want my modifications to "follow the rules" - I should be prevented from selecting a series of changes that will fail the back end validation.
-		            </p>
-		          </div>
-		        </div>
-		        <hr>
-		        <div class="row gap-16">
-		          <div class="col-1-3">
-		            <div class="number-content-spacing">
-		              <h3 class="cursive">2.</h3>
-		              <img src="../../images/work/zocdoc/provider-b.svg" alt="">
-		            </div>
-		          </div>
-		          <div class="col-3-1">
-		            <p>
-		              As a Zocdoc practice user, I want to see helpful error messages explaining what went wrong (where possible) if something does get rejected.
-		            </p>
-		          </div>
-		        </div>
-		        <hr>
-		        <div class="row gap-16">
-		          <div class="col-1-3">
-		            <div class="number-content-spacing">
-		              <h3 class="cursive">3.</h3>
-		              <img src="../../images/work/zocdoc/zee.svg" alt="">
-		            </div>
-		          </div>
-		          <div class="col-3-1">
-		            <p>
-		              As Zocdoc, I want the practice user to have informed the patient before making changes to prevent the patient from being surprised when they show up.
-		            </p>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-		  </div> -->
-
 		    <!-- Photo Highlights Section -->
-    <div id="zocdoc-moments" class="content-container centered">
-      <div class="highlights-header">
-        <h2>Fun internship highlights</h2>
-        <button id="organizePolaroids" class="organize-btn">
-          <span class="material-icons-round">view_module</span>
-            Organize
-        </button>
-      </div>
-      <div class="polaroid-container full-width">
-        <div class="polaroid" style="transform: rotate(-5deg); top: 20px; left: 50px;">
-          <div class="polaroid-content">
-              <img src="../../images/work/zocdoc/day-1.png" alt="Day 1">
-          </div>
-          <div class="polaroid-text">first day of work!</div>
+      <div id="highlights" class="content-container centered">
+        <div class="highlights-header">
+          <h2>Internship highlights</h2>
+          <button id="organizePolaroids" class="organize-btn">
+            <span class="material-icons-round">view_module</span>
+              Organize
+          </button>
         </div>
-        <div class="polaroid" style="transform: rotate(3deg); top: 80px; left: 200px;">
-          <div class="polaroid-content">
-            <img src="../../images/work/zocdoc/summit-one-vanderbilt.png" alt="Summit One Vanderbilt">
-          </div>
-          <div class="polaroid-text">first intern outing</div>
-        </div>
-        <div class="polaroid" style="transform: rotate(-2deg); top: 150px; left: 100px;">
-          <div class="polaroid-content">
-            <img src="../../images/work/zocdoc/gyukaku.png" alt="Gukaku">
-          </div>
-          <div class="polaroid-text">Japanese BBQ with wagyu</div>
-        </div>
-        <div class="polaroid" style="transform: rotate(4deg); top: 40px; left: 300px;">
-          <div class="polaroid-content">
-            <img src="../../images/work/zocdoc/happy-medium.png" alt="Happy Medium">
-          </div>
-          <div class="polaroid-text">design team offsite</div>
-        </div>
-        <div class="polaroid" style="transform: rotate(-3deg); top: 120px; left: 350px;">
-          <div class="polaroid-content">
-            <img src="../../images/work/zocdoc/pizza.png" alt="Pizza" class="crop-bottom">
-          </div>
-          <div class="polaroid-text">pizza-making night</div>
-        </div>
-        <div class="polaroid" style="transform: rotate(8deg); top: 200px; left: 50px;">
-          <div class="polaroid-content">
-            <img src="../../images/work/zocdoc/molly-tea.png" alt="Molly Tea">
-          </div>
-          <div class="polaroid-text">missing this daily</div>
-        </div>
-        <div class="polaroid" style="transform: rotate(-6deg); top: 250px; left: 180px;">
-          <div class="polaroid-content">
-            <img src="../../images/work/zocdoc/hadestown.png" alt="Hadestown" class="crop-bottom">
-          </div>
-          <div class="polaroid-text">talented, brilliant, incredible</div>
-        </div>
-        <div class="polaroid" style="transform: rotate(12deg); top: 60px; left: 400px;">
-          <div class="polaroid-content">
-            <img src="../../images/work/zocdoc/studio-calmplex.png" alt="Studio Calmplex">
-          </div>
-          <div class="polaroid-text">5 weeks later...</div>
-        </div>
-        <div class="polaroid" style="transform: rotate(-8deg); top: 180px; left: 320px;">
-          <div class="polaroid-content">
-            <img src="../../images/work/zocdoc/pickleball.png" alt="Pickleball">
-          </div>
-          <div class="polaroid-text">pickleball at hackathon</div>
-        </div>
-        <div class="polaroid" style="transform: rotate(5deg); top: 300px; left: 250px;">
-          <div class="polaroid-content">
-              <img src="../../images/work/zocdoc/statue-of-liberty.png" alt="Statue of Liberty">
-          </div>
-          <div class="polaroid-text">average NYC tourist activities</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Key Learnings Section -->
-    <div id="zocdoc-learnings" class="content-container centered">
-      <h2>Key takeaways</h2>
-      <div class="row">
-        <div class="col-1-3">
-          <h5>"If it ain't broke, don't fix it"</h5>
-        </div>
-        <div class="col-3-1">
-          <p>At first, I wanted to redesign everything. But as I dug deeper, I began understanding why these decisions were made in the first place — sometimes it's better to patch and build than tearing it down.</p>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-1-3">
-          <h5>Ask questions, leverage your team</h5>
-        </div>
-        <div class="col-3-1">
-          <p>Reaching out to people who worked on earlier iterations gave me the context I was missing, unblocked me countless times, and often revealed stronger ways to approach my own work.</p>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-1-3">
-          <h5>You're the expert of your own work</h5>
-        </div>
-        <div class="col-3-1">
-          <p>When presenting, no one knows your projects better than you — you've put in the hours, you've done all the thinking — now you just need to trust your work and share it with confidence.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mentor Note Section -->
-    <div id="zocdoc-kind-words" class="content-container centered">
-      <div class="mentor-note-card">
-        <div class="sticky-note">From my mentor/manager</div>
-        <div class="mentor-profile">
-          <div class="profile-picture">
-            <img src="../../images/work/zocdoc/peri.jpg" alt="Peri Shechtman">
-            <div class="overlay-svg">
-              <svg width="108" height="47" viewBox="0 0 108 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M81.2077 0.352539C81.4464 0.352539 81.6398 0.545769 81.6398 0.784131C81.6398 4.13389 82.7347 5.94214 83.9385 6.92367C85.1609 7.9204 86.5648 8.12119 87.2571 8.12119C87.4958 8.12119 87.6892 8.31442 87.6892 8.55278C87.6892 8.79114 87.4958 8.98437 87.2571 8.98437C85.7672 8.98437 84.6969 9.29518 83.9221 9.77028C83.1497 10.244 82.6398 10.9 82.3005 11.6448C81.637 13.1014 81.6385 14.856 81.6397 16.162L81.6398 16.3214C81.6398 16.5598 81.4464 16.753 81.2077 16.753C80.9691 16.753 80.7756 16.5598 80.7756 16.3214C80.7756 13.7964 80.161 12.0415 79.1811 10.923C78.2081 9.81232 76.825 9.2721 75.1583 9.2721C74.9276 9.2721 74.7376 9.09113 74.7267 8.86099C74.7157 8.63085 74.8877 8.43271 75.1173 8.41086C76.5591 8.27371 77.6145 7.8314 78.3937 7.2384C79.1746 6.64415 79.7007 5.88133 80.0557 5.07092C80.7716 3.43631 80.7756 1.64986 80.7756 0.784131C80.7756 0.545769 80.9691 0.352539 81.2077 0.352539Z" fill="#FED337"/>
-                <path d="M97.1552 19.3443C97.5457 19.3443 97.8622 19.6605 97.8622 20.0505C97.8622 25.5314 99.6538 28.4901 101.623 30.0961C103.624 31.727 105.921 32.0555 107.053 32.0555C107.444 32.0555 107.76 32.3717 107.76 32.7617C107.76 33.1517 107.444 33.4679 107.053 33.4679C104.616 33.4679 102.864 33.9764 101.597 34.7538C100.333 35.5289 99.4985 36.6022 98.9433 37.8209C97.8576 40.2042 97.8602 43.0751 97.8621 45.212L97.8622 45.4729C97.8622 45.863 97.5457 46.1791 97.1552 46.1791C96.7647 46.1791 96.4482 45.863 96.4482 45.4729C96.4482 41.3414 95.4425 38.4701 93.8393 36.6399C92.2472 34.8226 89.9842 33.9387 87.2571 33.9387C86.8796 33.9387 86.5688 33.6426 86.5508 33.266C86.5329 32.8895 86.8143 32.5652 87.19 32.5295C89.5491 32.3051 91.276 31.5814 92.5509 30.6111C93.8286 29.6388 94.6894 28.3906 95.2702 27.0646C96.4417 24.39 96.4482 21.467 96.4482 20.0505C96.4482 19.6605 96.7647 19.3443 97.1552 19.3443Z" fill="#FED337"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5587 19.8022C5.5587 19.6105 5.40316 19.4552 5.21129 19.4552C5.01941 19.4552 4.86387 19.6105 4.86387 19.8022C4.86387 20.4982 4.86068 21.9346 4.28501 23.2488C3.99961 23.9004 3.57663 24.5138 2.94879 24.9916C2.32228 25.4683 1.47373 25.824 0.314487 25.9342C0.129858 25.9518 -0.00840392 26.1111 0.000397828 26.2962C0.0091996 26.4812 0.161961 26.6267 0.347425 26.6267C1.68751 26.6267 2.79955 27.061 3.58187 27.9541C4.36969 28.8534 4.86387 30.2643 4.86387 32.2945C4.86387 32.4862 5.01941 32.6415 5.21129 32.6415C5.40316 32.6415 5.5587 32.4862 5.5587 32.2945L5.55863 32.1663C5.55769 31.1163 5.55643 29.7055 6.08995 28.5344C6.36275 27.9356 6.77267 27.4081 7.39376 27.0272C8.01671 26.6453 8.87721 26.3954 10.0751 26.3954C10.267 26.3954 10.4226 26.24 10.4226 26.0483C10.4226 25.8567 10.267 25.7013 10.0751 25.7013C9.51853 25.7013 8.38979 25.5399 7.40693 24.7385C6.43905 23.9493 5.5587 22.4954 5.5587 19.8022ZM4.92159 23.527C5.05501 23.2224 5.16049 22.9131 5.24388 22.608C5.62464 23.842 6.25529 24.6954 6.96753 25.2761C7.33646 25.5769 7.72179 25.8001 8.09672 25.9644C7.69749 26.0847 7.3435 26.2437 7.03022 26.4358C6.27196 26.9008 5.77751 27.5445 5.4575 28.247C5.30652 28.5784 5.19381 28.9248 5.1097 29.274C4.86645 28.5725 4.52827 27.9805 4.10478 27.4971C3.57007 26.8867 2.9126 26.4646 2.16958 26.2141C2.62518 26.0346 3.02313 25.8075 3.3699 25.5436C4.11002 24.9804 4.59902 24.2635 4.92159 23.527Z" fill="#FED337"/>
-              </svg>
+        <div class="polaroid-container">
+          <div class="polaroid" style="transform: rotate(-5deg); top: 20px; left: 50px;">
+            <div class="polaroid-content">
+                <img src="../../images/work/zocdoc/day-1.png" alt="Day 1">
             </div>
+            <div class="polaroid-text">first day of work!</div>
           </div>
-          <div class="mentor-info">
-              <h4>Peri Shechtman</h4>
-              <p class="text-small">Lead Product Designer</p>
+          <div class="polaroid" style="transform: rotate(3deg); top: 80px; left: 200px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/summit-one-vanderbilt.png" alt="Summit One Vanderbilt">
+            </div>
+            <div class="polaroid-text">first intern outing</div>
           </div>
-        </div>
-        <div class="mentor-testimonial">
-          <p>
-            Cynthia!!! It's been such a joy working with you this summer. You've brought a level of positivity, curiosity, and dedication that makes you stand out... You're <strong>Proactive & Attentive</strong>, <strong>Receptive to Feedback</strong>, highly <strong>Organized</strong> with strong <strong>Rationale</strong>, and a <strong>Collaborative</strong>, thoughtful partner in critiques... Your visual decks for the Hot Take and Intern Demos are so impressive..."
-          </p>
-          <p>
-            It's been amazing to see your skills and confidence grow over the summer. You've made a real impact on the team and with me. I know you'll bring that same energy and thoughtfulness to whatever comes next.
-          </p>
+          <div class="polaroid" style="transform: rotate(-2deg); top: 150px; left: 100px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/gyukaku.png" alt="Gukaku">
+            </div>
+            <div class="polaroid-text">Japanese BBQ with wagyu</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(4deg); top: 40px; left: 300px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/happy-medium.png" alt="Happy Medium">
+            </div>
+            <div class="polaroid-text">design team offsite</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-3deg); top: 120px; left: 350px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/pizza.png" alt="Pizza" class="crop-bottom">
+            </div>
+            <div class="polaroid-text">pizza-making night</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(8deg); top: 200px; left: 50px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/molly-tea.png" alt="Molly Tea">
+            </div>
+            <div class="polaroid-text">missing this daily</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-6deg); top: 250px; left: 180px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/hadestown.png" alt="Hadestown" class="crop-bottom">
+            </div>
+            <div class="polaroid-text">talented, brilliant, incredible</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(12deg); top: 60px; left: 400px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/studio-calmplex.png" alt="Studio Calmplex">
+            </div>
+            <div class="polaroid-text">dabbled in ceramics</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-8deg); top: 180px; left: 320px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/pickleball.png" alt="Pickleball">
+            </div>
+            <div class="polaroid-text">pickleball at hackathon</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(5deg); top: 300px; left: 250px;">
+            <div class="polaroid-content">
+                <img src="../../images/work/zocdoc/statue-of-liberty.png" alt="Statue of Liberty">
+            </div>
+            <div class="polaroid-text">average NYC tourist activities</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Thank You Section -->
-    <div id="" class="content-container centered">
-      <div class="padded-container">
-        <div class="row gap-16">
+      <!-- Key Learnings Section -->
+      <div id="learnings" class="content-container centered">
+        <h2>Key takeaways</h2>
+        <div class="row">
           <div class="col-1-3">
-            <p class="cursive">Thank you</p>
+            <h5>"If it ain't broke, don't fix it"</h5>
           </div>
           <div class="col-3-1">
+            <p>At first, I wanted to redesign everything. But as I dug deeper, I began understanding why these decisions were made in the first place — sometimes it's better to patch and build than tearing it down.</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>Ask questions, leverage your team</h5>
+          </div>
+          <div class="col-3-1">
+            <p>Reaching out to people who worked on earlier iterations gave me the context I was missing, unblocked me countless times, and often revealed stronger ways to approach my own work.</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>You're the expert of your own work</h5>
+          </div>
+          <div class="col-3-1">
+            <p>When presenting, no one knows your projects better than you — you've put in the hours, you've done all the thinking — now you just need to trust your work and share it with confidence.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentor Note Section -->
+      <div id="kind-words" class="content-container centered">
+        <div class="mentor-note-card">
+          <div class="sticky-note">From my mentor/manager</div>
+          <div class="mentor-profile">
+            <div class="profile-picture">
+              <img src="../../images/work/zocdoc/peri.jpg" alt="Peri Shechtman">
+              <div class="overlay-svg">
+                <svg width="108" height="47" viewBox="0 0 108 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M81.2077 0.352539C81.4464 0.352539 81.6398 0.545769 81.6398 0.784131C81.6398 4.13389 82.7347 5.94214 83.9385 6.92367C85.1609 7.9204 86.5648 8.12119 87.2571 8.12119C87.4958 8.12119 87.6892 8.31442 87.6892 8.55278C87.6892 8.79114 87.4958 8.98437 87.2571 8.98437C85.7672 8.98437 84.6969 9.29518 83.9221 9.77028C83.1497 10.244 82.6398 10.9 82.3005 11.6448C81.637 13.1014 81.6385 14.856 81.6397 16.162L81.6398 16.3214C81.6398 16.5598 81.4464 16.753 81.2077 16.753C80.9691 16.753 80.7756 16.5598 80.7756 16.3214C80.7756 13.7964 80.161 12.0415 79.1811 10.923C78.2081 9.81232 76.825 9.2721 75.1583 9.2721C74.9276 9.2721 74.7376 9.09113 74.7267 8.86099C74.7157 8.63085 74.8877 8.43271 75.1173 8.41086C76.5591 8.27371 77.6145 7.8314 78.3937 7.2384C79.1746 6.64415 79.7007 5.88133 80.0557 5.07092C80.7716 3.43631 80.7756 1.64986 80.7756 0.784131C80.7756 0.545769 80.9691 0.352539 81.2077 0.352539Z" fill="#FED337"/>
+                  <path d="M97.1552 19.3443C97.5457 19.3443 97.8622 19.6605 97.8622 20.0505C97.8622 25.5314 99.6538 28.4901 101.623 30.0961C103.624 31.727 105.921 32.0555 107.053 32.0555C107.444 32.0555 107.76 32.3717 107.76 32.7617C107.76 33.1517 107.444 33.4679 107.053 33.4679C104.616 33.4679 102.864 33.9764 101.597 34.7538C100.333 35.5289 99.4985 36.6022 98.9433 37.8209C97.8576 40.2042 97.8602 43.0751 97.8621 45.212L97.8622 45.4729C97.8622 45.863 97.5457 46.1791 97.1552 46.1791C96.7647 46.1791 96.4482 45.863 96.4482 45.4729C96.4482 41.3414 95.4425 38.4701 93.8393 36.6399C92.2472 34.8226 89.9842 33.9387 87.2571 33.9387C86.8796 33.9387 86.5688 33.6426 86.5508 33.266C86.5329 32.8895 86.8143 32.5652 87.19 32.5295C89.5491 32.3051 91.276 31.5814 92.5509 30.6111C93.8286 29.6388 94.6894 28.3906 95.2702 27.0646C96.4417 24.39 96.4482 21.467 96.4482 20.0505C96.4482 19.6605 96.7647 19.3443 97.1552 19.3443Z" fill="#FED337"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5587 19.8022C5.5587 19.6105 5.40316 19.4552 5.21129 19.4552C5.01941 19.4552 4.86387 19.6105 4.86387 19.8022C4.86387 20.4982 4.86068 21.9346 4.28501 23.2488C3.99961 23.9004 3.57663 24.5138 2.94879 24.9916C2.32228 25.4683 1.47373 25.824 0.314487 25.9342C0.129858 25.9518 -0.00840392 26.1111 0.000397828 26.2962C0.0091996 26.4812 0.161961 26.6267 0.347425 26.6267C1.68751 26.6267 2.79955 27.061 3.58187 27.9541C4.36969 28.8534 4.86387 30.2643 4.86387 32.2945C4.86387 32.4862 5.01941 32.6415 5.21129 32.6415C5.40316 32.6415 5.5587 32.4862 5.5587 32.2945L5.55863 32.1663C5.55769 31.1163 5.55643 29.7055 6.08995 28.5344C6.36275 27.9356 6.77267 27.4081 7.39376 27.0272C8.01671 26.6453 8.87721 26.3954 10.0751 26.3954C10.267 26.3954 10.4226 26.24 10.4226 26.0483C10.4226 25.8567 10.267 25.7013 10.0751 25.7013C9.51853 25.7013 8.38979 25.5399 7.40693 24.7385C6.43905 23.9493 5.5587 22.4954 5.5587 19.8022ZM4.92159 23.527C5.05501 23.2224 5.16049 22.9131 5.24388 22.608C5.62464 23.842 6.25529 24.6954 6.96753 25.2761C7.33646 25.5769 7.72179 25.8001 8.09672 25.9644C7.69749 26.0847 7.3435 26.2437 7.03022 26.4358C6.27196 26.9008 5.77751 27.5445 5.4575 28.247C5.30652 28.5784 5.19381 28.9248 5.1097 29.274C4.86645 28.5725 4.52827 27.9805 4.10478 27.4971C3.57007 26.8867 2.9126 26.4646 2.16958 26.2141C2.62518 26.0346 3.02313 25.8075 3.3699 25.5436C4.11002 24.9804 4.59902 24.2635 4.92159 23.527Z" fill="#FED337"/>
+                </svg>
+              </div>
+            </div>
+            <div class="mentor-info">
+                <h4>Peri Shechtman</h4>
+                <p class="text-small">Lead Product Designer</p>
+            </div>
+          </div>
+          <div class="mentor-testimonial">
             <p>
-              Peri, Appointment Management Pod, Design Appointment team, Intern Committee, Design Department, Zinterns '25, & more
+              Cynthia!!! It's been such a joy working with you this summer. You've brought a level of positivity, curiosity, and dedication that makes you stand out... You're <strong>Proactive & Attentive</strong>, <strong>Receptive to Feedback</strong>, highly <strong>Organized</strong> with strong <strong>Rationale</strong>, and a <strong>Collaborative</strong>, thoughtful partner in critiques... Your visual decks for the Hot Take and Intern Demos are so impressive..."
+            </p>
+            <p>
+              It's been amazing to see your skills and confidence grow over the summer. You've made a real impact on the team and with me. I know you'll bring that same energy and thoughtfulness to whatever comes next.
             </p>
           </div>
         </div>
       </div>
-    </div>
 
-      <!-- Case Study Footer -->
-    <footer class="case-study-footer">
-      <div class="content-container padded">
-        <div class="case-study-footer-main">
-          <div class="case-study-footer-col1">
-            <h5 class="case-study-footer-text">Interested in my work? Let's create <span class="cursive">together :)</span></h5>
-            <div class="case-study-footer-email-container-wrapper" onclick="copyEmail(event)">
-              <div class="case-study-footer-email-container-background"></div>
-              <div class="case-study-footer-email-container">
-                <span class="case-study-footer-email-label">mailto:</span>
-                <div class="case-study-footer-email-spacer"></div>
-                <span class="case-study-footer-email-address">cynthiawangjy123@gmail.com</span>
-                <button class="case-study-footer-copy-button">
-                  <span class="material-icons-round case-study-footer-copy-icon">content_copy</span>
-                </button>
-              </div>
+      <!-- Thank You Section -->
+      <div id="" class="content-container centered">
+        <div class="padded-container">
+          <div class="row gap-16">
+            <div class="col-1-3">
+              <p class="cursive">Thank you</p>
             </div>
-          </div>
-          <div class="case-study-footer-col2">
-              <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
-                  LinkedIn
-                  <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
-              </a>
-              <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
-                  Resume
-                  <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
-              </a>
+            <div class="col-3-1">
+              <p>
+                Peri, Appointment Management Pod, Design Appointment team, Intern Committee, Design Department, Zinterns '25, & more
+              </p>
+            </div>
           </div>
         </div>
       </div>
-        <!-- <div>
-          <p class="case-study-footer-timestamp">Cynthia was last here on October 6</p>
-        </div> -->
-    </footer>
-  </main>
+    </main>
 	</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="right">
+        <p>Interested in my work? Let's create <span class="cursive">together :)</span></p>
+        <div class="footer-email-container-wrapper" onclick="copyEmail(event)">
+          <div class="footer-email-container-background"></div>
+          <div class="footer-email-container">
+            <span class="footer-email-label">mailto:</span>
+            <div class="footer-email-spacer"></div>
+            <span class="footer-email-address">cynthiawangjy123@gmail.com</span>
+            <button class="footer-copy-button">
+              <span class="material-icons-round footer-copy-icon">content_copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="left">
+          <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="footer-link">
+              LinkedIn
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer-link">
+              Resume
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+      </div>
+    </div>
+    <div class="footer-note">
+      Designed and developed by Cynthia. Last updated in October 2025. 
+    </div>
+  </footer>
 
 	<!-- Right Side Blur -->
 	<div class="case-study-blur"></div>
@@ -696,5 +319,11 @@
 	<div class="grain-overlay"></div>
 
 	<script src="../../script.js"></script>
+	<script>
+		// Function to go back to the main portfolio page
+		function goBackToPortfolio() {
+			window.location.href = '../../#work';
+		}
+	</script>
 </body>
 </html>

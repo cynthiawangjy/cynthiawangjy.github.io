@@ -21,8 +21,31 @@
 	
 	<!-- GSAP -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	
+	<!-- Custom highlight colors -->
+	<script>
+		// Force custom highlight colors for Immuta Copilot page
+		document.addEventListener('DOMContentLoaded', function() {
+			const style = document.createElement('style');
+			style.textContent = `
+				::selection {
+					background: #F8F3EA !important;
+				}
+				::-moz-selection {
+					background: #F8F3EA !important;
+				}
+				*::selection {
+					background: #F8F3EA !important;
+				}
+				*::-moz-selection {
+					background: #F8F3EA !important;
+				}
+			`;
+			document.head.appendChild(style);
+		});
+	</script>
 </head>
-<body class="case-study">
+<body class="case-study policies">
 	<!-- Top Navigation -->
 	<header class="case-study-top-nav">
 		<ul class="nav-links">
@@ -57,74 +80,105 @@
 
 		<!-- Right Content -->
 		<main class="case-study-content">
-		    <!-- Mobile Back Button -->
-		    <button class="mobile-back-button" onclick="history.back()">
-		        <span class="material-icons-round">chevron_left</span>
-		    </button>
-		    <section id="introduction" class="zocdoc-section active">
-		        <h1>Immuta Copilot</h1>
-		        <p>Project content will go here...</p>
-		    </section>
-		    
-		    <section id="problem" class="zocdoc-section">
-		        <h2>Problem</h2>
-		        <p>Problem content...</p>
-		    </section>
-		    
-		    <section id="solution" class="zocdoc-section">
-		        <h2>Solution</h2>
-		        <p>Solution content...</p>
-		    </section>
-		    
-		    <section id="features" class="zocdoc-section">
-		        <h2>Features</h2>
-		        <p>Features content...</p>
-		    </section>
-		    
-		    <section id="results" class="zocdoc-section">
-		        <h2>Results</h2>
-		        <p>Results content...</p>
-		    </section>
-		    
-		    <section id="learnings" class="zocdoc-section">
-		        <h2>Learnings</h2>
-		        <p>Learnings content...</p>
-		    </section>
+      <!-- Mobile Back Button -->
+      <button class="mobile-back-button" onclick="history.back()">
+          <span class="material-icons-round">chevron_left</span>
+      </button>
+      
+      <div class="content-container">
+        <video muted loop autoplay playsinline preload="metadata">
+          <source src="../../images/work/copilot/cover.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-		    <!-- Case Study Footer -->
-		    <footer class="case-study-footer">
-		        <div class="content-container padded">
-		            <div class="case-study-footer-main">
-		                <div class="case-study-footer-col1">
-		                    <h5 class="case-study-footer-text">Interested in my work? Let's create <span class="cursive">together :)</span></h5>
-		                    <div class="case-study-footer-email-container-wrapper" onclick="copyEmail(event)">
-		                        <div class="case-study-footer-email-container-background"></div>
-		                        <div class="case-study-footer-email-container">
-		                            <span class="case-study-footer-email-label">mailto:</span>
-		                            <div class="case-study-footer-email-spacer"></div>
-		                            <span class="case-study-footer-email-address">cynthiawangjy123@gmail.com</span>
-		                            <button class="case-study-footer-copy-button">
-		                                <span class="material-icons-round case-study-footer-copy-icon">content_copy</span>
-		                            </button>
-		                        </div>
-		                    </div>
-		                </div>
-		                <div class="case-study-footer-col2">
-		                    <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
-		                        LinkedIn
-		                        <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
-		                    </a>
-		                    <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
-		                        Resume
-		                        <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
-		                    </a>
-		                </div>
-		            </div>
-		            <!-- <div>
-		                <p class="case-study-footer-timestamp">Cynthia was last here on October 6</p>
-		            </div> -->
-		        </div>
-		    </footer>
+      <!-- Section 2: Project Info -->
+      <div id="introduction" class="content-container centered">
+        <div class="project-title-section">
+        <h1>Immuta — Policies Overview Dashboard</h1>
+          <h3>
+            Helping businesses visualize and manage their data policies
+          </h3>
+        </div>
+        <hr>
+        <div class="text-spacing">
+          <p>
+            During my internship at Immuta, I was initially tasked with improving how users monitored policy synchronization — the process that enforces data access rules across connected sources.
+          </p>
+          <p>
+            However, what started as a small visibility fix revealed a much larger gap: users lacked a clear understanding of how their policies behaved across the platform. I expanded the project into a 0→1 Policies Overview Dashboard, designed to give organizations real-time insight into policy health, synchronization progress, and impact — bringing greater transparency and control to Immuta’s data governance ecosystem.
+          </p>
+        </div>
+        <hr>
+        <div class="row gap-32">
+          <div class="col-1-4">
+            <div class="meta-item">
+              <span class="meta-label">TIMELINE</span>
+              <span class="meta-value">6 weeks (within 12-week internship)</span>
+              <span class="meta-value">July – August 2024</span>
+            </div>
+          </div>
+          <div class="col-1-4">
+            <div class="meta-item">
+              <span class="meta-label">ROLE</span>
+              <span class="meta-value">UX Design Intern</span>
+              <span class="meta-value">Data Visualization, Visual Design, Product Thinking</span>
+            </div>
+          </div>
+          <div class="col-1-4">
+            <div class="meta-item">
+              <span class="meta-label">FOR</span>
+              <span class="meta-value">Businesses to monitor their data in real time</span>
+            </div>
+          </div>
+          <div class="col-1-4">
+            <div class="meta-item">
+              <span class="meta-label">WITH</span>
+              <span class="meta-value">1 Design Manager</span>
+              <span class="meta-value">1 Designer</span>
+              <span class="meta-value">2 Product Managers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <h2>
+          Case study in progress
+        </h2>
+      </div>
+      
+      <footer class="footer">
+        <div class="footer-main">
+          <div class="right">
+            <h5 class="footer-text">Interested in my work? Let's create <span class="cursive">together :)</span></h5>
+            <div class="footer-email-container-wrapper" onclick="copyEmail(event)">
+              <div class="footer-email-container-background"></div>
+              <div class="footer-email-container">
+                <span class="footer-email-label">mailto:</span>
+                <div class="footer-email-spacer"></div>
+                <span class="footer-email-address">cynthiawangjy123@gmail.com</span>
+                <button class="footer-copy-button">
+                  <span class="material-icons-round footer-copy-icon">content_copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="left">
+              <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                  LinkedIn
+                  <span class="material-icons-round footer-link-icon">arrow_outward</span>
+              </a>
+              <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer-link">
+                  Resume
+                  <span class="material-icons-round footer-link-icon">arrow_outward</span>
+              </a>
+          </div>
+        </div>
+        <div class="footer-note">
+          Designed and developed by Cynthia. Last updated in October 2025. 
+        </div>
+      </footer>
 		</main>
 	</div>
 

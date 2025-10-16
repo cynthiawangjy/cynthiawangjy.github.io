@@ -21,8 +21,31 @@
 	
 	<!-- GSAP -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	
+	<!-- Custom highlight colors -->
+	<script>
+		// Force custom highlight colors for CozyLink page
+		document.addEventListener('DOMContentLoaded', function() {
+			const style = document.createElement('style');
+			style.textContent = `
+				::selection {
+					background: #D9F4E7 !important;
+				}
+				::-moz-selection {
+					background: #D9F4E7 !important;
+				}
+				*::selection {
+					background: #D9F4E7 !important;
+				}
+				*::-moz-selection {
+					background: #D9F4E7 !important;
+				}
+			`;
+			document.head.appendChild(style);
+		});
+	</script>
 </head>
-<body class="case-study">
+<body class="case-study cozylink">
 	<!-- Top Navigation -->
 	<header class="case-study-top-nav">
 		<ul class="nav-links">
@@ -36,143 +59,158 @@
 	<div class="case-study-layout">
 		<!-- Left Navigation -->
 		<nav class="case-study-nav">
-		    <div class="nav-content">
-		        <button class="back-button" onclick="history.back()">
-		            <span class="material-icons-round">chevron_left</span>
-		        </button>
-		        
-		        <div class="nav-items">
-		            <a href="#introduction" class="nav-item active">
-		                <div class="nav-indicator"></div>
-		                Introduction
-		            </a>
-		            <a href="#problem" class="nav-item">Problem</a>
-		            <a href="#solution" class="nav-item">Solution</a>
-		            <a href="#features" class="nav-item">Features</a>
-		            <a href="#results" class="nav-item">Results</a>
-		            <a href="#learnings" class="nav-item">Learnings</a>
-		        </div>
-		    </div>
+      <div class="nav-content">
+        <button class="back-button" onclick="history.back()">
+          <span class="material-icons-round">chevron_left</span>
+        </button>
+        
+        <div class="nav-items">
+          <a href="#introduction" class="nav-item active">
+            <div class="nav-indicator"></div>
+            Introduction
+          </a>
+          <!-- <a href="#problem" class="nav-item">Problem</a>
+          <a href="#solution" class="nav-item">Solution</a>
+          <a href="#features" class="nav-item">Features</a>
+          <a href="#results" class="nav-item">Results</a>
+          <a href="#learnings" class="nav-item">Learnings</a> -->
+        </div>
+      </div>
 		</nav>
 
 		<!-- Right Content -->
 		<main class="case-study-content">
-		    <!-- Mobile Back Button -->
-		    <button class="mobile-back-button" onclick="history.back()">
-		        <span class="material-icons-round">chevron_left</span>
-		    </button>
-		    <section id="introduction" class="zocdoc-section active">
-		        <div class="content-container full-width">
-		            <div class="thumbnail-container">
-		                <video src="../../images/work/cozylink/roommate-profile.mp4" alt="CozyLink Housing Rental App" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
-		                </video>
-		            </div>
-		        </div>
-		        
-		        <div class="content-container centered">
-		            <div class="project-title-section">
-		                <h1>CozyLink</h1>
-		                <h3>Building a housing rental app for college students, including a design system and brand illustrations</h3>
-		            </div>
-		            
-		            <div class="project-meta">
-		                <div class="meta-item">
-		                    <span class="meta-label">Period</span>
-		                    <span class="meta-value">2023 – 2024</span>
-		                </div>
-		                <div class="meta-item">
-		                    <span class="meta-label">Role</span>
-		                    <span class="meta-value">UI/UX Designer & Developer</span>
-		                </div>
-		            </div>
-		        </div>
-		    </section>
-		    
-		    <section id="problem" class="zocdoc-section">
-		        <div class="content-container centered">
-		            <h2>Problem</h2>
-		            <p>College students face significant challenges finding suitable housing and compatible roommates. Existing platforms lack user-friendly interfaces and don't effectively match students based on lifestyle preferences and compatibility.</p>
-		        </div>
-		    </section>
-		    
-		    <section id="solution" class="zocdoc-section">
-		        <div class="content-container full-width">
-		            <div class="thumbnail-container">
-		                <video src="../../images/work/cozylink/customize-avatar.mp4" alt="Customize Avatar Feature" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
-		                </video>
-		            </div>
-		        </div>
-		        
-		        <div class="content-container centered">
-		            <h2>Solution</h2>
-		            <p>CozyLink is a comprehensive housing rental app designed specifically for college students, featuring an intuitive interface, advanced matching algorithms, and a complete design system with custom illustrations.</p>
-		        </div>
-		    </section>
-		    
-		    <section id="features" class="zocdoc-section">
-		        <div class="content-container centered">
-		            <h2>Key Features</h2>
-		            <ul>
-		                <li>Customizable avatar system for personalization</li>
-		                <li>Advanced roommate matching algorithm</li>
-		                <li>Comprehensive property listings with detailed information</li>
-		                <li>Integrated messaging system</li>
-		                <li>Custom design system and brand illustrations</li>
-		                <li>Mobile-first responsive design</li>
-		            </ul>
-		        </div>
-		    </section>
-		    
-		    <section id="results" class="zocdoc-section">
-		        <div class="content-container centered">
-		            <h2>Results</h2>
-		            <p>CozyLink successfully addresses the housing challenges faced by college students through a user-centered design approach. The app's intuitive interface and comprehensive feature set provide students with an effective platform for finding both housing and compatible roommates.</p>
-		        </div>
-		    </section>
-		    
-		    <section id="learnings" class="zocdoc-section">
-		        <div class="content-container centered">
-		            <h2>Learnings</h2>
-		            <p>This project taught me the importance of understanding user needs through research and creating comprehensive design systems. Building a complete app from concept to implementation reinforced the value of iterative design and user testing in creating effective digital solutions.</p>
-		        </div>
-		    </section>
+      <!-- Mobile Back Button -->
+      <button class="mobile-back-button" onclick="history.back()">
+        <span class="material-icons-round">chevron_left</span>
+      </button>
 
-		    <!-- Case Study Footer -->
-		    <footer class="case-study-footer">
-		        <div class="content-container padded">
-		            <div class="case-study-footer-main">
-		                <div class="case-study-footer-col1">
-		                    <h5 class="case-study-footer-text">Interested in my work? Let's create <span class="cursive">together :)</span></h5>
-		                    <div class="case-study-footer-email-container-wrapper" onclick="copyEmail(event)">
-		                        <div class="case-study-footer-email-container-background"></div>
-		                        <div class="case-study-footer-email-container">
-		                            <span class="case-study-footer-email-label">mailto:</span>
-		                            <div class="case-study-footer-email-spacer"></div>
-		                            <span class="case-study-footer-email-address">cynthiawangjy123@gmail.com</span>
-		                            <button class="case-study-footer-copy-button">
-		                                <span class="material-icons-round case-study-footer-copy-icon">content_copy</span>
-		                            </button>
-		                        </div>
-		                    </div>
-		                </div>
-		                <div class="case-study-footer-col2">
-		                    <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
-		                        LinkedIn
-		                        <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
-		                    </a>
-		                    <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="case-study-footer-link">
-		                        Resume
-		                        <span class="material-icons-round case-study-footer-link-icon">arrow_outward</span>
-		                    </a>
-		                </div>
-		            </div>
-		            <!-- <div>
-		                <p class="case-study-footer-timestamp">Cynthia was last here on October 6</p>
-		            </div> -->
-		        </div>
-		    </footer>
+      <!-- Section 1: Full-width Cover Video -->
+      <div class="content-container">
+        <video muted loop autoplay playsinline preload="metadata">
+          <source src="../../images/work/cozylink/cover.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+		    
+      <!-- Section 2: Project Info -->
+      <div id="introduction" class="content-container centered">
+        <div class="project-title-section">
+          <h1>CozyLink — An all-in-one housing app</h1>
+          <h3>
+            Helping college students navigate the housing rental process
+          </h3>
+        </div>
+        <hr>
+        <div class="text-spacing">
+          <p>
+            As the Founding Designer at an early-stage, student-led startup, I led CozyLink’s 0→1 design, from conceptualization and branding to final prototypes, while also supporting user research.
+          </p>
+        </div>
+        <hr>
+        <div class="row gap-32">
+          <div class="col-1-4">
+            <div class="meta-item">
+              <span class="meta-label">TIMELINE</span>
+              <span class="meta-value">7 months</span>
+              <span class="meta-value">Oct 2023 – May 2024
+              </span>
+            </div>
+          </div>
+          <div class="col-1-4">
+            <div class="meta-item">
+              <span class="meta-label">ROLE</span>
+              <span class="meta-value">Product Designer</span>
+              <span class="meta-value">
+                Product Strategy, Visual Design, Interaction Design, Design Systems
+              </span>
+            </div>
+          </div>
+          <div class="col-1-4">
+            <div class="meta-item">
+              <span class="meta-label">FOR</span>
+              <span class="meta-value">College students considering off-campus housing</span>
+            </div>
+          </div>
+          <div class="col-1-4">
+            <div class="meta-item">
+              <span class="meta-label">WITH</span>
+              <span class="meta-value">
+                2 Founders
+              </span>
+              <span class="meta-value">
+                2 Developers
+              </span>
+              <span class="meta-value">
+                1 Design Strategist
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="content-container centered">
+        <div class="section-header">
+          <p class="small">
+            THE SOLUTION
+          </p>
+          <h2>
+            Core flows that help students discover properties, find roommates, and organize their housing search.
+          </h2>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="small">
+            01 / Surfacing
+          </p>
+          <h2>
+            Core flows that help students discover properties, find roommates, and organize their housing search.
+          </h2>
+        </div>
+      </div> -->
+
+      <div class="content-container padded large">
+        <h2>
+          Case study coming soon.
+        </h2>
+      </div>
 		</main>
 	</div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="right">
+        <p>Interested in my work? Let's create <span class="cursive">together :)</span></p>
+        <div class="footer-email-container-wrapper" onclick="copyEmail(event)">
+          <div class="footer-email-container-background"></div>
+          <div class="footer-email-container">
+            <span class="footer-email-label">mailto:</span>
+            <div class="footer-email-spacer"></div>
+            <span class="footer-email-address">cynthiawangjy123@gmail.com</span>
+            <button class="footer-copy-button">
+              <span class="material-icons-round footer-copy-icon">content_copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="left">
+          <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="footer-link">
+              LinkedIn
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer-link">
+              Resume
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+      </div>
+    </div>
+    <div class="footer-note">
+      Designed and developed by Cynthia. Last updated in October 2025. 
+    </div>
+  </footer>
 
 	<div class="case-study-blur"></div><div class="grain-overlay"></div><script src="../../script.js"></script>
 </body>
