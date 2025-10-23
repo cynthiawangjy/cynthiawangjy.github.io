@@ -65,10 +65,9 @@
 		<!-- Left Navigation -->
 		<nav class="case-study-nav">
       <div class="nav-content">
-        <div class="button-pill" onclick="goBackToPublic()">
+        <button class="back-button" onclick="goBackToPortfolio()">
           <span class="material-icons-round">chevron_left</span>
-          Return to overview
-        </div>
+        </button>
         <div class="nav-items">
           <div class="nav-indicator"></div>
           <a href="#introduction" class="nav-item active">Introduction</a>
@@ -78,6 +77,9 @@
           <a href="#solution" class="nav-item">Solution</a>
           <a href="#impact" class="nav-item">Impact</a>
           <a href="#conclusion" class="nav-item">Conclusion</a>
+          <!-- <a href="#highlights" class="nav-item">Highlights</a>
+          <a href="#learnings" class="nav-item">Learnings</a>
+          <a href="#kind-words" class="nav-item">Kind words</a> -->
         </div>
 		  </div>
 		</nav>
@@ -828,6 +830,157 @@
           </div>
         </div>
       </div>
+
+      <!-- Internship Highlights Section -->
+      <div id="highlights" class="content-container centered">
+        <div class="highlights-header">
+          <h2>Internship highlights</h2>
+          <button id="organizePolaroids" class="organize-btn">
+            <span class="material-icons-round">view_module</span>
+              Organize
+          </button>
+        </div>
+        <div class="polaroid-container">
+          <div class="polaroid" style="transform: rotate(-5deg); top: 20px; left: 50px;">
+            <div class="polaroid-content">
+                <img src="../../images/work/zocdoc/day-1.png" alt="Day 1">
+            </div>
+            <div class="polaroid-text">first day of work!</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(3deg); top: 80px; left: 200px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/summit-one-vanderbilt.png" alt="Summit One Vanderbilt">
+            </div>
+            <div class="polaroid-text">first intern outing</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-2deg); top: 150px; left: 100px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/gyukaku.png" alt="Gukaku">
+            </div>
+            <div class="polaroid-text">Japanese BBQ with wagyu</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(4deg); top: 40px; left: 300px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/happy-medium.png" alt="Happy Medium">
+            </div>
+            <div class="polaroid-text">design team offsite</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-3deg); top: 120px; left: 350px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/pizza.png" alt="Pizza" class="crop-bottom">
+            </div>
+            <div class="polaroid-text">pizza-making night</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(8deg); top: 200px; left: 50px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/molly-tea.png" alt="Molly Tea">
+            </div>
+            <div class="polaroid-text">missing this daily</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-6deg); top: 250px; left: 180px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/hadestown.png" alt="Hadestown" class="crop-bottom">
+            </div>
+            <div class="polaroid-text">talented, brilliant, incredible</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(12deg); top: 60px; left: 400px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/studio-calmplex.png" alt="Studio Calmplex">
+            </div>
+            <div class="polaroid-text">dabbled in ceramics</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-8deg); top: 180px; left: 320px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/zocdoc/pickleball.png" alt="Pickleball">
+            </div>
+            <div class="polaroid-text">pickleball at hackathon</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(5deg); top: 300px; left: 250px;">
+            <div class="polaroid-content">
+                <img src="../../images/work/zocdoc/statue-of-liberty.png" alt="Statue of Liberty">
+            </div>
+            <div class="polaroid-text">average NYC tourist activities</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Learnings Section -->
+      <div class="content-container centered">
+        <h2>Key takeaways</h2>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>"If it ain't broke, don't fix it"</h5>
+          </div>
+          <div class="col-3-1">
+            <p>At first, I wanted to redesign everything. But as I dug deeper, I began understanding why these decisions were made in the first place — sometimes it's better to patch and build than tearing it down.</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>Ask questions, leverage your team</h5>
+          </div>
+          <div class="col-3-1">
+            <p>Reaching out to people who worked on earlier iterations gave me the context I was missing, unblocked me countless times, and often revealed stronger ways to approach my own work.</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>You're the expert of your own work</h5>
+          </div>
+          <div class="col-3-1">
+            <p>When presenting, no one knows your projects better than you — you've put in the hours, you've done all the thinking — now you just need to trust your work and share it with confidence.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentor Note Section -->
+      <div class="content-container centered">
+        <div class="mentor-note-card">
+          <div class="sticky-note">From my mentor/manager</div>
+          <div class="mentor-profile">
+            <div class="profile-picture">
+              <img src="../../images/work/zocdoc/peri.jpg" alt="Peri Shechtman">
+              <div class="overlay-svg">
+                <svg width="108" height="47" viewBox="0 0 108 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M81.2077 0.352539C81.4464 0.352539 81.6398 0.545769 81.6398 0.784131C81.6398 4.13389 82.7347 5.94214 83.9385 6.92367C85.1609 7.9204 86.5648 8.12119 87.2571 8.12119C87.4958 8.12119 87.6892 8.31442 87.6892 8.55278C87.6892 8.79114 87.4958 8.98437 87.2571 8.98437C85.7672 8.98437 84.6969 9.29518 83.9221 9.77028C83.1497 10.244 82.6398 10.9 82.3005 11.6448C81.637 13.1014 81.6385 14.856 81.6397 16.162L81.6398 16.3214C81.6398 16.5598 81.4464 16.753 81.2077 16.753C80.9691 16.753 80.7756 16.5598 80.7756 16.3214C80.7756 13.7964 80.161 12.0415 79.1811 10.923C78.2081 9.81232 76.825 9.2721 75.1583 9.2721C74.9276 9.2721 74.7376 9.09113 74.7267 8.86099C74.7157 8.63085 74.8877 8.43271 75.1173 8.41086C76.5591 8.27371 77.6145 7.8314 78.3937 7.2384C79.1746 6.64415 79.7007 5.88133 80.0557 5.07092C80.7716 3.43631 80.7756 1.64986 80.7756 0.784131C80.7756 0.545769 80.9691 0.352539 81.2077 0.352539Z" fill="#FED337"/>
+                  <path d="M97.1552 19.3443C97.5457 19.3443 97.8622 19.6605 97.8622 20.0505C97.8622 25.5314 99.6538 28.4901 101.623 30.0961C103.624 31.727 105.921 32.0555 107.053 32.0555C107.444 32.0555 107.76 32.3717 107.76 32.7617C107.76 33.1517 107.444 33.4679 107.053 33.4679C104.616 33.4679 102.864 33.9764 101.597 34.7538C100.333 35.5289 99.4985 36.6022 98.9433 37.8209C97.8576 40.2042 97.8602 43.0751 97.8621 45.212L97.8622 45.4729C97.8622 45.863 97.5457 46.1791 97.1552 46.1791C96.7647 46.1791 96.4482 45.863 96.4482 45.4729C96.4482 41.3414 95.4425 38.4701 93.8393 36.6399C92.2472 34.8226 89.9842 33.9387 87.2571 33.9387C86.8796 33.9387 86.5688 33.6426 86.5508 33.266C86.5329 32.8895 86.8143 32.5652 87.19 32.5295C89.5491 32.3051 91.276 31.5814 92.5509 30.6111C93.8286 29.6388 94.6894 28.3906 95.2702 27.0646C96.4417 24.39 96.4482 21.467 96.4482 20.0505C96.4482 19.6605 96.7647 19.3443 97.1552 19.3443Z" fill="#FED337"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5587 19.8022C5.5587 19.6105 5.40316 19.4552 5.21129 19.4552C5.01941 19.4552 4.86387 19.6105 4.86387 19.8022C4.86387 20.4982 4.86068 21.9346 4.28501 23.2488C3.99961 23.9004 3.57663 24.5138 2.94879 24.9916C2.32228 25.4683 1.47373 25.824 0.314487 25.9342C0.129858 25.9518 -0.00840392 26.1111 0.000397828 26.2962C0.0091996 26.4812 0.161961 26.6267 0.347425 26.6267C1.68751 26.6267 2.79955 27.061 3.58187 27.9541C4.36969 28.8534 4.86387 30.2643 4.86387 32.2945C4.86387 32.4862 5.01941 32.6415 5.21129 32.6415C5.40316 32.6415 5.5587 32.4862 5.5587 32.2945L5.55863 32.1663C5.55769 31.1163 5.55643 29.7055 6.08995 28.5344C6.36275 27.9356 6.77267 27.4081 7.39376 27.0272C8.01671 26.6453 8.87721 26.3954 10.0751 26.3954C10.267 26.3954 10.4226 26.24 10.4226 26.0483C10.4226 25.8567 10.267 25.7013 10.0751 25.7013C9.51853 25.7013 8.38979 25.5399 7.40693 24.7385C6.43905 23.9493 5.5587 22.4954 5.5587 19.8022ZM4.92159 23.527C5.05501 23.2224 5.16049 22.9131 5.24388 22.608C5.62464 23.842 6.25529 24.6954 6.96753 25.2761C7.33646 25.5769 7.72179 25.8001 8.09672 25.9644C7.69749 26.0847 7.3435 26.2437 7.03022 26.4358C6.27196 26.9008 5.77751 27.5445 5.4575 28.247C5.30652 28.5784 5.19381 28.9248 5.1097 29.274C4.86645 28.5725 4.52827 27.9805 4.10478 27.4971C3.57007 26.8867 2.9126 26.4646 2.16958 26.2141C2.62518 26.0346 3.02313 25.8075 3.3699 25.5436C4.11002 24.9804 4.59902 24.2635 4.92159 23.527Z" fill="#FED337"/>
+                </svg>
+              </div>
+            </div>
+            <div class="mentor-info">
+                <h4>Peri Shechtman</h4>
+                <p class="text-small">Lead Product Designer</p>
+            </div>
+          </div>
+          <div class="mentor-testimonial">
+            <p>
+              Cynthia!!! It's been such a joy working with you this summer. You've brought a level of positivity, curiosity, and dedication that makes you stand out... You're <strong>Proactive & Attentive</strong>, <strong>Receptive to Feedback</strong>, highly <strong>Organized</strong> with strong <strong>Rationale</strong>, and a <strong>Collaborative</strong>, thoughtful partner in critiques... Your visual decks for the Hot Take and Intern Demos are so impressive..."
+            </p>
+            <p>
+              It's been amazing to see your skills and confidence grow over the summer. You've made a real impact on the team and with me. I know you'll bring that same energy and thoughtfulness to whatever comes next.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You Section -->
+      <div id="thank-you" class="content-container centered">
+        <div class="padded-container">
+          <div class="row gap-16">
+            <div class="col-1-3">
+              <p class="cursive">Thank you</p>
+            </div>
+            <div class="col-3-1">
+              <p>
+                Peri, Appointment Management Pod, Design Appointment team, Intern Committee, Design Department, Zinterns '25, & more
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 	</div>
 
@@ -872,6 +1025,11 @@
 
 	<script src="../../script.js"></script>
 	<script>
+		// Function to go back to the portfolio work section
+		function goBackToPortfolio() {
+			window.location.href = '../../#work';
+		}
+		
 		// Function to go back to the public page
 		function goBackToPublic() {
 			window.location.href = 'index.html';

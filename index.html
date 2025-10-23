@@ -45,39 +45,21 @@
 
 	<main>
 		<section id="home" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="carousel-container">
-            <div class="carousel-wrapper">
-              <button class="carousel-btn prev" onclick="changeSlide(-1)">
-                <span class="material-icons-round">chevron_left</span>
-              </button>
-              <div class="carousel-image">
-                <img id="carousel-img" src="/images/home/musinsa.png" alt="Project showcase">
-              </div>
-              <button class="carousel-btn next" onclick="changeSlide(1)">
-                <span class="material-icons-round">chevron_right</span>
-              </button>
-            </div>
-          </div>
-        
-          <div class="hero-text">
-            <h4 class="hero-title">
-              Cynthia 嘉怡 Wang is a <span class="cursive">product designer</span> who creates thoughtful experiences shaped by visual craft. She cares deeply about how people engage with interfaces and finds joy in refining every detail that brings clarity to those moments.
-            </h4>
-            
-            <div class="hero-status">
-              <div class="status-line">
-                <span>Currently</span>
-                <div class="available-pill">
-                  <div class="pulse-dot"></div>
-                  <span>Available for work</span>
-                </div>
-                <span>Previously @ <a href="https://www.zocdoc.com/" target="_blank">Zocdoc</a> and <a href="https://www.immuta.com/" target="_blank">Immuta</a></span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="hero-text">
+        <h3>
+          Cynthia Wang is a <span class="cursive">0→1</span> product designer who creates thoughtful experiences shaped by visual craft. She cares deeply about how people engage with interfaces and finds joy in refining every detail that brings clarity to those moments.
+        </h3>
+        <p>
+          She's currently 
+          <span class="pill">
+            <span class="pulse-dot"></span>AVAILABLE FOR WORK
+          </span>
+          and has previously interned at
+          <span class="pill">ZOCDOC</span>
+          and
+          <span class="pill">IMMUTA</span>
+          . She's based in <span class="pill">SAN DIEGO, CA</span>, where it's currently <span class="pill" id="time-pill">TIME</span>.
+        </p>
       </div>
 		</section>
 
@@ -184,7 +166,7 @@
               </div>
             </div>
               
-            <a href="https://www.immuta.com/blog/copilot-ai-strategy-announcement/" target="_blank" rel="noopener noreferrer" class="project external-project">
+            <!-- <a href="https://www.immuta.com/blog/copilot-ai-strategy-announcement/" target="_blank" rel="noopener noreferrer" class="project external-project">
               <div class="image-container">
                 <video muted loop autoplay playsinline preload="metadata">
                   <source src="/images/work/copilot/cover.mp4" type="video/mp4">
@@ -212,7 +194,7 @@
                   <span class="label">RESEARCH</span>
                 </div>
               </div>
-            </a>
+            </a> -->
               
             <div class="project">
               <div class="image-container">
@@ -306,20 +288,20 @@
         <div class="footer-contact">
           <div class="email-container-wrapper" onclick="copyEmail(event)">
             <div class="email-container-background"></div>
-            <div class="email-container">
-              <span class="email-label">mailto:</span>
+            <div class="email-container" style="background-color: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.12)">
+              <span class="email-label" style="color: rgba(255, 255, 255, 0.48);">mailto:</span>
               <div class="email-spacer"></div>
-              <span class="email-address">cynthiawangjy123@gmail.com</span>
+              <span class="email-address" style="color: rgba(255, 255, 255, 1);">cynthiawangjy123@gmail.com</span>
               <button class="copy-button">
-                <span class="material-icons-round copy-icon">content_copy</span>
+                <span class="material-icons-round copy-icon" style="color: rgba(255, 255, 255, 0.72);">content_copy</span>
               </button>
             </div>
           </div>
-          <p>and <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="semibold">connect on LinkedIn?</a></p>
+          <p style="color: rgba(255, 255, 255, 0.48);">and <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer">connect on LinkedIn</a>?</p>
         </div>
       </div>
 		</div>
-    <div class="footer-note">
+    <div class="footer-note" style="color: rgba(255, 255, 255, 0.72);">
       Designed and developed by Cynthia. Last updated in October 2025.
     </div>
 	</footer>
