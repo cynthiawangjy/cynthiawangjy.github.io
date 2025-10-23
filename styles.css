@@ -648,7 +648,7 @@ nav {
 
 /* Work Section */
 .work {
-	padding: 0 0 2rem;
+	padding: 0 0 3rem;
 }
 
 .work h2 {
@@ -657,123 +657,14 @@ nav {
 	text-align: center;
 }
 
-/* View Toggle */
-/* .view-toggle {
-	background: none;
-	border: 1px solid var(--text-muted);
-	border-radius: 0.75rem;
-	padding: 0.25rem;
-	display: flex;
-	gap: var(--gap-xs);
-	margin: 0 0 2rem auto;
-	width: fit-content;
-}
-
-.view-toggle button {
-	padding: 0.25rem;
-	border: none;
-	background: none;
-	color: var(--text-tertiary);
-	cursor: pointer;
-	border-radius: 0.5rem;
-	transition: all 0.2s ease;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.view-toggle button:hover {
-	background: var(--text-muted);
-	color: var(--text-primary);
-}
-
-.view-toggle button.active {
-	background: var(--text-muted);
-	color: var(--text-primary);
-} */
-
 /* Projects Grid */
 #projects {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: var(--gap-xl); /* 32px */
+	column-gap: var(--gap-xl); /* 32px */
+  row-gap: var(--gap-2xl); /* 32px */
 	/* margin-top: 2rem; */
 }
-
-
-/* List view styles */
-/* #projects.list {
-	display: flex;
-	flex-direction: column;
-	gap: 0;
-	width: 100%;
-}
-
-#projects.list .project {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 1.5rem;
-	padding: 1.5rem 0;
-	border-bottom: 1px solid var(--hover-color);
-}
-
-#projects.list .project:last-child {
-	border-bottom: none;
-}
-
-#projects.list .project .image-container {
-	flex: 0 0 50%;
-	aspect-ratio: 5/3;
-	border: 1px solid var(--text-muted);
-	overflow: hidden;
-}
-
-#projects.list .project .project-content {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	min-height: 120px;
-}
-
-#projects.list .project .text-content {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
-#projects.list .project .project-header {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: var(--gap-sm);
-}
-
-#projects.list .project .project-title-section {
-	width: 100%;
-}
-
-#projects.list .project .project-meta {
-	font-size: 0.875rem;
-	line-height: 1.125rem;
-	margin-top: 0.25rem;
-}
-
-#projects.list .project p {
-	margin: 0 0 1rem 0 !important;
-}
-
-#projects.list .project .labels {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--gap-sm);
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
-	min-height: 2rem;
-	align-content: flex-start;
-} */
 
 /* Project cards */
 .project {
@@ -845,7 +736,7 @@ nav {
 }
 
 .project .image-container .view-text {
-	color: black;
+	/* color: black; */
 	font-size: 0.75rem; /* 12px */
 	line-height: 1rem; /* 16px */
 	font-weight: 400;
@@ -1039,20 +930,7 @@ nav {
 	width: auto;
 }
 
-.project p {
-	margin: 0 0 1rem 0;
-	color: var(--text-secondary);
-	opacity: 1;
-}
-
 /* List view specific spacing */
-#projects.list .project h3 {
-	margin: 0 0 0.25rem 0; /* 4px spacing below title */
-}
-
-#projects.list .project p {
-	margin: 0 0 1rem 0 !important;
-}
 
 /* Labels - only show in list view */
 .labels {
@@ -3639,13 +3517,6 @@ div.comparison-section.after {
 .recent-work-content p {
 	margin: 0;
 	color: var(--text-secondary);
-}
-
-
-.image-container {
-	margin-top: 2rem;
-	border-radius: var(--radius-lg);
-	overflow: hidden;
 }
 
 .project-image {
