@@ -61,30 +61,30 @@
 	</header>
 
 	<div id="zocdocPasswordPage" class="myfreelance-password-page">
-		<button class="back-button" onclick="goBackToPortfolio()">
-			<span class="material-icons-round">chevron_left</span>
-		</button>
+        <button class="back-button" onclick="goBackToPortfolio()">
+          <span class="material-icons-round">chevron_left</span>
+        </button>
 		<div class="myfreelance-password-container">
-			<img src="../../images/logo.svg" alt="Logo" class="password-logo">
-			<h1 class="password-title">Enter a secret code</h1>
+            <img src="../../images/logo.svg" alt="Logo" class="password-logo">
+            <h1 class="password-title">Enter a secret code</h1>
 			<p class="password-subtitle">
 				This page is protected. If you'd like to learn more, please reach out!
 			</p>
-			<form class="password-form" onsubmit="checkZocdocPassword(event)">
-				<div class="password-input-container">
-					<input type="text" class="password-input" placeholder="Secret code" autofocus>
-					<button type="submit" class="zocdoc-submit-button">
-						<span class="material-icons-round">key</span>
-					</button>
-				</div>
-				<div id="zocdocErrorMessage" class="error-message" style="display: none;"></div>
-			</form>
-		</div>
-	</div>
+            <form class="password-form" onsubmit="checkZocdocPassword(event)">
+              <div class="password-input-container">
+                <input type="text" class="password-input" placeholder="Secret code" autofocus>
+                <button type="submit" class="zocdoc-submit-button">
+                  <span class="material-icons-round">key</span>
+                </button>
+              </div>
+              <div id="zocdocErrorMessage" class="error-message" style="display: none;"></div>
+            </form>
+          </div>
+        </div>
 
 	<div class="case-study-blur"></div>
-  
-  <div class="grain-overlay"></div>
+	
+	<div class="grain-overlay"></div>
 
 	<script src="../../script.js"></script>
 	<script>

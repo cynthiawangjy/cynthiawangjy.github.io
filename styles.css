@@ -157,6 +157,8 @@ a:hover {
 .cursive {
 	font-family: 'Homemade Apple', cursive;
   line-height: inherit;
+  font-weight: 400;
+  /* display: inline; */
 }
 
 /* Semantic HTML Typography */
@@ -305,9 +307,10 @@ body {
   background: #FFB2FF;
 }
 
-.homemade-apple {
+/* .homemade-apple {
 	font-family: 'Homemade Apple', cursive;
-}
+  line-height: inherit;
+} */
 
 /* Navigation */
 header {
@@ -685,10 +688,11 @@ nav {
 	width: 100%;
 	aspect-ratio: 5/3;
 	border-radius: 0.75rem;
+  /* object-fit: fill; */
 	overflow: hidden;
 	position: relative;
 	cursor: pointer;
-	border: 1px solid var(--bg-secondary);
+	border: 1px solid var(--text-muted);
 }
 
 .project .image-container .hover-overlay {
@@ -876,6 +880,13 @@ nav {
 	width: 2rem; /* 32px */
 	height: 2rem; /* 32px */
 	flex-shrink: 0;
+}
+
+.brand-illustration {
+  width: 3rem !important; 
+  height: 3rem;
+  background: #FFF0BB;
+  border-radius: var(--radius-md);
 }
 
 /* Grid view specific centering */
@@ -1177,6 +1188,10 @@ nav {
 	margin: 0;
 }
 
+.tertiary {
+  color: var(--text-tertiary);
+}
+
 .semibold {
 	font-weight: 600;
 	color: var(--text-primary);
@@ -1384,13 +1399,13 @@ nav {
    ======================================== */
 
 /* Font utilities */
-.font-figtree {
+/* .font-figtree {
 	font-family: 'Figtree', sans-serif;
 }
 
 .font-homemade {
 	font-family: 'Homemade Apple', cursive;
-}
+} */
 
 /* Icon utilities */
 .icon-general {
@@ -2857,7 +2872,7 @@ p.text-small.caption {
   text-align: center;
 } */
 
-.quote {
+/* .quote {
   display: flex;
 }
 
@@ -2877,7 +2892,7 @@ p.text-small.caption {
 
 .indentation.zocdoc {
   background-color: #F8CC30;
-}
+} */
 
 /* Project goals specific styling */
 
@@ -2896,7 +2911,7 @@ p.text-small.caption {
 /* Mentor Note Section */
 .mentor-note-card {
 	background: var(--bg-primary);
-	border-radius: 2rem;
+	border-radius: var(--radius-md);
 	border: 1px solid var(--text-muted);
 	padding: 3.5rem 4rem;
 	/* box-shadow: 0 4px 12px rgba(18, 18, 18, 0.1); */
@@ -3172,7 +3187,7 @@ a.project.external-project .project-header {
 .icon-circle {
 	width: 20px;
 	height: 20px;
-	border-radius: 50%;
+	border-radius: 6px;
 	/* Can use .flex-center utility class */
 	display: flex;
 	align-items: center;
@@ -3810,6 +3825,169 @@ div.comparison-section.after {
 }  
 
 /* 1400, 1200, 992, 768, 576 */
+/* Toggle Component */
+.toggle-container {
+  display: flex;
+  /* background: var(--bg-secondary); */
+  border: 1px solid var(--text-muted);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  margin: 0 auto;
+  width: fit-content;
+  gap: 4px;
+}
+
+.toggle-option {
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  /* transition: all 0.2s ease; */
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+.toggle-option:hover:not(.active) {
+  background-color: var(--bg-secondary);
+}
+
+.toggle-option.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+}
+
+.toggle-option[data-toggle="before"].active {
+  background: var(--before);
+  color: var(--bg-primary);
+}
+
+.toggle-option[data-toggle="after"].active {
+  background: var(--after);
+  color: var(--bg-primary);
+}
+
+.toggle-option:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+.toggle-content {
+  width: 100%;
+}
+
+.toggle-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Carousel Component */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+}
+
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-dots-container {
+  display: flex;
+  /* background: var(--bg-primary); */
+  border: 1px solid var(--text-muted);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  margin: 0 auto var(--gap-xl) auto;
+  width: fit-content;
+  gap: 4px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-md);
+}
+
+.carousel-dot {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  /* transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font-family: "Figtree", sans-serif;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.carousel-dot:hover {
+  background: var(--hover-color);
+  color: var(--text-primary);
+}
+
+.carousel-dot.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.carousel-slide {
+  display: none;
+  width: 100%;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-content {
+  display: flex;
+  gap: var(--gap-xl);
+  align-items: center;
+}
+
+/* .carousel-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+} */
+
+.carousel-bullet {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+}
+
+.carousel-bullet p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.carousel-image {
+  flex: 1;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  image-rendering: auto;
+}
+
 /* Case Study Footer Responsive */
 @media (max-width: 532px) {
   .comparison-container {

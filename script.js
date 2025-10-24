@@ -1167,16 +1167,11 @@ function initProjectInteractions() {
             }
             
             // Check if this is the Do Not Disturb project
-            if (projectTitle && projectTitle.textContent.trim() === 'Focus Enhancements') {
+            if (projectTitle && projectTitle.textContent.trim() === 'iOS Focus Enhancements') {
                 window.location.href = 'work/do-not-disturb/';
                 return;
             }
             
-            // Check if this is the Immuta Copilot project
-            if (projectTitle && projectTitle.textContent.trim() === 'Immuta Copilot') {
-                window.location.href = 'work/copilot/';
-                return;
-            }
             
             // Check if this is the Policies Overview project
             if (projectTitle && projectTitle.textContent.trim() === 'Policies Overview') {
@@ -1187,18 +1182,6 @@ function initProjectInteractions() {
             // Check if this is the CozyLink project
             if (projectTitle && projectTitle.textContent.includes('CozyLink')) {
                 window.location.href = 'work/cozylink/';
-                return;
-            }
-            
-            // Check if this is the Zest project
-            if (projectTitle && projectTitle.textContent.trim() === 'Zest Bulk Shipping') {
-                window.location.href = 'work/zest/';
-                return;
-            }
-            
-            // Check if this is the Edelweiss project
-            if (projectTitle && projectTitle.textContent.trim() === 'Website Redesign') {
-                window.location.href = 'work/edelweiss/';
                 return;
             }
             
