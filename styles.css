@@ -1894,8 +1894,9 @@ nav {
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: flex-end;
 	flex: 1;
+	margin-top: 80px; /* Account for fixed back button */
 }
 
 .back-button {
@@ -1911,6 +1912,10 @@ nav {
 	justify-content: center;
 	width: 2rem;
 	height: 2rem;
+	position: fixed;
+	top: 32px;
+	left: 32px;
+	z-index: 1000;
 }
 
 .back-button:hover, .button-pill:hover {
