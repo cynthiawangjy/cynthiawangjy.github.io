@@ -1884,9 +1884,9 @@ nav {
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	padding: 0;
-	height: fit-content;
-	min-height: 100vh;
+	/* padding: 32p; */
+	/* height: fit-content; */
+	height: 100vh;
 }
 
 .nav-content {
@@ -1896,7 +1896,6 @@ nav {
 	flex-direction: column;
 	justify-content: flex-end;
 	flex: 1;
-	margin-top: 80px; /* Account for fixed back button */
 }
 
 .back-button {
