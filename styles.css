@@ -505,6 +505,20 @@ nav {
 	gap: 0.25em;
 }
 
+/* Pill group containers to prevent line breaks */
+.hero .hero-text p .pill-group {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+/* Ensure time pill group maintains fixed width */
+.hero .hero-text p .pill-group:has(#time-pill) {
+	width: 77px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .hero .hero-text p span {
 	color: var(--text-primary);
 	vertical-align: middle;
@@ -579,6 +593,28 @@ nav {
 	cursor: grabbing;
 }
 
+.hero .pill.placeholder {
+    background: var(--bg-secondary) !important;
+    border: 1px dashed var(--text-muted) !important;
+    color: var(--text-muted) !important;
+    pointer-events: none;    /* Prevent interaction */
+    opacity: 0.5;            /* Make it subtle but visible */
+}
+
+/* Make the pulse dot static and muted in placeholders */
+.hero .pill.placeholder .pulse-dot {
+    background: var(--text-muted) !important;
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+/* Ensure time pill placeholder also has fixed width - target by pill-group containing time pill */
+.hero .pill-group:has(#time-pill) .pill.placeholder {
+    width: 77px !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
 /* Fix available for work pill content alignment */
 .hero .pill .pulse-dot {
 	display: inline-block;
@@ -1037,6 +1073,7 @@ nav {
 	text-align: center;
 	gap: var(--gap-2xl); /* 48px between logo and text */
 	justify-content: center;
+	position: relative;
 	
 	/* Hanging note effect */
 	transform-origin: top left;
@@ -1047,6 +1084,19 @@ nav {
 .footer-card:hover {
 	transform: rotate(0deg);
 }
+
+/* Tape element to make it look like the card is hanging */
+/* .footer-card::before {
+	content: '';
+	position: absolute;
+	top: 0px;
+	left: -40px;
+	transform: rotate(-32deg);
+	width: 148px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.32);
+	z-index: 1;
+} */
 
 .footer-logo-text-group {
 	/* Can use .flex-column-center utility class */

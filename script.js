@@ -1255,7 +1255,20 @@ function initRealTimeClock() {
         const minutes = pstTime.getMinutes().toString().padStart(2, '0');
         const seconds = pstTime.getSeconds().toString().padStart(2, '0');
         
-        timePillElement.textContent = `${hours}:${minutes}:${seconds}`;
+        const timeText = `${hours}:${minutes}:${seconds}`;
+        
+        // Update the main pill
+        timePillElement.textContent = timeText;
+        
+        // Find the specific placeholder for the time pill by looking for the one that comes right before it
+        const allPlaceholders = document.querySelectorAll('.pill.placeholder');
+        allPlaceholders.forEach(placeholder => {
+            // Check if this placeholder is the one for the time pill by looking at its position
+            const nextSibling = placeholder.nextElementSibling;
+            if (nextSibling && nextSibling.id === 'time-pill') {
+                placeholder.textContent = timeText;
+            }
+        });
     }
     
     // Update immediately and then every second
@@ -1265,414 +1278,162 @@ function initRealTimeClock() {
 
 // Draggable Pills Functionality for Hero Section with Placeholder System
 function initDraggablePills() {
-    const pills = document.querySelectorAll('.hero .pill');
-    const paragraph = document.querySelector('.hero .container .hero-text p');
-    
-    // Store original positions and text content
-    const pillData = new Map();
-    const pillStates = new Map(); // Track if each pill has moved
-    
-    pills.forEach(pill => {
-        const rect = pill.getBoundingClientRect();
-        pillData.set(pill, {
-            originalX: rect.left + window.scrollX,
-            originalY: rect.top + window.scrollY,
-            originalText: pill.textContent.trim(),
-            originalRect: {
-                left: rect.left,
-                top: rect.top,
-                width: rect.width,
-                height: rect.height
-            },
-            originalParent: pill.parentNode,
-            originalNextSibling: pill.nextSibling,
-            autoReturnTimer: null
-        });
-        pillStates.set(pill, { hasMoved: false });
-        
-        // Don't create placeholders from the start - pills should be in normal positions
-    });
-    
-    function createPlaceholder(originalPill) {
-        const placeholder = document.createElement('span');
-        placeholder.className = 'pill placeholder';
-        
-        // Copy all the original pill's content but make pulse dot stagnant
-        placeholder.innerHTML = originalPill.innerHTML;
-        
-        // Find and fix the pulse dot in the placeholder
-        const pulseDot = placeholder.querySelector('.pulse-dot');
-        if (pulseDot) {
-            pulseDot.style.animation = 'none';
-            pulseDot.style.backgroundColor = 'var(--text-muted)';
-        }
-        
-        // Copy all the original pill's computed styles to match exactly
-        const computedStyle = window.getComputedStyle(originalPill);
-        placeholder.style.background = 'var(--bg-secondary)';
-        placeholder.style.border = '1px dashed var(--text-muted)';
-        placeholder.style.color = 'var(--text-muted)';
-        // placeholder.style.opacity = '0.6';
-        placeholder.style.pointerEvents = 'none';
-        
-        // Copy all the pill's styling properties to match exactly
-        placeholder.style.borderRadius = computedStyle.borderRadius;
-        placeholder.style.padding = computedStyle.padding;
-        placeholder.style.fontSize = computedStyle.fontSize;
-        placeholder.style.fontFamily = computedStyle.fontFamily;
-        placeholder.style.fontWeight = computedStyle.fontWeight;
-        placeholder.style.lineHeight = computedStyle.lineHeight;
-        placeholder.style.display = computedStyle.display;
-        placeholder.style.alignItems = computedStyle.alignItems;
-        placeholder.style.gap = computedStyle.gap;
-        placeholder.style.justifyContent = computedStyle.justifyContent;
-        placeholder.style.margin = computedStyle.margin;
-        placeholder.style.verticalAlign = computedStyle.verticalAlign;
-        
-        // Insert placeholder before the original pill in the text flow
-        originalPill.parentNode.insertBefore(placeholder, originalPill);
-        
-        console.log('Created placeholder for:', originalPill.textContent);
-        
-        return placeholder;
-    }
-    
-    function removePlaceholder(placeholder) {
-        if (placeholder && placeholder.parentNode) {
-            placeholder.parentNode.removeChild(placeholder);
-        }
-    }
-    
-    function startAutoReturn(pill) {
-        const data = pillData.get(pill);
-        if (data.autoReturnTimer) {
-            clearTimeout(data.autoReturnTimer);
-        }
-        
-        data.autoReturnTimer = setTimeout(() => {
-            // Find the placeholder and get its exact current position
-            const placeholder = document.querySelector('.pill.placeholder');
-            if (placeholder) {
-                const placeholderRect = placeholder.getBoundingClientRect();
-                
-                // Animate pill directly on top of the placeholder
-                pill.style.transition = 'left 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-                pill.style.left = placeholderRect.left + 'px';
-                pill.style.top = placeholderRect.top + 'px';
-                
-                // After animation, replace placeholder with pill
-                setTimeout(() => {
-                    placeholder.parentNode.replaceChild(pill, placeholder);
-                    pill.style.position = '';
-                    pill.style.transition = '';
-                    pill.style.left = '';
-                    pill.style.top = '';
-                    pill.style.zIndex = '';
-                    pill.style.transform = '';
-                }, 300);
-            }
-            
-            // Reset pill state
-            const state = pillStates.get(pill);
-            state.hasMoved = false;
-        }, 3000); // Auto-return after 3 seconds
-    }
-    
-    function updatePlaceholders() {
-        console.log('Updating placeholders...');
-        // Remove all existing placeholders
-        document.querySelectorAll('.pill.placeholder').forEach(removePlaceholder);
-        
-        // Create placeholders for pills that have moved
-        pills.forEach(pill => {
-            const state = pillStates.get(pill);
-            console.log('Pill:', pill.textContent, 'hasMoved:', state.hasMoved);
-            if (state.hasMoved) {
-                createPlaceholder(pill);
-            }
-        });
-    }
-    
-    pills.forEach(pill => {
-        let isDragging = false;
-        let hasMoved = false;
-        let startX, startY, currentX, currentY;
-        let originalX, originalY;
-        let animationFrame;
+  const pills = document.querySelectorAll('.hero .pill');
+  const pillData = new Map();
+  let autoReturnTimer = null;
 
-        // All pills are now regular pills - no external link handling needed
+  // Create draggable clones for each pill
+  pills.forEach(originalPill => {
+    // Create placeholder (muted)
+    const placeholder = originalPill.cloneNode(true);
+    placeholder.classList.add('placeholder');
+    // Remove any ID from placeholder to avoid conflicts
+    placeholder.removeAttribute('id');
+    
+    // Ensure placeholder has the same dimensions as the original pill
+    const originalRect = originalPill.getBoundingClientRect();
+    placeholder.style.width = originalRect.width + 'px';
+    placeholder.style.height = originalRect.height + 'px';
+    placeholder.style.minWidth = originalRect.width + 'px';
+    placeholder.style.minHeight = originalRect.height + 'px';
+    
+    // Special handling for time pill to ensure it maintains fixed width
+    if (originalPill.id === 'time-pill') {
+      placeholder.style.width = '77px';
+      placeholder.style.minWidth = '77px';
+      placeholder.style.display = 'inline-flex';
+      placeholder.style.justifyContent = 'center';
+      placeholder.style.alignItems = 'center';
+    }
 
-        pill.addEventListener('mousedown', e => {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Clear any existing auto-return timer
-            const data = pillData.get(pill);
-            if (data.autoReturnTimer) {
-                clearTimeout(data.autoReturnTimer);
-                data.autoReturnTimer = null;
-            }
-            
-            // console.log('Mouse down on pill:', pill.textContent);
-            isDragging = true;
-            hasMoved = false;
-            startX = e.clientX;
-            startY = e.clientY;
-            
-            // Get current position (where the pill actually is now)
-            const rect = pill.getBoundingClientRect();
-            currentX = rect.left;
-            currentY = rect.top;
-            
-            // Store the current position as the new "original" for this drag session
-            originalX = rect.left + window.scrollX;
-            originalY = rect.top + window.scrollY;
-            
-            // Set up for dragging - use fixed positioning to avoid transform issues
-            pill.style.position = 'fixed';
-            pill.style.zIndex = '1000';
-            pill.style.cursor = 'grabbing';
-            pill.style.transition = 'none';
-            pill.style.left = rect.left + 'px';
-            pill.style.top = rect.top + 'px';
-            pill.style.transform = 'none';
-            
-            function movePill(e) {
-                if (!isDragging) return;
-                
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Check if we've moved enough to consider it a drag
-                const deltaX = e.clientX - startX;
-                const deltaY = e.clientY - startY;
-                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                
-                if (distance > 1 && !hasMoved) {
-                    hasMoved = true;
-                    // Update the pill state
-                    const state = pillStates.get(pill);
-                    state.hasMoved = true;
-                    console.log('Pill moved, creating placeholder for:', pill.textContent);
-                }
-                
-                // Cancel previous animation frame for smooth movement
-                if (animationFrame) {
-                    cancelAnimationFrame(animationFrame);
-                }
-                
-                animationFrame = requestAnimationFrame(() => {
-                    const newX = rect.left + (e.clientX - startX);
-                    const newY = rect.top + (e.clientY - startY);
-                    
-                    // Move the pill using fixed positioning
-                    pill.style.left = newX + 'px';
-                    pill.style.top = newY + 'px';
-                    
-                    // Create placeholder when dragging starts
-                    if (hasMoved && !pill.previousElementSibling?.classList.contains('placeholder')) {
-                        createPlaceholder(pill);
-                    }
-                });
-            }
-            
-            function dropPill(e) {
-                if (!isDragging) return;
-                
-                isDragging = false;
-                pill.style.cursor = 'grab';
-                pill.style.zIndex = '';
-                
-                // Check if pill is close to its original position (snap zone)
-                const data = pillData.get(pill);
-                const currentRect = pill.getBoundingClientRect();
-                const distance = Math.sqrt(
-                    Math.pow(currentRect.left + window.scrollX - data.originalX, 2) + 
-                    Math.pow(currentRect.top + window.scrollY - data.originalY, 2)
-                );
-                
-                if (distance < 50 && hasMoved) {
-                    // Close to original position AND we actually dragged - snap back to placeholder position
-                    const data = pillData.get(pill);
-                    
-                    // Find the placeholder and get its exact current position
-                    const placeholder = document.querySelector('.pill.placeholder');
-                    if (placeholder) {
-                        const placeholderRect = placeholder.getBoundingClientRect();
-                        
-                        // Animate pill directly on top of the placeholder
-                        pill.style.transition = 'left 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-                        pill.style.left = placeholderRect.left + 'px';
-                        pill.style.top = placeholderRect.top + 'px';
-                        
-                        // After animation, replace placeholder with pill
-                        setTimeout(() => {
-                            placeholder.parentNode.replaceChild(pill, placeholder);
-                            pill.style.position = '';
-                            pill.style.transition = '';
-                            pill.style.left = '';
-                            pill.style.top = '';
-                            pill.style.zIndex = '';
-                            pill.style.transform = '';
-                        }, 300);
-                    }
-                    
-                    // Reset pill state
-                    const state = pillStates.get(pill);
-                    state.hasMoved = false;
-                    hasMoved = false;
-                } else {
-                    // Far from original position OR just clicked without dragging - stay where dropped
-                    pill.style.transition = 'left 0.2s ease, top 0.2s ease';
-                    
-                    // Only start auto-return timer if we actually dragged (not just clicked)
-                    if (hasMoved) {
-                        startAutoReturn(pill);
-                    }
-                }
-                
-                document.removeEventListener('mousemove', movePill);
-                document.removeEventListener('mouseup', dropPill);
-            }
-            
-            document.addEventListener('mousemove', movePill, { passive: false });
-            document.addEventListener('mouseup', dropPill, { passive: false });
-        });
-        
-        // Touch events for mobile
-        pill.addEventListener('touchstart', e => {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Clear any existing auto-return timer
-            const data = pillData.get(pill);
-            if (data.autoReturnTimer) {
-                clearTimeout(data.autoReturnTimer);
-                data.autoReturnTimer = null;
-            }
-            
-            isDragging = true;
-            hasMoved = false;
-            const touch = e.touches[0];
-            startX = touch.clientX;
-            startY = touch.clientY;
-            
-            const rect = pill.getBoundingClientRect();
-            currentX = rect.left;
-            currentY = rect.top;
-            
-            // Store the current position as the new "original" for this drag session
-            originalX = rect.left + window.scrollX;
-            originalY = rect.top + window.scrollY;
-            
-            pill.style.position = 'fixed';
-            pill.style.zIndex = '1000';
-            pill.style.cursor = 'grabbing';
-            pill.style.transition = 'none';
-            pill.style.left = rect.left + 'px';
-            pill.style.top = rect.top + 'px';
-            pill.style.transform = 'none';
-            
-            function movePillTouch(e) {
-                if (!isDragging) return;
-                
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const touch = e.touches[0];
-                const deltaX = touch.clientX - startX;
-                const deltaY = touch.clientY - startY;
-                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                
-                if (distance > 1) {
-                    hasMoved = true;
-                    // Update the pill state
-                    const state = pillStates.get(pill);
-                    state.hasMoved = true;
-                }
-                
-                if (animationFrame) {
-                    cancelAnimationFrame(animationFrame);
-                }
-                
-                animationFrame = requestAnimationFrame(() => {
-                    const newX = rect.left + (touch.clientX - startX);
-                    const newY = rect.top + (touch.clientY - startY);
-                    
-                    // Move the pill using fixed positioning
-                    pill.style.left = newX + 'px';
-                    pill.style.top = newY + 'px';
-                    
-                    // Create placeholder when dragging starts
-                    if (hasMoved && !pill.previousElementSibling?.classList.contains('placeholder')) {
-                        createPlaceholder(pill);
-                    }
-                });
-            }
-            
-            function dropPillTouch(e) {
-                if (!isDragging) return;
-                
-                isDragging = false;
-                pill.style.cursor = 'grab';
-                pill.style.zIndex = '';
-                
-                // Check if pill is close to its original position (snap zone)
-                const data = pillData.get(pill);
-                const currentRect = pill.getBoundingClientRect();
-                const distance = Math.sqrt(
-                    Math.pow(currentRect.left + window.scrollX - data.originalX, 2) + 
-                    Math.pow(currentRect.top + window.scrollY - data.originalY, 2)
-                );
-                
-                if (distance < 50 && hasMoved) {
-                    // Close to original position AND we actually dragged - snap back to placeholder position
-                    const data = pillData.get(pill);
-                    
-                    // Find the placeholder and get its exact current position
-                    const placeholder = document.querySelector('.pill.placeholder');
-                    if (placeholder) {
-                        const placeholderRect = placeholder.getBoundingClientRect();
-                        
-                        // Animate pill directly on top of the placeholder
-                        pill.style.transition = 'left 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-                        pill.style.left = placeholderRect.left + 'px';
-                        pill.style.top = placeholderRect.top + 'px';
-                        
-                        // After animation, replace placeholder with pill
-                        setTimeout(() => {
-                            placeholder.parentNode.replaceChild(pill, placeholder);
-                            pill.style.position = '';
-                            pill.style.transition = '';
-                            pill.style.left = '';
-                            pill.style.top = '';
-                            pill.style.zIndex = '';
-                            pill.style.transform = '';
-                        }, 300);
-                    }
-                    
-                    // Reset pill state
-                    const state = pillStates.get(pill);
-                    state.hasMoved = false;
-                    hasMoved = false;
-                } else {
-                    // Far from original position OR just clicked without dragging - stay where dropped
-                    pill.style.transition = 'left 0.2s ease, top 0.2s ease';
-                    
-                    // Only start auto-return timer if we actually dragged (not just clicked)
-                    if (hasMoved) {
-                        startAutoReturn(pill);
-                    }
-                }
-                
-                document.removeEventListener('touchmove', movePillTouch);
-                document.removeEventListener('touchend', dropPillTouch);
-            }
-            
-            document.addEventListener('touchmove', movePillTouch, { passive: false });
-            document.addEventListener('touchend', dropPillTouch, { passive: false });
-        });
+    // Insert placeholder behind original
+    originalPill.parentNode.insertBefore(placeholder, originalPill);
+
+    // Style original pill to be draggable and appear on top
+    originalPill.style.position = 'absolute';
+    const rect = placeholder.getBoundingClientRect();
+    originalPill.style.left = rect.left + window.scrollX + 'px';
+    originalPill.style.top = rect.top + window.scrollY + 'px';
+    originalPill.style.zIndex = '1000';
+    originalPill.style.margin = '0';
+
+    pillData.set(originalPill, { placeholder });
+
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    function startDrag(x, y) {
+      isDragging = true;
+      offsetX = x - originalPill.getBoundingClientRect().left;
+      offsetY = y - originalPill.getBoundingClientRect().top;
+
+      // Cancel any pending auto-return
+      if (autoReturnTimer) {
+        clearTimeout(autoReturnTimer);
+        autoReturnTimer = null;
+      }
+
+      originalPill.style.cursor = 'grabbing';
+    }
+
+    function moveDrag(x, y) {
+      if (!isDragging) return;
+      originalPill.style.left = x - offsetX + 'px';
+      originalPill.style.top = y - offsetY + 'px';
+    }
+
+    function dropDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+      originalPill.style.cursor = 'grab';
+
+      // Check if pill is close enough to its placeholder to snap back
+      const pillRect = originalPill.getBoundingClientRect();
+      const placeholderRect = pillData.get(originalPill).placeholder.getBoundingClientRect();
+      
+      // Calculate distance between pill center and placeholder center
+      const pillCenterX = pillRect.left + pillRect.width / 2;
+      const pillCenterY = pillRect.top + pillRect.height / 2;
+      const placeholderCenterX = placeholderRect.left + placeholderRect.width / 2;
+      const placeholderCenterY = placeholderRect.top + placeholderRect.height / 2;
+      
+      const distance = Math.sqrt(
+        Math.pow(pillCenterX - placeholderCenterX, 2) + 
+        Math.pow(pillCenterY - placeholderCenterY, 2)
+      );
+      
+      // Snap threshold: 32px
+      const snapThreshold = 32;
+      
+      if (distance <= snapThreshold) {
+        // Snap back to placeholder position
+        const rect = pillData.get(originalPill).placeholder.getBoundingClientRect();
+        originalPill.style.transition = 'left 0.3s ease, top 0.3s ease';
+        originalPill.style.left = rect.left + window.scrollX + 'px';
+        originalPill.style.top = rect.top + window.scrollY + 'px';
+
+        setTimeout(() => {
+          originalPill.style.transition = '';
+        }, 300);
+      } else {
+        // Reset the 3s timer for **all pills** if not snapped
+        if (autoReturnTimer) clearTimeout(autoReturnTimer);
+        autoReturnTimer = setTimeout(() => {
+          pillData.forEach((data, pill) => {
+            const rect = data.placeholder.getBoundingClientRect();
+            pill.style.transition = 'left 0.5s ease, top 0.5s ease';
+            pill.style.left = rect.left + window.scrollX + 'px';
+            pill.style.top = rect.top + window.scrollY + 'px';
+
+            setTimeout(() => {
+              pill.style.transition = '';
+            }, 500);
+          });
+        }, 2000);
+      }
+    }
+
+    // --- Mouse events ---
+    originalPill.addEventListener('mousedown', e => {
+      e.preventDefault();
+      startDrag(e.clientX, e.clientY);
+
+      function moveHandler(ev) {
+        moveDrag(ev.clientX, ev.clientY);
+      }
+
+      function upHandler() {
+        dropDrag();
+        document.removeEventListener('mousemove', moveHandler);
+        document.removeEventListener('mouseup', upHandler);
+      }
+
+      document.addEventListener('mousemove', moveHandler);
+      document.addEventListener('mouseup', upHandler);
     });
+
+    // --- Touch events ---
+    originalPill.addEventListener('touchstart', e => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      startDrag(touch.clientX, touch.clientY);
+
+      function moveHandler(ev) {
+        const t = ev.touches[0];
+        moveDrag(t.clientX, t.clientY);
+      }
+
+      function endHandler() {
+        dropDrag();
+        document.removeEventListener('touchmove', moveHandler);
+        document.removeEventListener('touchend', endHandler);
+      }
+
+      document.addEventListener('touchmove', moveHandler, { passive: false });
+      document.addEventListener('touchend', endHandler, { passive: false });
+    });
+  });
 }
 
 // Initialize everything when DOM is loaded
@@ -1696,6 +1457,32 @@ document.addEventListener('DOMContentLoaded', async function() {
     // About page highlight colors removed
     
 });
+
+// Handle viewport resize to reposition pills
+window.addEventListener('resize', function() {
+    // Only run if we're on the homepage and pills exist
+    if (document.body.classList.contains('homepage') && document.querySelectorAll('.hero .pill').length > 0) {
+        // Small delay to ensure layout has updated
+        setTimeout(() => {
+            repositionPillsToPlaceholders();
+        }, 100);
+    }
+});
+
+// Function to reposition all pills back to their placeholders
+function repositionPillsToPlaceholders() {
+    const pills = document.querySelectorAll('.hero .pill');
+    
+    pills.forEach(originalPill => {
+        // Find the corresponding placeholder
+        const placeholder = originalPill.parentNode.querySelector('.pill.placeholder');
+        if (placeholder) {
+            const rect = placeholder.getBoundingClientRect();
+            originalPill.style.left = rect.left + window.scrollX + 'px';
+            originalPill.style.top = rect.top + window.scrollY + 'px';
+        }
+    });
+}
 
 // Check if current page requires authentication
 async function checkPageAuthentication() {
