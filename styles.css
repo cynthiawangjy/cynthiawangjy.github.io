@@ -822,9 +822,9 @@ nav {
 
 .project img,
 .project video {
-	width: 100%;
-	/* height: 100%; */
-	object-fit: cover;
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
 	border-radius: calc(0.75rem - 1px);
 	will-change: auto;
 	transition: transform 0.25s ease;
