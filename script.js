@@ -1311,22 +1311,45 @@ function initDraggablePills() {
 
     // Style original pill to be draggable and appear on top
     originalPill.style.position = 'absolute';
+    originalPill.style.margin = '0';
+    originalPill.style.zIndex = '1000';
+    
+    // Position the pill exactly on top of its placeholder
     const rect = placeholder.getBoundingClientRect();
     originalPill.style.left = rect.left + window.scrollX + 'px';
     originalPill.style.top = rect.top + window.scrollY + 'px';
-    originalPill.style.zIndex = '1000';
-    originalPill.style.margin = '0';
 
     pillData.set(originalPill, { placeholder });
 
     let isDragging = false;
     let offsetX = 0;
     let offsetY = 0;
+    let lastDistance = Infinity;
+    let isMovingTowardsPlaceholder = false;
 
-    function startDrag(x, y) {
+    function startDrag(x, y, preCalculatedOffsetX, preCalculatedOffsetY) {
       isDragging = true;
-      offsetX = x - originalPill.getBoundingClientRect().left;
-      offsetY = y - originalPill.getBoundingClientRect().top;
+      
+      // Disable CSS transitions during drag to prevent interference
+      originalPill.style.transition = 'none';
+      
+      // Use the pre-calculated offset
+      offsetX = preCalculatedOffsetX;
+      offsetY = preCalculatedOffsetY;
+
+      // Initialize distance tracking
+      const pillRect = originalPill.getBoundingClientRect();
+      const placeholderRect = pillData.get(originalPill).placeholder.getBoundingClientRect();
+      const pillCenterX = pillRect.left + pillRect.width / 2;
+      const pillCenterY = pillRect.top + pillRect.height / 2;
+      const placeholderCenterX = placeholderRect.left + placeholderRect.width / 2;
+      const placeholderCenterY = placeholderRect.top + placeholderRect.height / 2;
+      
+      lastDistance = Math.sqrt(
+        Math.pow(pillCenterX - placeholderCenterX, 2) + 
+        Math.pow(pillCenterY - placeholderCenterY, 2)
+      );
+      isMovingTowardsPlaceholder = false;
 
       // Cancel any pending auto-return
       if (autoReturnTimer) {
@@ -1339,8 +1362,30 @@ function initDraggablePills() {
 
     function moveDrag(x, y) {
       if (!isDragging) return;
-      originalPill.style.left = x - offsetX + 'px';
-      originalPill.style.top = y - offsetY + 'px';
+      originalPill.style.left = (x - offsetX) + 'px';
+      originalPill.style.top = (y - offsetY) + 'px';
+      
+      // Track movement direction towards placeholder
+      const pillRect = originalPill.getBoundingClientRect();
+      const placeholderRect = pillData.get(originalPill).placeholder.getBoundingClientRect();
+      const pillCenterX = pillRect.left + pillRect.width / 2;
+      const pillCenterY = pillRect.top + pillRect.height / 2;
+      const placeholderCenterX = placeholderRect.left + placeholderRect.width / 2;
+      const placeholderCenterY = placeholderRect.top + placeholderRect.height / 2;
+      
+      const currentDistance = Math.sqrt(
+        Math.pow(pillCenterX - placeholderCenterX, 2) + 
+        Math.pow(pillCenterY - placeholderCenterY, 2)
+      );
+      
+      // Check if we're moving towards the placeholder
+      if (currentDistance < lastDistance) {
+        isMovingTowardsPlaceholder = true;
+      } else if (currentDistance > lastDistance + 5) { // Add small threshold to prevent flickering
+        isMovingTowardsPlaceholder = false;
+      }
+      
+      lastDistance = currentDistance;
     }
 
     function dropDrag() {
@@ -1366,8 +1411,8 @@ function initDraggablePills() {
       // Snap threshold: 32px
       const snapThreshold = 32;
       
-      if (distance <= snapThreshold) {
-        // Snap back to placeholder position
+      if (distance <= snapThreshold && isMovingTowardsPlaceholder) {
+        // Only snap if we're moving towards the placeholder
         const rect = pillData.get(originalPill).placeholder.getBoundingClientRect();
         originalPill.style.transition = 'left 0.3s ease, top 0.3s ease';
         originalPill.style.left = rect.left + window.scrollX + 'px';
@@ -1377,6 +1422,9 @@ function initDraggablePills() {
           originalPill.style.transition = '';
         }, 300);
       } else {
+        // Re-enable CSS transitions for normal hover effects
+        originalPill.style.transition = '';
+        
         // Reset the 3s timer for **all pills** if not snapped
         if (autoReturnTimer) clearTimeout(autoReturnTimer);
         autoReturnTimer = setTimeout(() => {
@@ -1397,7 +1445,18 @@ function initDraggablePills() {
     // --- Mouse events ---
     originalPill.addEventListener('mousedown', e => {
       e.preventDefault();
-      startDrag(e.clientX, e.clientY);
+      
+      // Calculate offset BEFORE repositioning the pill
+      const pillRect = originalPill.getBoundingClientRect();
+      const offsetX = e.clientX - pillRect.left;
+      const offsetY = e.clientY - pillRect.top;
+      
+      // Ensure the pill is positioned correctly before starting drag
+      const rect = pillData.get(originalPill).placeholder.getBoundingClientRect();
+      originalPill.style.left = rect.left + window.scrollX + 'px';
+      originalPill.style.top = rect.top + window.scrollY + 'px';
+      
+      startDrag(e.clientX, e.clientY, offsetX, offsetY);
 
       function moveHandler(ev) {
         moveDrag(ev.clientX, ev.clientY);
@@ -1417,7 +1476,18 @@ function initDraggablePills() {
     originalPill.addEventListener('touchstart', e => {
       e.preventDefault();
       const touch = e.touches[0];
-      startDrag(touch.clientX, touch.clientY);
+      
+      // Calculate offset BEFORE repositioning the pill
+      const pillRect = originalPill.getBoundingClientRect();
+      const offsetX = touch.clientX - pillRect.left;
+      const offsetY = touch.clientY - pillRect.top;
+      
+      // Ensure the pill is positioned correctly before starting drag
+      const rect = pillData.get(originalPill).placeholder.getBoundingClientRect();
+      originalPill.style.left = rect.left + window.scrollX + 'px';
+      originalPill.style.top = rect.top + window.scrollY + 'px';
+      
+      startDrag(touch.clientX, touch.clientY, offsetX, offsetY);
 
       function moveHandler(ev) {
         const t = ev.touches[0];
