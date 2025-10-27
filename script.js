@@ -443,30 +443,30 @@ function initMainNavigation() {
             // Only handle smooth indicator animation for same-page navigation (#work on homepage)
             if (href === '#work') {
                 e.preventDefault(); // Only prevent default for same-page navigation
+            
+            // Remove active and transitioning classes from all main nav items
+            mainNavItems.forEach(nav => {
+                nav.classList.remove('active', 'transitioning');
+            });
+            
+            // Add transitioning class to clicked item
+            this.classList.add('transitioning');
+            
+            // Move the indicator to the active item
+            moveMainIndicator(this);
+            
+            // Navigate after the animation completes (300ms)
+            setTimeout(() => {
+                // Remove transitioning class and add active
+                this.classList.remove('transitioning');
+                this.classList.add('active');
                 
-                // Remove active and transitioning classes from all main nav items
-                mainNavItems.forEach(nav => {
-                    nav.classList.remove('active', 'transitioning');
-                });
-                
-                // Add transitioning class to clicked item
-                this.classList.add('transitioning');
-                
-                // Move the indicator to the active item
-                moveMainIndicator(this);
-                
-                // Navigate after the animation completes (300ms)
-                setTimeout(() => {
-                    // Remove transitioning class and add active
-                    this.classList.remove('transitioning');
-                    this.classList.add('active');
-                    
                     // Scroll to work section (no offset)
                     const workSection = document.getElementById('work');
                     if (workSection) {
                         workSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }, 300);
+                }
+            }, 300);
             }
             // For all other navigation (to other pages), let default browser behavior handle it
             // No e.preventDefault() means it navigates immediately without any animation
@@ -1686,133 +1686,109 @@ function initPlayModal() {
     // Define content for each item
     const modalContent = {
         // Using absolute paths from site root
-        'bedroom.jpg': {
-            media: '<img src="/images/play/bedroom.jpg" alt="Bedroom">',
-            info: '<div class="play-modal-info-header"><h3>Bedroom</h3><p>A cozy bedroom design exploration.</p>'
-        },
         'css-letterforms.mp4': {
-            media: '<video controls><source src="/images/play/css-letterforms.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>CSS Letterforms</h3><p>Typography experimentation with CSS.</p>'
+            media: '<video><source src="/images/play/css-letterforms.mp4" type="video/mp4"></video>',
+            info: '<div class="play-modal-info-header"><h3>CSS Letterforms</h3><p>A small coding exercise playing with typography and hover interactions</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>2024</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>HTML, CSS</p></div><hr></div></div>'
         },
         'docker.mp4': {
-            media: '<video controls><source src="/images/play/docker.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>Docker</h3><p>Container visualization project.</p>'
+            media: '<video><source src="/images/play/docker.mp4" type="video/mp4"></video>',
+            info: '<div class="play-modal-info-header"><h3>Docker</h3><p>Container visualization project.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'earth.png': {
             media: '<img src="/images/play/earth.png" alt="Earth">',
-            info: '<div class="play-modal-info-header"><h3>Earth</h3><p>Earth representation design.</p>'
-        },
-        'good-omens.PNG': {
-            media: '<img src="/images/play/good-omens.PNG" alt="Good Omens">',
-            info: '<div class="play-modal-info-header"><h3>Good Omens</h3><p>Fan art inspired by the series.</p>'
+            info: '<div class="play-modal-info-header"><h3>Earth</h3><p>Earth representation design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'kitchen.jpg': {
             media: '<img src="/images/play/kitchen.jpg" alt="Kitchen">',
-            info: '<div class="play-modal-info-header"><h3>Kitchen</h3><p>Kitchen design visualization.</p>'
-        },
-        'memoji.mp4': {
-            media: '<video controls><source src="/images/play/memoji.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>Memoji</h3><p>Animated character creation.</p>'
+            info: '<div class="play-modal-info-header"><h3>Kitchen</h3><p>Kitchen design visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'moon.mp4': {
-            media: '<video controls><source src="/images/play/moon.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>Moon</h3><p>Lunar phase animation.</p>'
+            media: '<video><source src="/images/play/moon.mp4" type="video/mp4"></video>',
+            info: '<div class="play-modal-info-header"><h3>Moon</h3><p>Lunar phase animation.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
-        'pixel-font.mov': {
-            media: '<video controls><source src="/images/play/pixel-font.mov" type="video/quicktime"></video>',
-            info: '<div class="play-modal-info-header"><h3>Pixel Font</h3><p>Retro font design exploration.</p>'
+        'tomato-tomato.png': {
+            media: '<img src="/images/play/tomato-tomato.png" alt="Riso Tomato">',
+            info: '<div class="play-modal-info-header"><h3>Tomato Tomato</h3><p>Ripped pieces of paper, scanned them, and assembled them into a risograph print. An ode to tomato lovers and linguists.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2023</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Illustrator</p></div><hr></div></div>'
         },
-        'riso-test.png': {
-            media: '<img src="/images/play/riso-test.png" alt="Riso Test">',
-            info: '<div class="play-modal-info-header"><h3>Riso Test</h3><p>Risograph printing experiments.</p>'
-        },
-        'riso-tomato.png': {
-            media: '<img src="/images/play/riso-tomato.png" alt="Riso Tomato">',
-            info: '<div class="play-modal-info-header"><h3>Riso Tomato</h3><p>Risograph design featuring tomatoes.</p>'
-        },
-        'riso-zine.png': {
-            media: '<img src="/images/play/riso-zine.png" alt="Riso Zine">',
-            info: '<div class="play-modal-info-header"><h3>Riso Zine</h3><p>Self-published zine using risograph printing.</p>'
-        },
-        'ryder.mp4': {
-            media: '<video controls><source src="/images/play/ryder.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>Ryder</h3><p>Character animation project.</p>'
+        'the-extensions-of-man.mp4': {
+            media: '<video><source src="/images/play/the-extensions-of-man.mp4" type="video/mp4"></video>',
+            info: '<div class="play-modal-info-header"><h3>the-extensions-of-man</h3><p>Character animation project.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'spirited-away.PNG': {
             media: '<img src="/images/play/spirited-away.PNG" alt="Spirited Away">',
-            info: '<div class="play-modal-info-header"><h3>Spirited Away</h3><p>Illustration inspired by Studio Ghibli.</p>'
+            info: '<div class="play-modal-info-header"><h3>Spirited Away</h3><p>Illustration inspired by Studio Ghibli.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'twelve-moons.mp4': {
-            media: '<video controls><source src="/images/play/twelve-moons.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>Twelve Moons</h3><p>Lunar calendar visualization.</p>'
+            media: '<video><source src="/images/play/twelve-moons.mp4" type="video/mp4"></video>',
+            info: '<div class="play-modal-info-header"><h3>Twelve Moons</h3><p>Lunar calendar visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'vincenzo.PNG': {
             media: '<img src="/images/play/vincenzo.PNG" alt="Vincenzo">',
-            info: '<div class="play-modal-info-header"><h3>Vincenzo</h3><p>Digital portrait inspired by the drama.</p>'
+            info: '<div class="play-modal-info-header"><h3>Vincenzo</h3><p>Digital portrait inspired by the drama.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'wheein.PNG': {
             media: '<img src="/images/play/wheein.PNG" alt="Wheein">',
-            info: '<div class="play-modal-info-header"><h3>Wheein</h3><p>K-pop artist portrait.</p>'
+            info: '<div class="play-modal-info-header"><h3>Wheein</h3><p>K-pop artist portrait.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
-            'wkx-cup.PNG': {
+        'wkx-cup.PNG': {
             media: '<img src="/images/play/wkx-cup.PNG" alt="WKX Cup">',
-            info: '<div class="play-modal-info-header"><h3>WKX Cup</h3><p>Custom cup design.</p>'
+            info: '<div class="play-modal-info-header"><h3>WKX Cup</h3><p>Custom cup design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'wkx-fan.PNG': {
             media: '<img src="/images/play/wkx-fan.PNG" alt="WKX Fan">',
-            info: '<div class="play-modal-info-header"><h3>WKX Fan</h3><p>Custom fan design.</p>'
+            info: '<div class="play-modal-info-header"><h3>WKX Fan</h3><p>Custom fan design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'pixel-pastry.png': {
             media: '<img src="/images/play/pixel-pastry.png" alt="Pixel Pastry">',
-            info: '<div class="play-modal-info-header"><h3>Pixel Pastry</h3><p>Pixel art pastry illustration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Pixel Pastry</h3><p>Pixel art pastry illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'figurines.png': {
             media: '<img src="/images/play/figurines.png" alt="Figurines">',
-            info: '<div class="play-modal-info-header"><h3>Figurines</h3><p>Clay sculpture collection.</p>'
+            info: '<div class="play-modal-info-header"><h3>Figurines</h3><p>Got back into ceramics this summer, my first time since middle school. Inspo: @annabel_le</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2025</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Ceramics</p></div><hr></div></div>'
         },
         'house-jar.png': {
             media: '<img src="/images/play/house-jar.png" alt="House Jar">',
-            info: '<div class="play-modal-info-header"><h3>House Jar</h3><p>Clay jar with house design.</p>'
+            info: '<div class="play-modal-info-header"><h3>House jar</h3><p>One of my first pieces from this summer. Inspo: @dgaf.studio</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2025</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Ceramics</p></div><hr></div></div>'
         },
         'rat-pizza.png': {
             media: '<img src="/images/play/rat-pizza.png" alt="Rat Pizza">',
-            info: '<div class="play-modal-info-header"><h3>Rat Pizza</h3><p>3D rendered scene.</p>'
+            info: '<div class="play-modal-info-header"><h3>Rat Pizza</h3><p>3D rendered scene.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'cherry-tomato.jpeg': {
             media: '<img src="/images/play/cherry-tomato.jpeg" alt="Cherry Tomato">',
-            info: '<div class="play-modal-info-header"><h3>Cherry Tomato</h3><p>Digital illustration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Cherry Tomato</h3><p>Digital illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
-        'hair.png': {
-            media: '<img src="/images/play/hair.png" alt="Hair">',
-            info: '<div class="play-modal-info-header"><h3>Hair</h3><p>Hair texture study.</p>'
+        'it-might-sting-a-little.png': {
+            media: '<img src="/images/play/it-might-sting-a-little.png" alt="it-might-sting-a-little">',
+            info: '<div class="play-modal-info-header"><h3>it-might-sting-a-little</h3><p>it-might-sting-a-little texture study.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
-        'sonny.jpeg': {
-            media: '<img src="/images/play/sonny.jpeg" alt="Sonny">',
-            info: '<div class="play-modal-info-header"><h3>Sonny</h3><p>Character portrait.</p>'
+        'sisterhood.jpeg': {
+            media: '<img src="/images/play/sisterhood.jpeg" alt="sisterhood">',
+            info: '<div class="play-modal-info-header"><h3>sisterhood</h3><p>Character portrait.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
-        'room.jpg': {
-            media: '<img src="/images/play/room.jpg" alt="Room">',
-            info: '<div class="play-modal-info-header"><h3>Room</h3><p>Interior design visualization.</p>'
+        'change-over-time.jpg': {
+            media: '<img src="/images/play/change-over-time.jpg" alt="change-over-time">',
+            info: '<div class="play-modal-info-header"><h3>change-over-time</h3><p>Interior design visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
-        'shiny.jpg': {
-            media: '<img src="/images/play/shiny.jpg" alt="Shiny">',
-            info: '<div class="play-modal-info-header"><h3>Shiny</h3><p>Surface texture study.</p>'
+        'refraction.jpg': {
+            media: '<img src="/images/play/refraction.jpg" alt="Refraction">',
+            info: '<div class="play-modal-info-header"><h3>Refraction</h3><p>Surface texture study.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
-        'bubble-gum.jpg': {
-            media: '<img src="/images/play/bubble-gum.jpg" alt="Bubble Gum">',
-            info: '<div class="play-modal-info-header"><h3>Bubble Gum</h3><p>Material rendering exploration.</p>'
+        'flash.jpg': {
+            media: '<img src="/images/play/flash.jpg" alt="Flash">',
+            info: '<div class="play-modal-info-header"><h3>Flash</h3><p>Material rendering exploration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'water-color.jpg': {
             media: '<img src="/images/play/water-color.jpg" alt="Water Color">',
-            info: '<div class="play-modal-info-header"><h3>Water Color</h3><p>Watercolor painting technique.</p>'
+            info: '<div class="play-modal-info-header"><h3>Water Color</h3><p>Watercolor painting technique.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'dry-eyes.GIF': {
             media: '<img src="/images/play/dry-eyes.GIF" alt="Dry Eyes">',
-            info: '<div class="play-modal-info-header"><h3>Dry Eyes</h3><p>Animated illustration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Dry Eyes</h3><p>Animated illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'pomodoro.GIF': {
             media: '<img src="/images/play/pomodoro.GIF" alt="Pomodoro">',
-            info: '<div class="play-modal-info-header"><h3>Pomodoro</h3><p>Pomodoro timer design.</p>'
+            info: '<div class="play-modal-info-header"><h3>Pomodoro</h3><p>Pomodoro timer design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
         },
         'brain-fry.GIF': {
             media: '<img src="/images/play/brain-fry.GIF" alt="Brain Fry">',
@@ -1821,11 +1797,11 @@ function initPlayModal() {
         // Type page fonts - using absolute paths from site root
         'basier-square.jpg': {
             media: '<img src="/images/play/type/basier-square.jpg" alt="Basier Square">',
-            info: '<div class="play-modal-info-header"><h3>Basier Square</h3><p>Geometric sans-serif typeface</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>2020</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Vincent De Block</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="https://fonts.google.com/specimen/Basier+Square" target="_blank">Google Fonts</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Basier Square</h3><p>Basier, inspired by the International Style, is a neo-grotesque sans serif typeface available in two variants, Circle & Square.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>2018</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>atipo foundry</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="https://www.atipofoundry.com/fonts/basier" target="_blank">basier | atipo foundry</a></p></div><hr></div></div>'
         },
         'circular-std.png': {
             media: '<img src="/images/play/type/circular-std.png" alt="Circular Std">',
-            info: '<div class="play-modal-info-header"><h3>Circular Std</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Circular Std</h3><p>LL Circular is a geometric sans-serif font family in eight weights. It is Laurenz Brunner’s second official release after the critically acclaimed, immensely popular LL Akkurat.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>2013</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Laurenz Brunner</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="https://lineto.com/typefaces/circular/" target="_blank">Lineto.com</a></p></div><hr></div></div>'
         },
         'diatype.png': {
             media: '<img src="/images/play/type/diatype.png" alt="Diatype">',
@@ -1967,8 +1943,11 @@ function initPlayModal() {
         const modalVideo = modalMedia.querySelector('video');
         if (modalVideo) {
             modalVideo.autoplay = true;
+            modalVideo.loop = true;
             modalVideo.setAttribute('autoplay', '');
+            modalVideo.setAttribute('loop', '');
             modalVideo.setAttribute('playsinline', '');
+            modalVideo.removeAttribute('controls');
             modalVideo.load(); // Reload to apply autoplay
         }
     }
@@ -1989,6 +1968,12 @@ function initPlayModal() {
     
     // Function to get relative time string
     function getRelativeTime(filePath) {
+        // Extract filename from path (handle query parameters)
+        let fileName = filePath.split('/').pop();
+        if (fileName.includes('?')) {
+            fileName = fileName.split('?')[0];
+        }
+        
         // File modification times
         const fileTimes = {
             // Type page files (last modified: 10/26/2025 9:31:09 PM)
@@ -2028,6 +2013,7 @@ function initPlayModal() {
             'css-letterforms.mp4': new Date('2025-10-25T22:38:51'),
             'pixel-pastry.png': new Date('2025-10-26T19:27:49'),
             'riso-tomato.png': new Date('2023-11-06T23:16:33'),
+            'tomato-tomato.png': new Date('2023-11-06T23:16:33'),
             'riso-test.png': new Date('2023-11-06T23:11:42'),
             'riso-zine.png': new Date('2023-11-06T23:16:22'),
             'figurines.png': new Date('2025-10-26T19:07:18'),
@@ -2035,33 +2021,31 @@ function initPlayModal() {
             'docker.mp4': new Date('2025-10-26T19:25:50'),
             'rat-pizza.png': new Date('2024-12-14T19:50:22'),
             'moon.mp4': new Date('2023-12-04T21:34:20'),
-            'memoji.mp4': new Date('2024-11-04T11:37:26'),
-            'pixel-font.mov': new Date('2024-11-04T12:03:19'),
-            'pixel-pudding.mov': new Date('2024-11-04T12:03:03'),
             'earth.png': new Date('2024-11-25T15:24:07'),
             'kitchen.jpg': new Date('2023-08-29T22:40:36'),
-            'bedroom.jpg': new Date('2023-08-29T22:40:36'),
             'cherry-tomato.jpeg': new Date('2025-10-26T17:05:01'),
-            'hair.png': new Date('2025-10-26T17:08:03'),
-            'sonny.jpeg': new Date('2025-10-26T17:04:17'),
-            'room.jpg': new Date('2023-09-02T00:37:42'),
-            'shiny.jpg': new Date('2023-09-02T00:37:43'),
-            'bubble-gum.jpg': new Date('2023-09-02T00:37:44'),
+            'it-might-sting-a-little.png': new Date('2025-10-26T17:08:03'),
+            'sisterhood.jpeg': new Date('2025-10-26T17:04:17'),
+            'change-over-time.jpg': new Date('2023-09-02T00:37:42'),
+            'refraction.jpg': new Date('2023-09-02T00:37:43'),
+            'flash.jpg': new Date('2023-09-02T00:37:44'),
             'wkx-cup.PNG': new Date('2025-10-25T22:39:02'),
             'wkx-fan.PNG': new Date('2025-10-25T22:38:57'),
             'vincenzo.PNG': new Date('2025-10-25T22:38:59'),
             'water-color.jpg': new Date('2025-10-26T00:26:59'),
             'wheein.PNG': new Date('2025-10-25T22:39:16'),
             'spirited-away.PNG': new Date('2025-10-25T23:07:58'),
-            'ryder.mp4': new Date('2025-10-25T23:07:36'),
+            'the-extensions-of-man.mp4': new Date('2025-10-25T23:07:36'),
             'dry-eyes.GIF': new Date('2023-08-28T19:25:08'),
             'pomodoro.GIF': new Date('2023-08-28T19:25:08'),
             'brain-fry.GIF': new Date('2023-08-28T19:25:08')
         };
         
-        const fileName = filePath.split('/').pop();
         const fileTime = fileTimes[fileName];
-        if (!fileTime) return 'recently';
+        if (!fileTime) {
+            console.log('File not found in fileTimes:', fileName);
+            return 'recently';
+        }
         
         const now = new Date();
         const diffMs = now - fileTime;
@@ -2081,27 +2065,6 @@ function initPlayModal() {
         return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
     }
     
-    // Update timestamps on the play and type pages
-    if (document.querySelector('.play-gallery-item .caption-overlay')) {
-        const galleryItems = document.querySelectorAll('.play-gallery-item');
-        galleryItems.forEach(item => {
-            // Get image or video source
-            const img = item.querySelector('img');
-            const video = item.querySelector('video source');
-            const src = img ? img.src : (video ? video.src : null);
-            
-            if (src) {
-                const overlay = item.querySelector('.caption-overlay');
-                if (overlay) {
-                    const timeElement = overlay.querySelector('.timestamp');
-                    if (timeElement) {
-                        const relativeTime = getRelativeTime(src);
-                        timeElement.textContent = relativeTime;
-                    }
-                }
-            }
-        });
-    }
     
     // Add click handlers to gallery items and inject labels
     galleryItems.forEach(item => {
@@ -2137,7 +2100,7 @@ function initPlayModal() {
                 src = source ? source.getAttribute('src') : '';
             }
             
-            // Get caption text from the first p tag
+            // Get caption text from the first p tag (filename)
             const caption = item.querySelector('.play-gallery-item > p.text-small:first-of-type');
             const captionText = caption ? caption.textContent : '';
             
@@ -2146,16 +2109,122 @@ function initPlayModal() {
             const content = modalContent[filename];
             
             if (content) {
-                // Use caption text as title
-                const title = captionText || content.title || filename.replace(/\.(jpg|png|gif|webp|avif|jpeg|mov|mp4|GIF|PNG|JPEG|MOV|MP4)$/i, '').replace(/[-_]/g, ' ');
-                content.title = title;
+                // Use caption text (filename) as title
+                const title = captionText;
+                
+                // Extract year from the file creation date
+                let fileName = src.split('/').pop();
+                if (fileName.includes('?')) {
+                    fileName = fileName.split('?')[0];
+                }
+                
+                // Get year from the getRelativeTimePlay function's fileTimes
+                let year = '';
+                const fileDateObj = getRelativeTimePlay(src);
+                // We need to extract the year from the creation date, so we'll get it from the fileTimes in getRelativeTimePlay
+                // For now, we'll use the content.info if it exists
+                if (content.info) {
+                    // Extract year from existing content if available
+                    const yearMatch = content.info.match(/Year.*?(\d{4})/);
+                    if (yearMatch) {
+                        year = yearMatch[1];
+                    }
+                }
+                
+                // Create tools mapping (you can customize this per file)
+                const toolsMap = {
+                    'twelve-moons.mp4': 'HTML, CSS, JavaScript',
+                    'the-extensions-of-man.mp4': 'Procreate',
+                    'css-letterforms.mp4': 'HTML, CSS',
+                    'docker.mp4': 'Blender',
+                    'moon.mp4': 'Blender',
+                    'brain-fry.GIF': 'Procreate',
+                    'dry-eyes.GIF': 'Procreate',
+                    'pomodoro.GIF': 'Procreate',
+                    'flash.jpg': 'Graphite',
+                    'rat-pizza.png': 'Blender',
+                    'earth.png': 'Blender',
+                    'water-color.jpg': 'Procreate',
+                    'spirited-away.PNG': 'Procreate',
+                    'wheein.PNG': 'Procreate',
+                    'vincenzo.PNG': 'Procreate',
+                    'wkx-cup.PNG': 'Procreate',
+                    'wkx-fan.PNG': 'Procreate',
+                    'figurines.png': 'Ceramics',
+                    'house-jar.png': 'Ceramics',
+                    'tomato-tomato.png': 'Illustrator, Risograph',
+                    'pixel-pastry.png': 'Glyphs 3',
+                    'cherry-tomato.jpeg': 'Oil',
+                    'it-might-sting-a-little.png': 'Oil',
+                    'sisterhood.jpeg': 'Oil',
+                    'change-over-time.jpg': 'Blender',
+                    'kitchen.jpg': 'Blender',
+                    'refraction.jpg': 'Blender'
+                };
+                
+                const tools = toolsMap[fileName] || 'Tool';
+                
+                // If no year was extracted, try to get it from the file creation date
+                if (!year) {
+                    // Call getRelativeTimePlay to get the date, then extract year from the fileTimes
+                    const relativeTime = getRelativeTimePlay(src);
+                    // We need to access the fileTimes from getRelativeTimePlay
+                    // For now, just get the year from the Date object
+                    const fileTimesLookup = {
+                        'twelve-moons.mp4': 2024,
+                        'the-extensions-of-man.mp4': 2022,
+                        'vincenzo.PNG': 2021,
+                        'brain-fry.GIF': 2022,
+                        'flash.jpg': 2017,
+                        'change-over-time.jpg': 2021,
+                        'cherry-tomato.jpeg': 2025,
+                        'docker.mp4': 2024,
+                        'css-letterforms.mp4': 2024,
+                        'dry-eyes.GIF': 2022,
+                        'earth.png': 2023,
+                        'figurines.png': 2025,
+                        'house-jar.png': 2025,
+                        'it-might-sting-a-little.png': 2024,
+                        'kitchen.jpg': 2023,
+                        'moon.mp4': 2023,
+                        'pixel-pastry.png': 2024,
+                        'pomodoro.GIF': 2022,
+                        'rat-pizza.png': 2024,
+                        'refraction.jpg': 2020,
+                        'sisterhood.jpeg': 2024,
+                        'spirited-away.PNG': 2020,
+                        'tomato-tomato.png': 2025,
+                        'water-color.jpg': 2021,
+                        'wheein.PNG': 2021,
+                        'wkx-cup.PNG': 2021,
+                        'wkx-fan.PNG': 2021
+                    };
+                    year = fileTimesLookup[fileName] || '';
+                }
+                
+                // Update the info to include title and only Year and Tools rows
+                content.info = `<div class="play-modal-info-header"><h3>${title}</h3></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>${year}</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>${tools}</p></div><hr></div></div>`;
                 openModal(content);
             }
         });
     });
     
     // Close modal handlers
-    modalClose.addEventListener('click', closeModal);
+    modalClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        closeModal();
+    });
+    
+    // Also handle clicks on the close icon span
+    const closeIcon = modalClose.querySelector('.material-icons-round');
+    if (closeIcon) {
+        closeIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            closeModal();
+        });
+    }
     
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
@@ -2171,8 +2240,135 @@ function initPlayModal() {
     });
 }
 
+// Function to get relative time string
+function getRelativeTimePlay(filePath) {
+    // Extract filename from path (handle query parameters)
+    let fileName = filePath.split('/').pop();
+    if (fileName.includes('?')) {
+        fileName = fileName.split('?')[0];
+    }
+    
+    console.log('Looking for file:', fileName);
+    
+    // File modification times
+    const fileTimes = {
+        // Type page files (last modified: 10/26/2025 9:31:09 PM)
+        'basier-square.jpg': new Date('2025-10-26T21:31:09'),
+        'circular-std.png': new Date('2025-10-26T21:31:10'),
+        'diatype.png': new Date('2025-10-26T21:31:09'),
+        'digibop.png': new Date('2025-10-26T21:31:10'),
+        'editorial-new.jpg': new Date('2025-10-26T21:31:09'),
+        'editorial-old.webp': new Date('2025-10-26T21:31:10'),
+        'figma-sans.avif': new Date('2025-10-26T21:31:10'),
+        'good-sans.webp': new Date('2025-10-26T21:31:10'),
+        'google-sans.png': new Date('2025-10-26T21:31:09'),
+        'graphik.gif': new Date('2025-10-26T21:31:09'),
+        'helveesti.jpeg': new Date('2025-10-26T21:31:09'),
+        'inferi.jpg': new Date('2025-10-26T21:31:10'),
+        'instrument-sans.gif': new Date('2025-10-26T21:31:10'),
+        'instrument-serif.png': new Date('2025-10-26T21:31:10'),
+        'mondwest.jpg': new Date('2025-10-26T21:31:10'),
+        'mori.jpg': new Date('2025-10-26T21:31:10'),
+        'neue-montreal.jpg': new Date('2025-10-26T21:31:10'),
+        'pentameter.png': new Date('2025-10-26T21:31:10'),
+        'polysans.jpg': new Date('2025-10-26T21:31:10'),
+        'regola-pro.jpg': new Date('2025-10-26T21:31:10'),
+        'rethink-sans.png': new Date('2025-10-26T21:31:09'),
+        'roobert.webp': new Date('2025-10-26T21:31:10'),
+        'self-modern.png': new Date('2025-10-26T21:31:10'),
+        'sf-pro.png': new Date('2025-10-26T21:31:09'),
+        'sohne.avif': new Date('2025-10-26T21:31:09'),
+        'swear-text.png': new Date('2025-10-26T21:31:10'),
+        'that-that.png': new Date('2025-10-26T21:31:10'),
+        'the-seasons.png': new Date('2025-10-26T21:31:09'),
+        'tumb.jpeg': new Date('2025-10-26T21:31:10'),
+        'uw-workshop.png': new Date('2025-10-26T21:31:10'),
+        'wetris.jpeg': new Date('2025-10-26T21:31:10'),
+        // Play page files with actual creation dates
+        'twelve-moons.mp4': new Date('2024-10-01'),
+        'the-extensions-of-man.mp4': new Date('2022-05-01'),
+        'vincenzo.PNG': new Date('2021-08-01'),
+        'brain-fry.GIF': new Date('2022-04-01'),
+        'flash.jpg': new Date('2017-01-01'),
+        'change-over-time.jpg': new Date('2021-12-01'),
+        'cherry-tomato.jpeg': new Date('2025-04-01'),
+        'docker.mp4': new Date('2024-12-01'),
+        'css-letterforms.mp4': new Date('2024-09-01'),
+        'dry-eyes.GIF': new Date('2022-04-01'),
+        'earth.png': new Date('2023-11-01'),
+        'figurines.png': new Date('2025-07-01'),
+        'house-jar.png': new Date('2025-07-01'),
+        'it-might-sting-a-little.png': new Date('2024-04-01'),
+        'kitchen.jpg': new Date('2023-06-01'),
+        'moon.mp4': new Date('2023-11-01'),
+        'pixel-pastry.png': new Date('2024-04-01'),
+        'pomodoro.GIF': new Date('2022-04-01'),
+        'rat-pizza.png': new Date('2024-12-01'),
+        'refraction.jpg': new Date('2020-08-01'),
+        'sisterhood.jpeg': new Date('2024-03-01'),
+        'spirited-away.PNG': new Date('2020-06-01'),
+        'tomato-tomato.png': new Date('2025-04-01'),
+        'water-color.jpg': new Date('2021-08-01'),
+        'wheein.PNG': new Date('2021-07-01'),
+        'wkx-cup.PNG': new Date('2021-09-01'),
+        'wkx-fan.PNG': new Date('2021-08-01'),
+        'flash.jpg': new Date('2017-01-01'),
+        // 'riso-tomato.png': new Date('2023-11-06T23:16:33'),
+        'tomato-tomato.png': new Date('2023-11-06T23:16:33'),
+        // 'riso-test.png': new Date('2023-11-06T23:11:42'),
+        // 'riso-zine.png': new Date('2023-11-06T23:16:22'),
+        'change-over-time.jpg': new Date('2023-08-29T22:40:36')
+    };
+    
+    const fileTime = fileTimes[fileName];
+    if (!fileTime) {
+        return 'recently';
+    }
+    
+    const now = new Date();
+    const diffMs = now - fileTime;
+    const diffMinutes = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMinutes / 60);
+    const diffDays = Math.floor(diffHours / 24);
+    const diffWeeks = Math.floor(diffDays / 7);
+    const diffMonths = Math.floor(diffDays / 30);
+    const diffYears = Math.floor(diffDays / 365);
+    
+    if (diffMinutes < 1) return 'just now';
+    if (diffMinutes < 60) return `about ${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
+    if (diffHours < 24) return `about ${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago`;
+    if (diffDays < 7) return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
+    if (diffWeeks < 4) return `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
+    if (diffMonths < 12) return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
+    return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
+}
+
 // Initialize play modal when DOM is loaded
 document.addEventListener('DOMContentLoaded', initPlayModal);
+
+// Update timestamps on the play and type pages
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.play-gallery-item .caption-overlay')) {
+        const galleryItems = document.querySelectorAll('.play-gallery-item');
+        galleryItems.forEach(item => {
+            // Get image or video source
+            const img = item.querySelector('img');
+            const video = item.querySelector('video source');
+            const src = img ? img.src : (video ? video.src : null);
+            
+            if (src) {
+                const overlay = item.querySelector('.caption-overlay');
+                if (overlay) {
+                    const timeElement = overlay.querySelector('.timestamp');
+                    if (timeElement) {
+                        const relativeTime = getRelativeTimePlay(src);
+                        timeElement.textContent = relativeTime;
+                    }
+                }
+            }
+        });
+    }
+});
 
 // Play page block counters and timestamps
 function initPlayBlockInfo() {
