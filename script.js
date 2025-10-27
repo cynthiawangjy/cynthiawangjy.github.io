@@ -390,6 +390,34 @@ function initMainNavigation() {
     const mainNavContainer = document.querySelector('.nav-links');
     const mainIndicator = document.querySelector('.main-nav-indicator');
     
+    // Determine which nav item should be active based on current page
+    function setActiveNavItem() {
+        const currentPath = window.location.pathname;
+        
+        // Remove active class from all items
+        mainNavItems.forEach(item => item.classList.remove('active'));
+        
+        // Determine active item based on current path
+        let activeItem = null;
+        
+        if (currentPath.includes('/play/')) {
+            // On play pages, make Play active
+            activeItem = document.querySelector('.main-nav-item[href="../"], .main-nav-item[href="play/"]');
+        } else if (currentPath.includes('/about/')) {
+            // On about page, make About active
+            activeItem = document.querySelector('.main-nav-item[href="../../about/"], .main-nav-item[href="../about/"], .main-nav-item[href="about/"]');
+        } else if (currentPath === '/' || currentPath.endsWith('/index.html') || currentPath === '' || currentPath.endsWith('.github.io/')) {
+            // On homepage, make Work active
+            activeItem = document.querySelector('.main-nav-item[href="../../"], .main-nav-item[href="../"], .main-nav-item[href="/"]');
+        }
+        
+        if (activeItem) {
+            activeItem.classList.add('active');
+        }
+    }
+    
+    // Don't override active classes - let HTML handle it
+    
     function moveMainIndicator(activeItem) {
         if (mainIndicator && activeItem) {
             const itemRect = activeItem.getBoundingClientRect();
@@ -412,53 +440,43 @@ function initMainNavigation() {
                 return;
             }
             
-            e.preventDefault(); // Prevent immediate navigation for internal links
-            
-            // Allow navigation to other pages (like going back to homepage) after animation
-            if (href.includes('../') || href.includes('index.html')) {
-                // Do the animation first, then navigate
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 300);
-                return;
-            }
-            
-            // Remove active and transitioning classes from all main nav items
-            mainNavItems.forEach(nav => {
-                nav.classList.remove('active', 'transitioning');
-            });
-            
-            // Add transitioning class to clicked item
-            this.classList.add('transitioning');
-            
-            // Move the indicator to the active item
-            moveMainIndicator(this);
-            
-            // Navigate after the animation completes (300ms)
-            setTimeout(() => {
-                // Remove transitioning class and add active
-                this.classList.remove('transitioning');
-                this.classList.add('active');
+            // Only handle smooth indicator animation for same-page navigation (#work on homepage)
+            if (href === '#work') {
+                e.preventDefault(); // Only prevent default for same-page navigation
                 
-                if (href === '#work') {
+                // Remove active and transitioning classes from all main nav items
+                mainNavItems.forEach(nav => {
+                    nav.classList.remove('active', 'transitioning');
+                });
+                
+                // Add transitioning class to clicked item
+                this.classList.add('transitioning');
+                
+                // Move the indicator to the active item
+                moveMainIndicator(this);
+                
+                // Navigate after the animation completes (300ms)
+                setTimeout(() => {
+                    // Remove transitioning class and add active
+                    this.classList.remove('transitioning');
+                    this.classList.add('active');
+                    
                     // Scroll to work section (no offset)
                     const workSection = document.getElementById('work');
                     if (workSection) {
                         workSection.scrollIntoView({ behavior: 'smooth' });
                     }
-                } else if (href === 'play/') {
-                    window.location.href = 'play/';
-                } else if (href === 'about/') {
-                    window.location.href = 'about/';
-                }
-            }, 300);
+                }, 300);
+            }
+            // For all other navigation (to other pages), let default browser behavior handle it
+            // No e.preventDefault() means it navigates immediately without any animation
         });
     });
     
-    // Initialize indicator position on first active item
-    const firstActive = document.querySelector('.main-nav-item.active');
-    if (firstActive && mainIndicator) {
-        moveMainIndicator(firstActive);
+    // Initialize indicator position on the active item
+    const activeItem = document.querySelector('.main-nav-item.active');
+    if (activeItem && mainIndicator) {
+        moveMainIndicator(activeItem);
     }
     
 }
@@ -1653,4 +1671,635 @@ function initSpeechBubbleAnimation() {
     
     // Start showing messages after initial delay
     setTimeout(showMessage, 2000);
+}
+
+// Play page modal functionality
+function initPlayModal() {
+    const galleryItems = document.querySelectorAll('.play-gallery-item');
+    const modalOverlay = document.getElementById('playModalOverlay');
+    const modalClose = document.getElementById('playModalClose');
+    const modalMedia = document.getElementById('playModalMedia');
+    const modalInfo = document.getElementById('playModalInfo');
+    
+    if (!modalOverlay || !modalClose) return;
+    
+    // Define content for each item
+    const modalContent = {
+        // Using absolute paths from site root
+        'bedroom.jpg': {
+            media: '<img src="/images/play/bedroom.jpg" alt="Bedroom">',
+            info: '<h3>Bedroom</h3><p>A cozy bedroom design exploration.</p>'
+        },
+        'css-letterforms.mp4': {
+            media: '<video controls><source src="/images/play/css-letterforms.mp4" type="video/mp4"></video>',
+            info: '<h3>CSS Letterforms</h3><p>Typography experimentation with CSS.</p>'
+        },
+        'docker.mp4': {
+            media: '<video controls><source src="/images/play/docker.mp4" type="video/mp4"></video>',
+            info: '<h3>Docker</h3><p>Container visualization project.</p>'
+        },
+        'earth.png': {
+            media: '<img src="/images/play/earth.png" alt="Earth">',
+            info: '<h3>Earth</h3><p>Earth representation design.</p>'
+        },
+        'good-omens.PNG': {
+            media: '<img src="/images/play/good-omens.PNG" alt="Good Omens">',
+            info: '<h3>Good Omens</h3><p>Fan art inspired by the series.</p>'
+        },
+        'kitchen.jpg': {
+            media: '<img src="/images/play/kitchen.jpg" alt="Kitchen">',
+            info: '<h3>Kitchen</h3><p>Kitchen design visualization.</p>'
+        },
+        'memoji.mp4': {
+            media: '<video controls><source src="/images/play/memoji.mp4" type="video/mp4"></video>',
+            info: '<h3>Memoji</h3><p>Animated character creation.</p>'
+        },
+        'moon.mp4': {
+            media: '<video controls><source src="/images/play/moon.mp4" type="video/mp4"></video>',
+            info: '<h3>Moon</h3><p>Lunar phase animation.</p>'
+        },
+        'pixel-font.mov': {
+            media: '<video controls><source src="/images/play/pixel-font.mov" type="video/quicktime"></video>',
+            info: '<h3>Pixel Font</h3><p>Retro font design exploration.</p>'
+        },
+        'riso-test.png': {
+            media: '<img src="/images/play/riso-test.png" alt="Riso Test">',
+            info: '<h3>Riso Test</h3><p>Risograph printing experiments.</p>'
+        },
+        'riso-tomato.png': {
+            media: '<img src="/images/play/riso-tomato.png" alt="Riso Tomato">',
+            info: '<h3>Riso Tomato</h3><p>Risograph design featuring tomatoes.</p>'
+        },
+        'riso-zine.png': {
+            media: '<img src="/images/play/riso-zine.png" alt="Riso Zine">',
+            info: '<h3>Riso Zine</h3><p>Self-published zine using risograph printing.</p>'
+        },
+        'ryder.mp4': {
+            media: '<video controls><source src="/images/play/ryder.mp4" type="video/mp4"></video>',
+            info: '<h3>Ryder</h3><p>Character animation project.</p>'
+        },
+        'spirited-away.PNG': {
+            media: '<img src="/images/play/spirited-away.PNG" alt="Spirited Away">',
+            info: '<h3>Spirited Away</h3><p>Illustration inspired by Studio Ghibli.</p>'
+        },
+        'twelve-moons.mp4': {
+            media: '<video controls><source src="/images/play/twelve-moons.mp4" type="video/mp4"></video>',
+            info: '<h3>Twelve Moons</h3><p>Lunar calendar visualization.</p>'
+        },
+        'vincenzo.PNG': {
+            media: '<img src="/images/play/vincenzo.PNG" alt="Vincenzo">',
+            info: '<h3>Vincenzo</h3><p>Digital portrait inspired by the drama.</p>'
+        },
+        'wheein.PNG': {
+            media: '<img src="/images/play/wheein.PNG" alt="Wheein">',
+            info: '<h3>Wheein</h3><p>K-pop artist portrait.</p>'
+        },
+            'wkx-cup.PNG': {
+            media: '<img src="/images/play/wkx-cup.PNG" alt="WKX Cup">',
+            info: '<h3>WKX Cup</h3><p>Custom cup design.</p>'
+        },
+        'wkx-fan.PNG': {
+            media: '<img src="/images/play/wkx-fan.PNG" alt="WKX Fan">',
+            info: '<h3>WKX Fan</h3><p>Custom fan design.</p>'
+        },
+        'pixel-pastry.png': {
+            media: '<img src="/images/play/pixel-pastry.png" alt="Pixel Pastry">',
+            info: '<h3>Pixel Pastry</h3><p>Pixel art pastry illustration.</p>'
+        },
+        'figurines.png': {
+            media: '<img src="/images/play/figurines.png" alt="Figurines">',
+            info: '<h3>Figurines</h3><p>Clay sculpture collection.</p>'
+        },
+        'house-jar.png': {
+            media: '<img src="/images/play/house-jar.png" alt="House Jar">',
+            info: '<h3>House Jar</h3><p>Clay jar with house design.</p>'
+        },
+        'rat-pizza.png': {
+            media: '<img src="/images/play/rat-pizza.png" alt="Rat Pizza">',
+            info: '<h3>Rat Pizza</h3><p>3D rendered scene.</p>'
+        },
+        'cherry-tomato.jpeg': {
+            media: '<img src="/images/play/cherry-tomato.jpeg" alt="Cherry Tomato">',
+            info: '<h3>Cherry Tomato</h3><p>Digital illustration.</p>'
+        },
+        'hair.png': {
+            media: '<img src="/images/play/hair.png" alt="Hair">',
+            info: '<h3>Hair</h3><p>Hair texture study.</p>'
+        },
+        'sonny.jpeg': {
+            media: '<img src="/images/play/sonny.jpeg" alt="Sonny">',
+            info: '<h3>Sonny</h3><p>Character portrait.</p>'
+        },
+        'room.jpg': {
+            media: '<img src="/images/play/room.jpg" alt="Room">',
+            info: '<h3>Room</h3><p>Interior design visualization.</p>'
+        },
+        'shiny.jpg': {
+            media: '<img src="/images/play/shiny.jpg" alt="Shiny">',
+            info: '<h3>Shiny</h3><p>Surface texture study.</p>'
+        },
+        'bubble-gum.jpg': {
+            media: '<img src="/images/play/bubble-gum.jpg" alt="Bubble Gum">',
+            info: '<h3>Bubble Gum</h3><p>Material rendering exploration.</p>'
+        },
+        'water-color.jpg': {
+            media: '<img src="/images/play/water-color.jpg" alt="Water Color">',
+            info: '<h3>Water Color</h3><p>Watercolor painting technique.</p>'
+        },
+        'dry-eyes.GIF': {
+            media: '<img src="/images/play/dry-eyes.GIF" alt="Dry Eyes">',
+            info: '<h3>Dry Eyes</h3><p>Animated illustration.</p>'
+        },
+        'pomodoro.GIF': {
+            media: '<img src="/images/play/pomodoro.GIF" alt="Pomodoro">',
+            info: '<h3>Pomodoro</h3><p>Pomodoro timer design.</p>'
+        },
+        'brain-fry.GIF': {
+            media: '<img src="/images/play/brain-fry.GIF" alt="Brain Fry">',
+            info: '<h3>Brain Fry</h3><p>Mental exhaustion visualization.</p>'
+        },
+        // Type page fonts - using absolute paths from site root
+        'basier-square.jpg': {
+            media: '<img src="/images/play/type/basier-square.jpg" alt="Basier Square">',
+            info: '<h3>Basier Square</h3><p>Type specimen.</p>'
+        },
+        'circular-std.png': {
+            media: '<img src="/images/play/type/circular-std.png" alt="Circular Std">',
+            info: '<h3>Circular Std</h3><p>Type specimen.</p>'
+        },
+        'diatype.png': {
+            media: '<img src="/images/play/type/diatype.png" alt="Diatype">',
+            info: '<h3>Diatype</h3><p>Type specimen.</p>'
+        },
+        'digibop.png': {
+            media: '<img src="/images/play/type/digibop.png" alt="DigiBop">',
+            info: '<h3>DigiBop</h3><p>Type specimen.</p>'
+        },
+        'editorial-new.jpg': {
+            media: '<img src="/images/play/type/editorial-new.jpg" alt="Editorial New">',
+            info: '<h3>Editorial New</h3><p>Type specimen.</p>'
+        },
+        'editorial-old.webp': {
+            media: '<img src="/images/play/type/editorial-old.webp" alt="Editorial Old">',
+            info: '<h3>Editorial Old</h3><p>Type specimen.</p>'
+        },
+        'figma-sans.avif': {
+            media: '<img src="/images/play/type/figma-sans.avif" alt="Figma Sans">',
+            info: '<h3>Figma Sans</h3><p>Type specimen.</p>'
+        },
+        'good-sans.webp': {
+            media: '<img src="/images/play/type/good-sans.webp" alt="Good Sans">',
+            info: '<h3>Good Sans</h3><p>Type specimen.</p>'
+        },
+        'google-sans.png': {
+            media: '<img src="/images/play/type/google-sans.png" alt="Google Sans">',
+            info: '<h3>Google Sans</h3><p>Type specimen.</p>'
+        },
+        'graphik.gif': {
+            media: '<img src="/images/play/type/graphik.gif" alt="Graphik">',
+            info: '<h3>Graphik</h3><p>Type specimen.</p>'
+        },
+        'helveesti.jpeg': {
+            media: '<img src="/images/play/type/helveesti.jpeg" alt="Helveesti">',
+            info: '<h3>Helveesti</h3><p>Type specimen.</p>'
+        },
+        'inferi.jpg': {
+            media: '<img src="/images/play/type/inferi.jpg" alt="Inferi">',
+            info: '<h3>Inferi</h3><p>Type specimen.</p>'
+        },
+        'instrument-sans.gif': {
+            media: '<img src="/images/play/type/instrument-sans.gif" alt="Instrument Sans">',
+            info: '<h3>Instrument Sans</h3><p>Type specimen.</p>'
+        },
+        'instrument-serif.png': {
+            media: '<img src="/images/play/type/instrument-serif.png" alt="Instrument Serif">',
+            info: '<h3>Instrument Serif</h3><p>Type specimen.</p>'
+        },
+        'mondwest.jpg': {
+            media: '<img src="/images/play/type/mondwest.jpg" alt="Mondwest">',
+            info: '<h3>Mondwest</h3><p>Type specimen.</p>'
+        },
+        'mori.jpg': {
+            media: '<img src="/images/play/type/mori.jpg" alt="Mori">',
+            info: '<h3>Mori</h3><p>Type specimen.</p>'
+        },
+        'neue-montreal.jpg': {
+            media: '<img src="/images/play/type/neue-montreal.jpg" alt="Neue Montreal">',
+            info: '<h3>Neue Montreal</h3><p>Type specimen.</p>'
+        },
+        'pentameter.png': {
+            media: '<img src="/images/play/type/pentameter.png" alt="Pentameter">',
+            info: '<h3>Pentameter</h3><p>Type specimen.</p>'
+        },
+        'polysans.jpg': {
+            media: '<img src="/images/play/type/polysans.jpg" alt="Polysans">',
+            info: '<h3>Polysans</h3><p>Type specimen.</p>'
+        },
+        'regola-pro.jpg': {
+            media: '<img src="/images/play/type/regola-pro.jpg" alt="Regola Pro">',
+            info: '<h3>Regola Pro</h3><p>Type specimen.</p>'
+        },
+        'rethink-sans.png': {
+            media: '<img src="/images/play/type/rethink-sans.png" alt="Rethink Sans">',
+            info: '<h3>Rethink Sans</h3><p>Type specimen.</p>'
+        },
+        'roobert.webp': {
+            media: '<img src="/images/play/type/roobert.webp" alt="Roobert">',
+            info: '<h3>Roobert</h3><p>Type specimen.</p>'
+        },
+        'self-modern.png': {
+            media: '<img src="/images/play/type/self-modern.png" alt="Self Modern">',
+            info: '<h3>Self Modern</h3><p>Type specimen.</p>'
+        },
+        'sf-pro.png': {
+            media: '<img src="/images/play/type/sf-pro.png" alt="SF Pro">',
+            info: '<h3>SF Pro</h3><p>Type specimen.</p>'
+        },
+        'sohne.avif': {
+            media: '<img src="/images/play/type/sohne.avif" alt="Sohne">',
+            info: '<h3>Sohne</h3><p>Type specimen.</p>'
+        },
+        'swear-text.png': {
+            media: '<img src="/images/play/type/swear-text.png" alt="Swear Text">',
+            info: '<h3>Swear Text</h3><p>Type specimen.</p>'
+        },
+        'that-that.png': {
+            media: '<img src="/images/play/type/that-that.png" alt="That That">',
+            info: '<h3>That That</h3><p>Type specimen.</p>'
+        },
+        'the-seasons.png': {
+            media: '<img src="/images/play/type/the-seasons.png" alt="The Seasons">',
+            info: '<h3>The Seasons</h3><p>Type specimen.</p>'
+        },
+        'tumb.jpeg': {
+            media: '<img src="/images/play/type/tumb.jpeg" alt="Tumb">',
+            info: '<h3>Tumb</h3><p>Type specimen.</p>'
+        },
+        'uw-workshop.png': {
+            media: '<img src="/images/play/type/uw-workshop.png" alt="UW Workshop">',
+            info: '<h3>UW Workshop</h3><p>Type specimen.</p>'
+        },
+        'wetris.jpeg': {
+            media: '<img src="/images/play/type/wetris.jpeg" alt="Wetris">',
+            info: '<h3>Wetris</h3><p>Type specimen.</p>'
+        }
+    };
+    
+    function openModal(content) {
+        // Pause all background videos
+        const backgroundVideos = document.querySelectorAll('.play-gallery-item video');
+        backgroundVideos.forEach(video => {
+            if (!video.paused) {
+                video.setAttribute('data-was-playing', 'true');
+                video.pause();
+            }
+        });
+        
+        modalMedia.innerHTML = content.media;
+        
+        // Use the title from content if available, otherwise extract from info
+        const title = content.title || content.info.match(/<h3>(.*?)<\/h3>/)?.[1] || '';
+        const description = content.info.match(/<p>(.*?)<\/p>/)?.[1] || '';
+        modalInfo.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+        
+        modalOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Autoplay video in modal if it exists
+        const modalVideo = modalMedia.querySelector('video');
+        if (modalVideo) {
+            modalVideo.autoplay = true;
+            modalVideo.setAttribute('autoplay', '');
+            modalVideo.setAttribute('playsinline', '');
+            modalVideo.load(); // Reload to apply autoplay
+        }
+    }
+    
+    function closeModal() {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+        
+        // Resume background videos that were playing
+        const backgroundVideos = document.querySelectorAll('.play-gallery-item video');
+        backgroundVideos.forEach(video => {
+            if (video.getAttribute('data-was-playing') === 'true') {
+                video.play();
+                video.removeAttribute('data-was-playing');
+            }
+        });
+    }
+    
+    // Function to get relative time string
+    function getRelativeTime(filePath) {
+        // File modification times
+        const fileTimes = {
+            // Type page files (last modified: 10/26/2025 9:31:09 PM)
+            'basier-square.jpg': new Date('2025-10-26T21:31:09'),
+            'circular-std.png': new Date('2025-10-26T21:31:10'),
+            'diatype.png': new Date('2025-10-26T21:31:09'),
+            'digibop.png': new Date('2025-10-26T21:31:10'),
+            'editorial-new.jpg': new Date('2025-10-26T21:31:09'),
+            'editorial-old.webp': new Date('2025-10-26T21:31:10'),
+            'figma-sans.avif': new Date('2025-10-26T21:31:10'),
+            'good-sans.webp': new Date('2025-10-26T21:31:10'),
+            'google-sans.png': new Date('2025-10-26T21:31:09'),
+            'graphik.gif': new Date('2025-10-26T21:31:09'),
+            'helveesti.jpeg': new Date('2025-10-26T21:31:09'),
+            'inferi.jpg': new Date('2025-10-26T21:31:10'),
+            'instrument-sans.gif': new Date('2025-10-26T21:31:10'),
+            'instrument-serif.png': new Date('2025-10-26T21:31:10'),
+            'mondwest.jpg': new Date('2025-10-26T21:31:10'),
+            'mori.jpg': new Date('2025-10-26T21:31:10'),
+            'neue-montreal.jpg': new Date('2025-10-26T21:31:10'),
+            'pentameter.png': new Date('2025-10-26T21:31:10'),
+            'polysans.jpg': new Date('2025-10-26T21:31:10'),
+            'regola-pro.jpg': new Date('2025-10-26T21:31:10'),
+            'rethink-sans.png': new Date('2025-10-26T21:31:09'),
+            'roobert.webp': new Date('2025-10-26T21:31:10'),
+            'self-modern.png': new Date('2025-10-26T21:31:10'),
+            'sf-pro.png': new Date('2025-10-26T21:31:09'),
+            'sohne.avif': new Date('2025-10-26T21:31:09'),
+            'swear-text.png': new Date('2025-10-26T21:31:10'),
+            'that-that.png': new Date('2025-10-26T21:31:10'),
+            'the-seasons.png': new Date('2025-10-26T21:31:09'),
+            'tumb.jpeg': new Date('2025-10-26T21:31:10'),
+            'uw-workshop.png': new Date('2025-10-26T21:31:10'),
+            'wetris.jpeg': new Date('2025-10-26T21:31:10'),
+            // Play page files (from Get-ChildItem images\play\*.mp4, etc.)
+            'twelve-moons.mp4': new Date('2025-10-26T01:52:18'),
+            'css-letterforms.mp4': new Date('2025-10-25T22:38:51'),
+            'pixel-pastry.png': new Date('2025-10-26T19:27:49'),
+            'riso-tomato.png': new Date('2023-11-06T23:16:33'),
+            'riso-test.png': new Date('2023-11-06T23:11:42'),
+            'riso-zine.png': new Date('2023-11-06T23:16:22'),
+            'figurines.png': new Date('2025-10-26T19:07:18'),
+            'house-jar.png': new Date('2025-10-26T19:06:56'),
+            'docker.mp4': new Date('2025-10-26T19:25:50'),
+            'rat-pizza.png': new Date('2024-12-14T19:50:22'),
+            'moon.mp4': new Date('2023-12-04T21:34:20'),
+            'memoji.mp4': new Date('2024-11-04T11:37:26'),
+            'pixel-font.mov': new Date('2024-11-04T12:03:19'),
+            'pixel-pudding.mov': new Date('2024-11-04T12:03:03'),
+            'earth.png': new Date('2024-11-25T15:24:07'),
+            'kitchen.jpg': new Date('2023-08-29T22:40:36'),
+            'bedroom.jpg': new Date('2023-08-29T22:40:36'),
+            'cherry-tomato.jpeg': new Date('2025-10-26T17:05:01'),
+            'hair.png': new Date('2025-10-26T17:08:03'),
+            'sonny.jpeg': new Date('2025-10-26T17:04:17'),
+            'room.jpg': new Date('2023-09-02T00:37:42'),
+            'shiny.jpg': new Date('2023-09-02T00:37:43'),
+            'bubble-gum.jpg': new Date('2023-09-02T00:37:44'),
+            'wkx-cup.PNG': new Date('2025-10-25T22:39:02'),
+            'wkx-fan.PNG': new Date('2025-10-25T22:38:57'),
+            'vincenzo.PNG': new Date('2025-10-25T22:38:59'),
+            'water-color.jpg': new Date('2025-10-26T00:26:59'),
+            'wheein.PNG': new Date('2025-10-25T22:39:16'),
+            'spirited-away.PNG': new Date('2025-10-25T23:07:58'),
+            'ryder.mp4': new Date('2025-10-25T23:07:36'),
+            'dry-eyes.GIF': new Date('2023-08-28T19:25:08'),
+            'pomodoro.GIF': new Date('2023-08-28T19:25:08'),
+            'brain-fry.GIF': new Date('2023-08-28T19:25:08')
+        };
+        
+        const fileName = filePath.split('/').pop();
+        const fileTime = fileTimes[fileName];
+        if (!fileTime) return 'recently';
+        
+        const now = new Date();
+        const diffMs = now - fileTime;
+        const diffMinutes = Math.floor(diffMs / 60000);
+        const diffHours = Math.floor(diffMinutes / 60);
+        const diffDays = Math.floor(diffHours / 24);
+        const diffWeeks = Math.floor(diffDays / 7);
+        const diffMonths = Math.floor(diffDays / 30);
+        const diffYears = Math.floor(diffDays / 365);
+        
+        if (diffMinutes < 1) return 'just now';
+        if (diffMinutes < 60) return `about ${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
+        if (diffHours < 24) return `about ${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago`;
+        if (diffDays < 7) return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
+        if (diffWeeks < 4) return `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
+        if (diffMonths < 12) return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
+        return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
+    }
+    
+    // Update timestamps on the play and type pages
+    if (document.querySelector('.play-gallery-item .caption-overlay')) {
+        const galleryItems = document.querySelectorAll('.play-gallery-item');
+        galleryItems.forEach(item => {
+            // Get image or video source
+            const img = item.querySelector('img');
+            const video = item.querySelector('video source');
+            const src = img ? img.src : (video ? video.src : null);
+            
+            if (src) {
+                const overlay = item.querySelector('.caption-overlay');
+                if (overlay) {
+                    const timeElement = overlay.querySelector('.timestamp');
+                    if (timeElement) {
+                        const relativeTime = getRelativeTime(src);
+                        timeElement.textContent = relativeTime;
+                    }
+                }
+            }
+        });
+    }
+    
+    // Add click handlers to gallery items and inject labels
+    galleryItems.forEach(item => {
+        // COMMENTED OUT - Hover labels disabled
+        // Add label if it doesn't have one and isn't a link
+        // if (!item.classList.contains('play-type-link') && !item.querySelector('.play-gallery-label')) {
+        //     const label = document.createElement('div');
+        //     label.className = 'play-gallery-label';
+        //     label.innerHTML = '<span class="semibold">Info</span><span class="material-icons-round icon-xs">arrow_forward</span>';
+        //     // Add label to image container if it exists, otherwise to gallery item
+        //     const imageContainer = item.querySelector('.play-gallery-item-image');
+        //     if (imageContainer) {
+        //         imageContainer.appendChild(label);
+        //     } else {
+        //         item.appendChild(label);
+        //     }
+        // }
+        
+        item.addEventListener('click', () => {
+            // Don't open modal for text link blocks
+            if (item.classList.contains('play-type-link')) {
+                return;
+            }
+            
+            const img = item.querySelector('img');
+            const video = item.querySelector('video');
+            
+            let src = '';
+            if (img) {
+                src = img.getAttribute('src');
+            } else if (video) {
+                const source = video.querySelector('source');
+                src = source ? source.getAttribute('src') : '';
+            }
+            
+            // Get caption text from the first p tag
+            const caption = item.querySelector('.play-gallery-item > p.text-small:first-of-type');
+            const captionText = caption ? caption.textContent : '';
+            
+            // Extract filename from src
+            const filename = src.split('/').pop();
+            const content = modalContent[filename];
+            
+            if (content) {
+                // Use caption text as title
+                const title = captionText || content.title || filename.replace(/\.(jpg|png|gif|webp|avif|jpeg|mov|mp4|GIF|PNG|JPEG|MOV|MP4)$/i, '').replace(/[-_]/g, ' ');
+                content.title = title;
+                openModal(content);
+            }
+        });
+    });
+    
+    // Close modal handlers
+    modalClose.addEventListener('click', closeModal);
+    
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            closeModal();
+        }
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
+            closeModal();
+        }
+    });
+}
+
+// Initialize play modal when DOM is loaded
+document.addEventListener('DOMContentLoaded', initPlayModal);
+
+// Play page block counters and timestamps
+function initPlayBlockInfo() {
+    const playTypeLinks = document.querySelectorAll('.play-type-link');
+    
+    playTypeLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        // Count blocks by fetching the page
+        fetch(`${href}`)
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const galleryItems = doc.querySelectorAll('.play-gallery .play-gallery-item');
+                const count = galleryItems.length;
+                
+                // Find and update the text that contains "blocks"
+                const textElements = link.querySelectorAll('.text-small');
+                textElements.forEach(textEl => {
+                    const text = textEl.textContent;
+                    if (text.includes('blocks')) {
+                        textEl.textContent = `${count} blocks`;
+                    }
+                });
+            })
+            .catch(() => {
+                // Fallback: don't update if fetch fails
+                console.log('Could not fetch page for counting');
+            });
+    });
+}
+
+// Play page timestamp functionality
+function initPlayTimestamps() {
+    const playTypeLinks = document.querySelectorAll('.play-type-link');
+    
+    function formatTimeAgo(timestamp) {
+        const now = Date.now();
+        const diff = now - timestamp;
+        const minutes = Math.floor(diff / (1000 * 60));
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const weeks = Math.floor(days / 7);
+        const months = Math.floor(days / 30);
+        
+        if (minutes < 1) return '1 minute ago';
+        if (minutes < 60) return `${minutes} minutes ago`;
+        if (hours === 1) return '1 hour ago';
+        if (hours < 24) return `${hours} hours ago`;
+        if (days === 1) return '1 day ago';
+        if (days < 7) return `${days} days ago`;
+        if (weeks === 1) return '1 week ago';
+        if (weeks < 4) return `${weeks} weeks ago`;
+        if (months === 1) return '1 month ago';
+        return `${months} months ago`;
+    }
+    
+    // Get last modified time of each page
+    playTypeLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        fetch(`${href}`, { method: 'HEAD' })
+            .then(response => {
+                const lastModified = response.headers.get('Last-Modified');
+                const timestampEl = link.querySelector('.play-timestamp');
+                
+                if (lastModified && timestampEl) {
+                    const timestamp = new Date(lastModified).getTime();
+                    const timeAgo = formatTimeAgo(timestamp);
+                    timestampEl.textContent = timeAgo;
+                }
+            })
+            .catch(() => {
+                // If fetch fails, use the static timestamp from HTML
+                console.log('Could not get last modified time');
+            });
+    });
+}
+
+// Initialize play block info
+document.addEventListener('DOMContentLoaded', () => {
+    initPlayBlockInfo();
+    initPlayTimestamps();
+    
+    // Initialize sticky scroll effect for type page
+    initTypePageSticky();
+});
+
+// Sticky scroll effect for type and play pages
+function initTypePageSticky() {
+    const typePageTitle = document.getElementById('typePageTitle');
+    const playPageTitle = document.getElementById('playPageTitle');
+    const titleElement = typePageTitle || playPageTitle;
+    
+    if (!titleElement) return;
+    
+    let offsetTop = 0;
+    let hasClass = false;
+    
+    // Get initial offset
+    window.addEventListener('load', () => {
+        const rect = titleElement.getBoundingClientRect();
+        offsetTop = rect.top + window.scrollY;
+    });
+    
+    // Also set immediately in case load already fired
+    const rect = titleElement.getBoundingClientRect();
+    offsetTop = rect.top + window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const titleRect = titleElement.getBoundingClientRect();
+        
+        // When there's 32px between top of viewport and top of text
+        if (scrollY >= offsetTop - 32 && !hasClass) {
+            titleElement.classList.add('sticky-title');
+            hasClass = true;
+        } 
+        // When scrolling back up past the threshold
+        else if (scrollY < offsetTop - 32 && hasClass) {
+            titleElement.classList.remove('sticky-title');
+            hasClass = false;
+        }
+    });
 }

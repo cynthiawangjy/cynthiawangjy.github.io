@@ -52,8 +52,27 @@
 			<div class="main-nav-indicator"></div>
 			<li><a href="../../#work" class="main-nav-item">Work</a></li>
 			<li><a href="../../about/" class="main-nav-item">About</a></li>
+			<li><a href="../../play/" class="main-nav-item">Play</a></li>
 			<li><a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" class="main-nav-item">Resume</a></li>
 		</ul>
+	</header>
+
+	<!-- Mobile Navigation -->
+	<header class="case-study-mobile-nav">
+		<nav class="container">
+			<a href="../../index.html" class="logo" onclick="goToHome()">
+				<svg class="svg-xl" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M24 12C24 15.2102 21.4789 17.8316 18.3086 17.9922L18 18C18 21.3137 15.3137 24 12 24C8.68629 24 6 21.3137 6 18C2.68629 18 -6.69384e-07 15.3137 -5.24537e-07 12C-3.7969e-07 8.68629 2.68629 6 6 6L6.00781 5.69141C6.16843 2.52111 8.78979 -6.64859e-07 12 -5.24536e-07C15.3137 -1.21986e-07 18 2.68629 18 6L18.3086 6.00781C21.4789 6.16843 24 8.78979 24 12ZM16.2002 12.043C13.9848 11.7603 12.2398 10.0161 11.957 7.80078C11.6742 10.0161 9.93019 11.7603 7.71484 12.043C9.9302 12.3256 11.6742 14.0698 11.957 16.2852C12.2398 14.0698 13.9848 12.3256 16.2002 12.043Z" fill="currentColor"/>
+				</svg>
+			</a>
+			<ul class="nav-links">
+				<div class="main-nav-indicator"></div>
+				<li><a href="../../#work" class="main-nav-item">Work</a></li>
+				<li><a href="../../about/" class="main-nav-item">About</a></li>
+				<li><a href="../../play/" class="main-nav-item">Play</a></li>
+				<li><a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" class="main-nav-item">Resume</a></li>
+			</ul>
+		</nav>
 	</header>
 
 	<div class="case-study-layout">
@@ -80,20 +99,16 @@
 
 		<!-- Right Content -->
 		<main class="case-study-content">
-      <!-- Mobile Back Button -->
-      <button class="mobile-back-button" onclick="history.back()">
-          <span class="material-icons-round">chevron_left</span>
-      </button>
-      
-      <div class="content-container">
-        <video muted loop autoplay playsinline preload="metadata">
-          <source src="../../images/work/copilot/cover.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      <div class="mobile-spacing">
+        <div class="content-container">
+          <video muted loop autoplay playsinline preload="metadata">
+            <source src="../../images/work/copilot/cover.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-      <!-- Section 2: Project Info -->
-      <div id="introduction" class="content-container centered">
+        <!-- Section 2: Project Info -->
+        <div id="introduction" class="content-container centered">
         <div class="project-title-section">
         <h1>Immuta — Policies Overview Dashboard</h1>
           <h3>
@@ -139,6 +154,7 @@
               <span class="meta-value">2 Product Managers</span>
             </div>
           </div>
+        </div>
         </div>
       </div>
 
