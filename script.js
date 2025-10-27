@@ -1688,107 +1688,107 @@ function initPlayModal() {
         // Using absolute paths from site root
         'css-letterforms.mp4': {
             media: '<video><source src="/images/play/css-letterforms.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>CSS Letterforms</h3><p>A small coding exercise playing with typography and hover interactions</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>2024</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>HTML, CSS</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>CSS Letterforms</h3><p>A small coding exercise playing with typography and hover interactions</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>2024</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>HTML, CSS</p></div><hr></div></div>'
         },
         'docker.mp4': {
             media: '<video><source src="/images/play/docker.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>Docker</h3><p>Container visualization project.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Docker</h3><p>Container visualization project.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'earth.png': {
             media: '<img src="/images/play/earth.png" alt="Earth">',
-            info: '<div class="play-modal-info-header"><h3>Earth</h3><p>Earth representation design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Earth</h3><p>Earth representation design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'kitchen.jpg': {
             media: '<img src="/images/play/kitchen.jpg" alt="Kitchen">',
-            info: '<div class="play-modal-info-header"><h3>Kitchen</h3><p>Kitchen design visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Kitchen</h3><p>Kitchen design visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'moon.mp4': {
             media: '<video><source src="/images/play/moon.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>Moon</h3><p>Lunar phase animation.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Moon</h3><p>Lunar phase animation.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'tomato-tomato.png': {
             media: '<img src="/images/play/tomato-tomato.png" alt="Riso Tomato">',
-            info: '<div class="play-modal-info-header"><h3>Tomato Tomato</h3><p>Ripped pieces of paper, scanned them, and assembled them into a risograph print. An ode to tomato lovers and linguists.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2023</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Illustrator</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Tomato Tomato</h3><p>Ripped pieces of paper, scanned them, and assembled them into a risograph print. An ode to tomato lovers and linguists.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2023</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Illustrator</p></div><hr></div></div>'
         },
         'the-extensions-of-man.mp4': {
             media: '<video><source src="/images/play/the-extensions-of-man.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>the-extensions-of-man</h3><p>Character animation project.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>the-extensions-of-man</h3><p>Character animation project.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'spirited-away.PNG': {
             media: '<img src="/images/play/spirited-away.PNG" alt="Spirited Away">',
-            info: '<div class="play-modal-info-header"><h3>Spirited Away</h3><p>Illustration inspired by Studio Ghibli.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Spirited Away</h3><p>Illustration inspired by Studio Ghibli.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'twelve-moons.mp4': {
             media: '<video><source src="/images/play/twelve-moons.mp4" type="video/mp4"></video>',
-            info: '<div class="play-modal-info-header"><h3>Twelve Moons</h3><p>Lunar calendar visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Twelve Moons</h3><p>Lunar calendar visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'vincenzo.PNG': {
             media: '<img src="/images/play/vincenzo.PNG" alt="Vincenzo">',
-            info: '<div class="play-modal-info-header"><h3>Vincenzo</h3><p>Digital portrait inspired by the drama.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Vincenzo</h3><p>Digital portrait inspired by the drama.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'wheein.PNG': {
             media: '<img src="/images/play/wheein.PNG" alt="Wheein">',
-            info: '<div class="play-modal-info-header"><h3>Wheein</h3><p>K-pop artist portrait.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Wheein</h3><p>K-pop artist portrait.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'wkx-cup.PNG': {
             media: '<img src="/images/play/wkx-cup.PNG" alt="WKX Cup">',
-            info: '<div class="play-modal-info-header"><h3>WKX Cup</h3><p>Custom cup design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>WKX Cup</h3><p>Custom cup design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'wkx-fan.PNG': {
             media: '<img src="/images/play/wkx-fan.PNG" alt="WKX Fan">',
-            info: '<div class="play-modal-info-header"><h3>WKX Fan</h3><p>Custom fan design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>WKX Fan</h3><p>Custom fan design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'pixel-pastry.png': {
             media: '<img src="/images/play/pixel-pastry.png" alt="Pixel Pastry">',
-            info: '<div class="play-modal-info-header"><h3>Pixel Pastry</h3><p>Pixel art pastry illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Pixel Pastry</h3><p>Pixel art pastry illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'figurines.png': {
             media: '<img src="/images/play/figurines.png" alt="Figurines">',
-            info: '<div class="play-modal-info-header"><h3>Figurines</h3><p>Got back into ceramics this summer, my first time since middle school. Inspo: @annabel_le</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2025</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Ceramics</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Figurines</h3><p>Got back into ceramics this summer, my first time since middle school. Inspo: @annabel_le</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2025</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Ceramics</p></div><hr></div></div>'
         },
         'house-jar.png': {
             media: '<img src="/images/play/house-jar.png" alt="House Jar">',
-            info: '<div class="play-modal-info-header"><h3>House jar</h3><p>One of my first pieces from this summer. Inspo: @dgaf.studio</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2025</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Ceramics</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>House jar</h3><p>One of my first pieces from this summer. Inspo: @dgaf.studio</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2025</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Ceramics</p></div><hr></div></div>'
         },
         'rat-pizza.png': {
             media: '<img src="/images/play/rat-pizza.png" alt="Rat Pizza">',
-            info: '<div class="play-modal-info-header"><h3>Rat Pizza</h3><p>3D rendered scene.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Rat Pizza</h3><p>3D rendered scene.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'cherry-tomato.jpeg': {
             media: '<img src="/images/play/cherry-tomato.jpeg" alt="Cherry Tomato">',
-            info: '<div class="play-modal-info-header"><h3>Cherry Tomato</h3><p>Digital illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Cherry Tomato</h3><p>Digital illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'it-might-sting-a-little.png': {
             media: '<img src="/images/play/it-might-sting-a-little.png" alt="it-might-sting-a-little">',
-            info: '<div class="play-modal-info-header"><h3>it-might-sting-a-little</h3><p>it-might-sting-a-little texture study.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>it-might-sting-a-little</h3><p>it-might-sting-a-little texture study.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'sisterhood.jpeg': {
             media: '<img src="/images/play/sisterhood.jpeg" alt="sisterhood">',
-            info: '<div class="play-modal-info-header"><h3>sisterhood</h3><p>Character portrait.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>sisterhood</h3><p>Character portrait.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'change-over-time.jpg': {
             media: '<img src="/images/play/change-over-time.jpg" alt="change-over-time">',
-            info: '<div class="play-modal-info-header"><h3>change-over-time</h3><p>Interior design visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>change-over-time</h3><p>Interior design visualization.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'refraction.jpg': {
             media: '<img src="/images/play/refraction.jpg" alt="Refraction">',
-            info: '<div class="play-modal-info-header"><h3>Refraction</h3><p>Surface texture study.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Refraction</h3><p>Surface texture study.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'flash.jpg': {
             media: '<img src="/images/play/flash.jpg" alt="Flash">',
-            info: '<div class="play-modal-info-header"><h3>Flash</h3><p>Material rendering exploration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Flash</h3><p>Material rendering exploration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'water-color.jpg': {
             media: '<img src="/images/play/water-color.jpg" alt="Water Color">',
-            info: '<div class="play-modal-info-header"><h3>Water Color</h3><p>Watercolor painting technique.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Water Color</h3><p>Watercolor painting technique.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'dry-eyes.GIF': {
             media: '<img src="/images/play/dry-eyes.GIF" alt="Dry Eyes">',
-            info: '<div class="play-modal-info-header"><h3>Dry Eyes</h3><p>Animated illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Dry Eyes</h3><p>Animated illustration.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'pomodoro.GIF': {
             media: '<img src="/images/play/pomodoro.GIF" alt="Pomodoro">',
-            info: '<div class="play-modal-info-header"><h3>Pomodoro</h3><p>Pomodoro timer design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p>Year</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>Tool</p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Pomodoro</h3><p>Pomodoro timer design.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Description</p><p>Text</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2024</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>Tool</p></div><hr></div></div>'
         },
         'brain-fry.GIF': {
             media: '<img src="/images/play/brain-fry.GIF" alt="Brain Fry">',
@@ -1797,127 +1797,127 @@ function initPlayModal() {
         // Type page fonts - using absolute paths from site root
         'basier-square.jpg': {
             media: '<img src="/images/play/type/basier-square.jpg" alt="Basier Square">',
-            info: '<div class="play-modal-info-header"><h3>Basier Square</h3><p>Basier, inspired by the International Style, is a neo-grotesque sans serif typeface available in two variants, Circle & Square.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>2018</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>atipo foundry</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="https://www.atipofoundry.com/fonts/basier" target="_blank">basier | atipo foundry</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Basier Square</h3><p>Basier, inspired by the International Style, is a neo-grotesque sans serif typeface available in two variants, Circle & Square.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2018</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>atipo foundry</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="https://www.atipofoundry.com/fonts/basier" target="_blank">basier | atipo foundry</a></p></div><hr></div></div>'
         },
         'circular-std.png': {
             media: '<img src="/images/play/type/circular-std.png" alt="Circular Std">',
-            info: '<div class="play-modal-info-header"><h3>Circular Std</h3><p>LL Circular is a geometric sans-serif font family in eight weights. It is Laurenz Brunner’s second official release after the critically acclaimed, immensely popular LL Akkurat.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>2013</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Laurenz Brunner</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="https://lineto.com/typefaces/circular/" target="_blank">Lineto.com</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Circular Std</h3><p>LL Circular is a geometric sans-serif font family in eight weights. It is Laurenz Brunner’s second official release after the critically acclaimed, immensely popular LL Akkurat.</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>2013</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Laurenz Brunner</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="https://lineto.com/typefaces/circular/" target="_blank">Lineto.com</a></p></div><hr></div></div>'
         },
         'diatype.png': {
             media: '<img src="/images/play/type/diatype.png" alt="Diatype">',
-            info: '<div class="play-modal-info-header"><h3>Diatype</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Diatype</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'digibop.png': {
             media: '<img src="/images/play/type/digibop.png" alt="DigiBop">',
-            info: '<div class="play-modal-info-header"><h3>DigiBop</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>DigiBop</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'editorial-new.jpg': {
             media: '<img src="/images/play/type/editorial-new.jpg" alt="Editorial New">',
-            info: '<div class="play-modal-info-header"><h3>Editorial New</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Editorial New</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'editorial-old.webp': {
             media: '<img src="/images/play/type/editorial-old.webp" alt="Editorial Old">',
-            info: '<div class="play-modal-info-header"><h3>Editorial Old</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Editorial Old</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'figma-sans.avif': {
             media: '<img src="/images/play/type/figma-sans.avif" alt="Figma Sans">',
-            info: '<div class="play-modal-info-header"><h3>Figma Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Figma Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'good-sans.webp': {
             media: '<img src="/images/play/type/good-sans.webp" alt="Good Sans">',
-            info: '<div class="play-modal-info-header"><h3>Good Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Good Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'google-sans.png': {
             media: '<img src="/images/play/type/google-sans.png" alt="Google Sans">',
-            info: '<div class="play-modal-info-header"><h3>Google Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Google Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'graphik.gif': {
             media: '<img src="/images/play/type/graphik.gif" alt="Graphik">',
-            info: '<div class="play-modal-info-header"><h3>Graphik</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Graphik</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'helveesti.jpeg': {
             media: '<img src="/images/play/type/helveesti.jpeg" alt="Helveesti">',
-            info: '<div class="play-modal-info-header"><h3>Helveesti</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Helveesti</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'inferi.jpg': {
             media: '<img src="/images/play/type/inferi.jpg" alt="Inferi">',
-            info: '<div class="play-modal-info-header"><h3>Inferi</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Inferi</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'instrument-sans.gif': {
             media: '<img src="/images/play/type/instrument-sans.gif" alt="Instrument Sans">',
-            info: '<div class="play-modal-info-header"><h3>Instrument Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Instrument Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'instrument-serif.png': {
             media: '<img src="/images/play/type/instrument-serif.png" alt="Instrument Serif">',
-            info: '<div class="play-modal-info-header"><h3>Instrument Serif</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Instrument Serif</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'mondwest.jpg': {
             media: '<img src="/images/play/type/mondwest.jpg" alt="Mondwest">',
-            info: '<div class="play-modal-info-header"><h3>Mondwest</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Mondwest</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'mori.jpg': {
             media: '<img src="/images/play/type/mori.jpg" alt="Mori">',
-            info: '<div class="play-modal-info-header"><h3>Mori</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Mori</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'neue-montreal.jpg': {
             media: '<img src="/images/play/type/neue-montreal.jpg" alt="Neue Montreal">',
-            info: '<div class="play-modal-info-header"><h3>Neue Montreal</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Neue Montreal</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'pentameter.png': {
             media: '<img src="/images/play/type/pentameter.png" alt="Pentameter">',
-            info: '<div class="play-modal-info-header"><h3>Pentameter</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Pentameter</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'polysans.jpg': {
             media: '<img src="/images/play/type/polysans.jpg" alt="Polysans">',
-            info: '<div class="play-modal-info-header"><h3>Polysans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Polysans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'regola-pro.jpg': {
             media: '<img src="/images/play/type/regola-pro.jpg" alt="Regola Pro">',
-            info: '<div class="play-modal-info-header"><h3>Regola Pro</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Regola Pro</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'rethink-sans.png': {
             media: '<img src="/images/play/type/rethink-sans.png" alt="Rethink Sans">',
-            info: '<div class="play-modal-info-header"><h3>Rethink Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Rethink Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'roobert.webp': {
             media: '<img src="/images/play/type/roobert.webp" alt="Roobert">',
-            info: '<div class="play-modal-info-header"><h3>Roobert</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Roobert</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'self-modern.png': {
             media: '<img src="/images/play/type/self-modern.png" alt="Self Modern">',
-            info: '<div class="play-modal-info-header"><h3>Self Modern</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Self Modern</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'sf-pro.png': {
             media: '<img src="/images/play/type/sf-pro.png" alt="SF Pro">',
-            info: '<div class="play-modal-info-header"><h3>SF Pro</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>SF Pro</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'sohne.avif': {
             media: '<img src="/images/play/type/sohne.avif" alt="Sohne">',
-            info: '<div class="play-modal-info-header"><h3>Sohne</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Sohne</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'swear-text.png': {
             media: '<img src="/images/play/type/swear-text.png" alt="Swear Text">',
-            info: '<div class="play-modal-info-header"><h3>Swear Text</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Swear Text</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'that-that.png': {
             media: '<img src="/images/play/type/that-that.png" alt="That That">',
-            info: '<div class="play-modal-info-header"><h3>That That</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>That That</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'the-seasons.png': {
             media: '<img src="/images/play/type/the-seasons.png" alt="The Seasons">',
-            info: '<div class="play-modal-info-header"><h3>The Seasons</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>The Seasons</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'tumb.jpeg': {
             media: '<img src="/images/play/type/tumb.jpeg" alt="Tumb">',
-            info: '<div class="play-modal-info-header"><h3>Tumb</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Tumb</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'uw-workshop.png': {
             media: '<img src="/images/play/type/uw-workshop.png" alt="UW Workshop">',
-            info: '<div class="play-modal-info-header"><h3>UW Workshop</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>UW Workshop</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'wetris.jpeg': {
             media: '<img src="/images/play/type/wetris.jpeg" alt="Wetris">',
-            info: '<div class="play-modal-info-header"><h3>Wetris</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
+            info: '<div class="play-modal-info-header"><h3>Wetris</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         }
     };
     
@@ -2054,7 +2054,7 @@ function initPlayModal() {
         const diffDays = Math.floor(diffHours / 24);
         const diffWeeks = Math.floor(diffDays / 7);
         const diffMonths = Math.floor(diffDays / 30);
-        const diffYears = Math.floor(diffDays / 365);
+        const diffYEARs = Math.floor(diffDays / 365);
         
         if (diffMinutes < 1) return 'just now';
         if (diffMinutes < 60) return `about ${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
@@ -2062,7 +2062,7 @@ function initPlayModal() {
         if (diffDays < 7) return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
         if (diffWeeks < 4) return `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
         if (diffMonths < 12) return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
-        return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
+        return `${diffYEARs} ${diffYEARs === 1 ? 'YEAR' : 'YEARs'} ago`;
     }
     
     
@@ -2112,22 +2112,22 @@ function initPlayModal() {
                 // Use caption text (filename) as title
                 const title = captionText;
                 
-                // Extract year from the file creation date
+                // Extract YEAR from the file creation date
                 let fileName = src.split('/').pop();
                 if (fileName.includes('?')) {
                     fileName = fileName.split('?')[0];
                 }
                 
-                // Get year from the getRelativeTimePlay function's fileTimes
-                let year = '';
+                // Get YEAR from the getRelativeTimePlay function's fileTimes
+                let YEAR = '';
                 const fileDateObj = getRelativeTimePlay(src);
-                // We need to extract the year from the creation date, so we'll get it from the fileTimes in getRelativeTimePlay
+                // We need to extract the YEAR from the creation date, so we'll get it from the fileTimes in getRelativeTimePlay
                 // For now, we'll use the content.info if it exists
                 if (content.info) {
-                    // Extract year from existing content if available
-                    const yearMatch = content.info.match(/Year.*?(\d{4})/);
-                    if (yearMatch) {
-                        year = yearMatch[1];
+                    // Extract YEAR from existing content if available
+                    const YEARMatch = content.info.match(/YEAR.*?(\d{4})/);
+                    if (YEARMatch) {
+                        YEAR = YEARMatch[1];
                     }
                 }
                 
@@ -2164,12 +2164,12 @@ function initPlayModal() {
                 
                 const tools = toolsMap[fileName] || 'Tool';
                 
-                // If no year was extracted, try to get it from the file creation date
-                if (!year) {
-                    // Call getRelativeTimePlay to get the date, then extract year from the fileTimes
+                // If no YEAR was extracted, try to get it from the file creation date
+                if (!YEAR) {
+                    // Call getRelativeTimePlay to get the date, then extract YEAR from the fileTimes
                     const relativeTime = getRelativeTimePlay(src);
                     // We need to access the fileTimes from getRelativeTimePlay
-                    // For now, just get the year from the Date object
+                    // For now, just get the YEAR from the Date object
                     const fileTimesLookup = {
                         'twelve-moons.mp4': 2024,
                         'the-extensions-of-man.mp4': 2022,
@@ -2199,11 +2199,11 @@ function initPlayModal() {
                         'wkx-cup.PNG': 2021,
                         'wkx-fan.PNG': 2021
                     };
-                    year = fileTimesLookup[fileName] || '';
+                    YEAR = fileTimesLookup[fileName] || '';
                 }
                 
-                // Update the info to include title and only Year and Tools rows
-                content.info = `<div class="play-modal-info-header"><h3>${title}</h3></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>${year}</p></div><hr></div><div><div class="play-modal-info-row"><p>Tools</p><p>${tools}</p></div><hr></div></div>`;
+                // Update the info to include title and only YEAR and Tools rows
+                content.info = `<div class="play-modal-info-header"><h3>${title}</h3></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>${YEAR}</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>${tools}</p></div><hr></div></div>`;
                 openModal(content);
             }
         });
@@ -2332,7 +2332,7 @@ function getRelativeTimePlay(filePath) {
     const diffDays = Math.floor(diffHours / 24);
     const diffWeeks = Math.floor(diffDays / 7);
     const diffMonths = Math.floor(diffDays / 30);
-    const diffYears = Math.floor(diffDays / 365);
+    const diffYEARs = Math.floor(diffDays / 365);
     
     if (diffMinutes < 1) return 'just now';
     if (diffMinutes < 60) return `about ${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
@@ -2340,7 +2340,7 @@ function getRelativeTimePlay(filePath) {
     if (diffDays < 7) return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
     if (diffWeeks < 4) return `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
     if (diffMonths < 12) return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
-    return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
+    return `${diffYEARs} ${diffYEARs === 1 ? 'YEAR' : 'YEARs'} ago`;
 }
 
 // Initialize play modal when DOM is loaded
