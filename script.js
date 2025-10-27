@@ -2054,7 +2054,7 @@ function initPlayModal() {
         const diffDays = Math.floor(diffHours / 24);
         const diffWeeks = Math.floor(diffDays / 7);
         const diffMonths = Math.floor(diffDays / 30);
-        const diffYEARs = Math.floor(diffDays / 365);
+        const diffYears = Math.floor(diffDays / 365);
         
         if (diffMinutes < 1) return 'just now';
         if (diffMinutes < 60) return `about ${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
@@ -2062,7 +2062,7 @@ function initPlayModal() {
         if (diffDays < 7) return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
         if (diffWeeks < 4) return `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
         if (diffMonths < 12) return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
-        return `${diffYEARs} ${diffYEARs === 1 ? 'YEAR' : 'YEARs'} ago`;
+        return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
     }
     
     
@@ -2112,22 +2112,22 @@ function initPlayModal() {
                 // Use caption text (filename) as title
                 const title = captionText;
                 
-                // Extract YEAR from the file creation date
+                // Extract year from the file creation date
                 let fileName = src.split('/').pop();
                 if (fileName.includes('?')) {
                     fileName = fileName.split('?')[0];
                 }
                 
-                // Get YEAR from the getRelativeTimePlay function's fileTimes
-                let YEAR = '';
+                // Get year from the getRelativeTimePlay function's fileTimes
+                let year = '';
                 const fileDateObj = getRelativeTimePlay(src);
                 // We need to extract the YEAR from the creation date, so we'll get it from the fileTimes in getRelativeTimePlay
                 // For now, we'll use the content.info if it exists
                 if (content.info) {
-                    // Extract YEAR from existing content if available
-                    const YEARMatch = content.info.match(/YEAR.*?(\d{4})/);
-                    if (YEARMatch) {
-                        YEAR = YEARMatch[1];
+                    // Extract year from existing content if available
+                    const YEARMatch = content.info.match(/year.*?(\d{4})/);
+                    if (year) {
+                        year = year[1];
                     }
                 }
                 
@@ -2164,12 +2164,12 @@ function initPlayModal() {
                 
                 const tools = toolsMap[fileName] || 'Tool';
                 
-                // If no YEAR was extracted, try to get it from the file creation date
-                if (!YEAR) {
-                    // Call getRelativeTimePlay to get the date, then extract YEAR from the fileTimes
+                // If no year was extracted, try to get it from the file creation date
+                if (!year) {
+                    // Call getRelativeTimePlay to get the date, then extract year from the fileTimes
                     const relativeTime = getRelativeTimePlay(src);
                     // We need to access the fileTimes from getRelativeTimePlay
-                    // For now, just get the YEAR from the Date object
+                    // For now, just get the year from the Date object
                     const fileTimesLookup = {
                         'twelve-moons.mp4': 2024,
                         'the-extensions-of-man.mp4': 2022,
@@ -2199,11 +2199,11 @@ function initPlayModal() {
                         'wkx-cup.PNG': 2021,
                         'wkx-fan.PNG': 2021
                     };
-                    YEAR = fileTimesLookup[fileName] || '';
+                    year = fileTimesLookup[fileName] || '';
                 }
                 
                 // Update the info to include title and only YEAR and Tools rows
-                content.info = `<div class="play-modal-info-header"><h3>${title}</h3></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>${YEAR}</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>${tools}</p></div><hr></div></div>`;
+                content.info = `<div class="play-modal-info-header"><h3>${title}</h3></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p class="text-small">YEAR</p><p>${year}</p></div><hr></div><div><div class="play-modal-info-row"><p class="text-small">TOOLS</p><p>${tools}</p></div><hr></div></div>`;
                 openModal(content);
             }
         });
@@ -2332,7 +2332,7 @@ function getRelativeTimePlay(filePath) {
     const diffDays = Math.floor(diffHours / 24);
     const diffWeeks = Math.floor(diffDays / 7);
     const diffMonths = Math.floor(diffDays / 30);
-    const diffYEARs = Math.floor(diffDays / 365);
+    const diffYears = Math.floor(diffDays / 365);
     
     if (diffMinutes < 1) return 'just now';
     if (diffMinutes < 60) return `about ${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
@@ -2340,7 +2340,7 @@ function getRelativeTimePlay(filePath) {
     if (diffDays < 7) return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
     if (diffWeeks < 4) return `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
     if (diffMonths < 12) return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
-    return `${diffYEARs} ${diffYEARs === 1 ? 'YEAR' : 'YEARs'} ago`;
+    return `${diffYears} ${diffYears === 1 ? 'year' : 'year'} ago`;
 }
 
 // Initialize play modal when DOM is loaded
