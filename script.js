@@ -1688,260 +1688,260 @@ function initPlayModal() {
         // Using absolute paths from site root
         'bedroom.jpg': {
             media: '<img src="/images/play/bedroom.jpg" alt="Bedroom">',
-            info: '<h3>Bedroom</h3><p>A cozy bedroom design exploration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Bedroom</h3><p>A cozy bedroom design exploration.</p>'
         },
         'css-letterforms.mp4': {
             media: '<video controls><source src="/images/play/css-letterforms.mp4" type="video/mp4"></video>',
-            info: '<h3>CSS Letterforms</h3><p>Typography experimentation with CSS.</p>'
+            info: '<div class="play-modal-info-header"><h3>CSS Letterforms</h3><p>Typography experimentation with CSS.</p>'
         },
         'docker.mp4': {
             media: '<video controls><source src="/images/play/docker.mp4" type="video/mp4"></video>',
-            info: '<h3>Docker</h3><p>Container visualization project.</p>'
+            info: '<div class="play-modal-info-header"><h3>Docker</h3><p>Container visualization project.</p>'
         },
         'earth.png': {
             media: '<img src="/images/play/earth.png" alt="Earth">',
-            info: '<h3>Earth</h3><p>Earth representation design.</p>'
+            info: '<div class="play-modal-info-header"><h3>Earth</h3><p>Earth representation design.</p>'
         },
         'good-omens.PNG': {
             media: '<img src="/images/play/good-omens.PNG" alt="Good Omens">',
-            info: '<h3>Good Omens</h3><p>Fan art inspired by the series.</p>'
+            info: '<div class="play-modal-info-header"><h3>Good Omens</h3><p>Fan art inspired by the series.</p>'
         },
         'kitchen.jpg': {
             media: '<img src="/images/play/kitchen.jpg" alt="Kitchen">',
-            info: '<h3>Kitchen</h3><p>Kitchen design visualization.</p>'
+            info: '<div class="play-modal-info-header"><h3>Kitchen</h3><p>Kitchen design visualization.</p>'
         },
         'memoji.mp4': {
             media: '<video controls><source src="/images/play/memoji.mp4" type="video/mp4"></video>',
-            info: '<h3>Memoji</h3><p>Animated character creation.</p>'
+            info: '<div class="play-modal-info-header"><h3>Memoji</h3><p>Animated character creation.</p>'
         },
         'moon.mp4': {
             media: '<video controls><source src="/images/play/moon.mp4" type="video/mp4"></video>',
-            info: '<h3>Moon</h3><p>Lunar phase animation.</p>'
+            info: '<div class="play-modal-info-header"><h3>Moon</h3><p>Lunar phase animation.</p>'
         },
         'pixel-font.mov': {
             media: '<video controls><source src="/images/play/pixel-font.mov" type="video/quicktime"></video>',
-            info: '<h3>Pixel Font</h3><p>Retro font design exploration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Pixel Font</h3><p>Retro font design exploration.</p>'
         },
         'riso-test.png': {
             media: '<img src="/images/play/riso-test.png" alt="Riso Test">',
-            info: '<h3>Riso Test</h3><p>Risograph printing experiments.</p>'
+            info: '<div class="play-modal-info-header"><h3>Riso Test</h3><p>Risograph printing experiments.</p>'
         },
         'riso-tomato.png': {
             media: '<img src="/images/play/riso-tomato.png" alt="Riso Tomato">',
-            info: '<h3>Riso Tomato</h3><p>Risograph design featuring tomatoes.</p>'
+            info: '<div class="play-modal-info-header"><h3>Riso Tomato</h3><p>Risograph design featuring tomatoes.</p>'
         },
         'riso-zine.png': {
             media: '<img src="/images/play/riso-zine.png" alt="Riso Zine">',
-            info: '<h3>Riso Zine</h3><p>Self-published zine using risograph printing.</p>'
+            info: '<div class="play-modal-info-header"><h3>Riso Zine</h3><p>Self-published zine using risograph printing.</p>'
         },
         'ryder.mp4': {
             media: '<video controls><source src="/images/play/ryder.mp4" type="video/mp4"></video>',
-            info: '<h3>Ryder</h3><p>Character animation project.</p>'
+            info: '<div class="play-modal-info-header"><h3>Ryder</h3><p>Character animation project.</p>'
         },
         'spirited-away.PNG': {
             media: '<img src="/images/play/spirited-away.PNG" alt="Spirited Away">',
-            info: '<h3>Spirited Away</h3><p>Illustration inspired by Studio Ghibli.</p>'
+            info: '<div class="play-modal-info-header"><h3>Spirited Away</h3><p>Illustration inspired by Studio Ghibli.</p>'
         },
         'twelve-moons.mp4': {
             media: '<video controls><source src="/images/play/twelve-moons.mp4" type="video/mp4"></video>',
-            info: '<h3>Twelve Moons</h3><p>Lunar calendar visualization.</p>'
+            info: '<div class="play-modal-info-header"><h3>Twelve Moons</h3><p>Lunar calendar visualization.</p>'
         },
         'vincenzo.PNG': {
             media: '<img src="/images/play/vincenzo.PNG" alt="Vincenzo">',
-            info: '<h3>Vincenzo</h3><p>Digital portrait inspired by the drama.</p>'
+            info: '<div class="play-modal-info-header"><h3>Vincenzo</h3><p>Digital portrait inspired by the drama.</p>'
         },
         'wheein.PNG': {
             media: '<img src="/images/play/wheein.PNG" alt="Wheein">',
-            info: '<h3>Wheein</h3><p>K-pop artist portrait.</p>'
+            info: '<div class="play-modal-info-header"><h3>Wheein</h3><p>K-pop artist portrait.</p>'
         },
             'wkx-cup.PNG': {
             media: '<img src="/images/play/wkx-cup.PNG" alt="WKX Cup">',
-            info: '<h3>WKX Cup</h3><p>Custom cup design.</p>'
+            info: '<div class="play-modal-info-header"><h3>WKX Cup</h3><p>Custom cup design.</p>'
         },
         'wkx-fan.PNG': {
             media: '<img src="/images/play/wkx-fan.PNG" alt="WKX Fan">',
-            info: '<h3>WKX Fan</h3><p>Custom fan design.</p>'
+            info: '<div class="play-modal-info-header"><h3>WKX Fan</h3><p>Custom fan design.</p>'
         },
         'pixel-pastry.png': {
             media: '<img src="/images/play/pixel-pastry.png" alt="Pixel Pastry">',
-            info: '<h3>Pixel Pastry</h3><p>Pixel art pastry illustration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Pixel Pastry</h3><p>Pixel art pastry illustration.</p>'
         },
         'figurines.png': {
             media: '<img src="/images/play/figurines.png" alt="Figurines">',
-            info: '<h3>Figurines</h3><p>Clay sculpture collection.</p>'
+            info: '<div class="play-modal-info-header"><h3>Figurines</h3><p>Clay sculpture collection.</p>'
         },
         'house-jar.png': {
             media: '<img src="/images/play/house-jar.png" alt="House Jar">',
-            info: '<h3>House Jar</h3><p>Clay jar with house design.</p>'
+            info: '<div class="play-modal-info-header"><h3>House Jar</h3><p>Clay jar with house design.</p>'
         },
         'rat-pizza.png': {
             media: '<img src="/images/play/rat-pizza.png" alt="Rat Pizza">',
-            info: '<h3>Rat Pizza</h3><p>3D rendered scene.</p>'
+            info: '<div class="play-modal-info-header"><h3>Rat Pizza</h3><p>3D rendered scene.</p>'
         },
         'cherry-tomato.jpeg': {
             media: '<img src="/images/play/cherry-tomato.jpeg" alt="Cherry Tomato">',
-            info: '<h3>Cherry Tomato</h3><p>Digital illustration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Cherry Tomato</h3><p>Digital illustration.</p>'
         },
         'hair.png': {
             media: '<img src="/images/play/hair.png" alt="Hair">',
-            info: '<h3>Hair</h3><p>Hair texture study.</p>'
+            info: '<div class="play-modal-info-header"><h3>Hair</h3><p>Hair texture study.</p>'
         },
         'sonny.jpeg': {
             media: '<img src="/images/play/sonny.jpeg" alt="Sonny">',
-            info: '<h3>Sonny</h3><p>Character portrait.</p>'
+            info: '<div class="play-modal-info-header"><h3>Sonny</h3><p>Character portrait.</p>'
         },
         'room.jpg': {
             media: '<img src="/images/play/room.jpg" alt="Room">',
-            info: '<h3>Room</h3><p>Interior design visualization.</p>'
+            info: '<div class="play-modal-info-header"><h3>Room</h3><p>Interior design visualization.</p>'
         },
         'shiny.jpg': {
             media: '<img src="/images/play/shiny.jpg" alt="Shiny">',
-            info: '<h3>Shiny</h3><p>Surface texture study.</p>'
+            info: '<div class="play-modal-info-header"><h3>Shiny</h3><p>Surface texture study.</p>'
         },
         'bubble-gum.jpg': {
             media: '<img src="/images/play/bubble-gum.jpg" alt="Bubble Gum">',
-            info: '<h3>Bubble Gum</h3><p>Material rendering exploration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Bubble Gum</h3><p>Material rendering exploration.</p>'
         },
         'water-color.jpg': {
             media: '<img src="/images/play/water-color.jpg" alt="Water Color">',
-            info: '<h3>Water Color</h3><p>Watercolor painting technique.</p>'
+            info: '<div class="play-modal-info-header"><h3>Water Color</h3><p>Watercolor painting technique.</p>'
         },
         'dry-eyes.GIF': {
             media: '<img src="/images/play/dry-eyes.GIF" alt="Dry Eyes">',
-            info: '<h3>Dry Eyes</h3><p>Animated illustration.</p>'
+            info: '<div class="play-modal-info-header"><h3>Dry Eyes</h3><p>Animated illustration.</p>'
         },
         'pomodoro.GIF': {
             media: '<img src="/images/play/pomodoro.GIF" alt="Pomodoro">',
-            info: '<h3>Pomodoro</h3><p>Pomodoro timer design.</p>'
+            info: '<div class="play-modal-info-header"><h3>Pomodoro</h3><p>Pomodoro timer design.</p>'
         },
         'brain-fry.GIF': {
             media: '<img src="/images/play/brain-fry.GIF" alt="Brain Fry">',
-            info: '<h3>Brain Fry</h3><p>Mental exhaustion visualization.</p>'
+            info: '<div class="play-modal-info-header"><h3>Brain Fry</h3><p>Mental exhaustion visualization.</p>'
         },
         // Type page fonts - using absolute paths from site root
         'basier-square.jpg': {
             media: '<img src="/images/play/type/basier-square.jpg" alt="Basier Square">',
-            info: '<h3>Basier Square</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Basier Square</h3><p>Geometric sans-serif typeface</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>2020</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Vincent De Block</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="https://fonts.google.com/specimen/Basier+Square" target="_blank">Google Fonts</a></p></div><hr></div></div>'
         },
         'circular-std.png': {
             media: '<img src="/images/play/type/circular-std.png" alt="Circular Std">',
-            info: '<h3>Circular Std</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Circular Std</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'diatype.png': {
             media: '<img src="/images/play/type/diatype.png" alt="Diatype">',
-            info: '<h3>Diatype</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Diatype</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'digibop.png': {
             media: '<img src="/images/play/type/digibop.png" alt="DigiBop">',
-            info: '<h3>DigiBop</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>DigiBop</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'editorial-new.jpg': {
             media: '<img src="/images/play/type/editorial-new.jpg" alt="Editorial New">',
-            info: '<h3>Editorial New</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Editorial New</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'editorial-old.webp': {
             media: '<img src="/images/play/type/editorial-old.webp" alt="Editorial Old">',
-            info: '<h3>Editorial Old</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Editorial Old</h3><p>Description</p></div><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'figma-sans.avif': {
             media: '<img src="/images/play/type/figma-sans.avif" alt="Figma Sans">',
-            info: '<h3>Figma Sans</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Figma Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'good-sans.webp': {
             media: '<img src="/images/play/type/good-sans.webp" alt="Good Sans">',
-            info: '<h3>Good Sans</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Good Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'google-sans.png': {
             media: '<img src="/images/play/type/google-sans.png" alt="Google Sans">',
-            info: '<h3>Google Sans</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Google Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'graphik.gif': {
             media: '<img src="/images/play/type/graphik.gif" alt="Graphik">',
-            info: '<h3>Graphik</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Graphik</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'helveesti.jpeg': {
             media: '<img src="/images/play/type/helveesti.jpeg" alt="Helveesti">',
-            info: '<h3>Helveesti</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Helveesti</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'inferi.jpg': {
             media: '<img src="/images/play/type/inferi.jpg" alt="Inferi">',
-            info: '<h3>Inferi</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Inferi</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'instrument-sans.gif': {
             media: '<img src="/images/play/type/instrument-sans.gif" alt="Instrument Sans">',
-            info: '<h3>Instrument Sans</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Instrument Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'instrument-serif.png': {
             media: '<img src="/images/play/type/instrument-serif.png" alt="Instrument Serif">',
-            info: '<h3>Instrument Serif</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Instrument Serif</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'mondwest.jpg': {
             media: '<img src="/images/play/type/mondwest.jpg" alt="Mondwest">',
-            info: '<h3>Mondwest</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Mondwest</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'mori.jpg': {
             media: '<img src="/images/play/type/mori.jpg" alt="Mori">',
-            info: '<h3>Mori</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Mori</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'neue-montreal.jpg': {
             media: '<img src="/images/play/type/neue-montreal.jpg" alt="Neue Montreal">',
-            info: '<h3>Neue Montreal</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Neue Montreal</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'pentameter.png': {
             media: '<img src="/images/play/type/pentameter.png" alt="Pentameter">',
-            info: '<h3>Pentameter</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Pentameter</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'polysans.jpg': {
             media: '<img src="/images/play/type/polysans.jpg" alt="Polysans">',
-            info: '<h3>Polysans</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Polysans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'regola-pro.jpg': {
             media: '<img src="/images/play/type/regola-pro.jpg" alt="Regola Pro">',
-            info: '<h3>Regola Pro</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Regola Pro</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'rethink-sans.png': {
             media: '<img src="/images/play/type/rethink-sans.png" alt="Rethink Sans">',
-            info: '<h3>Rethink Sans</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Rethink Sans</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'roobert.webp': {
             media: '<img src="/images/play/type/roobert.webp" alt="Roobert">',
-            info: '<h3>Roobert</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Roobert</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'self-modern.png': {
             media: '<img src="/images/play/type/self-modern.png" alt="Self Modern">',
-            info: '<h3>Self Modern</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Self Modern</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'sf-pro.png': {
             media: '<img src="/images/play/type/sf-pro.png" alt="SF Pro">',
-            info: '<h3>SF Pro</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>SF Pro</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'sohne.avif': {
             media: '<img src="/images/play/type/sohne.avif" alt="Sohne">',
-            info: '<h3>Sohne</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Sohne</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'swear-text.png': {
             media: '<img src="/images/play/type/swear-text.png" alt="Swear Text">',
-            info: '<h3>Swear Text</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Swear Text</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'that-that.png': {
             media: '<img src="/images/play/type/that-that.png" alt="That That">',
-            info: '<h3>That That</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>That That</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'the-seasons.png': {
             media: '<img src="/images/play/type/the-seasons.png" alt="The Seasons">',
-            info: '<h3>The Seasons</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>The Seasons</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'tumb.jpeg': {
             media: '<img src="/images/play/type/tumb.jpeg" alt="Tumb">',
-            info: '<h3>Tumb</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Tumb</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'uw-workshop.png': {
             media: '<img src="/images/play/type/uw-workshop.png" alt="UW Workshop">',
-            info: '<h3>UW Workshop</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>UW Workshop</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         },
         'wetris.jpeg': {
             media: '<img src="/images/play/type/wetris.jpeg" alt="Wetris">',
-            info: '<h3>Wetris</h3><p>Type specimen.</p>'
+            info: '<div class="play-modal-info-header"><h3>Wetris</h3><p>Description</p><div class="play-modal-info-rows"><div><div class="play-modal-info-row"><p>Year</p><p>YYYY</p></div><hr></div><div><div class="play-modal-info-row"><p>By</p><p>Designer</p></div><hr></div><div><div class="play-modal-info-row"><p>Source</p><p><a href="#" target="_blank">Link</a></p></div><hr></div></div>'
         }
     };
     
@@ -1957,10 +1957,8 @@ function initPlayModal() {
         
         modalMedia.innerHTML = content.media;
         
-        // Use the title from content if available, otherwise extract from info
-        const title = content.title || content.info.match(/<h3>(.*?)<\/h3>/)?.[1] || '';
-        const description = content.info.match(/<p>(.*?)<\/p>/)?.[1] || '';
-        modalInfo.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+        // Set the full info HTML (title, description, and all info rows)
+        modalInfo.innerHTML = content.info;
         
         modalOverlay.style.display = 'flex';
         document.body.style.overflow = 'hidden';

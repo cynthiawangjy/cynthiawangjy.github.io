@@ -39,22 +39,25 @@
 	<main class="play-main">
 		<!-- Container 1: 50vw intro section -->
 		<div class="play-intro">
-      <div class="project-title-section">
+      <h3>
+        An ongoing collection of type that just feels right ( ⸝⸝´꒳`⸝⸝)
+      </h3>
+      <!-- <div class="project-title-section">
         <h2>
           Type
         </h2>
         <h3>
           An ongoing collection of fonts that just feel right
         </h3>
-      </div>
+      </div> -->
 		</div>
 		
 		<!-- Container 2: Gallery of type work -->
 		<div class="play-gallery-container">
-      <h3 id="typePageTitle">
+      <!-- <h3 id="typePageTitle">
         <a href="../" style="text-decoration: none; color: inherit;"><span class="tertiary">Cynthia Wang</span></a>
         <span class="normal">/</span>
-        fonts</h3>
+        fonts</h3> -->
 			<div class="play-gallery">
 			<div class="play-gallery-item">
 				<div class="play-gallery-item-image">
@@ -370,22 +373,40 @@
 		</div>
 	</main>
 
-	<!-- Play Modal -->
-	<div class="play-modal-overlay" id="playModalOverlay" style="display: none;">
-		<div class="play-modal">
-			<button class="play-modal-close" id="playModalClose">
-        <span class="material-icons-round">close</span>
-      </button>
-			<div class="play-modal-content">
-				<div class="play-modal-media" id="playModalMedia">
-					<!-- Media will be inserted here -->
-				</div>
-				<div class="play-modal-info" id="playModalInfo">
-					<!-- Info will be inserted here -->
+	
+
+  <!-- Footer -->
+	<footer class="footer">
+		<div class="footer-main">
+			<div class="right">
+				<p>Interested in my work? Let's create <span class="cursive">together :)</span></p>
+				<div class="footer-email-container-wrapper" onclick="copyEmail(event)">
+					<div class="footer-email-container-background"></div>
+					<div class="footer-email-container">
+						<span class="footer-email-label">mailto:</span>
+						<div class="footer-email-spacer"></div>
+						<span class="footer-email-address">cynthiawangjy123@gmail.com</span>
+						<button class="footer-copy-button">
+							<span class="material-icons-round footer-copy-icon">content_copy</span>
+						</button>
+					</div>
 				</div>
 			</div>
+			<div class="left">
+				<a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="footer-link">
+					LinkedIn
+					<span class="material-icons-round footer-link-icon">arrow_outward</span>
+				</a>
+				<a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer-link">
+					Resume
+					<span class="material-icons-round footer-link-icon">arrow_outward</span>
+				</a>
+			</div>
 		</div>
-	</div>
+		<div class="footer-note">
+			Designed and developed by Cynthia. Last updated in October 2025. 
+		</div>
+	</footer>
 
 	<div class="grain-overlay"></div>
 	<script src="../../script.js"></script>

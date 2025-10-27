@@ -169,6 +169,7 @@ a:hover {
 	--text-base: 1rem; /* 16px */
 	--text-lg: 1.25rem; /* 20px */
 	--text-xl: 1.5rem; /* 24px */
+	--text-h3: 1.5rem; /* 24px */
 	--text-2xl: 2rem; /* 32px */
 	--text-3xl: 2.5rem; /* 40px */
 	
@@ -3338,11 +3339,15 @@ a.project.external-project .project-header {
 }
 
 .icon-circle.before {
+  width: var(--icon-container-sm);
+	height: var(--icon-container-sm);
 	background: var(--before);
 	color: var(--bg-primary);
 }
 
 .icon-circle.after {
+  width: var(--icon-container-sm);
+	height: var(--icon-container-sm);
 	background: var(--after);
 	color: var(--bg-primary);
 }
@@ -3733,6 +3738,11 @@ div.comparison-section.after {
 	padding: var(--section-spacing) 0;
 }
 
+.play-intro h3 {
+  text-align: center;
+	font-weight: 400;
+}
+
 /* Container 2: Gallery wrapper */
 .play-gallery-container {
   display: flex;
@@ -3892,7 +3902,51 @@ div.comparison-section.after {
 	height: 100%;
 	width: 440.5px;
 	flex-shrink: 0;
-  border: 1px solid green;
+	padding: 1rem; /* 16px padding */
+	display: flex;
+	flex-direction: column;
+	gap: 1rem; /* 16px gap between all elements */
+}
+
+.play-modal-info-header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem; /* 4px gap between title and description */
+}
+
+.play-modal-info .play-modal-info-header h3 {
+	margin: 0;
+	font-size: var(--text-h3) !important;
+	font-size: 1.5rem; /* 24px */
+}
+
+.play-modal-info-header p {
+	margin: 0;
+}
+
+.play-modal-info-rows {
+	display: flex;
+	flex-direction: column;
+}
+
+.play-modal-info-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.play-modal-info-row hr {
+	width: 100%;
+	border: none;
+	border-top: 1px solid var(--text-tertiary);
+	margin: 0;
+	align-self: flex-end;
+}
+
+.play-modal-info-row p {
+	margin: 0;
+	flex-shrink: 0;
+	line-height: 32px;
 }
 
 .play-modal-media img,
