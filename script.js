@@ -1192,7 +1192,7 @@ function initProjectInteractions() {
             
             
             // Check if this is the Policies Overview project
-            if (projectTitle && projectTitle.textContent.trim() === 'Policies Overview') {
+            if (projectTitle && projectTitle.textContent.trim() === 'Immuta — Policies Overview') {
                 window.location.href = 'work/policies-overview/';
                 return;
             }
@@ -2340,7 +2340,7 @@ function getRelativeTimePlay(filePath) {
     if (diffDays < 7) return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
     if (diffWeeks < 4) return `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
     if (diffMonths < 12) return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
-    return `${diffYears} ${diffYears === 1 ? 'year' : 'year'} ago`;
+    return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
 }
 
 // Initialize play modal when DOM is loaded
