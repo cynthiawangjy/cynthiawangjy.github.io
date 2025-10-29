@@ -235,9 +235,7 @@ a:hover {
 /* Typography System */
 .cursive {
 	font-family: 'Homemade Apple', cursive;
-  line-height: inherit;
   font-weight: 400;
-  /* display: inline; */
 }
 
 /* Semantic HTML Typography */
@@ -1007,7 +1005,7 @@ nav {
 #projects.grid .project .project-header {
 	justify-content: space-between;
 	flex-direction: row;
-	gap: var(--gap-sm); /* 8px */
+	gap: var(--gap-sm);
 }
 
 #projects.grid .project .project-title-section {
@@ -3298,6 +3296,14 @@ a.project.external-project .project-header {
 	padding: 0;
 }
 
+.comparison-item {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem; /* 24px space between image and text */
+	align-items: flex-start; /* Ensure top alignment */
+}
+
 .comparison-section img,
 .comparison-section video {
 	object-fit: contain;
@@ -3318,11 +3324,10 @@ a.project.external-project .project-header {
 	flex: 1;
 }
 
-.comparison-item {
+.comparison-item-content {
 	display: flex;
 	align-items: flex-start;
 	gap: var(--gap-sm); /* 8px */ /* 8px spacing between icon and text */
-	margin-bottom: 1rem; /* 16px spacing between items */
 }
 
 .icon-circle {
@@ -3355,7 +3360,7 @@ a.project.external-project .project-header {
 	font-size: var(--icon-sm);
 }
 
-.comparison-item p {
+.comparison-item-content p {
 	font-size: var(--text-base); /* Regular paragraph size */
 	margin: 0;
 	line-height: 1.5;
@@ -3410,27 +3415,18 @@ video, img {
 	margin-bottom: 1.5rem;
 }
 
-.text-row {
-	display: flex;
-	flex-direction: row;
-	gap: var(--gap-xl);
-	/* margin-top: var(--gap-lg); */
-}
-
-.text-column {
-	flex: 1;
-}
-
-.text-column h4 {
-	margin: 0 0 1rem 0;
-}
-
-.text-column:first-child h4 {
+.comparison-item.before h4 {
 	color: var(--before) !important; /* Red for before */
 }
 
-.text-column:last-child h4 {
+.comparison-item.after h4 {
 	color: var(--after) !important; /* Green for after */
+}
+
+.comparison-text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-md); /* 16px between items using existing gap system */
 }
 
 /* Text spacing for content sections */
@@ -3477,7 +3473,7 @@ video, img {
 
 /* Before/after video sizing with proper container padding */
 .comparison-section {
-	flex: 1;
+	flex: 0 0 auto; /* Don't grow or shrink, maintain natural size */
 	background: var(--bg-secondary);
 	padding: 2rem 1.5rem; /* 32px top/bottom, 24px left/right */
 	height: auto;
@@ -3951,7 +3947,7 @@ div.comparison-section.after {
 /* Overlay text that shows on hover - replaces caption */
 .play-gallery-item .caption-overlay {
 	position: absolute;
-	top: calc(100% - 16px); /* Match the caption position */
+	top: calc(100% - 20px); /* Match the caption position */
 	left: 0;
 	right: 0;
 	text-align: center;
@@ -4245,22 +4241,16 @@ div.comparison-section.after {
   .play-modal-media {
     flex: 1;
     padding: clamp(1rem, 0.1648rem + 3.5635vw, 2rem);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: clamp(13.5rem, -1.3246rem + 63.2517vw, 31.25rem);
-    /* border: 1px solid red; */
+    min-height: 100vw;
   }
 
   .play-modal-media img,
   .play-modal-media video {
-    width: 100%;
-    height: auto;
     display: block;
     object-fit: contain;
     margin: 0 auto;
-    max-width: 100%;
-    max-height: 100%;
+    min-width: 100%;
+    height: 100%;
   }
 
   .play-modal-info {
@@ -4293,6 +4283,11 @@ div.comparison-section.after {
     aspect-ratio: auto;
     display: inline-flex;
   }
+
+  .play-modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
   
   .about-main, .hero .hero-text, .play-intro {
     padding: var(--section-spacing) clamp(1rem, -0.6704rem + 7.1269vw, 3rem);
@@ -4321,6 +4316,9 @@ div.comparison-section.after {
     margin-top: 2rem;
   }
 
+  /* .case-study-layout {
+    width: 100%;
+  } */
   .case-study-nav {
     display: none;
   }
@@ -4435,7 +4433,7 @@ div.comparison-section.after {
 	
 	#projects {
 	    grid-template-columns: 1fr;
-	    gap: 4rem;
+	    gap: 3rem;
 	}
 	 
   header, .case-study-top-nav {
@@ -4502,13 +4500,15 @@ div.comparison-section.after {
 
 /* Case Study Footer Responsive */
 @media (max-width: 532px) {
+  #projects.grid .project .project-header {
+    /* flex-direction: column;
+    align-items: start;
+    gap: 2px; */
+  }
+
   .comparison-container {
     flex-direction: column;
     gap: var(--gap-xl);
-  }
-
-  .text-row {
-    flex-direction: column;
   }
 
   .annotation-grid {
