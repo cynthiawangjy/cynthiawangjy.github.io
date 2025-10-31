@@ -4369,7 +4369,7 @@ div.comparison-section.after {
   .mobile-spacing {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1rem, -0.6704rem + 7.1269vw, 3rem);
   }
 
   .content-container.centered {
