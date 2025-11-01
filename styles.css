@@ -586,6 +586,7 @@ nav {
 .hero .hero-text p .pill-group {
 	display: inline-block;
 	white-space: nowrap;
+	position: relative; /* Needed for absolute positioning of pills */
 }
 
 /* Ensure time pill group maintains fixed width */

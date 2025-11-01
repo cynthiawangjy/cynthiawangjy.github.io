@@ -1300,6 +1300,16 @@ function initDraggablePills() {
   const pillData = new Map();
   let autoReturnTimer = null;
 
+  // Helper function to calculate position relative to parent container
+  function getRelativePosition(element) {
+    const elementRect = element.getBoundingClientRect();
+    const parentRect = element.parentNode.getBoundingClientRect();
+    return {
+      left: elementRect.left - parentRect.left,
+      top: elementRect.top - parentRect.top
+    };
+  }
+
   // Create draggable clones for each pill
   pills.forEach(originalPill => {
     // Create placeholder (muted)
@@ -1333,9 +1343,9 @@ function initDraggablePills() {
     originalPill.style.zIndex = '1000';
     
     // Position the pill exactly on top of its placeholder
-    const rect = placeholder.getBoundingClientRect();
-    originalPill.style.left = rect.left + window.scrollX + 'px';
-    originalPill.style.top = rect.top + window.scrollY + 'px';
+    const pos = getRelativePosition(placeholder);
+    originalPill.style.left = pos.left + 'px';
+    originalPill.style.top = pos.top + 'px';
 
     pillData.set(originalPill, { placeholder });
 
@@ -1380,8 +1390,10 @@ function initDraggablePills() {
 
     function moveDrag(x, y) {
       if (!isDragging) return;
-      originalPill.style.left = (x - offsetX) + 'px';
-      originalPill.style.top = (y - offsetY) + 'px';
+      // Convert viewport coordinates to parent-relative coordinates
+      const parentRect = originalPill.parentNode.getBoundingClientRect();
+      originalPill.style.left = (x - parentRect.left - offsetX) + 'px';
+      originalPill.style.top = (y - parentRect.top - offsetY) + 'px';
       
       // Track movement direction towards placeholder
       const pillRect = originalPill.getBoundingClientRect();
@@ -1431,10 +1443,10 @@ function initDraggablePills() {
       
       if (distance <= snapThreshold && isMovingTowardsPlaceholder) {
         // Only snap if we're moving towards the placeholder
-        const rect = pillData.get(originalPill).placeholder.getBoundingClientRect();
+        const pos = getRelativePosition(pillData.get(originalPill).placeholder);
         originalPill.style.transition = 'left 0.3s ease, top 0.3s ease';
-        originalPill.style.left = rect.left + window.scrollX + 'px';
-        originalPill.style.top = rect.top + window.scrollY + 'px';
+        originalPill.style.left = pos.left + 'px';
+        originalPill.style.top = pos.top + 'px';
 
         setTimeout(() => {
           originalPill.style.transition = '';
@@ -1447,10 +1459,10 @@ function initDraggablePills() {
         if (autoReturnTimer) clearTimeout(autoReturnTimer);
         autoReturnTimer = setTimeout(() => {
           pillData.forEach((data, pill) => {
-            const rect = data.placeholder.getBoundingClientRect();
+            const pos = getRelativePosition(data.placeholder);
             pill.style.transition = 'left 0.5s ease, top 0.5s ease';
-            pill.style.left = rect.left + window.scrollX + 'px';
-            pill.style.top = rect.top + window.scrollY + 'px';
+            pill.style.left = pos.left + 'px';
+            pill.style.top = pos.top + 'px';
 
             setTimeout(() => {
               pill.style.transition = '';
@@ -1464,15 +1476,12 @@ function initDraggablePills() {
     originalPill.addEventListener('mousedown', e => {
       e.preventDefault();
       
-      // Calculate offset BEFORE repositioning the pill
+      // Calculate offset relative to parent container (for parent-relative positioning)
+      // Calculate from pill's current position, not the placeholder
       const pillRect = originalPill.getBoundingClientRect();
+      const parentRect = originalPill.parentNode.getBoundingClientRect();
       const offsetX = e.clientX - pillRect.left;
       const offsetY = e.clientY - pillRect.top;
-      
-      // Ensure the pill is positioned correctly before starting drag
-      const rect = pillData.get(originalPill).placeholder.getBoundingClientRect();
-      originalPill.style.left = rect.left + window.scrollX + 'px';
-      originalPill.style.top = rect.top + window.scrollY + 'px';
       
       startDrag(e.clientX, e.clientY, offsetX, offsetY);
 
@@ -1495,15 +1504,12 @@ function initDraggablePills() {
       e.preventDefault();
       const touch = e.touches[0];
       
-      // Calculate offset BEFORE repositioning the pill
+      // Calculate offset relative to parent container (for parent-relative positioning)
+      // Calculate from pill's current position, not the placeholder
       const pillRect = originalPill.getBoundingClientRect();
+      const parentRect = originalPill.parentNode.getBoundingClientRect();
       const offsetX = touch.clientX - pillRect.left;
       const offsetY = touch.clientY - pillRect.top;
-      
-      // Ensure the pill is positioned correctly before starting drag
-      const rect = pillData.get(originalPill).placeholder.getBoundingClientRect();
-      originalPill.style.left = rect.left + window.scrollX + 'px';
-      originalPill.style.top = rect.top + window.scrollY + 'px';
       
       startDrag(touch.clientX, touch.clientY, offsetX, offsetY);
 
@@ -1564,10 +1570,11 @@ function repositionPillsToPlaceholders() {
     pills.forEach(originalPill => {
         // Find the corresponding placeholder
         const placeholder = originalPill.parentNode.querySelector('.pill.placeholder');
-        if (placeholder) {
-            const rect = placeholder.getBoundingClientRect();
-            originalPill.style.left = rect.left + window.scrollX + 'px';
-            originalPill.style.top = rect.top + window.scrollY + 'px';
+        if (placeholder && placeholder.parentNode) {
+            const placeholderRect = placeholder.getBoundingClientRect();
+            const parentRect = placeholder.parentNode.getBoundingClientRect();
+            originalPill.style.left = (placeholderRect.left - parentRect.left) + 'px';
+            originalPill.style.top = (placeholderRect.top - parentRect.top) + 'px';
         }
     });
 }
