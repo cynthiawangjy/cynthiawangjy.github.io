@@ -2309,6 +2309,7 @@ nav {
 
 .content-container.centered {
 	padding: 0 16%; /* Left/right padding is 4/5 of nav width (16% each side) */
+  width: 100%;
 }
 
 /* Locked sections are hidden by default */
@@ -2333,9 +2334,7 @@ body .locked:not(.nav-item) {
 }
 
 .content-container.padded {
-	/* width: calc(100% - 4rem); */
   display: flex;
-	/* margin: 0 auto; */
 	padding: 3rem 16%;
 	background: var(--bg-secondary);
   width: 100%;
@@ -2345,6 +2344,7 @@ body .locked:not(.nav-item) {
   margin: 0 auto;
   padding: 2.5rem;
   background: var(--bg-secondary);
+  width: 100%;
 }
 
 /* Force case study content to align to the left - nuclear option */
@@ -2796,15 +2796,13 @@ hr {
 	font-size: var(--icon-lg);
 }
 
-/* Polaroid Container */
+/* Polaroid Container - Case Study (Zocdoc) */
 #highlights .polaroid-container {
 	background: var(--bg-secondary);
 	border-radius: 1rem;
 	min-height: 500px;
 	position: relative;
 	overflow: hidden;
-	width: 100%;
-  /* overflow: none; */
 }
 
 .about-main .content-container .polaroid-container {
@@ -4176,6 +4174,7 @@ div.comparison-section.after {
     font-size: clamp(1rem, 0.6875rem + 0.625vw, 1.25rem);
     line-height: clamp(1.5rem, 1.1875rem + 0.625vw, 1.75rem);
   }
+
   .content-container.centered {
     padding: 0 clamp(3rem, -8.3701rem + 22.0779vw, 11.5rem);
   }
