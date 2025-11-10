@@ -230,6 +230,18 @@ a:hover {
 	--hover-color: rgba(255, 255, 255, 0.12); /* Hover backgrounds */
 	--accent-color: rgba(255, 255, 255, 1); /* White accent */
 	--indicator-color: rgba(255, 255, 255, 1); /* White indicator */
+	--selection-color: #B266FF; /* Purple selection for dark mode */
+}
+
+/* Dark mode text selection */
+[data-theme="dark"] ::selection {
+	background-color: var(--selection-color);
+	color: var(--text-primary);
+}
+
+[data-theme="dark"] ::-moz-selection {
+	background-color: var(--selection-color);
+	color: var(--text-primary);
 }
 
 /* Typography System */
@@ -424,6 +436,24 @@ header::before {
 	);
 	pointer-events: none;
 	z-index: -1;
+}
+
+/* Dark mode header blur - mask uses white for dark backgrounds */
+[data-theme="dark"] header::before {
+	mask: linear-gradient(to bottom, 
+	    rgba(255, 255, 255, 1) 0%, 
+	    rgba(255, 255, 255, 1) 60%, 
+	    rgba(255, 255, 255, 0.8) 80%, 
+	    rgba(255, 255, 255, 0.4) 90%, 
+	    rgba(255, 255, 255, 0) 100%
+	);
+	-webkit-mask: linear-gradient(to bottom, 
+	    rgba(255, 255, 255, 1) 0%, 
+	    rgba(255, 255, 255, 1) 60%, 
+	    rgba(255, 255, 255, 0.8) 80%, 
+	    rgba(255, 255, 255, 0.4) 90%, 
+	    rgba(255, 255, 255, 0) 100%
+	);
 }
 
 nav {
@@ -807,6 +837,12 @@ nav {
 	border: 1px solid var(--text-muted);
 }
 
+/* Remove aspect ratio constraint for videos to allow 100% width */
+.project .image-container:has(video) {
+	aspect-ratio: auto;
+	height: auto;
+}
+
 .project .image-container .hover-overlay {
 	display: none;
 }
@@ -896,8 +932,7 @@ nav {
 	fill: #ffffff !important;
 }
 
-.project img,
-.project video {
+.project img {
 	width: 100% !important;
 	height: 100% !important;
 	object-fit: cover !important;
@@ -905,6 +940,15 @@ nav {
 	will-change: auto;
 	transition: transform 0.25s ease;
   overflow: hidden;
+}
+
+.project video {
+	width: 100% !important;
+	height: auto !important;
+	object-fit: contain !important;
+	display: block;
+	will-change: auto;
+	transition: transform 0.25s ease;
 }
 
 /* Scale effect on hover for video/image */
@@ -3230,6 +3274,10 @@ p.text-small.caption {
 	height: 100px;
 	background: linear-gradient(to bottom, transparent, var(--bg-primary));
 	pointer-events: none;
+}
+
+.project .image-container source {
+  width: 101%;
 }
 
 /* External link view circle styling */

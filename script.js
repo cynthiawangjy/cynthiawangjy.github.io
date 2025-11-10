@@ -245,46 +245,47 @@ function copyEmail(event) {
 
 
 // Dark mode toggle functionality
-function toggleTheme() {
-    const body = document.body;
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Update toggle button icon
-    const toggleButton = document.querySelector('.theme-toggle');
-    if (toggleButton) {
-        const icon = toggleButton.querySelector('span');
-        if (icon) {
-            icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-        }
-    }
-    
-    // Update highlight colors for about page
-    if (body.classList.contains('about-page')) {
-        addCustomHighlightColors();
-    }
-}
+// function toggleTheme() {
+//     const body = document.body;
+//     const currentTheme = body.getAttribute('data-theme');
+//     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+//     
+//     body.setAttribute('data-theme', newTheme);
+//     localStorage.setItem('theme', newTheme);
+//     
+//     // Update toggle button icon
+//     const toggleButtons = document.querySelectorAll('.theme-toggle .theme-icon');
+//     toggleButtons.forEach(icon => {
+//         icon.textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+//     });
+//     
+//     // Update highlight colors for about page
+//     if (body.classList.contains('about-page')) {
+//         addCustomHighlightColors();
+//     }
+// }
 
 // Initialize theme on page load
-function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.setAttribute('data-theme', savedTheme);
-    
-    // Update toggle button icon
-    const toggleButton = document.querySelector('.theme-toggle');
-    if (toggleButton) {
-        const icon = toggleButton.querySelector('span');
-        if (icon) {
-            icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        }
-    }
-}
+// function initializeTheme() {
+//     const savedTheme = localStorage.getItem('theme') || 'light';
+//     document.body.setAttribute('data-theme', savedTheme);
+//     
+//     // Update toggle button icons
+//     const toggleIcons = document.querySelectorAll('.theme-toggle .theme-icon');
+//     toggleIcons.forEach(icon => {
+//         icon.textContent = savedTheme === 'dark' ? 'light_mode' : 'dark_mode';
+//     });
+// }
 
 // Initialize theme when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeTheme);
+// document.addEventListener('DOMContentLoaded', initializeTheme);
+
+// Force light mode (disable dark mode)
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.removeAttribute('data-theme');
+    // Optionally clear saved theme preference
+    // localStorage.removeItem('theme');
+});
 
 // Case study navigation handling
 function initCaseStudyNavigation() {
