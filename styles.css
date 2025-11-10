@@ -377,7 +377,6 @@ body {
 /* Container system - 32px all around */
 .container {
 	padding: 0 var(--container-padding);
-  width: 100%;
 	margin: 0 auto;
 }
 
@@ -4318,6 +4317,12 @@ div.comparison-section.after {
     gap: var(--gap-xl); /* 32px */
     margin-top: 2rem;
   }
+
+  .mobile-spacing {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, -10.6968rem + 26.5957vw, 9.25rem);
+  }
 }
 
 @media (max-width: 824px) {
@@ -4372,8 +4377,8 @@ div.comparison-section.after {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 16px 16px 64px 16px;
-    gap: 32px;
+    padding: clamp(1rem, 0.1648rem + 3.5635vw, 2rem) clamp(1rem, 0.1648rem + 3.5635vw, 2rem) 3rem clamp(1rem, 0.1648rem + 3.5635vw, 2rem);
+    gap: clamp(1rem, 0.1648rem + 3.5635vw, 2rem);
   }
 
   .play-gallery-item {
@@ -4469,8 +4474,6 @@ div.comparison-section.after {
 
   /* Reduce spacing between cover and overview within the wrapper */
   .mobile-spacing {
-    display: flex;
-    flex-direction: column;
     gap: clamp(1rem, -0.6704rem + 7.1269vw, 3rem);
   }
 
