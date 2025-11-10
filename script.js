@@ -2470,38 +2470,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Sticky scroll effect for type and play pages
 function initTypePageSticky() {
-    const typePageTitle = document.getElementById('typePageTitle');
-    const playPageTitle = document.getElementById('playPageTitle');
-    const titleElement = typePageTitle || playPageTitle;
-    
-    if (!titleElement) return;
-    
-    let offsetTop = 0;
-    let hasClass = false;
-    
-    // Get initial offset
-    window.addEventListener('load', () => {
-        const rect = titleElement.getBoundingClientRect();
-        offsetTop = rect.top + window.scrollY;
-    });
-    
-    // Also set immediately in case load already fired
-    const rect = titleElement.getBoundingClientRect();
-    offsetTop = rect.top + window.scrollY;
-    
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        const titleRect = titleElement.getBoundingClientRect();
-        
-        // When there's 32px between top of viewport and top of text
-        if (scrollY >= offsetTop - 32 && !hasClass) {
-            titleElement.classList.add('sticky-title');
-            hasClass = true;
-        } 
-        // When scrolling back up past the threshold
-        else if (scrollY < offsetTop - 32 && hasClass) {
-            titleElement.classList.remove('sticky-title');
-            hasClass = false;
-        }
-    });
+	const typePageTitle = document.getElementById('typePageTitle');
+	const playPageTitle = document.getElementById('playPageTitle');
+	const titleElement = typePageTitle || playPageTitle;
+	
+	if (!titleElement) return;
+	
+	let offsetTop = 0;
+	let hasClass = false;
+	
+	// Get initial offset
+	window.addEventListener('load', () => {
+		const rect = titleElement.getBoundingClientRect();
+		offsetTop = rect.top + window.scrollY;
+	});
+	
+	// Also set immediately in case load already fired
+	const rect = titleElement.getBoundingClientRect();
+	offsetTop = rect.top + window.scrollY;
+	
+	window.addEventListener('scroll', () => {
+		const scrollY = window.scrollY;
+		const titleRect = titleElement.getBoundingClientRect();
+		
+		// When there's 32px between top of viewport and top of text
+		if (scrollY >= offsetTop - 32 && !hasClass) {
+			titleElement.classList.add('sticky-title');
+			hasClass = true;
+		} 
+		// When scrolling back up past the threshold
+		else if (scrollY < offsetTop - 32 && hasClass) {
+			titleElement.classList.remove('sticky-title');
+			hasClass = false;
+		}
+	});
 }
+
+// Update footer date automatically
+function updateFooterDate() {
+	const footerNotes = document.querySelectorAll('.footer-note');
+	if (footerNotes.length === 0) return;
+	
+	// Get the last modified date of the document
+	const lastModified = new Date(document.lastModified);
+	
+	// Format as "Month Day, Year" (e.g., "October 15, 2025")
+	const options = { year: 'numeric', month: 'long', day: 'numeric' };
+	const formattedDate = lastModified.toLocaleDateString('en-US', options);
+	
+	// Update all footer notes
+	footerNotes.forEach(footerNote => {
+		const text = footerNote.textContent || footerNote.innerText;
+		// Replace "Last updated on/in [date]" with the new date
+		footerNote.textContent = text.replace(/Last updated (on|in) [^.]*\./, `Last updated on ${formattedDate}.`);
+	});
+}
+
+// Initialize footer date on page load
+document.addEventListener('DOMContentLoaded', updateFooterDate);
