@@ -838,13 +838,67 @@ nav {
 }
 
 /* Remove aspect ratio constraint for videos to allow 100% width */
-.project .image-container:has(video) {
+.project .image-container:has(video):not(.immuta-cover) {
 	aspect-ratio: auto;
 	height: auto;
 }
 
 .project .image-container .hover-overlay {
 	display: none;
+}
+
+/* Immuta cover with mesh gradient background */
+.project .image-container.immuta-cover {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 2000 / 1200; /* 5:3 aspect ratio like other project cards */
+	height: auto;
+	background: var(--bg-primary);
+}
+
+.project .mesh-gradient-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(185, 129, 45, 1); /* Solid dark gold background */
+	z-index: 1;
+}
+
+.project .immuta-video,
+.immuta-video {
+	position: relative;
+	width: 80% !important;
+	height: auto !important;
+	object-fit: contain !important;
+	border-radius: clamp(0.25rem, 1vw, 0.75rem);
+	z-index: 2;
+	display: block;
+	margin: 0 auto;
+}
+
+/* Immuta cover container for case study page */
+.immuta-cover-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 2000 / 1200; /* 5:3 aspect ratio */
+	height: auto;
+	background: var(--bg-primary);
+}
+
+.immuta-cover-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(185, 129, 45, 1); /* Solid dark gold background */
+	z-index: 1;
 }
 
 /* View circle and icon */
