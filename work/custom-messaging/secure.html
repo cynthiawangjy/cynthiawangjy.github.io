@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zocdoc - Secure Content</title>
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Homemade+Apple&display=swap" rel="stylesheet">
+	
+	<!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../styles.css">
+	
+	<!-- GSAP -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	
+	<!-- Authentication -->
+	<script src="../../js/static-auth.js"></script>
+	
+	<!-- Custom highlight colors -->
+	<script>
+		// Force custom highlight colors for Zocdoc page
+		document.addEventListener('DOMContentLoaded', function() {
+			// Override selection styles
+			const style = document.createElement('style');
+			style.textContent = `
+				::selection {
+					background: #FFF0BB !important;
+				}
+				::-moz-selection {
+					background: #FFF0BB !important;
+				}
+				*::selection {
+					background: #FFF0BB !important;
+				}
+				*::-moz-selection {
+					background: #FFF0BB !important;
+				}
+			`;
+			document.head.appendChild(style);
+		});
+	</script>
+</head>
+
+<body class="case-study zocdoc">
+	<!-- Top Navigation -->
+	<header class="case-study-top-nav">
+		<ul class="nav-links">
+			<div class="main-nav-indicator"></div>
+			<li><a href="../../#work" class="main-nav-item">Work</a></li>
+			<li><a href="../../play/" class="main-nav-item">Play</a></li>
+			<li><a href="../../about/" class="main-nav-item">About</a></li>
+			<li><a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" class="main-nav-item">Resume<span class="material-icons-round icon-md" style="margin-left: 4px;">arrow_outward</span></a></li>
+		</ul>
+	</header>
+
+	<!-- Mobile Navigation -->
+	<header class="case-study-mobile-nav">
+		<nav class="container">
+			<a href="../../index.html" class="logo" onclick="goToHome()">
+				<svg class="svg-xl" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M24 12C24 15.2102 21.4789 17.8316 18.3086 17.9922L18 18C18 21.3137 15.3137 24 12 24C8.68629 24 6 21.3137 6 18C2.68629 18 -6.69384e-07 15.3137 -5.24537e-07 12C-3.7969e-07 8.68629 2.68629 6 6 6L6.00781 5.69141C6.16843 2.52111 8.78979 -6.64859e-07 12 -5.24536e-07C15.3137 -1.21986e-07 18 2.68629 18 6L18.3086 6.00781C21.4789 6.16843 24 8.78979 24 12ZM16.2002 12.043C13.9848 11.7603 12.2398 10.0161 11.957 7.80078C11.6742 10.0161 9.93019 11.7603 7.71484 12.043C9.9302 12.3256 11.6742 14.0698 11.957 16.2852C12.2398 14.0698 13.9848 12.3256 16.2002 12.043Z" fill="currentColor"/>
+				</svg>
+			</a>
+			<ul class="nav-links">
+				<div class="main-nav-indicator"></div>
+				<li><a href="../../#work" class="main-nav-item">Work</a></li>
+				<li><a href="../../play/" class="main-nav-item">Play</a></li>
+				<li><a href="../../about/" class="main-nav-item">About</a></li>
+				<li><a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" class="main-nav-item">Resume<span class="material-icons-round icon-md" style="margin-left: 4px;">arrow_outward</span></a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="case-study-layout">
+		<!-- Left Navigation -->
+		<nav class="case-study-nav">
+      <div class="nav-content">
+        <button class="back-button" onclick="goBackToPortfolio()">
+          <span class="material-icons-round">chevron_left</span>
+        </button>
+        <div class="nav-items">
+          <div class="nav-indicator"></div>
+          <a href="#overview" class="nav-item active">Overview</a>
+          <a href="#challenge" class="nav-item">Challenge</a>
+          <a href="#solution" class="nav-item">Solution</a>
+          <a href="#outcome" class="nav-item">Outcome</a>
+          <a href="#research" class="nav-item">Research</a>
+          <a href="#goal" class="nav-item">Goal</a>
+          <a href="#exploration" class="nav-item">Exploration</a>
+          <a href="#conclusion" class="nav-item">Conclusion</a>
+          <!-- <a href="#highlights" class="nav-item">Highlights</a>
+          <a href="#learnings" class="nav-item">Learnings</a>
+          <a href="#kind-words" class="nav-item">Kind words</a> -->
+        </div>
+		  </div>
+		</nav>
+
+		<!-- Right Content -->
+		<main class="case-study-content">
+      <div class="mobile-spacing">
+        <div class="content-container full-width">
+          <div class="thumbnail-container">
+            <video src="../../images/work/custom-messaging/cover.mp4" alt="custom messaging" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
+            </video>
+          </div>
+        </div>
+
+        <div id="overview" class="content-container centered">
+          <div class="project-title-section">
+            <h1>
+              Zocdoc — Custom Messaging
+            </h1>
+            <h3>
+              Giving providers control and flexibility in patient communication
+            </h3>
+          </div>
+          <hr>
+          <div class="text-spacing">
+            <p>
+              During the second half of my internship, I initiated this project to address a long-standing gap in Zocdoc’s provider-patient communication tools, a challenge the team has been struggling to solve for years.
+            </p>
+            <p>
+              I led the project end-to-end, from defining the scope and analyzing existing research to delivering a complete solution. I collaborated closely with our PM to define success metrics, participated in design critiques with the team, and presented the final solution to the Design and Research team, including the VP of Design.
+            </p>
+          </div>
+          <hr>
+          <div class="row gap-32">
+            <div class="col-1-4">
+              <div class="meta-item">
+                <span class="meta-label">TIMELINE</span>
+                <span class="meta-value">5 weeks</span>
+                <span class="meta-value">July – August 2025</span>
+              </div>
+            </div>
+            <div class="col-1-4">
+              <div class="meta-item">
+                <span class="meta-label">ROLE</span>
+                <span class="meta-value">Product Design Intern</span>
+                <span class="meta-value">
+                    Sole designer, Product thinking, End-to-end design
+                </span>
+              </div>
+            </div>
+            <div class="col-1-4">
+              <div class="meta-item">
+                <span class="meta-label">FOR</span>
+                <span class="meta-value">Passion project</span>
+              </div>
+            </div>
+            <div class="col-1-4">
+              <div class="meta-item">
+                <span class="meta-label">WITH HELP FROM</span>
+                <span class="meta-value">1 Design Mentor</span>
+                <span class="meta-value">2 Designers</span>
+                <span class="meta-value">1 Product Manager</span>
+                <span class="meta-value">1 VP of Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            REVIEWING THE DATA
+          </p>
+          <h2>
+            Communication gaps are costing providers real appointments — and trust in Zocdoc.
+          </h2>
+            </div>
+        <div class="row gap-24">
+          <div class="padded-container col">
+            <img src="../../images/work/custom-messaging/insurance-shield.svg" class="brand-illustration" alt="">
+            <h4>
+              20% of provider-initiated cancellations occur because providers can’t reach patients for key information
+            </h4>
+            </div>
+          <div class="padded-container col">
+            <img src="../../images/work/custom-messaging/calendar-cancel.svg" class="brand-illustration" alt="">
+            <div class="col gap-12">
+              <h4>
+                40% of appointments are missing insurance details
+              </h4>
+              <p>
+                Yet, Zocdoc's "Request to call" feature, designed to help providers follow up with patients about missing information, is hardly used.
+              </p>
+            </div>
+          </div>
+        </div>  
+      </div>
+
+      <div id="challenge" class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            THE CHALLENGE
+          </p>
+          <h2>
+            <span class="tertiary">How might we</span> give providers full visibility and control over patient communication, so they can trust Zocdoc’s tools again?
+          </h2>
+        </div>
+      </div>
+
+      <div id="solution" class="content-container padded large">
+        <div class="section-header">
+          <p class="text-small">
+          THE SOLUTION
+          </p>
+          <div class="text-spacing">
+            <h2>
+              A messaging system that puts providers in charge
+            </h2>
+            <p class="text-large">
+              Take control of every patient message — see every message, build and schedule targeted templates, and track all patient interactions in one unified timeline.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              01 / HIGHLIGHT
+            </p>
+            <div class="text-spacing">
+              <h3 class="h3-with-icon">
+                Edit existing messages <img src="../../images/work/custom-messaging/writing-pencil.svg" alt="pencil" class="h3-icon"> anytime, ready to use
+              </h3>
+              <p>
+                Update Zocdoc's pre-written templates to set a new default, or customize the message for individual patients right before sending without changing your saved template.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-container padded zocdoc">
+          <video src="../../images/work/custom-messaging/send-patient-intake.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="desktop-video">
+          </video>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              02 / HIGHLIGHT
+            </p>
+            <div class="text-spacing">
+              <h3 class="h3-with-icon">
+                Build targeted templates <img src="../../images/work/custom-messaging/target.svg" alt="target" class="h3-icon"> that send when you want
+              </h3>
+              <p>
+                Target specific patient groups by visit reason, patient type, or location—then schedule messages to deliver before or after appointments, including post-visit follow-ups.
+            </p>
+          </div>
+          </div>
+        </div>
+        <div class="content-container padded zocdoc">
+          <video src="../../images/work/custom-messaging/create-template.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="desktop-video">
+          </video>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+              03 / HIGHLIGHT
+            </p>
+            <div class="text-spacing">
+              <h3 class="h3-with-icon">
+                Track all appointment activity <img src="../../images/work/custom-messaging/message.svg" alt="message" class="h3-icon"> per patient
+              </h3>
+              <p>
+                See what's been sent, check scheduled messages, monitor patient responses, and edit or cancel upcoming sends, all from the appointment card.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-container padded zocdoc">
+          <video src="../../images/work/custom-messaging/activity-log.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="desktop-video">
+          </video>
+        </div>
+      </div>
+
+      <!-- OUTCOME -->
+      <div id="outcome" class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            THE OUTCOME
+          </p>
+          <div class="text-spacing">
+            <h2>
+              I delivered an MVP to a long-standing problem and fueled project momentum.
+          </h2>
+            <p>
+              After presenting to the Design & Research team, the work was met with enthusiasm and sparked discussions around future implementation. If adopted, my work is projected to:
+            </p>
+        </div>
+        </div>
+        <div class="col gap-16">
+          <div class="padded-container">
+            <div class="row gap-32">
+              <div class="col-1-3">
+                <p class="cursive">
+                  1.
+                </p>
+                <h5>
+                  Streamline appointment management
+                </h5>
+              </div>
+              <div class="col-3-1">
+                <p>
+                  Improve patient responsiveness and decrease the 20% of cancellations that happen when providers can’t reach patients for essential information
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="padded-container">
+            <div class="row gap-32">
+              <div class="col-1-3">
+                <p class="cursive">
+                  2.
+                </p>
+                <h5>
+                  Improve insurance collection rates
+                </h5>
+              </div>
+              <div class="col-3-1">
+                <p>
+                  Reduce the 40% of appointments missing insurance details by helping providers collect patient information earlier, minimizing day-of delays
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="padded-container">
+            <div class="row gap-32">
+              <div class="col-1-3">
+                <p class="cursive">
+                  3.
+                </p>
+                <h5>
+                  Increase provider confidence and adoption
+                </h5>
+              </div>
+              <div class="col-3-1">
+                <p>
+                  Build trust in Zocdoc’s communication tools and encourage greater use of underutilized features like “Request to call” by giving providers more control over their messaging
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-container padded large invert">
+        <h2>
+          That was the TL;DR. Here's how I approached it.
+        </h2>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+              PROCESS OVERVIEW
+          </p>
+          <h2>
+              Timeline
+          </h2>
+        </div>
+        </div>
+        <div class="content-container spacing">
+          <img src="../../images/work/custom-messaging/timeline.png" alt="">
+        </div>
+      </div>
+
+      <div id="research" class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            PROBLEM DISCOVERY
+          </p>
+            <h2>
+            Drawing from 8 provider interviews and an audit of the current experience, I identified key <span class="tertiary">pain points</span> between the product today and provider needs.
+            </h2>
+        </div>
+      </div> 
+
+      <div class="content-container centered">
+        <div class="row-center gap-32">
+          <div class="col gap-32">
+            <div class="section-header">
+              <p class="text-small">
+                01 / PAIN POINT
+              </p>
+              <div class="text-spacing">
+                <h3>
+                  Rigid communication tools
+                </h3>
+                <p>
+                  Providers want to deliver personalized care, but Zocdoc’s templates force them into a one-size-fits-all approach.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col gap-16">
+            <div class="media-container" style="padding: 0 var(--gap-lg);">
+              <img src="../../images/work/custom-messaging/read-only.png" alt="">
+            </div>
+            <div class="row gap-12">
+              <div class="media-pill">
+                IMG
+              </div>
+              <p class="text-small caption">
+                  (Collect intake) Templates can't be edited and providers are limited to appending a message
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row-center gap-32">
+          <div class="col gap-32">
+            <div class="section-header">
+              <p class="text-small">
+                02 / PAIN POINT
+              </p>
+              <div class="text-spacing">
+                <h3>
+                  Incomplete message history
+                </h3>
+                <p>
+                  Providers want message records to help patients and prevent confusion, but Zocdoc doesn’t show the full communication history.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col gap-16">
+            <div class="media-container" style="padding: 0 var(--gap-lg);">
+              <img src="../../images/work/custom-messaging/old-appt-activity.png" alt="">
+            </div>
+            <div class="row gap-12">
+              <div class="media-pill">
+                IMG
+              </div>
+              <p class="text-small caption">
+                (Appointment card) Information is buried within accordions, and only some appointment activity is displayed
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr>
+          <div class="col gap-32">
+            <div class="section-header">
+              <p class="text-small">
+                03 / PAIN POINT
+              </p>
+              <div class="text-spacing">
+                <h3>
+                Limited message visibility
+                </h3>
+                <p>
+                Providers often can’t see what patients receive: some messages are collapsed, and others are hidden but configurable.
+                </p>
+              </div>
+            </div>
+          <div class="row gap-24">
+            <div class="col gap-16">
+              <div class="media-container">
+                <img src="../../images/work/custom-messaging/rtc.png" alt="">
+              </div>
+              <div class="row gap-12">
+                <div class="media-pill">
+                  IMG
+            </div>
+                <p class="text-small caption">
+                  (Request to call) Previewing the message content is easy to miss and requires an extra click
+                </p>
+              </div>
+          </div>
+          <div class="col gap-16">
+            <div class="media-container">
+                <img src="../../images/work/custom-messaging/hidden-content.png" alt="">
+            </div>
+            <div class="row gap-12">
+              <div class="media-pill">
+                IMG
+              </div>
+              <p class="text-small caption">
+                  (Intake settings) Users can't see message content and have to trust that these reminders are delivered
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+      <div class="content-container padded large">
+        <h2>
+          <span class="tertiary">Digging deeper, I uncovered a bigger problem:</span> Zocdoc sends four additional messages that don’t appear anywhere in the interface, leaving providers completely unaware they exist.
+        </h2>
+      </div>
+
+        <div class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              UNDERSTANDING THE PRODUCT
+            </p>
+            <div class="text-spacing">
+              <h2>
+                Making sense of the hidden messaging system
+              </h2>
+              <p>
+                After compiling message content from Miro boards and design files, I mapped each message type, 1. visible, 2. hidden but configurable, or 3. completely hidden, to reveal where providers lack visibility and control.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-container spacing">
+          <img src="../../images/work/custom-messaging/msgs-table.png" alt="">
+        </div>
+      </div>
+
+      <div class="content-container padded large invert">
+          <div class="section-header">
+            <p class="text-small" style="color: rgba(255, 255, 255, 0.48)">
+              THE CORE PROBLEM
+            </p>
+            <h2>
+            By dictating message content and timing, Zocdoc strips providers of transparency and control, making it difficult to communicate effectively with patients.
+            </h2>
+          </div>
+        </div>
+
+      <!-- CONSTRAINTS -->
+      <div id="goal" class="content-container centered">
+        <div class="row-center">
+          <div class="col gap-32">
+            <div class="section-header">
+              <p class="text-small">
+                SETTING UP CONSTRAINTS
+              </p>
+              <div class="text-spacing">
+                <h2>
+                  Two-way chat wasn’t an option.
+                </h2>
+                <p>
+                  Previous research showed providers worried about HIPAA liability and 24/7 availability expectations with open-ended messaging.
+                </p>
+                <p>
+                  This shaped my approach: deliver flexibility and control within structured, one-directional templates.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col gap-16">
+            <img src="../../images/work/custom-messaging/messaging-concept.png" alt="">
+            <div class="row gap-12">
+              <div class="media-pill">
+                IMG
+              </div>
+              <p class="text-small caption">
+                The two-way messaging concept tested in 2024
+              </p>
+            </div>
+          </div> 
+        </div>
+      </div>
+    
+      <!-- HYPOTHESES -->
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              HYPOTHESES
+            </p>
+            <div class="text-spacing">
+              <h2>
+                Translating insights into hypotheses
+              </h2>
+              <p>
+                To define success and potential impact, I collaborated with a Product Manager to translate research insights into measurable hypotheses.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col gap-16">
+          <div class="content-container padded">
+            <img src="../../images/work/custom-messaging/hypotheses.png" alt="">
+          </div>
+          <div class="content-container centered">
+            <div class="row gap-12">
+              <div class="media-pill">
+                IMG
+              </div>
+              <p class="text-small caption">
+                Defining what success looked like before diving into design
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+      <!-- USER STORIES -->
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+            USER STORIES
+            </p>
+          <div class="text-spacing">
+            <h2>
+              Jobs to be done
+            </h2>
+            <p>
+              I created user stories to guide my design decisions and ensure the solution addressed provider needs.
+            </p>
+          </div>
+        </div>
+        <div class="padded-container">
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  1.
+                </p>
+                <img src="../../images/work/custom-messaging/doctor.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <p>
+                As a provider, I want to see all patient messages in one place so I can manage them easily
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  2.
+                </p>
+                <img src="../../images/work/custom-messaging/employee.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <p>
+                As a provider, I want to schedule automated messages to patients so I can eliminate repetitive tasks
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  3.
+                </p>
+                <img src="../../images/work/custom-messaging/support.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <p>
+                As a provider, I want to track message history so I can support more effective patient care
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+      <!-- EXPLORATIONS -->
+      <div id="exploration" class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+            01 / EXPLORATIONS
+            </p>
+            <div class="text-spacing">
+              <h2>
+                Transforming Intake settings into a centralized messaging hub
+              </h2>
+              <p>
+                Most automated message content isn’t visible to providers today, and there’s no single place to review or manage all messages. I explored how these could be surfaced in one centralized space.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-container spacing">
+          <div class="toggle-container">
+            <div class="toggle-option active" data-toggle="before">
+              Before
+              </div>
+            <div class="toggle-option" data-toggle="after">
+              After
+            </div>
+          </div>
+          <div class="toggle-content">
+            <img id="toggle-image" src="../../images/work/custom-messaging/settings-before.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="text-spacing">
+            <h3>
+              Early iterations: Adding to Communication preferences
+            </h3>
+            <p>
+              In the beginning, I  tried adding messages directly under the “Add custom messages” section of Communication preferences, but this approach quickly revealed its limits: it led to excessive scrolling, scattered hierarchy, and a structure that couldn’t scale to accommodate all message types.
+            </p>
+          </div> 
+        </div>
+        <div class="content-container padded">
+          <div class="row gap-32">
+            <div class="col gap-32">
+              <video muted loop autoplay playsinline preload="metadata">
+                <source src="../../images/work/custom-messaging/messages-v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="text-spacing">
+                <div class="comparison-item-content">
+                  <div class="icon-circle after">
+                    <span class="material-icons-round">check</span>
+                  </div>
+                  <p>
+                    Uses current architecture
+                  </p>
+                </div> 
+                <div class="comparison-item-content">
+                  <div class="icon-circle before">
+                    <span class="material-icons-round">close</span>
+                  </div>
+                  <p>
+                    Multiple "Add" buttons create clutter
+                  </p>
+                </div>
+                <div class="comparison-item-content">
+                  <div class="icon-circle before">
+                    <span class="material-icons-round">close</span>
+                  </div>
+                  <p>
+                    Poor scalability as message types increase
+                  </p>
+                </div>
+                <div class="comparison-item-content">
+                  <div class="icon-circle before">
+                    <span class="material-icons-round">close</span>
+                  </div>
+                  <p>
+                    Excessive scrolling required
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col gap-32">
+              <video muted loop autoplay playsinline preload="metadata">
+                <source src="../../images/work/custom-messaging/messages-v2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="text-spacing">
+                <div class="comparison-item-content">
+                  <div class="icon-circle after">
+                    <span class="material-icons-round">check</span>
+                  </div>
+                  <p>
+                    Reduces vertical space by organizing into User-triggered and Automated
+                  </p>
+                </div>
+                <div class="comparison-item-content">
+                  <div class="icon-circle before">
+                    <span class="material-icons-round">close</span>
+                  </div>
+                  <p>
+                    Still has multiple "Add" buttons
+                  </p>
+                </div>
+                <div class="comparison-item-content">
+                  <div class="icon-circle before">
+                    <span class="material-icons-round">close</span>
+                  </div>
+                  <p>
+                    Hides some content behind tabs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="text-spacing">
+            <h3>
+              Evolving into a scalable Messaging templates system
+            </h3>
+            <p>
+              I expanded beyond Communication preferences, restructuring it into Messaging templates, which combines existing settings with newly surfaced messages. Using a nested navigation pattern, each message type now has its own dedicated page for viewing and editing.
+            </p>
+          </div>
+        </div>
+        <div class="content-container padded">
+          <div class="div">
+            <video src="../../images/work/custom-messaging/intake-settings.mp4" class="desktop-video" alt="custom messaging" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
+          </video>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- EXPLORATION -->
+       <div class="content-container">
+        <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+              02 / EXPLORATIONS
+          </p>
+          <div class="text-spacing">
+            <h2>
+                Surfacing appointment activity with “Activity log”
+            </h2>
+            <p>
+                Currently, providers have no clear way to view appointment history or related patient-communications in one organized place. I wanted to make this information more accessible by consolidating it in a single, structured view.
+            </p>
+          </div>
+          </div>
+        </div>
+        <div class="content-container spacing">
+          <img src="../../images/work/custom-messaging/activity-modals.png" alt="">
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="text-spacing">
+            <h3>
+              Exploring familiar vs. structured layouts
+            </h3>
+            <p>
+              I explored two directions: an accordion layout aligned with existing Appointment card patterns, and a chat-style interface. My mentor initially preferred the chat version for its conversational flow, but I raised that it could be confusing since these weren’t real conversations — just automated messages.
+            </p>
+            <p>
+              The chat view also introduced visual clutter with long, repetitive content, prompting me to question whether we needed to show the full message every time.
+            </p>
+          </div>
+        </div>
+        <div class="content-container padded">
+          <div class="carousel-container">
+            <div class="carousel-wrapper">
+              <div class="carousel-dots-container">
+                <button class="carousel-dot active" onclick="goToSlide(0)">1</button>
+                <button class="carousel-dot" onclick="goToSlide(1)">2</button>
+                <button class="carousel-dot" onclick="goToSlide(2)">3</button>
+              </div>
+              <div class="carousel-slide active">
+                <div class="carousel-content">
+                  <div class="col gap-16">
+                    <div class="section-header">
+                      <p class="text-small">
+                        01 / ITERATION
+                      </p>
+                      <h4>
+                        Accordion log
+                      </h4>
+                    </div>
+                    <div class="text-spacing">
+                      <div class="comparison-item-content">
+                        <div class="icon-circle after">
+                          <span class="material-icons-round">check</span>
+                        </div>
+                        <p>
+                          Clear categorization of messages and submissions
+                        </p>
+                      </div>
+                      <div class="comparison-item-content">
+                        <div class="icon-circle after">
+                          <span class="material-icons-round">check</span>
+                        </div>
+                        <p>
+                          Uses same pattern as existing Appointment card
+                        </p>
+                      </div>
+                      <div class="comparison-item-content">
+                        <div class="icon-circle before">
+                          <span class="material-icons-round">close</span>
+                        </div>
+                        <p>
+                          Breaks conversational flow and context
+                        </p>
+                      </div>
+                      <div class="comparison-item-content">
+                        <div class="icon-circle before">
+                          <span class="material-icons-round">close</span>
+                        </div>
+                        <p>
+                          Difficult to follow message sequence
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <img src="../../images/work/custom-messaging/activity-v1.png" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="carousel-content">
+                  <div class="col gap-16">
+                    <div class="section-header">
+                      <p class="text-small">
+                        02 / ITERATION
+                      </p>
+                      <h4>
+                        Conversational chat
+                      </h4>
+                    </div>
+                    <div class="text-spacing">
+                      <div class="comparison-item-content">
+                        <div class="icon-circle after">
+                          <span class="material-icons-round">check</span>
+                        </div>
+                        <p>
+                          Chat-style layout creates a natural narrative flow
+                        </p>
+                      </div>
+                      <div class="comparison-item-content">
+                        <div class="icon-circle after">
+                          <span class="material-icons-round">check</span>
+                        </div>
+                        <p>
+                          Easy to follow sequence of messages
+                        </p>
+                      </div>
+                      <div class="comparison-item-content">
+                        <div class="icon-circle before">
+                          <span class="material-icons-round">close</span>
+                        </div>
+                        <p>
+                          Misleading interface metaphor
+                        </p>
+                      </div>
+                      <div class="comparison-item-content">
+                        <div class="icon-circle before">
+                          <span class="material-icons-round">close</span>
+                        </div>
+                        <p>
+                          Creates confusion by not actually being an interactive chat
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-image">
+                    <img src="../../images/work/custom-messaging/activity-v2.png" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="carousel-content">
+                  <div class="col gap-16">
+                    <div class="section-header">
+                      <p class="text-small">
+                          03 / ITERATION
+                        </p>
+                        <h4>
+                          Structured chat view
+                        </h4>
+                      </div>
+                      <div class="text-spacing">
+                        <div class="comparison-item-content">
+                          <div class="icon-circle after">
+                            <span class="material-icons-round">check</span>
+                          </div>
+                          <p>
+                            Avatars add visual context for who performed each action
+                          </p>
+                        </div>
+                        <div class="comparison-item-content">
+                          <div class="icon-circle before">
+                            <span class="material-icons-round">close</span>
+                          </div>
+                          <p>
+                            Back-to-back messages from the same sender add clutter and reduce scannability
+                          </p>
+                        </div>
+                        <div class="comparison-item-content">
+                          <div class="icon-circle before">
+                            <span class="material-icons-round">close</span>
+                          </div>
+                          <p>
+                            Not enough distinction between manual and automated messages
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <img src="../../images/work/custom-messaging/activity-v3.png" alt="">
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+            <div class="text-spacing">
+              <h3>
+                Refining into a clear, timeline-based view
+              </h3>
+              <p>
+                Drawing from a timeline concept in previous vision work, I developed a version that presented appointment activity chronologically while keeping the interface clean.
+              </p>
+              <p>
+                I added sender icons and simplified hierarchy to improve scanability. The timeline only surfaced the most important information, with an option to view the full message when needed.
+              </p>
+            </div>
+          </div>
+        <div class="content-container padded">
+          <div class="toggle-container">
+            <div class="toggle-option" data-toggle="before">
+              Before
+            </div>
+            <div class="toggle-option active" data-toggle="after">
+              After
+            </div>
+          </div>
+          <div class="toggle-content">
+            <img id="appt-card-after-image" src="../../images/work/custom-messaging/appt-card-after.png" alt="" style="display: block;">
+            <img id="appt-card-before-image" src="../../images/work/custom-messaging/appt-card-before.png" alt="" style="display: none;">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- MOVING FORWARD -->
+      <div id="conclusion" class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            MOVING FORWARD
+          </p>
+            <h2>
+            What are the next steps?
+            </h2>
+        </div>
+        <div class="padded-container">
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  1.
+                </p>
+                <img src="../../images/work/custom-messaging/money-scheduled.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <h5>
+                Assess feasibility with cross-functional partners
+              </h5>
+              <p>
+                Collaborate with engineering and product management to align on business goals and technical limitations, ensuring a clear path forward
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  2.
+                </p>
+                <img src="../../images/work/custom-messaging/user-group.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <h5>
+                Gather provider feedback
+              </h5>
+              <p>
+                Test whether the settings page clearly communicates how messages are sent and used, and identify opportunities to simplify template creation
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  3.
+                </p>
+                <img src="../../images/work/custom-messaging/increase.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <h5>
+                Explore future enhancements
+              </h5>
+              <p>
+                Incorporate advanced logic into message templates and allow providers to send messages outside the scheduling flow
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Learnings Section -->
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            KEY TAKEAWAYS
+          </p>
+          <h2>
+            Learnings
+          </h2>
+        </div>
+        <div class="row">
+            <div class="col-1-3">
+            <h5>"If it ain't broke, don't fix it"</h5>
+            </div>
+            <div class="col-3-1">
+              <p>
+                At first, I wanted to redesign everything, but digging deeper helped me understand why these decisions were made in the first place. Oftentimes, the best path forward is to build on top of an existing infrastructure, rather than tearing it down.
+              </p>
+            </div>
+          </div>
+          <hr>
+        <div class="row">
+            <div class="col-1-3">
+              <h5>
+              Ask questions, leverage your team
+              </h5>
+            </div>
+            <div class="col-3-1">
+              <p>
+                Reaching out to people who worked on earlier iterations (shout-out to Maggie) gave me the context I was missing, unblocked me countless times, and often helped me discover stronger ways to approach the problem.
+              </p>
+            </div>
+          </div>
+          <hr>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>
+            You're the expert of your own work
+            </h5>
+          </div>
+          <div class="col-3-1">
+            <p>
+               This internship, in particular, taught me how to build confidence as a designer. After all, no one knows your projects better than you. You’ve put in the hours and done all the thinking — now it’s time to trust yourself and share your work with confidence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentor Note Section -->
+      <div class="content-container centered">
+        <div class="mentor-note-card">
+          <div class="sticky-note">From my mentor/manager</div>
+          <div class="mentor-profile">
+            <div class="profile-picture">
+              <img src="../../images/work/custom-messaging/peri.jpg" alt="Peri Shechtman">
+              <div class="overlay-svg">
+                <svg width="108" height="47" viewBox="0 0 108 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M81.2077 0.352539C81.4464 0.352539 81.6398 0.545769 81.6398 0.784131C81.6398 4.13389 82.7347 5.94214 83.9385 6.92367C85.1609 7.9204 86.5648 8.12119 87.2571 8.12119C87.4958 8.12119 87.6892 8.31442 87.6892 8.55278C87.6892 8.79114 87.4958 8.98437 87.2571 8.98437C85.7672 8.98437 84.6969 9.29518 83.9221 9.77028C83.1497 10.244 82.6398 10.9 82.3005 11.6448C81.637 13.1014 81.6385 14.856 81.6397 16.162L81.6398 16.3214C81.6398 16.5598 81.4464 16.753 81.2077 16.753C80.9691 16.753 80.7756 16.5598 80.7756 16.3214C80.7756 13.7964 80.161 12.0415 79.1811 10.923C78.2081 9.81232 76.825 9.2721 75.1583 9.2721C74.9276 9.2721 74.7376 9.09113 74.7267 8.86099C74.7157 8.63085 74.8877 8.43271 75.1173 8.41086C76.5591 8.27371 77.6145 7.8314 78.3937 7.2384C79.1746 6.64415 79.7007 5.88133 80.0557 5.07092C80.7716 3.43631 80.7756 1.64986 80.7756 0.784131C80.7756 0.545769 80.9691 0.352539 81.2077 0.352539Z" fill="#FED337"/>
+                  <path d="M97.1552 19.3443C97.5457 19.3443 97.8622 19.6605 97.8622 20.0505C97.8622 25.5314 99.6538 28.4901 101.623 30.0961C103.624 31.727 105.921 32.0555 107.053 32.0555C107.444 32.0555 107.76 32.3717 107.76 32.7617C107.76 33.1517 107.444 33.4679 107.053 33.4679C104.616 33.4679 102.864 33.9764 101.597 34.7538C100.333 35.5289 99.4985 36.6022 98.9433 37.8209C97.8576 40.2042 97.8602 43.0751 97.8621 45.212L97.8622 45.4729C97.8622 45.863 97.5457 46.1791 97.1552 46.1791C96.7647 46.1791 96.4482 45.863 96.4482 45.4729C96.4482 41.3414 95.4425 38.4701 93.8393 36.6399C92.2472 34.8226 89.9842 33.9387 87.2571 33.9387C86.8796 33.9387 86.5688 33.6426 86.5508 33.266C86.5329 32.8895 86.8143 32.5652 87.19 32.5295C89.5491 32.3051 91.276 31.5814 92.5509 30.6111C93.8286 29.6388 94.6894 28.3906 95.2702 27.0646C96.4417 24.39 96.4482 21.467 96.4482 20.0505C96.4482 19.6605 96.7647 19.3443 97.1552 19.3443Z" fill="#FED337"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5587 19.8022C5.5587 19.6105 5.40316 19.4552 5.21129 19.4552C5.01941 19.4552 4.86387 19.6105 4.86387 19.8022C4.86387 20.4982 4.86068 21.9346 4.28501 23.2488C3.99961 23.9004 3.57663 24.5138 2.94879 24.9916C2.32228 25.4683 1.47373 25.824 0.314487 25.9342C0.129858 25.9518 -0.00840392 26.1111 0.000397828 26.2962C0.0091996 26.4812 0.161961 26.6267 0.347425 26.6267C1.68751 26.6267 2.79955 27.061 3.58187 27.9541C4.36969 28.8534 4.86387 30.2643 4.86387 32.2945C4.86387 32.4862 5.01941 32.6415 5.21129 32.6415C5.40316 32.6415 5.5587 32.4862 5.5587 32.2945L5.55863 32.1663C5.55769 31.1163 5.55643 29.7055 6.08995 28.5344C6.36275 27.9356 6.77267 27.4081 7.39376 27.0272C8.01671 26.6453 8.87721 26.3954 10.0751 26.3954C10.267 26.3954 10.4226 26.24 10.4226 26.0483C10.4226 25.8567 10.267 25.7013 10.0751 25.7013C9.51853 25.7013 8.38979 25.5399 7.40693 24.7385C6.43905 23.9493 5.5587 22.4954 5.5587 19.8022ZM4.92159 23.527C5.05501 23.2224 5.16049 22.9131 5.24388 22.608C5.62464 23.842 6.25529 24.6954 6.96753 25.2761C7.33646 25.5769 7.72179 25.8001 8.09672 25.9644C7.69749 26.0847 7.3435 26.2437 7.03022 26.4358C6.27196 26.9008 5.77751 27.5445 5.4575 28.247C5.30652 28.5784 5.19381 28.9248 5.1097 29.274C4.86645 28.5725 4.52827 27.9805 4.10478 27.4971C3.57007 26.8867 2.9126 26.4646 2.16958 26.2141C2.62518 26.0346 3.02313 25.8075 3.3699 25.5436C4.11002 24.9804 4.59902 24.2635 4.92159 23.527Z" fill="#FED337"/>
+                </svg>
+              </div>
+            </div>
+            <div class="mentor-info">
+                <h4>Peri Shechtman</h4>
+                <p class="text-small">Lead Product Designer</p>
+            </div>
+          </div>
+          <div class="mentor-testimonial">
+            <p>
+              Cynthia!!! It's been such a joy working with you this summer. You've brought a level of positivity, curiosity, and dedication that makes you stand out. You're <strong>Proactive & Attentive</strong>, <strong>Receptive to Feedback</strong>, highly <strong>Organized</strong> with strong <strong>Rationale</strong>, and a <strong>Collaborative</strong>, thoughtful partner in critiques. Your visual decks for the Hot Take and Intern Demos are so impressive."
+            </p>
+            <p>
+              It's been amazing to see your skills and confidence grow over the summer. You've made a real impact on the team and with me. I know you'll bring that same energy and thoughtfulness to whatever comes next.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internship Highlights Section -->
+      <div id="highlights" class="content-container centered">
+        <div class="highlights-header">
+          <h2>Internship highlights</h2>
+          <button id="organizePolaroids" class="organize-btn">
+            <span class="material-icons-round">view_module</span>
+              Organize
+          </button>
+        </div>
+        <div class="polaroid-container">
+          <div class="polaroid" style="transform: rotate(-5deg); top: 20px; left: 50px;">
+            <div class="polaroid-content">
+                <img src="../../images/work/custom-messaging/day-1.png" alt="Day 1">
+            </div>
+            <div class="polaroid-text">first day of work!</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(3deg); top: 80px; left: 200px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/custom-messaging/summit-one-vanderbilt.png" alt="Summit One Vanderbilt">
+            </div>
+            <div class="polaroid-text">first intern outing</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-2deg); top: 150px; left: 100px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/custom-messaging/gyukaku.png" alt="Gukaku">
+            </div>
+            <div class="polaroid-text">Japanese BBQ with wagyu</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(4deg); top: 40px; left: 300px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/custom-messaging/happy-medium.png" alt="Happy Medium">
+            </div>
+            <div class="polaroid-text">design team offsite</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-3deg); top: 120px; left: 350px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/custom-messaging/pizza.png" alt="Pizza" class="crop-bottom">
+            </div>
+            <div class="polaroid-text">pizza-making night</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(8deg); top: 200px; left: 50px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/custom-messaging/molly-tea.png" alt="Molly Tea">
+            </div>
+            <div class="polaroid-text">missing this daily</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-6deg); top: 250px; left: 180px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/custom-messaging/hadestown.png" alt="Hadestown" class="crop-bottom">
+            </div>
+            <div class="polaroid-text">talented, brilliant, incredible</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(12deg); top: 60px; left: 400px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/custom-messaging/studio-calmplex.png" alt="Studio Calmplex">
+            </div>
+            <div class="polaroid-text">dabbled in ceramics</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(-8deg); top: 180px; left: 320px;">
+            <div class="polaroid-content">
+              <img src="../../images/work/custom-messaging/pickleball.png" alt="Pickleball">
+            </div>
+            <div class="polaroid-text">pickleball at hackathon</div>
+          </div>
+          <div class="polaroid" style="transform: rotate(5deg); top: 300px; left: 250px;">
+            <div class="polaroid-content">
+                <img src="../../images/work/custom-messaging/statue-of-liberty.png" alt="Statue of Liberty">
+            </div>
+            <div class="polaroid-text">average NYC tourist activities</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You Section -->
+      <div id="thank-you" class="content-container centered">
+        <div class="padded-container">
+          <div class="row gap-16">
+            <div class="col-1-3">
+              <p class="cursive">Thank you</p>
+            </div>
+            <div class="col-3-1">
+              <p>
+                Peri, Appointment Management Pod, Design Appointment team, Intern Committee, Design Department, Zinterns '25, & more
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+	</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="right">
+        <p>Interested in my work? Let's create <span class="cursive">together :)</span></p>
+        <div class="footer-email-container-wrapper" onclick="copyEmail(event)">
+          <div class="footer-email-container-background"></div>
+          <div class="footer-email-container">
+            <span class="footer-email-label">mailto:</span>
+            <div class="footer-email-spacer"></div>
+            <span class="footer-email-address">cynthiawangjy123@gmail.com</span>
+            <button class="footer-copy-button">
+              <span class="material-icons-round footer-copy-icon">content_copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="left">
+          <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="footer-link">
+              LinkedIn
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer-link">
+              Resume
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+      </div>
+    </div>
+    <div class="footer-note">
+      Designed and developed by Cynthia. Last updated on October 2025. 
+    </div>
+  </footer>
+
+	<!-- Right Side Blur -->
+	<div class="case-study-blur"></div>
+	
+	<!-- Grain Overlay -->
+	<div class="grain-overlay"></div>
+
+	<script src="../../script.js"></script>
+	<script>
+		// Function to go back to the portfolio work section
+		function goBackToPortfolio() {
+			window.location.href = '../../#work';
+		}
+		
+		// Function to go back to the public page
+		function goBackToPublic() {
+			window.location.href = 'index.html';
+		}
+		
+		// Check authentication when page loads
+		document.addEventListener('DOMContentLoaded', async function() {
+			// Check if user came from the public page with authentication
+			const referrer = document.referrer;
+			const isFromPublicPage = referrer.includes('index.html') || referrer.includes('custom-messaging') || referrer.includes('messaging-templates') || referrer.includes('zocdoc');
+			
+			const isAuthenticated = await window.portfolioAuth.verifyAuth();
+			
+			// Redirect if not authenticated OR if they didn't come from the public page
+			if (!isAuthenticated || !isFromPublicPage) {
+				// Clear any existing auth tokens
+				window.portfolioAuth.logout();
+				// Redirect to public page
+				window.location.href = 'index.html';
+			}
+		});
+		
+		// Additional protection: Check authentication on page visibility change
+		document.addEventListener('visibilitychange', async function() {
+			if (!document.hidden) {
+				const isAuthenticated = await window.portfolioAuth.verifyAuth();
+				if (!isAuthenticated) {
+					window.location.href = 'index.html';
+				}
+			}
+		});
+		
+		// Toggle functionality
+		document.addEventListener('DOMContentLoaded', function() {
+			// Settings toggle
+			const settingsToggleOptions = document.querySelectorAll('.toggle-container:first-of-type .toggle-option');
+			const settingsToggleImage = document.getElementById('toggle-image');
+			
+			const settingsImageSources = {
+				before: '../../images/work/custom-messaging/settings-before.png',
+				after: '../../images/work/custom-messaging/settings-after.png'
+			};
+			
+			// Ensure default state is set correctly
+			console.log('Settings toggle options found:', settingsToggleOptions.length);
+			settingsToggleOptions.forEach((option, index) => {
+				console.log(`Option ${index}:`, option.textContent.trim(), 'active:', option.classList.contains('active'));
+			});
+			
+			settingsToggleOptions.forEach(option => {
+				option.addEventListener('click', function() {
+					console.log('Settings toggle clicked:', this.getAttribute('data-toggle'));
+					
+					// Remove active class from all options in this toggle
+					settingsToggleOptions.forEach(opt => opt.classList.remove('active'));
+					
+					// Add active class to clicked option
+					this.classList.add('active');
+					
+					// Update image source
+					const toggleType = this.getAttribute('data-toggle');
+					if (settingsImageSources[toggleType]) {
+						settingsToggleImage.src = settingsImageSources[toggleType];
+					}
+				});
+			});
+			
+			// Appointment card toggle - use a more specific selector
+			const apptToggleContainer = document.querySelector('#appt-card-before-image').closest('.content-container').querySelector('.toggle-container');
+			const apptToggleOptions = apptToggleContainer.querySelectorAll('.toggle-option');
+			const apptBeforeImage = document.getElementById('appt-card-before-image');
+			const apptAfterImage = document.getElementById('appt-card-after-image');
+			
+			console.log('Appt toggle options found:', apptToggleOptions.length);
+			console.log('Before image found:', apptBeforeImage);
+			console.log('After image found:', apptAfterImage);
+			
+			// Ensure default state is set correctly for appointment card toggle
+			apptToggleOptions.forEach((option, index) => {
+				console.log(`Appt Option ${index}:`, option.textContent.trim(), 'active:', option.classList.contains('active'));
+			});
+			
+			apptToggleOptions.forEach(option => {
+				option.addEventListener('click', function() {
+					console.log('Appt toggle clicked:', this.getAttribute('data-toggle'));
+					
+					// Remove active class from all options in this toggle
+					apptToggleOptions.forEach(opt => opt.classList.remove('active'));
+					
+					// Add active class to clicked option
+					this.classList.add('active');
+					
+					// Show/hide appropriate image
+					const toggleType = this.getAttribute('data-toggle');
+					if (toggleType === 'before') {
+						console.log('Showing before image');
+						apptBeforeImage.style.display = 'block';
+						apptAfterImage.style.display = 'none';
+					} else if (toggleType === 'after') {
+						console.log('Showing after image');
+						apptBeforeImage.style.display = 'none';
+						apptAfterImage.style.display = 'block';
+					}
+				});
+			});
+		});
+		
+		// Function to ensure toggle states are maintained
+		function maintainToggleStates() {
+			// Settings toggle - ensure "Before" is active by default
+			const settingsToggleOptions = document.querySelectorAll('.toggle-container:first-of-type .toggle-option');
+			const settingsToggleImage = document.getElementById('toggle-image');
+			
+			if (settingsToggleOptions.length > 0) {
+				const beforeOption = Array.from(settingsToggleOptions).find(opt => opt.getAttribute('data-toggle') === 'before');
+				const afterOption = Array.from(settingsToggleOptions).find(opt => opt.getAttribute('data-toggle') === 'after');
+				
+				// If no option is active, set "Before" as active
+				const hasActive = Array.from(settingsToggleOptions).some(opt => opt.classList.contains('active'));
+				if (!hasActive && beforeOption) {
+					settingsToggleOptions.forEach(opt => opt.classList.remove('active'));
+					beforeOption.classList.add('active');
+					if (settingsToggleImage) {
+						settingsToggleImage.src = '../../images/work/custom-messaging/settings-before.png';
+					}
+				}
+			}
+			
+			// Appointment card toggle - ensure "After" is active by default
+			const apptToggleContainer = document.querySelector('#appt-card-before-image')?.closest('.content-container')?.querySelector('.toggle-container');
+			if (apptToggleContainer) {
+				const apptToggleOptions = apptToggleContainer.querySelectorAll('.toggle-option');
+				const apptBeforeImage = document.getElementById('appt-card-before-image');
+				const apptAfterImage = document.getElementById('appt-card-after-image');
+				
+				if (apptToggleOptions.length > 0) {
+					const beforeOption = Array.from(apptToggleOptions).find(opt => opt.getAttribute('data-toggle') === 'before');
+					const afterOption = Array.from(apptToggleOptions).find(opt => opt.getAttribute('data-toggle') === 'after');
+					
+					// If no option is active, set "After" as active
+					const hasActive = Array.from(apptToggleOptions).some(opt => opt.classList.contains('active'));
+					if (!hasActive && afterOption) {
+						apptToggleOptions.forEach(opt => opt.classList.remove('active'));
+						afterOption.classList.add('active');
+						if (apptBeforeImage && apptAfterImage) {
+							apptBeforeImage.style.display = 'none';
+							apptAfterImage.style.display = 'block';
+						}
+					}
+				}
+			}
+		}
+		
+		// Run on page load and periodically to maintain states
+		document.addEventListener('DOMContentLoaded', maintainToggleStates);
+		
+		// Also run when scrolling or when page becomes visible again
+		window.addEventListener('scroll', maintainToggleStates);
+		document.addEventListener('visibilitychange', function() {
+			if (!document.hidden) {
+				maintainToggleStates();
+			}
+		});
+		
+		// Carousel functionality
+		let currentSlide = 0;
+		const slides = document.querySelectorAll('.carousel-slide');
+		const dots = document.querySelectorAll('.carousel-dot');
+		const totalSlides = slides.length;
+		
+		function goToSlide(slideIndex) {
+			// Remove active class from current slide and dot
+			slides[currentSlide].classList.remove('active');
+			dots[currentSlide].classList.remove('active');
+			
+			// Set new slide
+			currentSlide = slideIndex;
+			
+			// Add active class to new slide and dot
+			slides[currentSlide].classList.add('active');
+			dots[currentSlide].classList.add('active');
+		}
+	</script>
+</body>
+</html>
+</html>
+</html>

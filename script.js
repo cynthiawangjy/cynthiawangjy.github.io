@@ -799,7 +799,6 @@ function checkZocdocPassword(event) {
     event.preventDefault();
     const passwordInput = event.target.querySelector('.password-input');
     const password = passwordInput.value;
-    const errorMessage = document.getElementById('zocdocErrorMessage');
 
     if (password === 'mollytea') {
         // Store authentication token
@@ -834,13 +833,6 @@ function checkZocdocPassword(event) {
         }
         
         passwordInput.value = '';
-    }
-}
-
-function showZocdocError(errorMessage) {
-    if (errorMessage) {
-        errorMessage.textContent = 'Incorrect password. Please try again.';
-        errorMessage.style.display = 'block';
     }
 }
 
@@ -1170,11 +1162,18 @@ function initProjectInteractions() {
             e.preventDefault();
             e.stopPropagation();
             
-            // Check if this is the Zocdoc project
-            const projectTitle = this.closest('.project').querySelector('h3');
-            if (projectTitle && projectTitle.textContent.includes('Zocdoc')) {
-                // Navigate to Zocdoc project page
-                window.location.href = 'work/zocdoc/';
+            // Check if this is a Zocdoc project
+            const projectTitle = this.closest('.project').querySelector('h4');
+            
+            // Check for Modify Flow project (can be with or without Zocdoc prefix)
+            if (projectTitle && projectTitle.textContent.includes('Modify Flow')) {
+                window.location.href = 'work/modify-flow/';
+                return;
+            }
+            
+            // Check for Custom Messaging project
+            if (projectTitle && projectTitle.textContent.includes('Custom Messaging')) {
+                window.location.href = 'work/custom-messaging/';
                 return;
             }
             
@@ -1185,15 +1184,15 @@ function initProjectInteractions() {
                 return;
             }
             
-            // Check if this is the Do Not Disturb project
-            if (projectTitle && projectTitle.textContent.trim() === 'iOS Focus Enhancements') {
-                window.location.href = 'work/do-not-disturb/';
+            // Check if this is the Do Not Disturb project (iMessage Concepts)
+            if (projectTitle && projectTitle.textContent.includes('iMessage Concepts')) {
+                window.location.href = 'work/imessage-concepts/';
                 return;
             }
             
             
             // Check if this is the Policies Overview project
-            if (projectTitle && projectTitle.textContent.trim() === 'Immuta — Policies Overview') {
+            if (projectTitle && projectTitle.textContent.includes('Policies Overview')) {
                 window.location.href = 'work/policies-overview/';
                 return;
             }
@@ -1300,6 +1299,54 @@ function initDraggablePills() {
   const pills = document.querySelectorAll('.hero .pill');
   const pillData = new Map();
   let autoReturnTimer = null;
+  
+  // Function to update placeholder sizes to match pills
+  function updatePlaceholderSizes() {
+    pills.forEach(originalPill => {
+      const data = pillData.get(originalPill);
+      if (data && data.placeholder) {
+        // Temporarily remove fixed sizes from placeholder to get natural size
+        const oldWidth = data.placeholder.style.width;
+        const oldHeight = data.placeholder.style.height;
+        data.placeholder.style.width = '';
+        data.placeholder.style.height = '';
+        data.placeholder.style.minWidth = '';
+        data.placeholder.style.minHeight = '';
+        
+        // Force a reflow to get accurate measurements
+        void data.placeholder.offsetWidth;
+        
+        // Get the current natural size of the placeholder (with responsive font)
+        const placeholderRect = data.placeholder.getBoundingClientRect();
+        
+        // Get the current size of the original pill
+        const originalRect = originalPill.getBoundingClientRect();
+        
+        // Use the original pill's size as the source of truth
+        const width = originalRect.width;
+        const height = originalRect.height;
+        
+        // Set fixed sizes to match the original pill
+        data.placeholder.style.width = width + 'px';
+        data.placeholder.style.height = height + 'px';
+        data.placeholder.style.minWidth = width + 'px';
+        data.placeholder.style.minHeight = height + 'px';
+        
+        // Special handling for time pill
+        if (originalPill.id === 'time-pill') {
+          data.placeholder.style.width = '77px';
+          data.placeholder.style.minWidth = '77px';
+        }
+        
+        // Reposition the pill if it's not being dragged
+        if (!originalPill.style.cursor || originalPill.style.cursor !== 'grabbing') {
+          const pos = getRelativePosition(data.placeholder);
+          originalPill.style.left = pos.left + 'px';
+          originalPill.style.top = pos.top + 'px';
+        }
+      }
+    });
+  }
 
   // Helper function to calculate position relative to parent container
   function getRelativePosition(element) {
@@ -1529,6 +1576,18 @@ function initDraggablePills() {
       document.addEventListener('touchend', endHandler, { passive: false });
     });
   });
+  
+  // Update placeholder sizes on window resize
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      updatePlaceholderSizes();
+    }, 100); // Debounce resize events
+  });
+  
+  // Make updatePlaceholderSizes available for external calls
+  window.updatePlaceholderSizes = updatePlaceholderSizes;
 }
 
 // Initialize everything when DOM is loaded
@@ -1559,6 +1618,10 @@ window.addEventListener('resize', function() {
     if (document.body.classList.contains('homepage') && document.querySelectorAll('.hero .pill').length > 0) {
         // Small delay to ensure layout has updated
         setTimeout(() => {
+            // Update placeholder sizes if the function exists
+            if (typeof window.updatePlaceholderSizes === 'function') {
+                window.updatePlaceholderSizes();
+            }
             repositionPillsToPlaceholders();
         }, 100);
     }
