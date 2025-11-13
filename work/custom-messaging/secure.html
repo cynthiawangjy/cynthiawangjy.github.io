@@ -8,19 +8,21 @@
 	<!-- IMMEDIATE AUTH CHECK - Must be first, before any rendering -->
 	<script>
 		(function() {
-			// Hide everything immediately
-			document.write('<style>html, body { display: none !important; visibility: hidden !important; opacity: 0 !important; }</style>');
-			
-			// Check authentication immediately (synchronous)
-			const referrer = document.referrer;
-			const isFromPublicPage = referrer.includes('index.html') || referrer.includes('custom-messaging') || referrer.includes('messaging-templates') || referrer.includes('zocdoc');
-			
 			// Check localStorage directly (no need to wait for auth script)
 			const token = localStorage.getItem('portfolio_auth_token');
 			const session = localStorage.getItem('portfolio_session');
 			const isAuthenticated = token && session;
 			
-			if (!isAuthenticated || !isFromPublicPage) {
+			// Check referrer - must come from password page
+			const referrer = document.referrer;
+			const isFromPasswordPage = referrer && (
+				referrer.includes('index.html') || 
+				referrer.includes('custom-messaging/') || 
+				referrer.includes('custom-messaging/index.html')
+			);
+			
+			// Redirect if NOT authenticated OR didn't come from password page
+			if (!isAuthenticated || !isFromPasswordPage) {
 				// Clear auth and redirect immediately - no page render
 				localStorage.removeItem('portfolio_auth_token');
 				localStorage.removeItem('portfolio_session');
@@ -28,17 +30,42 @@
 				return;
 			}
 			
-			// Only show content if authenticated
-			window.addEventListener('DOMContentLoaded', function() {
-				document.documentElement.style.display = '';
-				document.documentElement.style.visibility = '';
-				document.documentElement.style.opacity = '';
-				if (document.body) {
-					document.body.style.display = '';
-					document.body.style.visibility = '';
-					document.body.style.opacity = '';
+			// If authenticated, hide content initially and show after DOM loads
+			document.write('<style>html, body { display: none !important; visibility: hidden !important; opacity: 0 !important; }</style>');
+			
+			// Show content once DOM is ready
+			function showContent() {
+				// Remove the hidden style tag
+				const styles = document.querySelectorAll('style');
+				styles.forEach(function(style) {
+					if (style.textContent && style.textContent.includes('display: none !important')) {
+						style.remove();
+					}
+				});
+				
+				// Reset inline styles
+				if (document.documentElement) {
+					document.documentElement.style.removeProperty('display');
+					document.documentElement.style.removeProperty('visibility');
+					document.documentElement.style.removeProperty('opacity');
 				}
-			});
+				if (document.body) {
+					document.body.style.removeProperty('display');
+					document.body.style.removeProperty('visibility');
+					document.body.style.removeProperty('opacity');
+				}
+			}
+			
+			// Try multiple ways to ensure content shows
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', showContent);
+			} else {
+				// DOM already loaded
+				setTimeout(showContent, 0);
+			}
+			
+			// Fallback - show after a short delay
+			setTimeout(showContent, 50);
 		})();
 	</script>
 	
