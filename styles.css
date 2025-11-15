@@ -133,7 +133,7 @@ a:hover {
 :root {
 	/* Layout Variables */
 	--container-padding: 2rem; /* 32px */
-	--nav-font-size: 0.875rem; /* 14px */
+	--nav-font-size: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem); /* 14 -> 12*/
 	--nav-line-height: 1.125rem; /* 18px */
 	--nav-spacing: 2rem; /* 32px */
 	--hero-font-size: 1.5rem; /* 24px */
@@ -457,22 +457,30 @@ nav {
 	z-index: 1;
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  /* border: 1px solid red; */
+} 
+
 .logo {
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	transition: opacity 0.3s ease;
+	width: 1.5rem; /* 24px */
+	height: 1.5rem; /* 24px */
+	color: var(--text-primary);
 }
 
 .logo:hover {
 	opacity: 0.7;
 }
 
-.logo svg {
-	width: 1.5rem; /* 24px */
-	height: 1.5rem; /* 24px */
+/* .logo svg {
+	width: 1.5rem;
+	height: 1.5rem;
 	color: var(--text-primary);
-}
+} */
 
 .nav-links {
 	display: flex;
@@ -1837,7 +1845,7 @@ nav {
 .case-study-top-nav .main-nav-item {
 	position: relative;
 	padding-bottom: 18px;
-	color: var(--text-secondary);
+	/* color: var(--text-primary); */
 	text-decoration: none;
 	font-size: 0.875rem;
 	line-height: 1.25rem;
@@ -3504,7 +3512,6 @@ video, img {
   display: flex;
   flex-direction: column;
   gap: var(--gap-md);
-  flex: 0 0 auto;
 }
 
 .comparison-item.before h4 { color: var(--before) !important; } 
@@ -4274,6 +4281,57 @@ video, img {
     flex-direction: column;
     gap: clamp(3rem, -10.6968rem + 26.5957vw, 9.25rem);
   }
+  
+  .case-study-blur {
+    width: 100%;
+  }
+
+  .case-study-top-nav::before {
+    display: none;
+  }
+  
+  .case-study-nav {
+    display: none;
+  }
+
+  /* Mobile: Fixed nav with logo */
+  .case-study-mobile-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 78px;
+    /* border: 1px solid red; */
+  }
+  .case-study-mobile-nav .container {
+    display: flex;
+    align-items: center; /* vertical centering */
+  }
+
+  .case-study-mobile-nav .nav-links {
+    display: flex;
+    align-items: center; /* vertical centering of <li> */
+    padding: 0;          /* remove default <ul> padding */
+    margin: 0;           /* remove default <ul> margin */
+    list-style: none;
+  }
+
+  /* Add top padding to case study content */
+  .case-study-content {
+    padding-top: 78px;
+  }
+
+  /* Remove case study specific blur since regular nav has blur */
+  .case-study-blur {
+    display: none;
+  }
+  
+  /* Hide desktop top nav at mobile breakpoint */
+  .case-study-top-nav {
+    display: none;
+  }
 }
 
 @media (max-width: 824px) {
@@ -4350,14 +4408,7 @@ video, img {
   .about-main, .hero .hero-text, .play-intro, .footer-container {
     padding: var(--section-spacing) clamp(1rem, -0.6704rem + 7.1269vw, 3rem);
   }
-  
-  .case-study-blur {
-    width: 100%;
-  }
 
-  .case-study-top-nav::before {
-    display: none;
-  }
   .padded-container {
     padding: clamp(1rem, 0.1648rem + 3.5635vw, 2rem);
   }
@@ -4367,40 +4418,6 @@ video, img {
     grid-template-columns: repeat(1, 1fr);
     gap: var(--gap-xl); /* 32px */
     margin-top: 2rem;
-  }
-
-  .case-study-nav {
-    display: none;
-  }
-
-  /* Hide mobile back button when side nav is gone */
-  .mobile-back-button {
-    display: none;
-  }
-
-  /* Hide desktop top nav at mobile breakpoint */
-  .case-study-top-nav {
-    display: none;
-  }
-
-  /* Mobile: Fixed nav with logo */
-  .case-study-mobile-nav {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-  }
-
-  /* Add top padding to case study content */
-  .case-study-content {
-    padding-top: 4rem;
-  }
-
-  /* Remove case study specific blur since regular nav has blur */
-  .case-study-blur {
-    display: none;
   }
 
   /* Reduce spacing between cover and overview within the wrapper */
