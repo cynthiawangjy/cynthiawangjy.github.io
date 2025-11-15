@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Zocdoc — Modify Flow</title>
+	<title>Zocdoc - Modify Flow - Secure Content</title>
 	
 	<!-- IMMEDIATE AUTH CHECK - Must be first, before any rendering -->
 	<script>
@@ -421,8 +421,6 @@
         </div>
       </div>
 
-      <!-- FILL THIS innnn help -->
-
       <div class="content-container">
         <div class="content-container centered">
           <div class="section-header">
@@ -503,7 +501,7 @@
             <p class="text-small">
               02 / OPTION
             </p>
-            <h3 style="display: flex; align-items: center; gap: var(--gap-md)">
+            <h3 style="display: flex; align-items: center; gap: 12px;">
               Single-step modal <span class="inline-label">PREFERRED</span>
             </h3>
           </div>
@@ -801,7 +799,6 @@
         </div>  
       </div>
 
-      <!-- BLAH BLAH STUFF ABOUT COLLABORATION -->
       <div id="collaboration" class="content-container padded">
         <div class="row">
           <div class="col gap-8">
@@ -811,7 +808,7 @@
             </p>
           </div>
           <div class="col gap-8">
-            <img src="../../images/work/modify-flow/revised-error-messages.png" alt="">
+            <img src="../../images/work/modify-flow/revised-error-messages.png" alt="" style="flex: 1">
             <p class="text-small flex-center">
               REVISED error messages (post-PMM sync)
             </p>
@@ -993,7 +990,7 @@
           </div>
           <div class="col-3-1">
             <p>
-              Creating interactive prototypes early helped me evaluate design decisions from the user's perspective, especially around interaction patterns like reducing cursor movement and click burden.
+              Creating interactive prototypes early helped me evaluate design decisions from the user's perspective — especially around interaction patterns like reducing cursor movement and click burden.
             </p>
           </div>
         </div>
@@ -1106,6 +1103,85 @@
 			window.location.href = '../../#work';
 		}
 	</script>
+  <script>
+(function () {
+  const SYNC_RETRY_MS = 250;
+  const TIMEOUT_MS = 3000;
+
+  function syncComparisonSections() {
+    document.querySelectorAll('.comparison-container').forEach(container => {
+      const sections = Array.from(container.querySelectorAll('.comparison-section'));
+      if (!sections.length) return;
+
+      // Reset any inline heights so we measure natural heights
+      sections.forEach(s => s.style.height = '');
+
+      // Measure real heights (including padding/borders)
+      const heights = sections.map(s => {
+        const r = s.getBoundingClientRect();
+        return r.height;
+      });
+
+      const max = Math.max(...heights, 0);
+
+      // Set inline height (use Math.ceil to avoid subpixel issues)
+      sections.forEach(s => {
+        s.style.height = Math.ceil(max) + 'px';
+      });
+    });
+  }
+
+  function onMediaReadyThenSync() {
+    // Wait for images and video metadata to load
+    const media = Array.from(document.querySelectorAll('.comparison-section img, .comparison-section video'));
+    if (media.length === 0) {
+      syncComparisonSections();
+      return;
+    }
+
+    let remaining = media.length;
+    function doneOne() {
+      remaining = Math.max(0, remaining - 1);
+      if (remaining === 0) syncComparisonSections();
+    }
+
+    media.forEach(m => {
+      if (m.tagName.toLowerCase() === 'video') {
+        // prefer loadedmetadata -> loadeddata fallback
+        if (m.readyState >= 1) return doneOne();
+        m.addEventListener('loadedmetadata', doneOne, { once: true });
+        m.addEventListener('loadeddata', doneOne, { once: true });
+        // if it never fires, call doneOne on timeout (handled below)
+      } else {
+        if (m.complete) return doneOne();
+        m.addEventListener('load', doneOne, { once: true });
+        m.addEventListener('error', doneOne, { once: true });
+      }
+    });
+
+    // Fallback: after TIMEOUT_MS attempt to sync anyway
+    setTimeout(syncComparisonSections, TIMEOUT_MS);
+  }
+
+  // Kickoff: initial run after DOM content loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onMediaReadyThenSync);
+  } else {
+    onMediaReadyThenSync();
+  }
+
+  // Resync on resize (debounced)
+  let resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(syncComparisonSections, 120);
+  });
+
+  // Optional: if your SPA swaps content dynamically, you may call syncComparisonSections() after updates.
+  window.syncComparisonSections = syncComparisonSections;
+})();
+</script>
+
 </body>
 </html>
 

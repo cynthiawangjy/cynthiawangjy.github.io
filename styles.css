@@ -120,7 +120,6 @@ img {
 
 /* General link styles */
 a {
-  color: inherit;
 	text-decoration: none;
 	transition: opacity 0.2s ease;
 }
@@ -533,7 +532,12 @@ nav {
 	/* font-weight: 500; */
 	font-size: var(--nav-font-size);
 	line-height: var(--nav-line-height);
-	transition: color 0.2s ease;
+	transition: color 0.3s ease;
+}
+
+.nav-links a {
+	text-decoration: none;
+	transition: opacity 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -983,7 +987,7 @@ nav {
 .project .project-header .pill {
   display: inline-flex;
 	align-items: center;
-  font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+  font-size: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem); /* 14 -> 12*/
   color: var(--text-tertiary);
   font-weight: 500;
 	height: clamp(1.625rem, 1.581rem + 0.1878vw, 1.75rem); /* 28 -> 26*/
@@ -1042,8 +1046,7 @@ nav {
 }
 
 .brand-illustration {
-  width: 3rem !important; 
-  height: 3rem;
+  width: 3rem !important;
   background: #FFF0BB;
   border-radius: var(--radius-full);
 }
@@ -1091,6 +1094,37 @@ nav {
 	width: auto;
 }
 
+/* List view specific spacing */
+
+/* Labels - only show in list view */
+.labels {
+	display: none;
+	flex-wrap: wrap;
+	gap: var(--gap-sm); /* 8px */
+}
+
+/* Show labels only in list view */
+#projects.list .labels {
+	display: flex;
+}
+
+.label {
+	background: var(--bg-secondary);
+	color: var(--text-primary);
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--text-muted);
+	box-shadow: 1px 1px var(--text-muted);
+	font-size: 0.875rem;
+	font-weight: 600;
+	cursor: grab;
+	user-select: none;
+}
+
+.label.dragging {
+	cursor: grabbing;
+}
+
 /* General Footer - All pages except homepage */
 .footer {
 	background: rgba(18, 18, 18, 0.9);
@@ -1126,7 +1160,7 @@ nav {
 
 .homepage .footer .footer-container .footer-card .footer-logo-text-group .footer-text h4 {
   font-weight: 500;
-  color: var(--bg-primary);
+  color: rgba(255, 255, 255, 1);
 }
 
 .homepage .footer .footer-container .footer-card .footer-logo-text-group .footer-text p{
@@ -1135,7 +1169,7 @@ nav {
 }
 
 .homepage .footer .footer-container .footer-card .footer-contact a {
- color: var(--bg-primary);
+ color: white;
 }
 
 .footer-container {
@@ -1175,7 +1209,21 @@ nav {
 	transform: rotate(0deg);
 }
 
+/* Tape element to make it look like the card is hanging */
+/* .footer-card::before {
+	content: '';
+	position: absolute;
+	top: 0px;
+	left: -40px;
+	transform: rotate(-32deg);
+	width: 148px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.32);
+	z-index: 1;
+} */
+
 .footer-logo-text-group {
+	/* Can use .flex-column-center utility class */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -2022,7 +2070,7 @@ nav {
 	height: 100vh;
 }
 
-.nav-content {
+.nav-content {	
 	padding: var(--gap-xl); /* 32px */
 	height: 100vh;
 	display: flex;
@@ -2044,9 +2092,8 @@ nav {
 	justify-content: center;
 	width: 2rem;
 	height: 2rem;
-	/* position: fixed; */
-	top: 32px;
-	left: 32px;
+	top: 2rem;
+	left: 2rem;
 	z-index: 1000;
 }
 
@@ -2102,7 +2149,7 @@ nav {
 .nav-items {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 0;
 	position: relative;
 }
 
@@ -2142,14 +2189,14 @@ nav {
 	text-decoration: none;
 	font-size: 0.875rem; /* 14px */
 	line-height: 1.25rem; /* 20px */
-	padding-left: 0.75rem;
+	padding: 0 0 0 0.75rem; /* 8px gap: 2px line + 8px gap = 10px total */
 	transition: color 0.3s ease;
 	cursor: pointer;
 	background: transparent;
 	position: relative;
 	display: flex;
 	align-items: center;
-	/* min-height: 1rem; */
+	min-height: 2rem;
 	z-index: 2;
 }
 
@@ -3015,6 +3062,39 @@ p.text-small.caption {
 	border-radius: var(--radius-lg);
 }
 
+/* Add padding to content that comes after images/videos */
+.content-after-media {
+	margin-top: 1rem;
+}
+
+/* .padded-container.quote {
+  gap: var(--gap-md);
+  padding: var(--gap-2xl) var(--gap-2xl);
+  text-align: center;
+} */
+
+/* .quote {
+  display: flex;
+}
+
+.quote-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm)
+}
+
+.indentation {
+  width: 2px;
+  background-color: var(--text-muted);
+  margin-right: var(--gap-md);
+  flex-shrink: 0;
+  border-radius: 1px;
+}
+
+.indentation.zocdoc {
+  background-color: #F8CC30;
+} */
+
 /* Project goals specific styling */
 
 .annotation-grid .padded-container img {
@@ -3272,91 +3352,6 @@ a.project.external-project .project-header {
 	justify-content: space-between;
 }
 
-/* Comparison section styling */
-.comparison-container {
-	display: flex;
-	flex-direction: row;
-	gap: var(--gap-xl); /* 32px space between before/after */
-	margin: 0;
-	padding: 0;
-	align-items: stretch; /* Make all items same height */
-}
-
-.comparison-item {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem; /* 24px space between image and text */
-	align-items: flex-start; /* Ensure top alignment */
-}
-
-.comparison-section img,
-.comparison-section video {
-	object-fit: contain;
-}
-
-.comparison-section.after {
-	border-bottom-color: #14A085; /* Green for after */
-}
-
-.comparison-header {
-	margin-top: 1.5rem; /* 24px space between gray container and text */
-	display: flex;
-	flex-direction: row;
-	gap: var(--gap-xl); /* 32px */ /* 32px space between before/after text */
-}
-
-.comparison-content {
-	flex: 1;
-}
-
-.comparison-item-content {
-	display: flex;
-	align-items: flex-start;
-  /* align-items: center; */
-	gap: 10px; /* 8px */ /* 8px spacing between icon and text */
-}
-
-.icon-circle {
-	width: var(--icon-container-lg);
-	height: var(--icon-container-lg);
-	border-radius: 6px;
-	/* Can use .flex-center utility class */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-}
-
-.icon-circle.before {
-  width: var(--icon-container-sm);
-	height: var(--icon-container-sm);
-	background: var(--before);
-	color: var(--bg-primary);
-}
-
-.icon-circle.after {
-  width: var(--icon-container-sm);
-	height: var(--icon-container-sm);
-	background: var(--after);
-	color: var(--bg-primary);
-}
-
-.icon-circle .material-icons-round {
-	font-size: var(--icon-sm);
-}
-
-.inline-label {
-  /* border: 1px solid var(--text-muted); */
-  color: var(--text-secondary);
-  font-weight: 500;
-  border-radius: var(--radius-md);
-  background: var(--text-muted);
-  padding: 0.25rem 0.5rem;
-  font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem); /* 16 -> 14*/
-  line-height: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 24 -> 20*/
-}
-
 /* Image container for images without padding */
 .image-container {
 	width: 100%;
@@ -3391,34 +3386,12 @@ video, img {
 	border-radius: calc(100% / 8) / calc((100% * 375/812) / 8);
 }
 
-/* Mobile project specific video styling */
-.case-study .comparison-section .mobile-video {
-	width: 70%;
-	height: auto;
-	display: block;
-}
-
 /* Media row and text row for before/after sections */
 .media-row {
 	display: flex;
 	flex-direction: row;
 	gap: var(--gap-xl); /* 32px */
 	margin-bottom: 1.5rem;
-}
-
-.comparison-item.before h4 {
-	color: var(--before) !important; /* Red for before */
-}
-
-.comparison-item.after h4 {
-	color: var(--after) !important; /* Green for after */
-}
-
-.comparison-text {
-	display: flex;
-	flex-direction: column;
-	gap: var(--gap-md); /* 16px between items using existing gap system */
-	flex: 1; /* Fill remaining space to match heights */
 }
 
 /* Text spacing for content sections */
@@ -3440,17 +3413,9 @@ video, img {
   gap: 0.5rem;
 }
 
-/* 4px spacing between p.cursive and h2/h3 */
-
-/* Remove cursive from p.text-small subheadings */
-
-
 /* H3 subheading styling below title */
 .project-title-section h3 {
-	/* font-family: 'Figtree', sans-serif; */
 	font-weight: 600;
-	/* font-size: 1.25rem;
-	line-height: 1.5; */
 	color: var(--text-tertiary);
 }
 
@@ -3463,62 +3428,134 @@ video, img {
 	border-radius: calc(100% / 7) / calc((100% * 375/812) / 7);
 }
 
-/* Before/after video sizing with proper container padding */
+/* Mobile project specific video styling */
+/* .case-study .comparison-section {
+	width: 70%;
+	height: auto;
+	display: block;
+  border: 1px solid #000000;
+} */
+
+/* ----------------------------------------- */
+/* Base comparison section (gray containers) */
+/* ----------------------------------------- */
+
+/* ===== Global sanity ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* ============================================
+   Comparison layout — defensive, clean version
+   ============================================ */
+
+/* The row holding before/after */
+.comparison-container {
+  display: flex;
+  gap: var(--gap-xl);
+  align-items: flex-start; /* let us control heights with JS/CSS per-section */
+  margin: 0;
+  padding: 0;
+}
+
+/* Column: contains the gray box and the text */
+.comparison-item {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space between gray box and text */
+}
+
+/* Gray media frame — we will set inline height with JS to match tallest per row */
 .comparison-section {
-	flex: 0 0 auto; /* Don't grow or shrink, maintain natural size */
-	background: var(--bg-secondary);
-	padding: 2rem 1.5rem; /* 32px top/bottom, 24px left/right */
-	height: auto;
-	min-height: 300px;
-	/* Can use .flex-center utility class */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	border-radius: 0; /* No border radius */
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0;
+  box-sizing: border-box;
+
+  /* default: let content size it naturally; JS will set .style.height as needed */
+  height: auto;
+  min-height: 0;
 }
 
-.comparison-section.before {
-	border-bottom: 4px solid var(--before) !important; /* Red for before */
+/* Border color markers */
+.comparison-section.before { border-bottom: 4px solid var(--before) !important; }
+.comparison-section.after  { border-bottom: 4px solid var(--after)  !important; }
+
+/* Media inside frame — responsive and constrained */
+.comparison-section img,
+.comparison-section video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
 
-.comparison-section.after {
-	border-bottom: 4px solid var(--after) !important; /* Green for after */
+/* Text area — does NOT stretch the media */
+.comparison-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+  flex: 0 0 auto;
 }
 
-/* More specific targeting */
-div.comparison-section.before {
-	border-bottom: 4px solid var(--before)  !important;
+.comparison-item.before h4 { color: var(--before) !important; } 
+
+.comparison-item.after h4 { color: var(--after) !important; }
+
+/* Bullet group and icon styling preserved */
+.comparison-item-content { display: flex; align-items: flex-start; gap: 12px; }
+
+.icon-circle {
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-div.comparison-section.after {
-	border-bottom: 4px solid var(--after)  !important;
+.icon-circle.before {
+  width: var(--icon-container-sm);
+  height: var(--icon-container-sm);
+  background: var(--before);
+  color: var(--bg-primary);
+  border: 1px solid var(--bg-primary);
 }
 
-.comparison-section .mobile-video,
-.comparison-section video,
-.comparison-section img {
-	width: 70%;
-	height: auto;
-	object-fit: contain;
+.icon-circle.after {
+  width: var(--icon-container-sm);
+  height: var(--icon-container-sm);
+  background: var(--after);
+  color: var(--bg-primary);
+  border: 1px solid var(--bg-primary);
 }
 
-/* Larger images for imessage-concepts */
-.imessage-concepts .comparison-section .mobile-video,
-.imessage-concepts .comparison-section video,
-.imessage-concepts .comparison-section img {
-	width: 100%;
-	height: auto;
-	object-fit: contain;
+.icon-circle .material-icons-round { font-size: var(--icon-sm); }
+
+.comparison-section img.mobile-screen,
+.comparison-section video.mobile-screen {
+  flex: 0 0 auto; /* stops flexbox from stretching it */
+  width: 80%;
+  height: auto;
 }
 
-/* Design refinement sections - all videos should be 70% width */
-.design-refinement .comparison-section .mobile-video,
-.design-refinement .comparison-section video,
-.design-refinement .comparison-section img {
-	width: 70%;
-	height: auto;
-	object-fit: contain;
+.inline-label {
+  /* border: 1px solid var(--text-muted); */
+  color: var(--text-secondary);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  background: var(--text-muted);
+  padding: 0.25rem 0.5rem;
+  font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem); /* 16 -> 14*/
+  line-height: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 24 -> 20*/
 }
 
 .content-container.padded .iteration-item {
@@ -4159,8 +4196,6 @@ div.comparison-section.after {
   image-rendering: high-quality;
   image-rendering: auto;
 }
-
-
 
 @media (max-width: 1440px) {
   h1 {
