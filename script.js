@@ -498,7 +498,7 @@ let rotation = 0;
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
-    const logo = document.querySelector('.logo svg');
+    const logo = document.querySelector('.logo');
     
     // Handle logo rotation
     const currentScrollY = window.scrollY;
