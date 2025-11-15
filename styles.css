@@ -120,6 +120,7 @@ img {
 
 /* General link styles */
 a {
+  color: inherit;
 	text-decoration: none;
 	transition: opacity 0.2s ease;
 }
@@ -532,12 +533,7 @@ nav {
 	/* font-weight: 500; */
 	font-size: var(--nav-font-size);
 	line-height: var(--nav-line-height);
-	transition: color 0.3s ease;
-}
-
-.nav-links a {
-	text-decoration: none;
-	transition: opacity 0.2s ease;
+	transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -984,6 +980,18 @@ nav {
 	font-weight: 600;
 }
 
+.project .project-header .pill {
+  display: inline-flex;
+	align-items: center;
+  font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+  color: var(--text-tertiary);
+  font-weight: 500;
+	height: clamp(1.625rem, 1.581rem + 0.1878vw, 1.75rem); /* 28 -> 26*/
+  border: 1px solid var(--text-muted);
+  padding: 0.5rem;
+  border-radius: var(--radius-2xl);
+}
+
 .project .project-header .material-icons-round {
 	font-size: var(--icon-md);
 	color: var(--text-tertiary);
@@ -992,8 +1000,7 @@ nav {
 	height: clamp(1.625rem, 1.581rem + 0.1878vw, 1.75rem); /* 28 -> 26*/
   aspect-ratio: 1/1;
 	border: 1px solid var(--text-muted);
-	border-radius: 50%;
-	/* Can use .flex-center utility class */
+	border-radius: var(--radius-full);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1038,7 +1045,7 @@ nav {
   width: 3rem !important; 
   height: 3rem;
   background: #FFF0BB;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
 }
 
 /* Grid view specific centering */
@@ -1084,37 +1091,6 @@ nav {
 	width: auto;
 }
 
-/* List view specific spacing */
-
-/* Labels - only show in list view */
-.labels {
-	display: none;
-	flex-wrap: wrap;
-	gap: var(--gap-sm); /* 8px */
-}
-
-/* Show labels only in list view */
-#projects.list .labels {
-	display: flex;
-}
-
-.label {
-	background: var(--bg-secondary);
-	color: var(--text-primary);
-	padding: 0.25rem 0.5rem;
-	border-radius: 0.5rem;
-	border: 1px solid var(--text-muted);
-	box-shadow: 1px 1px var(--text-muted);
-	font-size: 0.875rem;
-	font-weight: 600;
-	cursor: grab;
-	user-select: none;
-}
-
-.label.dragging {
-	cursor: grabbing;
-}
-
 /* General Footer - All pages except homepage */
 .footer {
 	background: rgba(18, 18, 18, 0.9);
@@ -1150,7 +1126,7 @@ nav {
 
 .homepage .footer .footer-container .footer-card .footer-logo-text-group .footer-text h4 {
   font-weight: 500;
-  color: rgba(255, 255, 255, 1);
+  color: var(--bg-primary);
 }
 
 .homepage .footer .footer-container .footer-card .footer-logo-text-group .footer-text p{
@@ -1159,7 +1135,7 @@ nav {
 }
 
 .homepage .footer .footer-container .footer-card .footer-contact a {
- color: white;
+ color: var(--bg-primary);
 }
 
 .footer-container {
@@ -1199,21 +1175,7 @@ nav {
 	transform: rotate(0deg);
 }
 
-/* Tape element to make it look like the card is hanging */
-/* .footer-card::before {
-	content: '';
-	position: absolute;
-	top: 0px;
-	left: -40px;
-	transform: rotate(-32deg);
-	width: 148px;
-	height: 40px;
-	background: rgba(255, 255, 255, 0.32);
-	z-index: 1;
-} */
-
 .footer-logo-text-group {
-	/* Can use .flex-column-center utility class */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -2057,17 +2019,15 @@ nav {
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	/* padding: 32p; */
-	/* height: fit-content; */
 	height: 100vh;
 }
 
 .nav-content {
-	padding: var(--gap-xl); /* 32px */ /* 32px */
+	padding: var(--gap-xl); /* 32px */
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	justify-content: space-between;
 	flex: 1;
 }
 
@@ -2084,7 +2044,7 @@ nav {
 	justify-content: center;
 	width: 2rem;
 	height: 2rem;
-	position: fixed;
+	/* position: fixed; */
 	top: 32px;
 	left: 32px;
 	z-index: 1000;
@@ -2097,6 +2057,31 @@ nav {
 .back-button .material-icons-round {
 	font-size: var(--icon-lg);
 	color: var(--text-primary);
+}
+
+.next-project {
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.25rem;
+}
+
+.next-project a {
+  display: flex;
+  gap: var(--gap-sm);
+}
+
+.next-project .material-icons-round {
+  font-size: var(--icon-sm);
+	color: var(--text-tertiary);
+	opacity: 1;
+	width: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 24 -> 20*/
+	height: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 24 -> 20*/
+  aspect-ratio: 1/1;
+	border: 1px solid var(--text-muted);
+	border-radius: var(--radius-full);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .button-pill {
@@ -2117,7 +2102,7 @@ nav {
 .nav-items {
 	display: flex;
 	flex-direction: column;
-	gap: 0;
+	gap: 10px;
 	position: relative;
 }
 
@@ -2157,14 +2142,14 @@ nav {
 	text-decoration: none;
 	font-size: 0.875rem; /* 14px */
 	line-height: 1.25rem; /* 20px */
-	padding: 0 0 0 0.75rem; /* 8px gap: 2px line + 8px gap = 10px total */
+	padding-left: 0.75rem;
 	transition: color 0.3s ease;
 	cursor: pointer;
 	background: transparent;
 	position: relative;
 	display: flex;
 	align-items: center;
-	min-height: 2rem;
+	/* min-height: 1rem; */
 	z-index: 2;
 }
 
@@ -2391,6 +2376,10 @@ body .locked:not(.nav-item) {
 
 .content-container.myfreelance {
   background: #F6F4F1;
+}
+
+.content-container.secondary {
+  background: var(--bg-secondary);
 }
 
 /* Invert class for content-container.padded - toggles theme appearance */
@@ -3026,34 +3015,6 @@ p.text-small.caption {
 	border-radius: var(--radius-lg);
 }
 
-/* .padded-container.quote {
-  gap: var(--gap-md);
-  padding: var(--gap-2xl) var(--gap-2xl);
-  text-align: center;
-} */
-
-/* .quote {
-  display: flex;
-}
-
-.quote-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-sm)
-}
-
-.indentation {
-  width: 2px;
-  background-color: var(--text-muted);
-  margin-right: var(--gap-md);
-  flex-shrink: 0;
-  border-radius: 1px;
-}
-
-.indentation.zocdoc {
-  background-color: #F8CC30;
-} */
-
 /* Project goals specific styling */
 
 .annotation-grid .padded-container img {
@@ -3318,6 +3279,7 @@ a.project.external-project .project-header {
 	gap: var(--gap-xl); /* 32px space between before/after */
 	margin: 0;
 	padding: 0;
+	align-items: stretch; /* Make all items same height */
 }
 
 .comparison-item {
@@ -3351,7 +3313,8 @@ a.project.external-project .project-header {
 .comparison-item-content {
 	display: flex;
 	align-items: flex-start;
-	gap: var(--gap-sm); /* 8px */ /* 8px spacing between icon and text */
+  /* align-items: center; */
+	gap: 10px; /* 8px */ /* 8px spacing between icon and text */
 }
 
 .icon-circle {
@@ -3363,7 +3326,6 @@ a.project.external-project .project-header {
 	align-items: center;
 	justify-content: center;
 	flex-shrink: 0;
-	margin: 2px 0; /* 2px top/bottom spacing */
 }
 
 .icon-circle.before {
@@ -3382,6 +3344,17 @@ a.project.external-project .project-header {
 
 .icon-circle .material-icons-round {
 	font-size: var(--icon-sm);
+}
+
+.inline-label {
+  /* border: 1px solid var(--text-muted); */
+  color: var(--text-secondary);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  background: var(--text-muted);
+  padding: 0.25rem 0.5rem;
+  font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem); /* 16 -> 14*/
+  line-height: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem); /* 24 -> 20*/
 }
 
 /* Image container for images without padding */
@@ -3445,6 +3418,7 @@ video, img {
 	display: flex;
 	flex-direction: column;
 	gap: var(--gap-md); /* 16px between items using existing gap system */
+	flex: 1; /* Fill remaining space to match heights */
 }
 
 /* Text spacing for content sections */
@@ -3525,6 +3499,15 @@ div.comparison-section.after {
 .comparison-section video,
 .comparison-section img {
 	width: 70%;
+	height: auto;
+	object-fit: contain;
+}
+
+/* Larger images for imessage-concepts */
+.imessage-concepts .comparison-section .mobile-video,
+.imessage-concepts .comparison-section video,
+.imessage-concepts .comparison-section img {
+	width: 100%;
 	height: auto;
 	object-fit: contain;
 }

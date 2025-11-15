@@ -153,39 +153,947 @@
 				<div class="nav-items">
 					<div class="nav-indicator"></div>
 					<a href="#overview" class="nav-item active">Overview</a>
+          <a href="#problem" class="nav-item">Problem</a>
+          <a href="#goal" class="nav-item">Goal</a>
+          <a href="#process" class="nav-item">Process</a>
+          <a href="#solution" class="nav-item">Solution</a>
+          <a href="#collaboration" class="nav-item">Collaboration</a>
+          <a href="#outcome" class="nav-item">Outcome</a>
+          <a href="#conclusion" class="nav-item">Conclusion</a>
 				</div>
+        <div class="next-project">
+          <p class="text-small">NEXT PROJECT</p>
+          <a href="../imessage-concepts/" class="semibold">
+            iMessage Concepts
+          </a>
+        </div>
 			</div>
 		</nav>
 
 		<!-- Right Content -->
 		<main class="case-study-content">
 			<div class="mobile-spacing">
-				<div class="content-container full-width">
-					<div class="thumbnail-container">
-						<video src="../../images/work/modify-flow/cover.mp4" alt="modify flow" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
-						</video>
-					</div>
-				</div>
+        <div class="content-container full-width">
+          <div class="thumbnail-container">
+            <video src="../../images/work/modify-flow/cover.mp4" alt="custom metssaging" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="project-thumbnail">
+            </video>
+          </div>
+        </div>
 
-				<div id="overview" class="content-container centered">
-					<div class="project-title-section">
-						<h1>
-							Zocdoc — Modify Flow
-						</h1>
-						<h3>
-							Reducing friction and adding validation to help providers make error-free changes
-						</h3>
-					</div>
-					<hr>
-					<div class="text-spacing">
-						<p>
-							Case study content coming soon.
-						</p>
-					</div>
-				</div>
-			</div>
+        <div id="overview" class="content-container centered">
+          <div class="project-title-section">
+            <h1>
+              Zocdoc — Modify Flow
+            </h1>
+            <h3>
+              Reducing friction and adding validation to help providers make error-free changes
+            </h3>
+          </div>
+          <hr>
+          <div class="text-spacing">
+            <p>
+              As an intern on the Appointment Management team, I redesigned Zocdoc's provider-facing modify appointment flow. I added validation to prevent the current 5% of invalid appointments, consolidated four scattered entry points into one, and streamlined the form to reduce friction throughout.
+            </p>
+            <p>
+              As part of my first-ever handoff, I also created a new engineering handoff format that was later adopted by another designer on the team.
+            </p>
+          </div>
+          <hr>
+          <div class="row gap-32">
+            <div class="col-1-4">
+              <div class="meta-item">
+                <span class="meta-label">TIMELINE</span>
+                <span class="meta-value">6 weeks</span>
+                <span class="meta-value">June – July 2025</span>
+              </div>
+            </div>
+            <div class="col-1-4">
+              <div class="meta-item">
+                <span class="meta-label">ROLE</span>
+                <span class="meta-value">Product Design Intern</span>
+                <span class="meta-value">
+                    Solo Designer, End-to-End, Prototyping, Interaction Design
+                </span>
+              </div>
+            </div>
+            <div class="col-1-4">
+              <div class="meta-item">
+                <span class="meta-label">FOR</span>
+                <span class="meta-value">Appointment Management team</span>
+              </div>
+            </div>
+            <div class="col-1-4">
+              <div class="meta-item">
+                <span class="meta-label">WITH</span>
+                <span class="meta-value">1 Design Mentor</span>
+                <span class="meta-value">1 Product Manager</span>
+                <span class="meta-value">1 Product Marketing Manager</span>
+                <span class="meta-value">8 Engineers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="problem" class="content-container padded large">
+        <div class="section-header">
+          <p class="text-small">
+            THE PROBLEM
+          </p>
+          <div class="text-spacing">
+            <h2>
+              5% of modified appointments have errors because Zocdoc allows users to change appointment attributes independently without any validation
+            </h2>
+            <p>
+              For example, a user can change a patient's appointment to a provider who doesn't practice at that location, or select a provider who hasn't onboarded yet.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        
+        <video src="../../images/work/modify-flow/old-flow.mp4" alt="modify flow" muted loop autoplay playsinline preload="metadata" type="video/mp4"  class="desktop-video" style="border: 1px solid var(--text-muted)">
+        </video>
+        <div class="padded-container content-after-media">
+          <p>
+            Here, the user changes the original provider (Liz Blackwell) to Kelly Shaw, who doesn't practice at the original Soho location. However, the system accepts this invalid combination — the only error shown is for the missing "reason for change" field.
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <div class="text-small">
+            A DEEPER LOOK
+          </div>
+          <h2>
+            Beyond validation, I identified structural problems adding unnecessary friction:
+          </h2>
+        </div>
+        <div class="annotation-grid">
+          <div class="col gap-16">
+            <img src="../../images/work/modify-flow/old-entry-points-cropped.png" alt="">
+            <div class="col gap-4">
+              <h4>
+                <span class="cursive">1.</span> Fragmented entry points
+              </h4>
+              <p>
+                Four different CTAs all opened the same modal, while the main actions (cancel/confirm) lived on a separate bottom bar.
+              </p>
+            </div>
+          </div>
+          <div class="col gap-16">
+            <img src="../../images/work/modify-flow/banner.png" alt="">
+            <div class="col gap-4">
+              <h4>
+                <span class="cursive">2.</span> Unnecessary friction
+              </h4>
+              <p>
+                A warning banner was always visible, and the patient confirmation checkbox used progressive disclosure—hiding all form fields until checked.
+              </p>
+            </div>
+          </div>
+          <div class="col gap-16">
+            <img src="../../images/work/modify-flow/reason-for-change.png" alt="">
+            <div class="col gap-4">
+              <h4>
+                <span class="cursive">3.</span> Poor hierarchy
+              </h4>
+              <p>
+                The reason for change field was the only required step, yet it was placed at the bottom of the page, requiring scrolling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="goal" class="content-container padded large">
+        <div class="section-header">
+          <p class="text-small">
+            THE GOAL
+          </p>
+          <h2>
+            Build booking rules into the modify flow and guide providers toward valid reschedules
+          </h2>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+          USER STORIES
+          </p>
+          <div class="text-spacing">
+            <h2>
+              Jobs to be done
+            </h2>
+            <p>
+              I created user stories to guide my design decisions and ensure the solution addressed provider needs.
+            </p>
+          </div>
+        </div>
+        <div class="padded-container">
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  1.
+                </p>
+                <img src="../../images/work/custom-messaging/doctor.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <p>
+                As a Zocdoc practice user, I want my modifications to “follow the rules” - I should be prevented from selecting a series of changes that will fail the back end validation.
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  2.
+                </p>
+                <img src="../../images/work/custom-messaging/employee.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <p>
+                As a Zocdoc practice user, I want to see helpful error messages explaining what went wrong if something does get rejected.
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row gap-32">
+            <div class="col-1-3">
+              <div class="number-content-spacing">
+                <p class="cursive">
+                  3.
+                </p>
+                <img src="../../images/work/modify-flow/zee.svg" class="brand-illustration" alt="">
+              </div>
+            </div>
+            <div class="col-3-1">
+              <p>
+                As Zocdoc, I want the practice user to have informed the patient before making changes to prevent the patient from being surprised when they show up.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+      <div id="process" class="content-container padded large">
+        <div class="section-header">
+          <p class="text-small">
+            THE PROCESS
+          </p>
+          <h2>
+            Rather than just flagging errors after providers made them, I explored how form structure and entry points could guide providers through the flow
+          </h2>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="text-spacing">
+          <h2>
+            Initial exploration: leveraging multiple entry points
+          </h2>
+          <p>
+            I noticed we had 4 entry points that all led to the same generic modal — a missed opportunity. I explored whether each entry point could open a focused view for that specific attribute, making changes feel more direct.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col gap-16 flex-center">
+            <img src="../../images/work/modify-flow/old-flow-diagram.png" alt="">
+            <p class="text-small">
+              Current flow
+            </p>
+          </div>
+          <div class="col gap-16 flex-center">
+            <img src="../../images/work/modify-flow/exploration-flow-diagram.png" alt="">
+            <p class="text-small">
+              Proposed flow (first exploration)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILL THIS innnn help -->
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              01 / OPTION
+            </p>
+            <h3>
+              Two-step modal
+            </h3>
+          </div>
+        </div>
+        <div class="content-container secondary">
+          <img src="../../images/work/modify-flow/multi-step-modal-flow.png" alt="">
+        </div>
+        <div class="content-container centered">
+          <div class="row">
+            <div class="comparison-text">
+              <h4>Pros</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Frames both flows upfront with helpful subcopy and iconography
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Creates a deliberate decision moment before committing
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  More space for explanatory text about each action
+                </p>
+              </div>
+            </div>
+            <div class="comparison-text">
+              <h4>Cons</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Adds friction with an extra step and click
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Text-heavy framing could discourage necessary cancellations
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Delays access to the modify form
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              02 / OPTION
+            </p>
+            <h3 style="display: flex; align-items: center; gap: var(--gap-md)">
+              Single-step modal <span class="inline-label">PREFERRED</span>
+            </h3>
+          </div>
+        </div>
+        <div class="content-container secondary">
+          <img src="../../images/work/modify-flow/multi-step-modal-flow.png" alt="">
+        </div>
+        <div class="content-container centered">
+          <div class="row">
+            <div class="comparison-text">
+              <h4>Pros</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  One fewer click to reach the modify form
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Keeps users in context (appointment card visible) until they commit
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Faster for high-volume users making frequent changes
+                </p>
+              </div>
+            </div>
+            <div class="comparison-text">
+              <h4>Cons</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Less room for explanatory copy about each option
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Choice feels more utilitarian, less guided
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="padded-container">
+            <p>
+              I chose Option 2 after consulting with our PM and PMM. The PMM strongly preferred avoiding extra friction, and this approach matched users' mental model since a nested action CTA had existed in a prior version.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="solution" class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              THE SOLUTION
+            </p>
+            <div class="text-spacing">
+              <h2>
+                The entire flow redesigned with better hierarchy, validation rules, and streamlined interactions
+              </h2>
+              <p>
+                From reevaluating the entry point to restructuring the form itself, adding error messaging and loading states, I developed this project with a holistic view for a more streamlined modify experience.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-container padded zocdoc">
+          <video src="../../images/work/modify-flow/new-flow.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4" class="desktop-video">
+          </video>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            01 / COMPARISON
+          </p>
+          <h3>
+            Creating consistent action hierarchy
+          </h3>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-item before">
+            <div class="comparison-section before">
+              <img src="../../images/work/modify-flow/old-entry-points.png" alt="">
+            </div>
+            <div class="comparison-text">
+              <h4>Before</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Modify actions lived separately from the primary cancel/confirm CTAs
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-item after">
+            <div class="comparison-section after">
+              <video src="../../images/work/modify-flow/new-entry-point.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-text">
+              <h4>After</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  All three actions consolidated in the bottom CTA bar
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Consistent placement creates clear priority and action hierarchy
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            02 / COMPARISON
+          </p>
+          <h3>
+            Making all fields immediately accessible
+          </h3>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-item before">
+            <div class="comparison-section before">
+              <video src="../../images/work/modify-flow/old-patient-confirmation.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-text">
+              <h4>Before</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Warning banner framed modification negatively
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Progressive disclosure hid form fields
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Button emphasis felt backwards (secondary > primary in length)
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-item after">
+            <div class="comparison-section after">
+              <img src="../../images/work/modify-flow/new-modal.png" alt="">
+            </div>
+            <div class="comparison-text">
+              <h4>After</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  All fields visible upfront with required field at the top
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Improved copy emphasizing patient communication
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Rebalanced button emphasis
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            03 / COMPARISON
+          </p>
+          <h3>
+            Adding real-time validation with helpful feedback
+          </h3>
+        </div>
+        <div class="comparison-container">
+          <div class="comparison-item before">
+            <div class="comparison-section before">
+              <video src="../../images/work/modify-flow/old-validation.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-text">
+              <h4>Before</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  No field dependencies between provider, location, and visit reason
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Errors only appeared after clicking "Modify appointment" — button acted as validation rather than submission
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle before">
+                  <span class="material-icons-round">close</span>
+                </div>
+                <p>
+                  Vague error messages
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-item after">
+            <div class="comparison-section after">
+              <video src="../../images/work/modify-flow/new-validation.mp4" alt="Groups" muted loop autoplay playsinline preload="metadata" type="video/mp4">
+              </video>
+            </div>
+            <div class="comparison-text">
+              <h4>After</h4>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Provider-based filtering ensures all fields stay in sync
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Fields validate automatically as users make changes
+                </p>
+              </div>
+              <div class="comparison-item-content">
+                <div class="icon-circle after">
+                  <span class="material-icons-round">check</span>
+                </div>
+                <p>
+                  Specific error messages explain what's invalid (only patient confirmation errors appear after clicking "Modify appointment")
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+
+      <!-- BLAH BLAH STUFF ABOUT COLLABORATION -->
+      <div id="collaboration" class="content-container padded">
+        <div class="row">
+          <div class="col gap-8">
+            <img src="../../images/work/modify-flow/initial-error-messages.png" alt="">
+            <p class="text-small flex-center">
+              Initial error messages (first pass)
+            </p>
+          </div>
+          <div class="col gap-8">
+            <img src="../../images/work/modify-flow/revised-error-messages.png" alt="">
+            <p class="text-small flex-center">
+              REVISED error messages (post-PMM sync)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="row center">
+          <div class="col">
+            <div class="section-header">
+              <p class="text-small">
+                COLLABORATION
+              </p>
+              <div class="text-spacing">
+                <h2>
+                  Unifying copy with Product Marketing
+                </h2>
+                <p>
+                  This was my first time collaborating with a product marketing manager. She guided copy decisions throughout the project, particularly for error states, and provided direction on the entry point design that prioritized reducing friction over thoroughness.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <img src="../../images/work/modify-flow/coachmark.png" alt="">
+          </div>
+        </div>
+
+        <!-- <div class="padded-container">
+          <div class="row">
+            <div class="col gap-12">
+              <img src="../../images/work/modify-flow/initial-error-messages.png" alt="">
+              <p class="small-text flex-center">
+                Initial error messages (my attempt)
+              </p>
+            </div>
+            <div class="col gap-12">
+              <img src="../../images/work/modify-flow/revised-error-messages.png" alt="">
+              <p class="small-text flex-center">
+                REVISED error messages (after working with our PMM)
+              </p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <div class="section-header">
+            <p class="text-small">
+              COLLABORATION
+            </p>
+            <div class="text-spacing">
+              <h2>
+                Detailed design and engineering handoff
+              </h2>
+              <p>
+                Beyond mapping flows and edge cases, I created a slideshow-style spec format that broke down the problem, provided context, detailed copy, and explained design decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-container spacing">
+          <img src="../../images/work/modify-flow/slides.png" alt="">
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <h2>
+          Handoff conversations revealed technical constraints that shaped final revisions
+        </h2>
+      </div>
+
+      <div class="content-container">
+        <div class="content-container centered">
+          <!-- <h2>
+            Handoff conversations revealed technical constraints that shaped final revisions
+          </h2> -->
+          <div class="section-header">
+            <p class="text-small">
+              01 / REVISION
+            </p>
+            <div class="text-spacing">
+              <h3>
+                Accounting for provider filtering delay
+              </h3>
+              <p>
+                Engineering flagged that refiltering form fields after provider selection would take 1-2 seconds. I added a loading state to account for this lag and prevent user confusion.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-container secondary">
+          <img src="../../images/work/modify-flow/filtering-flow.png">
+        </div>
+      </div>
+
+      <div class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            02 / REVISION
+          </p>
+          <div class="text-spacing">
+            <h3>
+              Clarifying time
+            </h3>
+            <p>
+              Engineers also noted that appointment times follow the location's time zone rather than the browser's. I added a tooltip next to the time field to clarify this for practices with offices in multiple states.
+            </p>
+          </div>
+        </div>
+        <div class="padded-container">
+          <img src="../../images/work/modify-flow/tooltip.png">
+        </div>
+      </div>
+
+      <div id="outcome" class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            THE OUTCOME
+          </p>
+          <div class="text-spacing">
+            <h2>
+              This redesign is currently in development and expected to ship by end of this year
+          </h2>
+            <p>
+              My work (with engineering handoff) is expected to:
+            </p>
+        </div>
+        </div>
+        <div class="col gap-16">
+          <div class="padded-container">
+            <p>
+              Reduce provider errors by eliminating invalid combinations, addressing the ~5% of modifications that currently result in backend failures
+            </p>
+          </div>
+          <div class="padded-container">
+            <p>
+              Lower friction by reducing clicks, removing progressive disclosure, and consolidating entry points
+            </p>
+          </div>
+          <div class="padded-container">
+            <p>
+              Improve team efficiency through a clearer engineering handoff format adopted by other designers
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Learnings Section -->
+      <div id="conclusion" class="content-container centered">
+        <div class="section-header">
+          <p class="text-small">
+            KEY TAKEAWAYS
+          </p>
+          <h2>
+            Learnings
+          </h2>
+        </div>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>
+              Balancing thoroughness with speed
+            </h5>
+          </div>
+          <div class="col-3-1">
+            <p>
+              I initially went deep on secondary problems (like patient confirmation) when the priority was validation. I learned to zoom out more frequently and move quickly on lower-priority elements.
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>
+              Prototyping as a decision-making tool
+            </h5>
+          </div>
+          <div class="col-3-1">
+            <p>
+              Creating interactive prototypes early helped me evaluate design decisions from the user's perspective, especially around interaction patterns like reducing cursor movement and click burden.
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-1-3">
+            <h5>
+              Every click matters
+            </h5>
+          </div>
+          <div class="col-3-1">
+            <p>
+              Working with our PMM taught me how seriously teams consider friction, especially for users moving quickly through high-volume tasks. This fundamentally shifted how I evaluate tradeoffs between thoroughness and simplicity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentor Note Section -->
+      <div class="content-container centered">
+        <div class="mentor-note-card">
+          <div class="sticky-note">From my mentor/manager</div>
+          <div class="mentor-profile">
+            <div class="profile-picture">
+              <img src="../../images/work/custom-messaging/peri.jpg" alt="Peri Shechtman">
+              <div class="overlay-svg">
+                <svg width="108" height="47" viewBox="0 0 108 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M81.2077 0.352539C81.4464 0.352539 81.6398 0.545769 81.6398 0.784131C81.6398 4.13389 82.7347 5.94214 83.9385 6.92367C85.1609 7.9204 86.5648 8.12119 87.2571 8.12119C87.4958 8.12119 87.6892 8.31442 87.6892 8.55278C87.6892 8.79114 87.4958 8.98437 87.2571 8.98437C85.7672 8.98437 84.6969 9.29518 83.9221 9.77028C83.1497 10.244 82.6398 10.9 82.3005 11.6448C81.637 13.1014 81.6385 14.856 81.6397 16.162L81.6398 16.3214C81.6398 16.5598 81.4464 16.753 81.2077 16.753C80.9691 16.753 80.7756 16.5598 80.7756 16.3214C80.7756 13.7964 80.161 12.0415 79.1811 10.923C78.2081 9.81232 76.825 9.2721 75.1583 9.2721C74.9276 9.2721 74.7376 9.09113 74.7267 8.86099C74.7157 8.63085 74.8877 8.43271 75.1173 8.41086C76.5591 8.27371 77.6145 7.8314 78.3937 7.2384C79.1746 6.64415 79.7007 5.88133 80.0557 5.07092C80.7716 3.43631 80.7756 1.64986 80.7756 0.784131C80.7756 0.545769 80.9691 0.352539 81.2077 0.352539Z" fill="#FED337"/>
+                  <path d="M97.1552 19.3443C97.5457 19.3443 97.8622 19.6605 97.8622 20.0505C97.8622 25.5314 99.6538 28.4901 101.623 30.0961C103.624 31.727 105.921 32.0555 107.053 32.0555C107.444 32.0555 107.76 32.3717 107.76 32.7617C107.76 33.1517 107.444 33.4679 107.053 33.4679C104.616 33.4679 102.864 33.9764 101.597 34.7538C100.333 35.5289 99.4985 36.6022 98.9433 37.8209C97.8576 40.2042 97.8602 43.0751 97.8621 45.212L97.8622 45.4729C97.8622 45.863 97.5457 46.1791 97.1552 46.1791C96.7647 46.1791 96.4482 45.863 96.4482 45.4729C96.4482 41.3414 95.4425 38.4701 93.8393 36.6399C92.2472 34.8226 89.9842 33.9387 87.2571 33.9387C86.8796 33.9387 86.5688 33.6426 86.5508 33.266C86.5329 32.8895 86.8143 32.5652 87.19 32.5295C89.5491 32.3051 91.276 31.5814 92.5509 30.6111C93.8286 29.6388 94.6894 28.3906 95.2702 27.0646C96.4417 24.39 96.4482 21.467 96.4482 20.0505C96.4482 19.6605 96.7647 19.3443 97.1552 19.3443Z" fill="#FED337"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5587 19.8022C5.5587 19.6105 5.40316 19.4552 5.21129 19.4552C5.01941 19.4552 4.86387 19.6105 4.86387 19.8022C4.86387 20.4982 4.86068 21.9346 4.28501 23.2488C3.99961 23.9004 3.57663 24.5138 2.94879 24.9916C2.32228 25.4683 1.47373 25.824 0.314487 25.9342C0.129858 25.9518 -0.00840392 26.1111 0.000397828 26.2962C0.0091996 26.4812 0.161961 26.6267 0.347425 26.6267C1.68751 26.6267 2.79955 27.061 3.58187 27.9541C4.36969 28.8534 4.86387 30.2643 4.86387 32.2945C4.86387 32.4862 5.01941 32.6415 5.21129 32.6415C5.40316 32.6415 5.5587 32.4862 5.5587 32.2945L5.55863 32.1663C5.55769 31.1163 5.55643 29.7055 6.08995 28.5344C6.36275 27.9356 6.77267 27.4081 7.39376 27.0272C8.01671 26.6453 8.87721 26.3954 10.0751 26.3954C10.267 26.3954 10.4226 26.24 10.4226 26.0483C10.4226 25.8567 10.267 25.7013 10.0751 25.7013C9.51853 25.7013 8.38979 25.5399 7.40693 24.7385C6.43905 23.9493 5.5587 22.4954 5.5587 19.8022ZM4.92159 23.527C5.05501 23.2224 5.16049 22.9131 5.24388 22.608C5.62464 23.842 6.25529 24.6954 6.96753 25.2761C7.33646 25.5769 7.72179 25.8001 8.09672 25.9644C7.69749 26.0847 7.3435 26.2437 7.03022 26.4358C6.27196 26.9008 5.77751 27.5445 5.4575 28.247C5.30652 28.5784 5.19381 28.9248 5.1097 29.274C4.86645 28.5725 4.52827 27.9805 4.10478 27.4971C3.57007 26.8867 2.9126 26.4646 2.16958 26.2141C2.62518 26.0346 3.02313 25.8075 3.3699 25.5436C4.11002 24.9804 4.59902 24.2635 4.92159 23.527Z" fill="#FED337"/>
+                </svg>
+              </div>
+            </div>
+            <div class="mentor-info">
+                <h4>Peri Shechtman</h4>
+                <p class="text-small">Lead Product Designer</p>
+            </div>
+          </div>
+          <div class="mentor-testimonial">
+            <p>
+              Cynthia!!! It's been such a joy working with you this summer. You've brought a level of positivity, curiosity, and dedication that makes you stand out. You're <strong>Proactive & Attentive</strong>, <strong>Receptive to Feedback</strong>, highly <strong>Organized</strong> with strong <strong>Rationale</strong>, and a <strong>Collaborative</strong>, thoughtful partner in critiques. Your visual decks for the Hot Take and Intern Demos are so impressive."
+            </p>
+            <p>
+              It's been amazing to see your skills and confidence grow over the summer. You've made a real impact on the team and with me. I know you'll bring that same energy and thoughtfulness to whatever comes next.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You Section -->
+      <div id="thank-you" class="content-container centered">
+        <div class="padded-container">
+          <div class="row gap-16">
+            <div class="col-1-3">
+              <p class="cursive">Thank you</p>
+            </div>
+            <div class="col-3-1">
+              <p>
+                Peri, Jenn, Joanna, Parrot Devs (Elizabeth, Anand, Ammar, Dana,  Lexi, Maw, Tim, Wes)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CLOSING TAG -->
 		</main>
 	</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="right">
+        <p>Interested in my work? Let's create <span class="cursive">together :)</span></p>
+        <div class="footer-email-container-wrapper" onclick="copyEmail(event)">
+          <div class="footer-email-container-background"></div>
+          <div class="footer-email-container">
+            <span class="footer-email-label">mailto:</span>
+            <div class="footer-email-spacer"></div>
+            <span class="footer-email-address">cynthiawangjy123@gmail.com</span>
+            <button class="footer-copy-button">
+              <span class="material-icons-round footer-copy-icon">content_copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="left">
+        <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="footer-link">
+            LinkedIn
+            <span class="material-icons-round footer-link-icon">arrow_outward</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1N9a3a_Gf5yl6tCQGF-8dkhfqbtHUXyLs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer-link">
+          Resume
+          <span class="material-icons-round footer-link-icon">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-note">
+      Designed and developed by Cynthia. Last updated on October 2025. 
+    </div>
+  </footer>
 
 	<div class="case-study-blur"></div>
 	
