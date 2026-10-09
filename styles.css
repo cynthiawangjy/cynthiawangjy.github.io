@@ -593,7 +593,7 @@ nav {
 
 /* Ensure time pill group maintains fixed width */
 .hero .hero-text p .pill-group:has(#time-pill) {
-	width: 77px;
+	width: 98px;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -685,7 +685,7 @@ nav {
 
 /* Ensure time pill placeholder also has fixed width - target by pill-group containing time pill */
 .hero .pill-group:has(#time-pill) .pill.placeholder {
-    width: 77px !important;
+    width: 98px !important;
     display: inline-flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -702,7 +702,7 @@ nav {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	width: 77px;
+	width: 98px;
 }
 
 /* External link pills styling */
@@ -802,6 +802,10 @@ nav {
 	position: relative;
 	cursor: pointer;
 	border: 1px solid var(--text-muted);
+}
+
+.project.no-link .image-container {
+	cursor: default;
 }
 
 /* Remove aspect ratio constraint for videos to allow 100% width */

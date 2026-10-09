@@ -1151,10 +1151,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function initProjectInteractions() {
     document.querySelectorAll('.project .image-container').forEach(container => {
         let isClicked = false;
+        const project = container.closest('.project');
+        
+        if (project.classList.contains('no-link')) {
+            return;
+        }
         
         container.addEventListener('click', function(e) {
             // Skip if this is an external project
-            const project = this.closest('.project');
             if (project.classList.contains('external-project')) {
                 return; // Let the link handle navigation
             }
@@ -1269,11 +1273,13 @@ function initRealTimeClock() {
         // Convert to PST (UTC-8) or PDT (UTC-7) - JavaScript handles DST automatically
         const pstTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
         
-        const hours = pstTime.getHours().toString().padStart(2, '0');
         const minutes = pstTime.getMinutes().toString().padStart(2, '0');
         const seconds = pstTime.getSeconds().toString().padStart(2, '0');
+        let hours = pstTime.getHours();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12;
         
-        const timeText = `${hours}:${minutes}:${seconds}`;
+        const timeText = `${hours.toString().padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
         
         // Update the main pill
         timePillElement.textContent = timeText;
@@ -1334,8 +1340,8 @@ function initDraggablePills() {
         
         // Special handling for time pill
         if (originalPill.id === 'time-pill') {
-          data.placeholder.style.width = '77px';
-          data.placeholder.style.minWidth = '77px';
+          data.placeholder.style.width = '98px';
+          data.placeholder.style.minWidth = '98px';
         }
         
         // Reposition the pill if it's not being dragged
@@ -1375,8 +1381,8 @@ function initDraggablePills() {
     
     // Special handling for time pill to ensure it maintains fixed width
     if (originalPill.id === 'time-pill') {
-      placeholder.style.width = '77px';
-      placeholder.style.minWidth = '77px';
+      placeholder.style.width = '98px';
+      placeholder.style.minWidth = '98px';
       placeholder.style.display = 'inline-flex';
       placeholder.style.justifyContent = 'center';
       placeholder.style.alignItems = 'center';

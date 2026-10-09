@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IBM</title>
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Homemade+Apple&display=swap" rel="stylesheet">
+	
+	<!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../styles.css">
+	
+	<!-- GSAP -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	
+	<!-- Custom highlight colors -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const style = document.createElement('style');
+			style.textContent = `
+				::selection {
+					background: #D0E2FF !important;
+				}
+				::-moz-selection {
+					background: #D0E2FF !important;
+				}
+				*::selection {
+					background: #D0E2FF !important;
+				}
+				*::-moz-selection {
+					background: #D0E2FF !important;
+				}
+			`;
+			document.head.appendChild(style);
+		});
+	</script>
+</head>
+<body class="case-study">
+	<!-- Top Navigation -->
+	<header class="case-study-top-nav">
+		<ul class="nav-links">
+			<div class="main-nav-indicator"></div>
+			<li><a href="../../#work" class="main-nav-item">Work</a></li>
+			<li><a href="../../play/" class="main-nav-item">Play</a></li>
+			<li><a href="../../about/" class="main-nav-item">About</a></li>
+		</ul>
+	</header>
+
+	<!-- Mobile Navigation -->
+	<header class="case-study-mobile-nav">
+		<nav class="container">
+			<a href="../../index.html" class="logo-container" onclick="goToHome()">
+				<img src="../../images/logo.svg" alt="" class="logo">
+			</a>
+			<ul class="nav-links">
+				<div class="main-nav-indicator"></div>
+				<li><a href="../../#work" class="main-nav-item">Work</a></li>
+				<li><a href="../../play/" class="main-nav-item">Play</a></li>
+				<li><a href="../../about/" class="main-nav-item">About</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="case-study-layout">
+		<!-- Left Navigation -->
+		<nav class="case-study-nav">
+      <div class="nav-content">
+        <button class="back-button" onclick="history.back()">
+          <span class="material-icons-round">chevron_left</span>
+        </button>
+        <div class="nav-items">
+          <a href="#overview" class="nav-item active">
+            <div class="nav-indicator"></div>
+            Overview
+          </a>
+        </div>
+        <div class="next-project">
+          <p class="text-small">NEXT PROJECT</p>
+          <a href="../modify-flow/" class="semibold">
+            Modify Flow <span class="material-icons-round">lock</span>
+          </a>
+        </div>
+      </div>
+		</nav>
+
+		<!-- Right Content -->
+		<main class="case-study-content">
+      <div class="mobile-spacing">
+        <div class="content-container">
+          <img src="../../images/work/ibm/cover.png" alt="IBM">
+        </div>
+
+        <div id="overview" class="content-container centered">
+        <div class="project-title-section">
+        <h1>IBM</h1>
+          <h3>
+            Product design internship
+          </h3>
+        </div>
+        <hr>
+        <div class="text-spacing">
+          <p>
+            Full case study coming soon.
+          </p>
+        </div>
+        </div>
+      </div>
+
+      <div class="content-container padded large">
+        <h2>
+          Case study coming soon.
+        </h2>
+      </div>
+		</main>
+	</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="right">
+        <p>Interested in my work? Let's create <span class="cursive">together :)</span></p>
+        <div class="footer-email-container-wrapper" onclick="copyEmail(event)">
+          <div class="footer-email-container-background"></div>
+          <div class="footer-email-container">
+            <span class="footer-email-label">mailto:</span>
+            <div class="footer-email-spacer"></div>
+            <span class="footer-email-address">cynthiawangjy123@gmail.com</span>
+            <button class="footer-copy-button">
+              <span class="material-icons-round footer-copy-icon">content_copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="left">
+          <a href="https://www.linkedin.com/in/cynthiawangdesign/" target="_blank" rel="noopener noreferrer" class="footer-link">
+              LinkedIn
+              <span class="material-icons-round footer-link-icon">arrow_outward</span>
+          </a>
+      </div>
+    </div>
+    <div class="footer-note">
+      Designed and developed by Cynthia. Last updated on October 2025. 
+    </div>
+  </footer>
+
+	<div class="case-study-blur"></div><div class="grain-overlay"></div><script src="../../script.js"></script>
+</body>
+</html>
