@@ -1188,8 +1188,8 @@ function initProjectInteractions() {
                 return;
             }
             
-            // Check if this is the Do Not Disturb project (iMessage Concepts)
-            if (projectTitle && projectTitle.textContent.includes('iMessage Concepts')) {
+            // Check if this is the Do Not Disturb project (iOS Focus Concepts)
+            if (projectTitle && projectTitle.textContent.includes('iOS Focus Concepts')) {
                 window.location.href = 'work/imessage-concepts/';
                 return;
             }
